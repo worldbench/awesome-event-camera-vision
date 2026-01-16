@@ -72,8 +72,9 @@ If you find this work helpful for your research, please kindly consider citing o
 
 | Theme | Venue | Date | Location | Recording |
 |:-|:-:|:-:|:-:|:-:|
-| [The 2nd Workshop on Neuromorphic Vision (NeVi)](https://sites.google.com/view/nevi-2025/home-page) | ICCV 2025 | October 20, 2025 | Honolulu | - |
 | [Workshop on Neuromorphic Perception for Real World Robotics (NeuRobots)](https://sites.google.com/view/neurobots2025) | IROS 2025 | October 24, 2025 | Hangzhou | [[YouTube](https://www.youtube.com/playlist?list=PL41Hj1v8NO3NjD6K8s-GAmypvUM41VpSS)] |
+| [Workshop on Event-Based Vision](https://eventvision-robotics.github.io/iros_workshop/) | IROS 2025 | October 20, 2025 | Hangzhou | - |
+| [The 2nd Workshop on Neuromorphic Vision (NeVi)](https://sites.google.com/view/nevi-2025/home-page) | ICCV 2025 | October 20, 2025 | Honolulu | - |
 | [The 5th International Workshop on Event-Based Vision](https://tub-rip.github.io/eventvision2025/) | CVPR 2025 | June 12, 2025 | Nashville | - |
 | [The 4th International Workshop on Event-Based Vision](https://tub-rip.github.io/eventvision2023/) | CVPR 2023 | June 19, 2023 | Vancouver | [[YouTube](https://www.youtube.com/playlist?list=PLeXWz-g2If96iotpzgBNNTr9VA6hG-LLK)] |
 | [The 3rd International Workshop on Event-Based Vision](https://tub-rip.github.io/eventvision2021/) | CVPR 2021 | June 19, 2021 | Virtual | [[YouTube](https://www.youtube.com/playlist?list=PLeXWz-g2If95mjNpA-y-WIoDaoB8WtmE7)] |
@@ -88,7 +89,9 @@ If you find this work helpful for your research, please kindly consider citing o
 | Model | Paper | Venue | Website | 
 |:-:|:-|:-:|:-:|
 ||
-| `DSEC` | 
+| `DSEC` | [![arXiv](https://img.shields.io/badge/arXiv-2103.06011-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2103.06011)<br>d on 10 Mar 2021]
+DSEC: A Stereo Event Camera Dataset for Driving Scenarios | RA-L 2021 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://dsec.ifi.uzh.ch/) | [![GitHub](https://img.shields.io/github/stars/uzh-rpg/DSEC)](https://github.com/uzh-rpg/DSEC) | |
+| |
 
 
 
