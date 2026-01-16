@@ -58,6 +58,7 @@ If you find this work helpful for your research, please kindly consider citing o
 
 # Background
 
+...
 
 
 
@@ -92,12 +93,13 @@ If you find this work helpful for your research, please kindly consider citing o
 
 > :timer_clock: In chronological order, from the earliest to the latest.
 
-| Model | Paper | Venue | Website | 
-|:-:|:-|:-:|:-:|
+| Model | Paper | Venue | Website | GitHub |
+|:-:|:-|:-:|:-:|:-:|
 ||
-| `DSEC` | [![arXiv](https://img.shields.io/badge/arXiv-2103.06011-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2103.06011)<br>DSEC: A Stereo Event Camera Dataset for Driving Scenarios | RA-L 2021 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://dsec.ifi.uzh.ch/) | [![GitHub](https://img.shields.io/github/stars/uzh-rpg/DSEC)](https://github.com/uzh-rpg/DSEC) | |
-| |
-
+| `DSEC` | [![arXiv](https://img.shields.io/badge/arXiv-2103.06011-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2103.06011)<br>DSEC: A Stereo Event Camera Dataset for Driving Scenarios | RA-L 2021 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://dsec.ifi.uzh.ch/) | [![GitHub](https://img.shields.io/github/stars/uzh-rpg/DSEC)](https://github.com/uzh-rpg/DSEC) |
+| `DSEC-Semantic` |  | ECCV 2024 |  | [![GitHub](https://img.shields.io/github/stars/uzh-rpg/ess)](https://github.com/uzh-rpg/ess) |
+|  |
+|  |
 
 
 # 2. Event Camera Perception
@@ -110,6 +112,7 @@ If you find this work helpful for your research, please kindly consider citing o
 |:-:|:-|:-:|:-:|:-:|
 ||
 | `RVT` | [![arXiv](https://img.shields.io/badge/arXiv-2212.05598-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2212.05598)<br>Recurrent Vision Transformers for Object Detection with Event Cameras | CVPR 2023 | - | [![GitHub](https://img.shields.io/github/stars/uzh-rpg/RVT)](https://github.com/uzh-rpg/RVT) | |
+|  |
 |  |
 
 
@@ -201,4 +204,7 @@ If you find this work helpful for your research, please kindly consider citing o
 |  |
 
 
+
 # 7. Acknowledgements
+
+To be added.
