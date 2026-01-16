@@ -66,7 +66,7 @@ If you find this work helpful for your research, please kindly consider citing o
 
 ### Benchmarks
 
-| <img width="100px" src="docs/figures/talk2event.png"> | <img width="100px" src="docs/figures/e-deflare.png"> | <img width="100px" src="docs/figures/eventfly.png"> |
+| <img width="125px" src="docs/figures/talk2event.png"> | <img width="125px" src="docs/figures/e-deflare.png"> | <img width="125px" src="docs/figures/eventfly.png"> |
 |:-:|:-:|:-:|
 | [**Talk2Event**](https://talk2event.github.io/) | [**E-Deflare**](https://e-flare.github.io/) | [**EventFly**](https://event-fly.github.io/) | 
 | [...]() |
