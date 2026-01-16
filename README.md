@@ -51,6 +51,7 @@ If you find this work helpful for your research, please kindly consider citing o
 - [**6. Other Resources**](#6-other-resources)
     - [Tutorials](#tutorials)
     - [Talks \& Seminars](#talks--seminars)
+    - [Relevant Surveys](#relevant-surveys)
 - [**7. Acknowledgements**](#7-acknowledgements)
 
 
@@ -161,6 +162,28 @@ If you find this work helpful for your research, please kindly consider citing o
 
 # 6. Other Resources
 
+### Tutorials
+
+
+### Talks & Seminars
+
+
+### Relevant Surveys
+
+| Paper | Venue | Website | GitHub | 
+|:-|:-:|:-:|:-:|
+||
+| [![arXiv](https://img.shields.io/badge/arXiv-1904.08405-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/1904.08405)<br>Event-Based Vision: A Survey | TPAMI 2022 | - | [![GitHub](https://img.shields.io/github/stars/uzh-rpg/event-based_vision_resources)](https://github.com/uzh-rpg/event-based_vision_resources) |
+| [![arXiv](https://img.shields.io/badge/arXiv-2302.08890-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2302.08890)<br>Deep Learning for Event-Based Vision: A Comprehensive Survey and Benchmarks | arXiv 2023 | - | [![GitHub](https://img.shields.io/github/stars/vlislab22/Deep-Learning-for-Event-based-Vision)](https://github.com/vlislab22/Deep-Learning-for-Event-based-Vision) |
+| [![arXiv](https://img.shields.io/badge/arXiv-2304.09793-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2304.09793)<br>Event-Based Simultaneous Localization and Mapping: A Comprehensive Survey | arXiv 2023 | - | [![GitHub](https://img.shields.io/github/stars/kun150kun/ESLAM-survey)](https://github.com/kun150kun/ESLAM-survey) |
+| [![arXiv](https://img.shields.io/badge/arXiv-24xx.xxxxx-b31b1b?style=flat-square&logo=arxiv)](https://www.mdpi.com/2078-2489/15/8/472)<br>An Application-Driven Survey on Event-Based Neuromorphic Computer Vision | Information 2024 | - | - |
+| [![arXiv](https://img.shields.io/badge/arXiv-2408.13627-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2408.13627)<br>Recent Event Camera Innovations: A Survey | ECCV Workshop 2024 | - | [![GitHub](https://img.shields.io/github/stars/chakravarthi589/Event-based-Vision_Resources)](https://github.com/chakravarthi589/Event-based-Vision_Resources) |
+| [![arXiv](https://img.shields.io/badge/arXiv-2405.03995-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2405.03995)<br>Deep Event-Based Object Detection in Autonomous Driving: A Survey | arXiv 2024 | - | - |
+| [![arXiv](https://img.shields.io/badge/arXiv-25xx.xxxxx-b31b1b?style=flat-square&logo=arxiv)](https://www.mdpi.com/1424-8220/26/1/81)<br>Event-Based Vision Application on Autonomous Unmanned Aerial Vehicle: A Systematic Review of Prospects and Challenges | Sensors 2025 | - | - |
+| [![arXiv](https://img.shields.io/badge/arXiv-2409.17680-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2409.17680)<br>Event-based Stereo Depth Estimation: A Survey | TPAMI 2025 | - | [![GitHub](https://img.shields.io/github/stars/tub-rip/EventStereoSurvey)](https://github.com/tub-rip/EventStereoSurvey) |
+| [![arXiv](https://img.shields.io/badge/arXiv-2505.08438-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2505.08438)<br>A Survey of 3D Reconstruction with Event Cameras | arXiv 2025 | - | - |
+| [![arXiv](https://img.shields.io/badge/arXiv-2509.09971-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2509.09971)<br>Event Camera Guided Visual Media Restoration & 3D Reconstruction: A Survey | arXiv 2025 | - | - |
+|  |
 
 
 # 7. Acknowledgements
