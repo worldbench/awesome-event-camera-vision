@@ -16,7 +16,7 @@ For more details, kindly refer to our [paper](https://huggingface.co/papers/260x
 If you find this work helpful for your research, please kindly consider citing our papers:
 ```bib
 @article{survey_event_camera,
-    title   = {Recent Trends in Event Camera Vision: Perception, Reconstruction, and Understanding},
+    title   = {Event Camera Vision in the Era of Large Models: A Survey},
     author  = {Lingdong Kong and Haiqian Han and Lai Xing Ng and Xiangyang Ji and Wei Tsang Ooi and Benoit R. Cottereau},
     journal = {arXiv preprint arXiv:260x.xxxxx},
     year    = {2026}
@@ -110,8 +110,9 @@ If you find this work helpful for your research, please kindly consider citing o
 
 | Model | Paper | Venue | Website | GitHub | 
 |:-:|:-|:-:|:-:|:-:|
-||
-| `RVT` | [![arXiv](https://img.shields.io/badge/arXiv-2212.05598-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2212.05598)<br>Recurrent Vision Transformers for Object Detection with Event Cameras | CVPR 2023 | - | [![GitHub](https://img.shields.io/github/stars/uzh-rpg/RVT)](https://github.com/uzh-rpg/RVT) | |
+| `DVS-Detection` | [![arXiv](https://img.shields.io/badge/arXiv-1709.09323-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/1709.09323)<br>Pseudo-Labels for Supervised Learning on Dynamic Vision Sensor Data, Applied to Object Detection under Ego-Motion | CVPRW 2018 | - | - |
+| `RENet` | [![arXiv](https://img.shields.io/badge/arXiv-2209.08323-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2209.08323)<br>RGB-Event Fusion for Moving Object Detection in Autonomous Driving | ICRA 2023 | - | [![GitHub](https://img.shields.io/github/stars/ZZY-Zhou/RENet)](https://github.com/ZZY-Zhou/RENet) |
+| `RVT` | [![arXiv](https://img.shields.io/badge/arXiv-2212.05598-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2212.05598)<br>Recurrent Vision Transformers for Object Detection with Event Cameras | CVPR 2023 | - | [![GitHub](https://img.shields.io/github/stars/uzh-rpg/RVT)](https://github.com/uzh-rpg/RVT) |
 |  |
 |  |
 
@@ -149,7 +150,7 @@ If you find this work helpful for your research, please kindly consider citing o
 
 | Model | Paper | Venue | Website | GitHub | 
 |:-:|:-|:-:|:-:|:-:|
-||
+| |
 |  |
 |  |
 
@@ -218,7 +219,7 @@ If you find this work helpful for your research, please kindly consider citing o
 | [![arXiv](https://img.shields.io/badge/arXiv-2304.09793-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2304.09793)<br>Event-Based Simultaneous Localization and Mapping: A Comprehensive Survey | arXiv 2023 | - | [![GitHub](https://img.shields.io/github/stars/kun150kun/ESLAM-survey)](https://github.com/kun150kun/ESLAM-survey) |
 | [![arXiv](https://img.shields.io/badge/arXiv-24xx.xxxxx-b31b1b?style=flat-square&logo=arxiv)](https://www.mdpi.com/2078-2489/15/8/472)<br>An Application-Driven Survey on Event-Based Neuromorphic Computer Vision | Information 2024 | - | - |
 | [![arXiv](https://img.shields.io/badge/arXiv-24xx.xxxxx-b31b1b?style=flat-square&logo=arxiv)](https://ieeexplore.ieee.org/abstract/document/10494342/)<br>Event Cameras in Automotive Sensing: A Review | IEEE Access 2024 | - | - |
-| [![arXiv](https://img.shields.io/badge/arXiv-2408.13627-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2408.13627)<br>Recent Event Camera Innovations: A Survey | ECCV Workshop 2024 | - | [![GitHub](https://img.shields.io/github/stars/chakravarthi589/Event-based-Vision_Resources)](https://github.com/chakravarthi589/Event-based-Vision_Resources) |
+| [![arXiv](https://img.shields.io/badge/arXiv-2408.13627-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2408.13627)<br>Recent Event Camera Innovations: A Survey | ECCVW 2024 | - | [![GitHub](https://img.shields.io/github/stars/chakravarthi589/Event-based-Vision_Resources)](https://github.com/chakravarthi589/Event-based-Vision_Resources) |
 | [![arXiv](https://img.shields.io/badge/arXiv-2405.03995-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2405.03995)<br>Deep Event-Based Object Detection in Autonomous Driving: A Survey | arXiv 2024 | - | - |
 | [![arXiv](https://img.shields.io/badge/arXiv-2409.17680-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2409.17680)<br>Event-Based Stereo Depth Estimation: A Survey | TPAMI 2025 | - | [![GitHub](https://img.shields.io/github/stars/tub-rip/EventStereoSurvey)](https://github.com/tub-rip/EventStereoSurvey) |
 | [![arXiv](https://img.shields.io/badge/arXiv-25xx.xxxxx-b31b1b?style=flat-square&logo=arxiv)](https://www.mdpi.com/1424-8220/26/1/81)<br>Event-Based Vision Application on Autonomous Unmanned Aerial Vehicle: A Systematic Review of Prospects and Challenges | Sensors 2025 | - | - |
