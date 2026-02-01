@@ -151,22 +151,112 @@ If you find this work helpful for your research, please kindly consider citing o
 
 # 3. Event Camera Reconstruction
 
-### :one: Event Camera Image Reconstruction
+## Datasets for Reconstruction
 
 > :timer_clock: In chronological order, from the earliest to the latest.
 
-| Model | Paper | Venue | Website | GitHub | 
+### 2D Paired Datasets
+
+| Model | Paper | Venue | Website | GitHub |
+|:-:|:-|:-:|:-:|:-:|
+| `HQF` | [![arXiv](https://img.shields.io/badge/arXiv-2003.09078-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2003.09078)<br>Reducing the Sim-to-Real Gap for Event Cameras | ECCV 2020 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://timostoff.github.io/20ecnn) | - |
+| `RLED` | [Event Camera Paper](https://openaccess.thecvf.com/content/CVPR2024/papers/Liu_Seeing_Motion_at_Nighttime_with_an_Event_Camera_CVPR_2024_paper.pdf)<br>Seeing Motion at Nighttime with an Event Camera | CVPR 2024 | - | [![GitHub](https://img.shields.io/github/stars/Liu-haoyue/NER-Net)](https://github.com/Liu-haoyue/NER-Net) |
+| `EvLight` | [Event Camera Paper](https://openaccess.thecvf.com/content/CVPR2024/html/Liang_Towards_Robust_Event-guided_Low-Light_Image_Enhancement_A_Large-Scale_Real-World_Event-Image_CVPR_2024_paper.html)<br>Towards Robust Event-guided Low-Light Image Enhancement: A Large-Scale Real-World Event-Image Dataset and Novel Approach | CVPR 2024 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://vlislab22.github.io/eg-lowlight/) | [![GitHub](https://img.shields.io/github/stars/EthanLiang99/EvLight)](https://github.com/EthanLiang99/EvLight) |
+| `RELED` | [Event Camera Paper](https://link.springer.com/chapter/10.1007/978-3-031-73254-6_25)<br>Towards Real-World Event-Guided Low-Light Video Enhancement and Deblurring | ECCV 2024 | - | [![GitHub](https://img.shields.io/github/stars/intelpro/ELEDNet)](https://github.com/intelpro/ELEDNet) |
+| `EventAID` | [![arXiv](https://img.shields.io/badge/arXiv-2312.08220-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/pdf/2312.08220)<br>EventAid: Benchmarking Event-aided Image/Video Enhancement Algorithms with Real-captured Hybrid Dataset | TPAMI 2025 | - | - |
+|  |
+
+### 3D & Multi-View Datasets
+
+| Model | Paper | Venue | Website | GitHub |
+|:-:|:-|:-:|:-:|:-:|
+| `IJRR` | [![arXiv](https://img.shields.io/badge/arXiv-1610.08336-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/1610.08336)<br>The Event-Camera Dataset and Simulator: Event-based Data for Pose Estimation, Visual Odometry, and SLAM | IJRR 2017 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://rpg.ifi.uzh.ch/davis_data.html) | - |
+| `MVSEC` | [![arXiv](https://img.shields.io/badge/arXiv-1801.10202-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/1801.10202)<br>The Multivehicle Stereo Event Camera Dataset: An Event Camera Dataset for 3D Perception | RA-L 2018 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://daniilidis-group.github.io/mvsec/) | - |
+| `CED` | [![arXiv](https://img.shields.io/badge/arXiv-1904.10772-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/pdf/1904.10772)<br>CED: Color Event Camera Dataset | CVPRW 2019 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://rpg.ifi.uzh.ch/CED.html) | - |
+| `TUM-VIE` | [![arXiv](https://img.shields.io/badge/arXiv-2108.07329-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2108.07329)<br>TUM-VIE: The TUM Stereo Visual-Inertial Event Dataset | IROS 2021 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://cvg.cit.tum.de/data/datasets/visual-inertial-event-dataset) | - |
+| `EDS` | [![arXiv](https://img.shields.io/badge/arXiv-2204.07640-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2204.07640)<br>Event-Aided Direct Sparse Odometry | CVPR 2022 | - | [![GitHub](https://img.shields.io/github/stars/uzh-rpg/eds-buildconf)](https://github.com/uzh-rpg/eds-buildconf) |
+| `VECtor` | [Event Camera Paper](https://ieeexplore.ieee.org/document/9809788)<br>VECtor: A Versatile Event-Centric Benchmark for Multi-Sensor SLAM | RA-L 2022 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://star-datasets.github.io/vector/) | - |
+| `EventNeRF` | [![arXiv](https://img.shields.io/badge/arXiv-2206.11896-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2206.11896)<br>EventNeRF: Neural Radiance Fields from a Single Colour Event Camera | CVPR 2023 | - | [![GitHub](https://img.shields.io/github/stars/r00tman/EventNeRF)](https://github.com/r00tman/EventNeRF) |
+| `E2NeRF` | [Event Camera Paper](https://openaccess.thecvf.com/content/ICCV2023/html/Qi_E2NeRF_Event_Enhanced_Neural_Radiance_Fields_from_Blurry_Images_ICCV_2023_paper.html)<br>E2NeRF: Event Enhanced Neural Radiance Fields from Blurry Images | ICCV 2023 | - | [![GitHub](https://img.shields.io/github/stars/iCVTEAM/E2NeRF)](https://github.com/iCVTEAM/E2NeRF) |
+| `PAEv3d` | [![arXiv](https://img.shields.io/badge/arXiv-2401.17121-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2401.17121)<br>Physical Priors Augmented Event-Based 3D Reconstruction | ICRA 2024 | - | [![GitHub](https://img.shields.io/github/stars/Mercerai/PAEv3d)](https://github.com/Mercerai/PAEv3d) |
+|  |
+
+
+## Event-based 2D Reconstruction
+
+### Discriminative Reconstruction Models
+
+> :timer_clock: In chronological order, from the earliest to the latest.
+
+| Model | Paper | Venue | Website | GitHub |
 |:-:|:-|:-:|:-:|:-:|
 | |
 |  |
 |  |
 
 
-### :two: Event Camera 3D Reconstruction
+### Generative Reconstruction Models
 
 > :timer_clock: In chronological order, from the earliest to the latest.
 
-| Model | Paper | Venue | Website | GitHub | 
+| Model | Paper | Venue | Website | GitHub |
+|:-:|:-|:-:|:-:|:-:|
+||
+|  |
+|  |
+
+
+### Self-Supervised & Pre-training Frameworks
+
+> :timer_clock: In chronological order, from the earliest to the latest.
+
+| Model | Paper | Venue | Website | GitHub |
+|:-:|:-|:-:|:-:|:-:|
+||
+|  |
+|  |
+
+
+## Event-based 3D Reconstruction
+
+### Geometric & Semi-Dense Reconstruction
+
+> :timer_clock: In chronological order, from the earliest to the latest.
+
+| Model | Paper | Venue | Website | GitHub |
+|:-:|:-|:-:|:-:|:-:|
+||
+|  |
+|  |
+
+
+### Neural Radiance Fields (NeRF) with Events
+
+> :timer_clock: In chronological order, from the earliest to the latest.
+
+| Model | Paper | Venue | Website | GitHub |
+|:-:|:-|:-:|:-:|:-:|
+||
+|  |
+|  |
+
+
+### 3D Gaussian Splatting (3DGS) with Events
+
+> :timer_clock: In chronological order, from the earliest to the latest.
+
+| Model | Paper | Venue | Website | GitHub |
+|:-:|:-|:-:|:-:|:-:|
+||
+|  |
+|  |
+
+
+### Generalizable 3D Reconstruction
+
+> :timer_clock: In chronological order, from the earliest to the latest.
+
+| Model | Paper | Venue | Website | GitHub |
 |:-:|:-|:-:|:-:|:-:|
 ||
 |  |
