@@ -215,6 +215,7 @@ If you find this work helpful for your research, please kindly consider citing o
 | `NER-Net` | [CVPR Paper](https://openaccess.thecvf.com/content/CVPR2024/html/Liu_Seeing_Motion_at_Nighttime_with_an_Event_Camera_CVPR_2024_paper.html)<br>Seeing Motion at Nighttime with an Event Camera | CVPR 2024 | - | [![GitHub](https://img.shields.io/github/stars/Liu-haoyue/NER-Net)](https://github.com/Liu-haoyue/NER-Net) |
 | `EVFI-DS` | [CVPR Paper](https://openaccess.thecvf.com/content/CVPR2024/html/Liu_Video_Frame_Interpolation_via_Direct_Synthesis_with_the_Event-based_Reference_CVPR_2024_paper.html)<br>Video Frame Interpolation via Direct Synthesis with the Event-based Reference | CVPR 2024 | - | - |
 | `EvLight` | [![arXiv](https://img.shields.io/badge/arXiv-2404.00834-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2404.00834)<br>Towards Robust Event-Guided Low-Light Image Enhancement: A Large-Scale Real-World Event-Image Dataset and Novel Approach | CVPR 2024 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://vlislab22.github.io/eg-lowlight/) | [![GitHub](https://img.shields.io/github/stars/EthanLiang99/EvLight)](https://github.com/EthanLiang99/EvLight) |
+| `Noise2Image` | [![arXiv](https://img.shields.io/badge/arXiv-2404.01298-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2404.01298)<br>Noise2Image: Noise-Enabled Static Scene Recovery for Event Cameras | Optica 2025 | - | [![GitHub](https://img.shields.io/github/stars/rmcao/noise2image)](https://github.com/rmcao/noise2image) |
 | `EvTexture` | [![arXiv](https://img.shields.io/badge/arXiv-2406.13457-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2406.13457)<br>EvTexture: Event-driven Texture Enhancement for Video Super-Resolution | ICML 2024 | - | [![GitHub](https://img.shields.io/github/stars/DachunKai/EvTexture)](https://github.com/DachunKai/EvTexture) |
 | `ELEDNet` | [ECCV Paper](https://link.springer.com/chapter/10.1007/978-3-031-73254-6_25)<br>Towards Real-World Event-Guided Low-Light Video Enhancement and Deblurring | ECCV 2024 | - | [![GitHub](https://img.shields.io/github/stars/intelpro/ELEDNet)](https://github.com/intelpro/ELEDNet) |
 | `STLR` | [ECCV Paper](https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/05843.pdf)<br>Spike-temporal Latent Representation for Energy-Efficient Event-to-Video Reconstruction | ECCV 2024 | - | - |
@@ -265,7 +266,9 @@ If you find this work helpful for your research, please kindly consider citing o
 
 | Model | Paper | Venue | Website | GitHub |
 |:-:|:-|:-:|:-:|:-:|
-||
+| `EMVS` | [IJCV Paper](https://rpg.ifi.uzh.ch/docs/IJCV17_Rebecq.pdf)<br>EMVS: Event-based Multi-View Stereo—3D Reconstruction with an Event Camera in Real-Time | IJCV 2018 | - | [![GitHub](https://img.shields.io/github/stars/uzh-rpg/rpg_emvs)](https://github.com/uzh-rpg/rpg_emvs) |
+| - | [![arXiv](https://img.shields.io/badge/arXiv-1807.07429-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/1807.07429)<br>Semi-Dense 3D Reconstruction with a Stereo Event Camera | ECCV 2018 | - | - |
+| `EventPS` | [CVPR Paper](https://openaccess.thecvf.com/content/CVPR2024/papers/Yu_EventPS_Real-Time_Photometric_Stereo_Using_an_Event_Camera_CVPR_2024_paper.pdf)<br>EventPS: Real-Time Photometric Stereo Using an Event Camera | CVPR 2024 | - | [Codeberg](https://codeberg.org/ybh1998/EventPS) |
 |  |
 |  |
 
