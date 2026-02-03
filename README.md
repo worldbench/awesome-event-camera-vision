@@ -279,8 +279,12 @@ If you find this work helpful for your research, please kindly consider citing o
 
 | Model | Paper | Venue | Website | GitHub |
 |:-:|:-|:-:|:-:|:-:|
+| `Ev-NeRF` | [![arXiv](https://img.shields.io/badge/arXiv-2206.12455-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2206.12455)<br>Ev-NeRF: Event Based Neural Radiance Field | WACV 2023 | - | - |
 | `EventNeRF` | [![arXiv](https://img.shields.io/badge/arXiv-2206.11896-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2206.11896)<br>EventNeRF: Neural Radiance Fields from a Single Colour Event Camera | CVPR 2023 | - | [![GitHub](https://img.shields.io/github/stars/r00tman/EventNeRF)](https://github.com/r00tman/EventNeRF) |
+| `E-NeRF` | [![arXiv](https://img.shields.io/badge/arXiv-2208.11300-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2208.11300)<br>E-NeRF: Neural Radiance Fields from a Moving Event Camera | RA-L 2023 | - | [![GitHub](https://img.shields.io/github/stars/knelk/enerf)](https://github.com/knelk/enerf) |
 | `E2NeRF` | [ICCV Paper](https://openaccess.thecvf.com/content/ICCV2023/html/Qi_E2NeRF_Event_Enhanced_Neural_Radiance_Fields_from_Blurry_Images_ICCV_2023_paper.html)<br>E2NeRF: Event Enhanced Neural Radiance Fields from Blurry Images | ICCV 2023 | - | [![GitHub](https://img.shields.io/github/stars/iCVTEAM/E2NeRF)](https://github.com/iCVTEAM/E2NeRF) |
+| `Robust-e-NeRF` | [![arXiv](https://img.shields.io/badge/arXiv-2309.08596-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2309.08596)<br>Robust e-NeRF: NeRF from Sparse & Noisy Events under Non-Uniform Motion | ICCV 2023 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://wengflow.github.io/robust-e-nerf/) | [![GitHub](https://img.shields.io/github/stars/wengflow/robust-e-nerf)](https://github.com/wengflow/robust-e-nerf) |
+| `SaENeRF` | [![arXiv](https://img.shields.io/badge/arXiv-2504.16389-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2504.16389)<br>SaENeRF: Suppressing Artifacts in Event-based Neural Radiance Fields | arXiv 2025 | - | [![GitHub](https://img.shields.io/github/stars/Mr-firework/SaENeRF)](https://github.com/Mr-firework/SaENeRF) |
 |  |
 |  |
 
