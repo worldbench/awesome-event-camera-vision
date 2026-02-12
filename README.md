@@ -298,6 +298,7 @@ If you find this work helpful for your research, please kindly consider citing o
 | `LSE-NeRF` | [![arXiv](https://img.shields.io/badge/arXiv-2409.06104-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2409.06104)<br>LSE-NeRF: Learning Sensor Modeling Errors for Deblurred Neural Radiance Fields with RGB-Event Stereo | 3DV 2025 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://ubc-vision.github.io/LSENeRF/) | [![GitHub](https://img.shields.io/github/stars/ubc-vision/LSENeRF)](https://github.com/ubc-vision/LSENeRF) |
 | `SaENeRF` | [![arXiv](https://img.shields.io/badge/arXiv-2504.16389-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2504.16389)<br>SaENeRF: Suppressing Artifacts in Event-based Neural Radiance Fields | arXiv 2025 | - | [![GitHub](https://img.shields.io/github/stars/Mr-firework/SaENeRF)](https://github.com/Mr-firework/SaENeRF) |
 | `DynEventNeRF` | Dynamic EventNeRF: Reconstructing General Dynamic Scenes from Multi-view RGB and Event Streams | CVPR Workshop 2025 | - | [![GitHub](https://img.shields.io/github/stars/r00tman/DynEventNeRF)](https://github.com/r00tman/DynEventNeRF) |
+| `EventNeuS` | [![arXiv](https://img.shields.io/badge/arXiv-2602.03847-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2602.03847)<br>EventNeuS: 3D Mesh Reconstruction from a Single Event Camera | 3DV 2026 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://4dqv.mpi-inf.mpg.de/EventNeuS/) | - |
 |  |
 |  |
 
