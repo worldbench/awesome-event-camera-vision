@@ -334,8 +334,6 @@ If you find this work helpful for your research, please kindly consider citing o
 
 > :timer_clock: In chronological order, from the earliest to the latest.
 
-<!-- TODO: This is an emerging direction beyond per-scene optimization. More feed-forward/generalizable methods and large-model-inspired 3D reconstruction works need to be surveyed and added here. -->
-
 | Model | Paper | Venue | Website | GitHub |
 |:-:|:-|:-:|:-:|:-:|
 | `Elite-EvGS` | [![arXiv](https://img.shields.io/badge/arXiv-2409.13392-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2409.13392)<br>Elite-EvGS: Learning Event-based 3D Gaussian Splatting by Distilling Event-to-Video Priors | arXiv 2024 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://vlislab22.github.io/elite-evgs/) | - |
@@ -346,14 +344,23 @@ If you find this work helpful for your research, please kindly consider citing o
 
 # 4. Event Camera Understanding
 
-### :one:
+### :one: 
 ...
 
 ### :two: 
-...
+
+> :timer_clock: In chronological order, from the earliest to the latest.
+
+| Model | Paper | Venue | Website | GitHub |
+|:-:|:-|:-:|:-:|:-:|
+| `Talk2Event` | [![arXiv](https://img.shields.io/badge/arXiv-2507.17664-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2507.17664)<br>Talk2Event: Grounded Understanding of Dynamic Scenes from Event Cameras | NeurIPS 2025 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://talk2event.github.io/) | [![GitHub](https://img.shields.io/github/stars/worldbench/Talk2Event)](https://github.com/worldbench/Talk2Event) |
+| `EventFlash` | [![arXiv](https://img.shields.io/badge/arXiv-2602.03230-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2602.03230)<br>EventFlash: Towards Efficient MLLMs for Event-Based Vision | arXiv 2026 | - | - |
+|  |
+
 
 ### :three: 
 ...
+
 
 
 
