@@ -134,10 +134,8 @@ If you find this work helpful for your research, please kindly consider citing o
 | `Gen1` | [![arXiv](https://img.shields.io/badge/arXiv-2001.08499-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2001.08499)<br>A Large Scale Event-based Detection Dataset for Automotive | arXiv 2020 | - | - |
 | `1Mpx` | [![arXiv](https://img.shields.io/badge/arXiv-2009.13436-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2009.13436)<br>Learning to Detect Objects with a 1 Megapixel Event Camera | NeurIPS 2020 | - | - |
 | `PEDRo` | [![arXiv](https://img.shields.io/badge/arXiv-2304.02126-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2304.02126)<br>PEDRo: an Event-based Dataset for Person Detection in Robotics | CVPRW 2023 | - | - |
-| `PKU-DAVIS-SOD` | [![arXiv](https://img.shields.io/badge/arXiv-2308.11383-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2308.11383)<br>SODFormer: Streaming Object Detection with Transformer Using Events and Frames | TPAMI 2023 | - | - |
-| `EvDET200K` | Object Detection using Event Camera: A MoE Heat Conduction based Detector | CVPR 2025 | - | - |
-|  |
-|  |
+| `PKU-DAVIS-SOD` | [![arXiv](https://img.shields.io/badge/arXiv-2308.04047-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2308.04047)<br>SODFormer: Streaming Object Detection with Transformer Using Events and Frames | TPAMI 2023 | - | - |
+| `EvDET200K` | Object Detection using Event Camera: A MoE Heat Conduction based Detector | CVPR 2025 | - | [![GitHub stars](https://img.shields.io/github/stars/Event-AHU/OpenEvDET?style=flat-square&logo=github)](https://github.com/Event-AHU/OpenEvDET) |
 
 #### Object Tracking Datasets
 
