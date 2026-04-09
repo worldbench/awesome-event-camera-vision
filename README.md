@@ -141,14 +141,12 @@ If you find this work helpful for your research, please kindly consider citing o
 
 | Dataset | Paper | Venue | Website | GitHub |
 |:-:|:-|:-:|:-:|:-:|
-| `FE108` | [![arXiv](https://img.shields.io/badge/arXiv-2109.09052-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2109.09052)<br>Object Tracking by Jointly Exploiting Frame and Event Domain | ICCV 2021 | - | - |
-| `VisEvent` | [![arXiv](https://img.shields.io/badge/arXiv-2108.05015-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2108.05015)<br>VisEvent: Reliable Object Tracking via Collaboration of Frame and Event Flows | TCYB 2023 | - | - |
-| `COESOT` | [![arXiv](https://img.shields.io/badge/arXiv-2211.11010-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2211.11010)<br>Revisiting Color-Event based Tracking: A Unified Network, Dataset, and Metric | PR 2025 | - | - |
-| `EventVOT` | [![arXiv](https://img.shields.io/badge/arXiv-2309.14611-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2309.14611)<br>Event Stream-based Visual Object Tracking: A High-Resolution Benchmark | CVPR 2024 | - | - |
-| `FELT` | [![arXiv](https://img.shields.io/badge/arXiv-2409.05765-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2409.05765)<br>Long-Term Visual Object Tracking with Event Cameras | arXiv 2024 | - | - |
-| `CRSOT` | [![arXiv](https://img.shields.io/badge/arXiv-2401.02826-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2401.02826)<br>Cross-Resolution Object Tracking Using Unaligned Frame and Event Cameras | TMM 2025 | - | - |
-|  |
-|  |
+| `FE108` | [![arXiv](https://img.shields.io/badge/arXiv-2109.09052-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2109.09052)<br>Object Tracking by Jointly Exploiting Frame and Event Domain | ICCV 2021 | - | [![GitHub stars](https://img.shields.io/github/stars/Jee-King/ICCV2021_Event_Frame_Tracking?style=flat-square&logo=github)](https://github.com/Jee-King/ICCV2021_Event_Frame_Tracking) |
+| `VisEvent` | [![arXiv](https://img.shields.io/badge/arXiv-2108.05015-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2108.05015)<br>VisEvent: Reliable Object Tracking via Collaboration of Frame and Event Flows | TCYB 2024 | - | [![GitHub stars](https://img.shields.io/github/stars/wangxiao5791509/VisEvent_SOT_Benchmark?style=flat-square&logo=github)](https://github.com/wangxiao5791509/VisEvent_SOT_Benchmark) |
+| `COESOT` | [![arXiv](https://img.shields.io/badge/arXiv-2211.11010-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2211.11010)<br>Revisiting Color-Event based Tracking: A Unified Network, Dataset, and Metric | PR 2025 | - | [![GitHub stars](https://img.shields.io/github/stars/Event-AHU/COESOT?style=flat-square&logo=github)](https://github.com/Event-AHU/COESOT) |
+| `EventVOT` | [![arXiv](https://img.shields.io/badge/arXiv-2309.14611-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2309.14611)<br>Event Stream-based Visual Object Tracking: A High-Resolution Benchmark Dataset and A Novel Baseline | CVPR 2024 | - | [![GitHub stars](https://img.shields.io/github/stars/Event-AHU/EventVOT_Benchmark?style=flat-square&logo=github)](https://github.com/Event-AHU/EventVOT_Benchmark) |
+| `FELT` | [![arXiv](https://img.shields.io/badge/arXiv-2403.05839-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2403.05839)<br>Long-Term Visual Object Tracking with Event Cameras: An Associative Memory Augmented Tracker and A Benchmark Dataset | arXiv 2025 | - | [![GitHub stars](https://img.shields.io/github/stars/Event-AHU/FELT_SOT_Benchmark?style=flat-square&logo=github)](https://github.com/Event-AHU/FELT_SOT_Benchmark/tree/main) |
+| `CRSOT` | [![arXiv](https://img.shields.io/badge/arXiv-2401.02826-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2401.02826)<br>Cross-Resolution Object Tracking Using Unaligned Frame and Event Cameras | TMM 2025 | - | [![GitHub stars](https://img.shields.io/github/stars/Event-AHU/Cross_Resolution_SOT?style=flat-square&logo=github)](https://github.com/Event-AHU/Cross_Resolution_SOT) |
 
 #### General / Multi-Task Datasets
 
