@@ -133,7 +133,7 @@ If you find this work helpful for your research, please kindly consider citing o
 |:-:|:-|:-:|:-:|:-:|
 | `Gen1` | [![arXiv](https://img.shields.io/badge/arXiv-2001.08499-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2001.08499)<br>A Large Scale Event-based Detection Dataset for Automotive | arXiv 2020 | - | - |
 | `1Mpx` | [![arXiv](https://img.shields.io/badge/arXiv-2009.13436-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2009.13436)<br>Learning to Detect Objects with a 1 Megapixel Event Camera | NeurIPS 2020 | - | - |
-| `PEDRo` | [![arXiv](https://img.shields.io/badge/arXiv-2304.02126-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2304.02126)<br>PEDRo: an Event-based Dataset for Person Detection in Robotics | CVPRW 2023 | - | - |
+| `PEDRo` | [PEDRo: an Event-based Dataset for Person Detection in Robotics](https://openaccess.thecvf.com/content/CVPR2023W/EventVision/html/Boretti_PEDRo_An_Event-Based_Dataset_for_Person_Detection_in_Robotics_CVPRW_2023_paper.html) | CVPRW 2023 | - | - |
 | `PKU-DAVIS-SOD` | [![arXiv](https://img.shields.io/badge/arXiv-2308.04047-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2308.04047)<br>SODFormer: Streaming Object Detection with Transformer Using Events and Frames | TPAMI 2023 | - | - |
 | `EvDET200K` | Object Detection using Event Camera: A MoE Heat Conduction based Detector | CVPR 2025 | - | [![GitHub stars](https://img.shields.io/github/stars/Event-AHU/OpenEvDET?style=flat-square&logo=github)](https://github.com/Event-AHU/OpenEvDET) |
 
@@ -179,25 +179,25 @@ If you find this work helpful for your research, please kindly consider citing o
 | Model | Paper | Venue | Website | GitHub |
 |:-:|:-|:-:|:-:|:-:|
 | `DVS-Detection` | [![arXiv](https://img.shields.io/badge/arXiv-1709.09323-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/1709.09323)<br>Pseudo-Labels for Supervised Learning on Dynamic Vision Sensor Data, Applied to Object Detection under Ego-Motion | CVPRW 2018 | - | - |
-| `YOLE` | [YOLE -- You Only Look at Events](https://arxiv.org/abs/1811.05557) (疑似幻觉，arXiv链接无效) | ECCVW 2018 | - | - |
+| `YOLE` | [![arXiv](https://img.shields.io/badge/arXiv-1805.07931-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/1805.07931)<br>Asynchronous Convolutional Networks for Object Detection in Neuromorphic Cameras | CVPRW 2019 | - | - |
 | `MatrixLSTM` | [![arXiv](https://img.shields.io/badge/arXiv-2009.13436-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2009.13436)<br>Learning to Detect Objects with a 1 Megapixel Event Camera | NeurIPS 2020 | - | - |
-| `ASTMNet` | [![arXiv](https://img.shields.io/badge/arXiv-2109.11710-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2109.11710)<br>Asynchronous Spatio-Temporal Memory Network for Real-time Object Detection with Event Cameras | TIP 2022 | - | - |
+| `ASTMNet` | [Asynchronous Spatio-Temporal Memory Network for Continuous Event-Based Object Detection](https://ieeexplore.ieee.org/document/9749022)<br>Asynchronous Spatio-Temporal Memory Network for Continuous Event-Based Object Detection | TIP 2022 | - | - |
 | `AEGNN` | [![arXiv](https://img.shields.io/badge/arXiv-2203.17149-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2203.17149)<br>AEGNN: Asynchronous Event-based Graph Neural Networks | CVPR 2022 | - | [![GitHub](https://img.shields.io/github/stars/uzh-rpg/aegnn)](https://github.com/uzh-rpg/aegnn) |
 | `RENet` | [![arXiv](https://img.shields.io/badge/arXiv-2209.08323-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2209.08323)<br>RGB-Event Fusion for Moving Object Detection in Autonomous Driving | ICRA 2023 | - | [![GitHub](https://img.shields.io/github/stars/ZZY-Zhou/RENet)](https://github.com/ZZY-Zhou/RENet) |
 | `RVT` | [![arXiv](https://img.shields.io/badge/arXiv-2212.05598-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2212.05598)<br>Recurrent Vision Transformers for Object Detection with Event Cameras | CVPR 2023 | - | [![GitHub](https://img.shields.io/github/stars/uzh-rpg/RVT)](https://github.com/uzh-rpg/RVT) |
-| `SAST` | [![arXiv](https://img.shields.io/badge/arXiv-2304.01850-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2304.01850)<br>SAST: Scene Adaptive Sparse Transformer for Event-based Object Detection | CVPR 2024 | - | - |
-| `SODFormer` | [![arXiv](https://img.shields.io/badge/arXiv-2308.11383-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2308.11383)<br>Streaming Object Detection with Transformer Using Events and Frames | TPAMI 2023 | - | - |
-| `SFNet` | [![arXiv](https://img.shields.io/badge/arXiv-2308.12556-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2308.12556)<br>Segment-level Fusion for Event-RGB Object Detection | arXiv 2023 | - | - |
+| `SAST` | [![arXiv](https://img.shields.io/badge/arXiv-2404.01882-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2404.01882)<br>Scene Adaptive Sparse Transformer for Event-based Object Detection | CVPR 2024 | - | [![GitHub](https://img.shields.io/github/stars/Peterande/SAST)](https://github.com/Peterande/SAST) |
+| `SODFormer` | [![arXiv](https://img.shields.io/badge/arXiv-2308.04047-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2308.04047)<br>SODFormer: Streaming Object Detection with Transformer Using Events and Frames | TPAMI 2023 | - | - |
+| `SFNet` | Segment-level Fusion for Event-RGB Object Detection | arXiv 2023 | - | - |
 | `LEOD` | [![arXiv](https://img.shields.io/badge/arXiv-2311.17286-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2311.17286)<br>LEOD: Label-Efficient Object Detection for Event Cameras | CVPR 2024 | - | [![GitHub](https://img.shields.io/github/stars/Wuziyi616/LEOD)](https://github.com/Wuziyi616/LEOD) |
 | `State-Space` | [![arXiv](https://img.shields.io/badge/arXiv-2402.15584-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2402.15584)<br>State Space Models for Event Cameras | CVPR 2024 (Spotlight) | - | [![GitHub](https://img.shields.io/github/stars/uzh-rpg/ssms_event_cameras)](https://github.com/uzh-rpg/ssms_event_cameras) |
 | `DAGR` | Low-Latency Automotive Vision with Event Cameras | Nature 2024 | - | - |
-| `RVT-2` | [![arXiv](https://img.shields.io/badge/arXiv-2401.01928-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2401.01928)<br>RVT-2: Learning Precise Event-based Detection | arXiv 2024 | - | - |
-| `GET` | [![arXiv](https://img.shields.io/badge/arXiv-2405.00699-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2405.00699)<br>GET: Event-based Graph Efficient Transformer | ECCV 2024 | - | - |
+| `RVT-2` | RVT-2: Learning Precise Event-based Detection | arXiv 2024 | - | - |
+| `GET` | [![arXiv](https://img.shields.io/badge/arXiv-2310.02642-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2310.02642)<br>GET: Group Event Transformer for Event-Based Vision | ICCV 2023 | - | [![GitHub](https://img.shields.io/github/stars/Peterande/GET-Group-Event-Transformer)](https://github.com/Peterande/GET-Group-Event-Transformer) |
 | `OpenESS-Det` | Adaptive Event Stream Slicing for Open-Vocabulary Event-Based Object Detection | arXiv 2025 | - | - |
 | `MoE-HeatDet` | Object Detection using Event Camera: A MoE Heat Conduction based Detector | CVPR 2025 | - | - |
 | `EventFly` | EventFly: Event Camera Perception from Ground to the Sky | CVPR 2025 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://event-fly.github.io/) | - |
-| `Ev-YOLO` | [![arXiv](https://img.shields.io/badge/arXiv-2405.14458-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2405.14458)<br>Ev-YOLO: YOLO for Event Camera Object Detection | arXiv 2024 | - | - |
-| `SFOD` | [![arXiv](https://img.shields.io/badge/arXiv-2403.12069-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2403.12069)<br>SFOD: Spiking Fusion Object Detector | CVPR 2024 | - | - |
+| `Ev-YOLO` | Ev-YOLO: YOLO for Event Camera Object Detection | arXiv 2024 | - | - |
+| `SFOD` | [![arXiv](https://img.shields.io/badge/arXiv-2403.15192-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2403.15192)<br>SFOD: Spiking Fusion Object Detector | CVPR 2024 | - | - |
 | `EvRGBDet` | Improving RGB-Event Fusion for Object Detection | arXiv 2025 | - | - |
 |  |
 |  |
@@ -210,18 +210,18 @@ If you find this work helpful for your research, please kindly consider citing o
 | Model | Paper | Venue | Website | GitHub |
 |:-:|:-|:-:|:-:|:-:|
 | `EV-SegNet` | [![arXiv](https://img.shields.io/badge/arXiv-1811.12039-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/1811.12039)<br>EV-SegNet: Semantic Segmentation for Event-based Cameras | CVPRW 2019 | - | - |
-| `Ev-SegNet+` | [![arXiv](https://img.shields.io/badge/arXiv-2006.07722-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2006.07722)<br>Event-Based Semantic Segmentation via Dense Temporal Encoding | arXiv 2020 | - | - |
-| `VID2E-Seg` | [![arXiv](https://img.shields.io/badge/arXiv-2006.07722-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2006.07722)<br>Bridging the Gap between Events and Frames through Unsupervised Domain Adaptation | arXiv 2021 | - | - |
+| `Ev-SegNet+` | Event-Based Semantic Segmentation via Dense Temporal Encoding | arXiv 2020 | - | - |
+| `VID2E-Seg` | [![arXiv](https://img.shields.io/badge/arXiv-2109.02618-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2109.02618)<br>Bridging the Gap between Events and Frames through Unsupervised Domain Adaptation | RA-L 2022 | - | [![GitHub](https://img.shields.io/github/stars/uzh-rpg/rpg_ev-transfer)](https://github.com/uzh-rpg/rpg_ev-transfer) |
 | `ESS` | [![arXiv](https://img.shields.io/badge/arXiv-2203.10016-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2203.10016)<br>ESS: Learning Event-based Semantic Segmentation from Still Images | ECCV 2022 | - | [![GitHub](https://img.shields.io/github/stars/uzh-rpg/ess)](https://github.com/uzh-rpg/ess) |
 | `EvDistill` | [![arXiv](https://img.shields.io/badge/arXiv-2111.12341-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2111.12341)<br>EvDistill: Asynchronous Events to End-task Learning via Bidirectional Reconstruction-guided Cross-modal Knowledge Distillation | CVPR 2021 | - | - |
-| `EV-Transfer` | [![arXiv](https://img.shields.io/badge/arXiv-2103.16804-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2103.16804)<br>EV-Transfer: Event-based Domain Adaptation for Semantic Segmentation | arXiv 2021 | - | - |
+| `EV-Transfer` | [![arXiv](https://img.shields.io/badge/arXiv-2109.02618-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2109.02618)<br>Bridging the Gap between Events and Frames through Unsupervised Domain Adaptation | RA-L 2022 | - | [![GitHub](https://img.shields.io/github/stars/uzh-rpg/rpg_ev-transfer)](https://github.com/uzh-rpg/rpg_ev-transfer) |
 | `CMX` | [![arXiv](https://img.shields.io/badge/arXiv-2203.04838-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2203.04838)<br>CMX: Cross-Modal Fusion for RGB-X Semantic Segmentation | TITS 2023 | - | [![GitHub](https://img.shields.io/github/stars/huaaaliu/RGBX_Semantic_Segmentation)](https://github.com/huaaaliu/RGBX_Semantic_Segmentation) |
-| `EISeg` | [![arXiv](https://img.shields.io/badge/arXiv-2305.14894-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2305.14894)<br>Improving Event-based Semantic Segmentation with Temporal Consistency | ICCV 2023 | - | - |
-| `HMNet` | [![arXiv](https://img.shields.io/badge/arXiv-2303.15006-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2303.15006)<br>Hierarchical Neural Memory Network for Low Latency Event Processing | CVPR 2023 | - | [![GitHub](https://img.shields.io/github/stars/hamarh/HMNet_pth)](https://github.com/hamarh/HMNet_pth) |
+| `EISeg` | Improving Event-based Semantic Segmentation with Temporal Consistency | ICCV 2023 | - | - |
+| `HMNet` | [![arXiv](https://img.shields.io/badge/arXiv-2305.17852-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2305.17852)<br>Hierarchical Neural Memory Network for Low Latency Event Processing | CVPR 2023 | - | [![GitHub](https://img.shields.io/github/stars/hamarh/HMNet_pth)](https://github.com/hamarh/HMNet_pth) |
 | `EventSAM` | Segment Any Event Streams via Weighted Adaptation of Pivotal Tokens | CVPR 2024 | - | - |
 | `SAM-E-Adapter` | SAM-Event-Adapter: Adapting Segment Anything Model for Event-RGB Semantic Segmentation | ICRA 2024 | - | - |
 | `OpenESS` | OpenESS: Event-Based Semantic Scene Understanding with Open Vocabularies | CVPR 2024 (Highlight) | - | - |
-| `HALSIE` | [![arXiv](https://img.shields.io/badge/arXiv-2311.14012-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2311.14012)<br>HALSIE: Hybrid Approach to Learning Segmentation by Simultaneously Exploiting Image and Event Modalities | NeurIPS 2024 | - | - |
+| `HALSIE` | [![arXiv](https://img.shields.io/badge/arXiv-2211.10754-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2211.10754)<br>HALSIE: Hybrid Approach to Learning Segmentation by Simultaneously Exploiting Image and Event Modalities | WACV 2024 | - | - |
 | `EvSAM` | EvSAM: Segment Anything Model with Event-based Assistance | ACM TOMM 2025 | - | - |
 | `OVOSE` | OVOSE: Open-Vocabulary Semantic Segmentation in Event-Based Cameras | arXiv 2024 | - | - |
 | `SEAL` | Segment Any Events with Language | ICLR 2026 | - | - |
@@ -240,9 +240,9 @@ If you find this work helpful for your research, please kindly consider citing o
 | `EMDE` | [![arXiv](https://img.shields.io/badge/arXiv-1802.07094-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/1802.07094)<br>Event-Based Dense Reconstruction Pipeline | BMVC 2018 | - | - |
 | `E2Depth` | [![arXiv](https://img.shields.io/badge/arXiv-2002.09790-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2002.09790)<br>Learning Monocular Dense Depth from Events | 3DV 2020 | - | [![GitHub](https://img.shields.io/github/stars/uzh-rpg/rpg_e2depth)](https://github.com/uzh-rpg/rpg_e2depth) |
 | `RAM-Net` | [![arXiv](https://img.shields.io/badge/arXiv-2104.00152-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2104.00152)<br>Combining Events and Frames using Recurrent Asynchronous Multimodal Networks for Monocular Depth Prediction | RA-L 2021 | - | - |
-| `HMNet-Depth` | [![arXiv](https://img.shields.io/badge/arXiv-2303.15006-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2303.15006)<br>Hierarchical Neural Memory Network for Low Latency Event Processing | CVPR 2023 | - | [![GitHub](https://img.shields.io/github/stars/hamarh/HMNet_pth)](https://github.com/hamarh/HMNet_pth) |
+| `HMNet-Depth` | [![arXiv](https://img.shields.io/badge/arXiv-2305.17852-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2305.17852)<br>Hierarchical Neural Memory Network for Low Latency Event Processing | CVPR 2023 | - | [![GitHub](https://img.shields.io/github/stars/hamarh/HMNet_pth)](https://github.com/hamarh/HMNet_pth) |
 | `EReFormer` | [![arXiv](https://img.shields.io/badge/arXiv-2405.19803-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2405.19803)<br>EReFormer: Event-based Recurrent Former for Monocular Depth Estimation | ECCV 2024 | - | - |
-| `EMoDE` | [![arXiv](https://img.shields.io/badge/arXiv-2407.06998-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2407.06998)<br>Complementing Event Streams and RGB Frames for Hand Mesh Reconstruction | arXiv 2024 | - | - |
+| `EMoDE` | Learning Monocular Depth from Events via Egomotion Compensation | arXiv 2024 | - | - |
 | `Depth AnyEvent` | Depth Any Event Stream: Enhancing Event-based Monocular Depth Estimation via Dense-to-Sparse Distillation | ICCV 2025 | - | - |
 |  |
 |  |
@@ -256,7 +256,7 @@ If you find this work helpful for your research, please kindly consider citing o
 | `StereoSpike` | [![arXiv](https://img.shields.io/badge/arXiv-2109.04828-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2109.04828)<br>StereoSpike: Depth Learning with a Spiking Neural Network | arXiv 2021 | - | - |
 | `DSGN-Event` | [![arXiv](https://img.shields.io/badge/arXiv-2203.04932-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2203.04932)<br>Discrete Time Convolution for Fast Event-based Stereo | CVPR 2022 | - | - |
 | `SDE-Net` | [![arXiv](https://img.shields.io/badge/arXiv-2208.00846-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2208.00846)<br>Selection and Cross Similarity for Event-Image Deep Stereo | ECCV 2022 | - | [![GitHub](https://img.shields.io/github/stars/Chohoonhee/SCSNet)](https://github.com/Chohoonhee/SCSNet) |
-| `EvAC3D` | [![arXiv](https://img.shields.io/badge/arXiv-2401.01928-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2401.01928)<br>Learning Parallax for Stereo Event-Based Motion Deblurring | ICCV 2023 | - | - |
+| `EvAC3D` | [![arXiv](https://img.shields.io/badge/arXiv-2309.09513-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2309.09513)<br>Learning Parallax for Stereo Event-Based Motion Deblurring | ICCV 2023 | - | - |
 | `E-Stereo-FUDA` | [![arXiv](https://img.shields.io/badge/arXiv-2405.06855-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2405.06855)<br>Event-Based Stereo Depth Estimation from Ego-Motion using Ray Density Fusion | ECCV 2024 | - | - |
 | `MS-SED` | Multi-Scale Spatial-Temporal Event-based Stereo Depth Estimation | AAAI 2025 | - | - |
 | `ESVO2` | ESVO2: Direct Visual-Inertial Odometry with Stereo Event Cameras | TRO 2025 | - | - |
@@ -666,7 +666,7 @@ If you find this work helpful for your research, please kindly consider citing o
 | Model | Paper | Venue | Website | GitHub |
 |:-:|:-|:-:|:-:|:-:|
 | `CMax` | A Unifying Contrast Maximization Framework for Event Cameras | CVPR 2018 | - | - |
-| `EVO` | [![arXiv](https://img.shields.io/badge/arXiv-1711.03771-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/1711.03771)<br>Event-Based, 6-DOF Camera Tracking from Photometric Depth Maps | TPAMI 2018 | - | - |
+| `EVO` | [![arXiv](https://img.shields.io/badge/arXiv-1607.03468-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/1607.03468)<br>Event-Based, 6-DOF Camera Tracking from Photometric Depth Maps | TPAMI 2018 | - | - |
 | `Ultimate SLAM` | Ultimate SLAM? Combining Events, Images, and IMU for Robust Visual SLAM | RA-L 2018 | - | - |
 | `ESVIO` | ESVIO: Event-Based Stereo Visual-Inertial Odometry | RA-L + IROS 2023 | - | - |
 | `PL-EVIO` | PL-EVIO: Robust Monocular Event-Based Visual Inertial Odometry with Point and Line Features | T-ASE 2023 | - | - |
