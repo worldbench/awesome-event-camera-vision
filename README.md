@@ -182,8 +182,7 @@ If you find this work helpful for your research, please kindly consider citing o
 | Model | Paper | Venue | Website | GitHub |
 |:-:|:-|:-:|:-:|:-:|
 | `HPL-ESS` | HPL-ESS: Hybrid Pseudo-Labeling for Unsupervised Event-Based Semantic Segmentation | CVPR 2024 | - | - |
-| `EV-WSSS` | EV-WSSS: Weakly Supervised Semantic Segmentation for Event Cameras | ECCV 2024 | - | - |
-| `FMP` | Finding Meaning in Points: Weakly Supervised Semantic Segmentation for Event Cameras | ECCV 2024 | - | - |
+| `EV-WSSS` | [![arXiv](https://img.shields.io/badge/arXiv-2407.11216-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2407.11216)<br>Finding Meaning in Points: Weakly Supervised Semantic Segmentation for Event Cameras | ECCV 2024 | - | - |
 |  |
 |  |
 
@@ -195,7 +194,7 @@ If you find this work helpful for your research, please kindly consider citing o
 | Model | Paper | Venue | Website | GitHub |
 |:-:|:-|:-:|:-:|:-:|
 | `EV-IMO` | EV-IMO: Motion Segmentation Dataset and Learning Pipeline for Event Cameras | IROS 2019 | - | - |
-| `EMSGC` | Event-Based Motion Segmentation by Motion Compensation | ICCV 2021 | - | - |
+| `EMSGC` | [![arXiv](https://img.shields.io/badge/arXiv-2012.08730-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2012.08730)<br>Event-Based Motion Segmentation with Spatio-Temporal Graph Cuts | TNNLS 2021 | - | - |
 | `Un-EvMoSeg` | Unsupervised Event-Based Independent Motion Segmentation | ECCV 2024 | - | - |
 |  |
 |  |
@@ -710,8 +709,8 @@ If you find this work helpful for your research, please kindly consider citing o
 
 | Model | Paper | Venue | Website | GitHub |
 |:-:|:-|:-:|:-:|:-:|
-| `Text-to-Events` | Text-to-Events: Synthetic Event Camera Streams from Conditional Text Input | NICE 2024 | - | - |
-| `ControlEvents` | ControlEvents: Controllable Synthesis of Event Camera Data with Foundational Prior from Image Diffusion Models | arXiv 2025 | - | - |
+| `Text-to-Events` | [![arXiv](https://img.shields.io/badge/arXiv-2406.03439-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2406.03439)<br>Text-to-Events: Synthetic Event Camera Streams from Conditional Text Input | NICE 2024 | - | - |
+| `ControlEvents` | [![arXiv](https://img.shields.io/badge/arXiv-2509.22864-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2509.22864)<br>ControlEvents: Controllable Synthesis of Event Camera Data with Foundational Prior from Image Diffusion Models | WACV 2026 | - | - |
 | `ShapeAug` | [![arXiv](https://img.shields.io/badge/arXiv-2409.11075-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2409.11075)<br>ShapeAug++: More Realistic Shape Augmentation for Event Data | arXiv 2024 | - | - |
 |  |
 |  |
