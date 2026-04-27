@@ -116,6 +116,7 @@ If you find this work helpful for your research, please kindly consider citing o
 | `AEGNN` | [![arXiv](https://img.shields.io/badge/arXiv-2203.17149-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2203.17149)<br>AEGNN: Asynchronous Event-based Graph Neural Networks | CVPR 2022 | - | [![GitHub](https://img.shields.io/github/stars/uzh-rpg/aegnn)](https://github.com/uzh-rpg/aegnn) |
 | `RENet` | [![arXiv](https://img.shields.io/badge/arXiv-2209.08323-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2209.08323)<br>RGB-Event Fusion for Moving Object Detection in Autonomous Driving | ICRA 2023 | - | [![GitHub](https://img.shields.io/github/stars/ZZY-Zhou/RENet)](https://github.com/ZZY-Zhou/RENet) |
 | `DAGR` | Low-Latency Automotive Vision with Event Cameras | Nature 2024 | - | [![GitHub](https://img.shields.io/github/stars/uzh-rpg/dagr)](https://github.com/uzh-rpg/dagr) |
+| `CDE-Net` | [![arXiv](https://img.shields.io/badge/arXiv-2309.09297-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2309.09297)<br>Chasing Day and Night: Towards Robust and Efficient All-Day Object Detection Guided by an Event Camera | ICRA 2024 | - | - |
 |  |
 |  |
 
@@ -132,6 +133,7 @@ If you find this work helpful for your research, please kindly consider citing o
 | `LEOD` | [![arXiv](https://img.shields.io/badge/arXiv-2311.17286-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2311.17286)<br>LEOD: Label-Efficient Object Detection for Event Cameras | CVPR 2024 | - | [![GitHub](https://img.shields.io/github/stars/Wuziyi616/LEOD)](https://github.com/Wuziyi616/LEOD) |
 | `State-Space` | [![arXiv](https://img.shields.io/badge/arXiv-2402.15584-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2402.15584)<br>State Space Models for Event Cameras | CVPR 2024 (Spotlight) | - | [![GitHub](https://img.shields.io/github/stars/uzh-rpg/ssms_event_cameras)](https://github.com/uzh-rpg/ssms_event_cameras) |
 | `SAST` | [![arXiv](https://img.shields.io/badge/arXiv-2404.01882-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2404.01882)<br>Scene Adaptive Sparse Transformer for Event-based Object Detection | CVPR 2024 | - | [![GitHub](https://img.shields.io/github/stars/Peterande/SAST)](https://github.com/Peterande/SAST) |
+| `EMF` | [![arXiv](https://img.shields.io/badge/arXiv-2504.04124-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2504.04124)<br>EMF: Event Meta Formers for Event-based Real-time Traffic Object Detection | arXiv 2025 | - | - |
 |  |
 |  |
 
@@ -146,6 +148,7 @@ If you find this work helpful for your research, please kindly consider citing o
 | `MoE-HeatDet` | [![arXiv](https://img.shields.io/badge/arXiv-2412.06647-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2412.06647)<br>Object Detection using Event Camera: A MoE Heat Conduction based Detector and A New Benchmark Dataset | CVPR 2025 | - | - |
 | `EventFly` | EventFly: Event Camera Perception from Ground to the Sky | CVPR 2025 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://event-fly.github.io/) | - |
 | `OpenESS-Det` | [![arXiv](https://img.shields.io/badge/arXiv-2510.00681-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2510.00681)<br>Adaptive Event Stream Slicing for Open-Vocabulary Event-Based Object Detection | arXiv 2025 | - | - |
+| `EAS-SNN` | [![arXiv](https://img.shields.io/badge/arXiv-2403.12574-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2403.12574)<br>EAS-SNN: End-to-End Adaptive Sampling and Representation for Event-based Detection with Recurrent Spiking Neural Networks | ECCV 2024 | - | - |
 |  |
 |  |
 
@@ -171,6 +174,9 @@ If you find this work helpful for your research, please kindly consider citing o
 | `EvSAM` | EvSAM: Segment Anything Model with Event-based Assistance | ACM TOMM 2025 | - | - |
 | `OVOSE` | [![arXiv](https://img.shields.io/badge/arXiv-2408.09424-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2408.09424)<br>OVOSE: Open-Vocabulary Semantic Segmentation in Event-Based Cameras | arXiv 2024 | - | - |
 | `SEAL` | [![arXiv](https://img.shields.io/badge/arXiv-2601.23159-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2601.23159)<br>Segment Any Events with Language | ICLR 2026 | - | - |
+| `CMDA` | [![arXiv](https://img.shields.io/badge/arXiv-2307.15942-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2307.15942)<br>CMDA: Cross-Modality Domain Adaptation for Nighttime Semantic Segmentation | ICCV 2023 | - | - |
+| `MUSES` | [![arXiv](https://img.shields.io/badge/arXiv-2401.12761-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2401.12761)<br>MUSES: The Multi-Sensor Semantic Perception Dataset for Driving under Uncertainty | ECCV 2024 | - | - |
+| `SLTNet` | [![arXiv](https://img.shields.io/badge/arXiv-2412.12843-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2412.12843)<br>SLTNet: Efficient Event-based Semantic Segmentation with Spike-driven Lightweight Transformer-based Networks | IROS 2025 | - | - |
 |  |
 |  |
 
@@ -183,6 +189,7 @@ If you find this work helpful for your research, please kindly consider citing o
 |:-:|:-|:-:|:-:|:-:|
 | `HPL-ESS` | HPL-ESS: Hybrid Pseudo-Labeling for Unsupervised Event-Based Semantic Segmentation | CVPR 2024 | - | - |
 | `EV-WSSS` | [![arXiv](https://img.shields.io/badge/arXiv-2407.11216-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2407.11216)<br>Finding Meaning in Points: Weakly Supervised Semantic Segmentation for Event Cameras | ECCV 2024 | - | - |
+| `EvLowLightSeg` | [![arXiv](https://img.shields.io/badge/arXiv-2411.00639-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2411.00639)<br>Event-guided Low-light Video Semantic Segmentation | WACV 2025 | - | - |
 |  |
 |  |
 
@@ -196,6 +203,8 @@ If you find this work helpful for your research, please kindly consider citing o
 | `EV-IMO` | EV-IMO: Motion Segmentation Dataset and Learning Pipeline for Event Cameras | IROS 2019 | - | - |
 | `EMSGC` | [![arXiv](https://img.shields.io/badge/arXiv-2012.08730-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2012.08730)<br>Event-Based Motion Segmentation with Spatio-Temporal Graph Cuts | TNNLS 2021 | - | - |
 | `Un-EvMoSeg` | Unsupervised Event-Based Independent Motion Segmentation | ECCV 2024 | - | - |
+| `OutOfRoom` | [![arXiv](https://img.shields.io/badge/arXiv-2403.04562-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2403.04562)<br>Out of the Room: Generalizing Event-Based Dynamic Motion Segmentation for Complex Scenes | 3DV 2024 | - | - |
+| `MouseSIS` | [![arXiv](https://img.shields.io/badge/arXiv-2409.03358-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2409.03358)<br>MouseSIS: A Frames-and-Events Dataset for Space-Time Instance Segmentation of Mice | ECCVW 2024 | - | - |
 |  |
 |  |
 
@@ -215,6 +224,9 @@ If you find this work helpful for your research, please kindly consider citing o
 | `EReFormer` | [![arXiv](https://img.shields.io/badge/arXiv-2212.02791-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2212.02791)<br>Event-based Monocular Depth Estimation with Recurrent Transformers | ECCV 2024 | - | [![GitHub](https://img.shields.io/github/stars/liuxu0303/EReFormer)](https://github.com/liuxu0303/EReFormer) |
 | `EMoDE` | [![arXiv](https://img.shields.io/badge/arXiv-2412.19067-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2412.19067)<br>Learning Monocular Depth from Events via Egomotion Compensation | arXiv 2024 | - | - |
 | `Depth AnyEvent` | Depth Any Event Stream: Enhancing Event-based Monocular Depth Estimation via Dense-to-Sparse Distillation | ICCV 2025 | - | - |
+| `OnDevice-Depth` | [![arXiv](https://img.shields.io/badge/arXiv-2412.06359-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2412.06359)<br>On-Device Self-Supervised Learning of Low-Latency Monocular Depth from Only Events | CVPR 2025 | - | - |
+| `FUSE` | [![arXiv](https://img.shields.io/badge/arXiv-2503.19739-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2503.19739)<br>FUSE: Label-Free Image-Event Joint Monocular Depth Estimation via Frequency-Decoupled Alignment and Degradation-Robust Fusion | IROS 2025 | - | - |
+| `DERD-Net` | [![arXiv](https://img.shields.io/badge/arXiv-2504.15863-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2504.15863)<br>DERD-Net: Learning Depth from Event-based Ray Densities | NeurIPS 2025 | - | - |
 |  |
 |  |
 
@@ -231,6 +243,7 @@ If you find this work helpful for your research, please kindly consider citing o
 | `EvAC3D` | [![arXiv](https://img.shields.io/badge/arXiv-2309.09513-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2309.09513)<br>Learning Parallax for Stereo Event-Based Motion Deblurring | ICCV 2023 | - | - |
 | `E-Stereo-FUDA` | [![arXiv](https://img.shields.io/badge/arXiv-2210.08927-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2210.08927)<br>Event-Based Stereo Depth Estimation from Ego-Motion using Ray Density Fusion | ECCV 2024 | - | - |
 | `ESVO2` | [![arXiv](https://img.shields.io/badge/arXiv-2410.09374-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2410.09374)<br>ESVO2: Direct Visual-Inertial Odometry with Stereo Event Cameras | TRO 2025 | - | - |
+| `URNet` | [![arXiv](https://img.shields.io/badge/arXiv-2509.18184-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2509.18184)<br>URNet: Uncertainty-aware Refinement Network for Event-based Stereo Depth Estimation | Visual Intelligence 2025 | - | - |
 |  |
 |  |
 
@@ -247,6 +260,8 @@ If you find this work helpful for your research, please kindly consider citing o
 | `DCEIFlow` | [![arXiv](https://img.shields.io/badge/arXiv-2211.09078-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2211.09078)<br>Learning Dense and Continuous Optical Flow from an Event Camera | TIP 2022 | - | [![GitHub](https://img.shields.io/github/stars/danqu130/DCEIFlow)](https://github.com/danqu130/DCEIFlow) |
 | `BlinkFlow` | [![arXiv](https://img.shields.io/badge/arXiv-2303.07716-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2303.07716)<br>BlinkFlow: A Dataset to Push the Limits of Event-based Optical Flow Estimation | IROS 2023 | - | - |
 | `EGMBA` | [![arXiv](https://img.shields.io/badge/arXiv-2503.03307-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2503.03307)<br>Full-DoF Egomotion Estimation for Event Cameras Using Geometric Solvers | CVPR 2025 | - | [![GitHub](https://img.shields.io/github/stars/jizhaox/relpose-event)](https://github.com/jizhaox/relpose-event) |
+| `MeshFlow` | [![arXiv](https://img.shields.io/badge/arXiv-2510.04111-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2510.04111)<br>Learning Efficient Meshflow and Optical Flow from Event Cameras | TPAMI 2025 | - | - |
+| `NMGNet` | [![arXiv](https://img.shields.io/badge/arXiv-2505.05089-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2505.05089)<br>Nonlinear Motion-Guided and Spatio-Temporal Aware Network for Unsupervised Event-Based Optical Flow | ICRA 2025 | - | - |
 |  |
 |  |
 
@@ -263,6 +278,7 @@ If you find this work helpful for your research, please kindly consider citing o
 | `CEUTrack` | [![arXiv](https://img.shields.io/badge/arXiv-2211.11010-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2211.11010)<br>Revisiting Color-Event based Tracking: A Unified Network, Dataset, and Metric | PR 2025 | - | - |
 | `AFNet` | [![arXiv](https://img.shields.io/badge/arXiv-2305.15688-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2305.15688)<br>Frame-Event Alignment and Fusion Network for High Frame Rate Tracking | CVPR 2024 | - | - |
 | `EventVOT-Track` | [![arXiv](https://img.shields.io/badge/arXiv-2309.14611-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2309.14611)<br>Event Stream-based Visual Object Tracking: A High-Resolution Benchmark Dataset and A Novel Baseline | CVPR 2024 | - | - |
+| `Asyn-MOT` | [![arXiv](https://img.shields.io/badge/arXiv-2505.08126-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2505.08126)<br>Asynchronous Multi-Object Tracking with an Event Camera | ICRA 2025 | - | - |
 |  |
 |  |
 
@@ -277,6 +293,7 @@ If you find this work helpful for your research, please kindly consider citing o
 | `HDETrack` | [![arXiv](https://img.shields.io/badge/arXiv-2401.02826-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2401.02826)<br>Cross-Resolution Object Tracking Using Unaligned Frame and Event Cameras | TMM 2025 | - | - |
 | `eMoE-Tracker` | [![arXiv](https://img.shields.io/badge/arXiv-2406.20024-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2406.20024)<br>Environmental MoE-based Transformer for Robust Event-Guided Object Tracking | RA-L 2024 | - | - |
 | `MambaEVT` | [![arXiv](https://img.shields.io/badge/arXiv-2404.18174-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2404.18174)<br>Mamba-FETrack: Frame-Event Tracking via State Space Model | arXiv 2024 | - | - |
+| `HDETrack-V2` | [![arXiv](https://img.shields.io/badge/arXiv-2502.05574-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2502.05574)<br>Event Stream-based Visual Object Tracking: HDETrack V2 and A High-Definition Benchmark | arXiv 2025 | - | - |
 |  |
 |  |
 
@@ -290,6 +307,7 @@ If you find this work helpful for your research, please kindly consider citing o
 | `TETrack` | [![arXiv](https://img.shields.io/badge/arXiv-2403.05839-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2403.05839)<br>Long-Term Visual Object Tracking with Event Cameras | arXiv 2024 | - | - |
 | `SiamEFT` | SiamEFT: Adaptive-Time Feature Extraction Hybrid Network for RGBE Multi-Domain Object Tracking | Front. Neurosci. 2024 | - | - |
 | `EventFly-Track` | EventFly: Event Camera Perception from Ground to the Sky | CVPR 2025 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://event-fly.github.io/) | - |
+| `TUMTraf-EMOT` | [![arXiv](https://img.shields.io/badge/arXiv-2512.14595-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2512.14595)<br>TUMTraf EMOT: Event-Based Multi-Object Tracking Dataset and Baseline for Traffic Scenarios | arXiv 2025 | - | - |
 |  |
 |  |
 
@@ -309,6 +327,10 @@ If you find this work helpful for your research, please kindly consider citing o
 | `HARDVS-Method` | [![arXiv](https://img.shields.io/badge/arXiv-2312.08849-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2312.08849)<br>HARDVS: Revisiting Human Activity Recognition with Dynamic Vision Sensors | AAAI 2024 | - | - |
 | `DailyDVS-Method` | DailyDVS-200: A Comprehensive Benchmark Dataset for Event-Based Action Recognition | ECCV 2024 | - | - |
 | `EventFly-Action` | EventFly: Event Camera Perception from Ground to the Sky | CVPR 2025 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://event-fly.github.io/) | - |
+| `EventTransAct` | [![arXiv](https://img.shields.io/badge/arXiv-2308.13711-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2308.13711)<br>EventTransAct: A video transformer-based framework for Event-camera based action recognition | IROS 2023 | - | - |
+| `SpikePoint` | [![arXiv](https://img.shields.io/badge/arXiv-2310.07189-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2310.07189)<br>SpikePoint: An Efficient Point-based Spiking Neural Network for Event Cameras Action Recognition | ICLR 2024 | - | - |
+| `Bullying10K` | [![arXiv](https://img.shields.io/badge/arXiv-2306.11546-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2306.11546)<br>Bullying10K: A Large-Scale Neuromorphic Dataset towards Privacy-Preserving Bullying Recognition | NeurIPS 2023 | - | - |
+| `PASS` | [![arXiv](https://img.shields.io/badge/arXiv-2409.16953-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2409.16953)<br>PASS: Path-selective State Space Model for Event-based Recognition | NeurIPS 2025 | - | - |
 |  |
 |  |
 
@@ -325,6 +347,7 @@ If you find this work helpful for your research, please kindly consider citing o
 | `EventEgo3D` | [![arXiv](https://img.shields.io/badge/arXiv-2404.08640-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2404.08640)<br>EventEgo3D: 3D Human Motion Capture from Egocentric Event Streams | CVPR 2024 | - | - |
 | `E-POSE` | E-POSE: A Large Scale Event Camera Dataset for Object Pose Estimation | Sci. Data 2025 | - | - |
 | `EHPT-XC` | A Benchmark Dataset for Event-Guided Human Pose Estimation and Tracking in Extreme Conditions | NeurIPS 2024 | - | - |
+| `SSTFormer` | [![arXiv](https://img.shields.io/badge/arXiv-2303.09681-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2303.09681)<br>Highly Efficient 3D Human Pose Tracking from Events with Spiking Spatiotemporal Transformer | TCSVT 2023 | - | - |
 |  |
 |  |
 
@@ -338,6 +361,7 @@ If you find this work helpful for your research, please kindly consider citing o
 | `EvHandPose` | [![arXiv](https://img.shields.io/badge/arXiv-2303.02862-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2303.02862)<br>EvHandPose: Event-based 3D Hand Pose Estimation with Sparse Supervision | TPAMI 2024 | - | - |
 | `EventHandPose` | Complementing Event Streams and RGB Frames for Hand Mesh Reconstruction | ICCV 2023 | - | - |
 | `EvRGBHand` | EvRGBHand: Complementing Event Streams and RGB Frames for Hand Mesh Reconstruction | CVPR 2024 | - | - |
+| `InterHand-Event` | [![arXiv](https://img.shields.io/badge/arXiv-2312.14157-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2312.14157)<br>3D Pose Estimation of Two Interacting Hands from a Monocular Event Camera | 3DV 2024 | - | - |
 |  |
 |  |
 
@@ -364,7 +388,9 @@ If you find this work helpful for your research, please kindly consider citing o
 | `E-SAI` | [TPAMI Paper](https://ieeexplore.ieee.org/document/9740355)<br>Learning to See Through with Events | TPAMI 2023 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://dvs-whu.cn/projects/esai/) | [![GitHub](https://img.shields.io/github/stars/dvs-whu/E-SAI)](https://github.com/dvs-whu/E-SAI) |
 | `HyperE2VID` | [![arXiv](https://img.shields.io/badge/arXiv-2305.06382-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2305.06382)<br>HyperE2VID: Improving Event-Based Video Reconstruction via Hypernetworks | TIP 2024 | - | [![GitHub](https://img.shields.io/github/stars/ercanburak/HyperE2VID)](https://github.com/ercanburak/HyperE2VID) |
 | `STLR` | [ECCV Paper](https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/05843.pdf)<br>Spike-temporal Latent Representation for Energy-Efficient Event-to-Video Reconstruction | ECCV 2024 | - | - |
+| `PPLNs` | [![arXiv](https://img.shields.io/badge/arXiv-2409.19772-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2409.19772)<br>PPLNs: Parametric Piecewise Linear Networks for Event-Based Temporal Modeling and Beyond | NeurIPS 2024 | - | [![GitHub](https://img.shields.io/github/stars/chensong1995/PPLN)](https://github.com/chensong1995/PPLN) |
 | `MamEVSR` | [CVPR Paper](https://openaccess.thecvf.com/content/CVPR2025/papers/Xiao_Event-based_Video_Super-Resolution_via_State_Space_Models_CVPR_2025_paper.pdf)<br>Event-based Video Super-Resolution via State Space Models | CVPR 2025 | - | - |
+| `Coded-E2LF` | [![arXiv](https://img.shields.io/badge/arXiv-2602.22620-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2602.22620)<br>Coded-E2LF: Coded Aperture Light Field Imaging from Events | CVPR 2026 | - | - |
 |  |
 |  |
 
@@ -378,6 +404,11 @@ If you find this work helpful for your research, please kindly consider citing o
 | `cGAN-E2V` | [CVPR Paper](https://openaccess.thecvf.com/content_CVPR_2019/papers/Wang_Event-Based_High_Dynamic_Range_Image_and_Very_High_Frame_Rate_CVPR_2019_paper.pdf)<br>Event-Based High Dynamic Range Image and Very High Frame Rate Video Generation Using Conditional Generative Adversarial Networks | CVPR 2019 | - | - |
 | `E2VIDiff` | [![arXiv](https://img.shields.io/badge/arXiv-2407.08231-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2407.08231)<br>E2VIDiff: Perceptual Events-to-Video Reconstruction using Diffusion Priors | arXiv 2024 | - | - |
 | `TRG-Diffusion` | [ECCV Paper](https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/05690.pdf)<br>Temporal Residual Guided Diffusion Framework for Event-Driven Video Reconstruction | ECCV 2024 | - | - |
+| `LaSe-E2V` | [![arXiv](https://img.shields.io/badge/arXiv-2407.05547-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2407.05547)<br>LaSe-E2V: Towards Language-guided Semantic-Aware Event-to-Video Reconstruction | arXiv 2024 | - | - |
+| `EvDiff` | [![arXiv](https://img.shields.io/badge/arXiv-2511.17492-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2511.17492)<br>EvDiff: High Quality Video with an Event Camera | arXiv 2025 | - | - |
+| `DESSERT` | [![arXiv](https://img.shields.io/badge/arXiv-2512.17323-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2512.17323)<br>DESSERT: Diffusion-based Event-driven Single-frame Synthesis via Residual Training | arXiv 2025 | - | - |
+| `IE2Video` | [![arXiv](https://img.shields.io/badge/arXiv-2512.05240-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2512.05240)<br>IE2Video: Adapting Pretrained Diffusion Models for Event-Based Video Reconstruction | arXiv 2025 | - | - |
+| `UniE2F` | [![arXiv](https://img.shields.io/badge/arXiv-2602.19202-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2602.19202)<br>UniE2F: A Unified Diffusion Framework for Event-to-Frame Reconstruction with Video Foundation Models | arXiv 2026 | - | - |
 |  |
 |  |
 
@@ -392,6 +423,7 @@ If you find this work helpful for your research, please kindly consider citing o
 | - | [![arXiv](https://img.shields.io/badge/arXiv-2009.08283-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2009.08283)<br>Back to Event Basics: Self-Supervised Learning of Image Reconstruction for Event Cameras via Photometric Constancy | CVPR 2021 | - | - |
 | `EvDeraining` | [ICCV Paper](https://openaccess.thecvf.com/content/ICCV2023/papers/Wang_Unsupervised_Video_Deraining_with_An_Event_Camera_ICCV_2023_paper.pdf)<br>Unsupervised Video Deraining with an Event Camera | ICCV 2023 | - | [![GitHub](https://img.shields.io/github/stars/booker-max/Unsupervised-Deraining-with-Event-Camera)](https://github.com/booker-max/Unsupervised-Deraining-with-Event-Camera) |
 | `EvINR` | [![arXiv](https://img.shields.io/badge/arXiv-2407.18500-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2407.18500)<br>Revisit Event Generation Model: Self-Supervised Learning of Event-to-Video Reconstruction with Implicit Neural Representations | ECCV 2024 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://vlislab22.github.io/EvINR/) | [![GitHub](https://img.shields.io/github/stars/wzpscott/EvINR)](https://github.com/wzpscott/EvINR) |
+| `EVDI++` | [![arXiv](https://img.shields.io/badge/arXiv-2509.08260-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2509.08260)<br>EVDI++: Event-based Video Deblurring and Interpolation via Self-Supervised Learning | arXiv 2025 | - | - |
 |  |
 |  |
 
@@ -413,6 +445,9 @@ If you find this work helpful for your research, please kindly consider citing o
 | `EVFI-DS` | [CVPR Paper](https://openaccess.thecvf.com/content/CVPR2024/html/Liu_Video_Frame_Interpolation_via_Direct_Synthesis_with_the_Event-based_Reference_CVPR_2024_paper.html)<br>Video Frame Interpolation via Direct Synthesis with the Event-based Reference | CVPR 2024 | - | - |
 | `TimeLens-XL` | [ECCV Paper](https://link.springer.com/chapter/10.1007/978-3-031-73226-3_11)<br>TimeLens-XL: Real-Time Event-Based Video Frame Interpolation with Large Motion | ECCV 2024 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://openimaginglab.github.io/TimeLens-XL/) | [![GitHub](https://img.shields.io/github/stars/OpenImagingLab/TimeLens-XL)](https://github.com/OpenImagingLab/TimeLens-XL) |
 | `REVDM` | [CVPR Paper](https://openaccess.thecvf.com/content/CVPR2025/html/Chen_Repurposing_Pre-trained_Video_Diffusion_Models_for_Event-based_Video_Interpolation_CVPR_2025_paper.html)<br>Repurposing Pre-trained Video Diffusion Models for Event-based Video Interpolation | CVPR 2025 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://vdm-evfi.github.io/) | [![GitHub](https://img.shields.io/github/stars/codingrex/VDM_EVFI)](https://github.com/codingrex/VDM_EVFI) |
+| `EIF-BiOFNet` | [![arXiv](https://img.shields.io/badge/arXiv-2502.13716-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2502.13716)<br>Event-Based Video Frame Interpolation With Cross-Modal Asymmetric Bidirectional Motion Fields | CVPR 2025 (Highlight) | - | [![GitHub](https://img.shields.io/github/stars/intelpro/CBMNet)](https://github.com/intelpro/CBMNet) |
+| `TimeTracker` | [![arXiv](https://img.shields.io/badge/arXiv-2505.03116-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2505.03116)<br>TimeTracker: Event-based Continuous Point Tracking for Video Frame Interpolation with Non-linear Motion | CVPR 2025 | - | - |
+| `EventDiff` | [![arXiv](https://img.shields.io/badge/arXiv-2505.08235-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2505.08235)<br>EventDiff: A Unified and Efficient Diffusion Model Framework for Event-based Video Frame Interpolation | arXiv 2025 | - | - |
 |  |
 |  |
 
@@ -428,7 +463,9 @@ If you find this work helpful for your research, please kindly consider citing o
 | `SAN` | [![arXiv](https://img.shields.io/badge/arXiv-2308.05932-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2308.05932)<br>Generalizing Event-Based Motion Deblurring in Real-World Scenarios | ICCV 2023 | - | [![GitHub](https://img.shields.io/github/stars/xiangz-0/gem)](https://github.com/xiangz-0/gem) |
 | `DA-Deblur` | [ECCV Paper](https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/06299.pdf)<br>Motion Aware Event Representation-Driven Image Deblurring | ECCV 2024 | - | [![GitHub](https://img.shields.io/github/stars/ZhijingS/DA_event_deblur)](https://github.com/ZhijingS/DA_event_deblur) |
 | `ELEDNet` | [ECCV Paper](https://link.springer.com/chapter/10.1007/978-3-031-73254-6_25)<br>Towards Real-World Event-Guided Low-Light Video Enhancement and Deblurring | ECCV 2024 | - | [![GitHub](https://img.shields.io/github/stars/intelpro/ELEDNet)](https://github.com/intelpro/ELEDNet) |
+| `CMTA` | [![arXiv](https://img.shields.io/badge/arXiv-2408.14930-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2408.14930)<br>CMTA: Cross-Modal Temporal Alignment for Event-guided Video Deblurring | ECCV 2024 | - | - |
 | `EGDeblurring` | [CVPR Paper](https://openaccess.thecvf.com/content/CVPR2025/html/Xie_Diffusion-based_Event_Generation_for_High-Quality_Image_Deblurring_CVPR_2025_paper.html)<br>Diffusion-based Event Generation for High-Quality Image Deblurring | CVPR 2025 | - | [![GitHub](https://img.shields.io/github/stars/XinanXie/EGDeblurring)](https://github.com/XinanXie/EGDeblurring) |
+| `ClearSight` | [![arXiv](https://img.shields.io/badge/arXiv-2501.15808-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2501.15808)<br>ClearSight: Human Vision-Inspired Solutions for Event-Based Motion Deblurring | ICCV 2025 | - | - |
 |  |
 |  |
 
@@ -442,6 +479,8 @@ If you find this work helpful for your research, please kindly consider citing o
 | `E-CIR` | [![arXiv](https://img.shields.io/badge/arXiv-2203.01935-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2203.01935)<br>E-CIR: Event-Enhanced Continuous Intensity Recovery | CVPR 2022 | - | [![GitHub](https://img.shields.io/github/stars/chensong1995/E-CIR)](https://github.com/chensong1995/E-CIR) |
 | `EVDI` | [CVPR Paper](https://openaccess.thecvf.com/content/CVPR2022/papers/Zhang_Unifying_Motion_Deblurring_and_Frame_Interpolation_With_Events_CVPR_2022_paper.pdf)<br>Unifying Motion Deblurring and Frame Interpolation with Events | CVPR 2022 | - | [![GitHub](https://img.shields.io/github/stars/XiangZ-0/EVDI)](https://github.com/XiangZ-0/EVDI) |
 | `UniINR` | [![arXiv](https://img.shields.io/badge/arXiv-2305.15078-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2305.15078)<br>UniINR: Event-Guided Unified Rolling Shutter Correction, Deblurring, and Interpolation | ECCV 2024 | - | [![GitHub](https://img.shields.io/github/stars/yunfanLu/UniINR)](https://github.com/yunfanLu/UniINR) |
+| `CrossZoom` | [![arXiv](https://img.shields.io/badge/arXiv-2309.16949-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2309.16949)<br>CrossZoom: Simultaneously Motion Deblurring and Event Super-Resolving | arXiv 2023 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://bestrivenzc.github.io/CZ-Net/) | - |
+| `EventMM` | [![arXiv](https://img.shields.io/badge/arXiv-2402.11957-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2402.11957)<br>Event-Based Motion Magnification | ECCV 2024 | - | - |
 |  |
 |  |
 
@@ -458,7 +497,10 @@ If you find this work helpful for your research, please kindly consider citing o
 | `STIR` | [![arXiv](https://img.shields.io/badge/arXiv-2303.13767-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2303.13767)<br>Learning Spatial-Temporal Implicit Neural Representations for Event-Guided Video Super-Resolution | CVPR 2023 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://vlis2022.github.io/cvpr23/egvsr) | [![GitHub](https://img.shields.io/github/stars/yunfanLu/INR-Event-VSR)](https://github.com/yunfanLu/INR-Event-VSR) |
 | `eSL-Net++` | [![arXiv](https://img.shields.io/badge/arXiv-2302.13766-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2302.13766)<br>Learning to Super-Resolve Blurry Images with Events | TPAMI 2023 | - | [![GitHub](https://img.shields.io/github/stars/gistvision/e2sri)](https://github.com/gistvision/e2sri) |
 | `EvTexture` | [![arXiv](https://img.shields.io/badge/arXiv-2406.13457-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2406.13457)<br>EvTexture: Event-driven Texture Enhancement for Video Super-Resolution | ICML 2024 | - | [![GitHub](https://img.shields.io/github/stars/DachunKai/EvTexture)](https://github.com/DachunKai/EvTexture) |
+| `BMCNet` | [![arXiv](https://img.shields.io/badge/arXiv-2405.10037-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2405.10037)<br>Bilateral Event Mining and Complementary for Event Stream Super-Resolution | CVPR 2024 | - | - |
+| `NeurSR` | [![arXiv](https://img.shields.io/badge/arXiv-2407.05764-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2407.05764)<br>Neuromorphic Imaging with Super-Resolution | TCSVT 2024 | - | - |
 | `Noise2Image` | [![arXiv](https://img.shields.io/badge/arXiv-2404.01298-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2404.01298)<br>Noise2Image: Noise-Enabled Static Scene Recovery for Event Cameras | Optica 2025 | - | [![GitHub](https://img.shields.io/github/stars/rmcao/noise2image)](https://github.com/rmcao/noise2image) |
+| `UPNSNN` | [![arXiv](https://img.shields.io/badge/arXiv-2508.03244-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2508.03244)<br>Ultralight Polarity-Split Neuromorphic SNN for Event-Stream Super-Resolution | AAAI 2026 | - | - |
 |  |
 |  |
 
@@ -472,6 +514,8 @@ If you find this work helpful for your research, please kindly consider citing o
 | `NeurImg-HDR` | [Google Drive](https://drive.google.com/file/d/1gfdc9axSIHO3OOIXL6yTCGljj1l54gqO/view)<br>Hybrid High Dynamic Range Imaging Fusing Neuromorphic and Conventional Images | TPAMI 2023 | - | [![GitHub](https://img.shields.io/github/stars/hjynwa/NeurImg-HDR)](https://github.com/hjynwa/NeurImg-HDR) |
 | `HDRev-Net` | [CVPR Paper](https://openaccess.thecvf.com/content/CVPR2023/html/Yang_Learning_Event_Guided_High_Dynamic_Range_Video_Reconstruction_CVPR_2023_paper.html)<br>Learning Event Guided High Dynamic Range Video Reconstruction | CVPR 2023 | - | [![GitHub](https://img.shields.io/github/stars/YixinYang-00/HDRev)](https://github.com/YixinYang-00/HDRev) |
 | `EventHDR` | [![arXiv](https://img.shields.io/badge/arXiv-2409.17029-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2409.17029)<br>EventHDR: From Event to High-Speed HDR Videos and Beyond | TPAMI 2024 | - | - |
+| `Self-EHDRI` | [![arXiv](https://img.shields.io/badge/arXiv-2404.03210-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2404.03210)<br>HDR Imaging for Dynamic Scenes with Events | arXiv 2024 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://lxp-whu.github.io/Self-EHDRI) | - |
+| `ESHDR` | [![arXiv](https://img.shields.io/badge/arXiv-2412.14705-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2412.14705)<br>Event-assisted 12-stop HDR Imaging of Dynamic Scene | arXiv 2024 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://openimaginglab.github.io/Event-Assisted-12stops-HDR/) | - |
 |  |
 |  |
 
@@ -487,6 +531,9 @@ If you find this work helpful for your research, please kindly consider citing o
 | `EvLight` | [![arXiv](https://img.shields.io/badge/arXiv-2404.00834-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2404.00834)<br>Towards Robust Event-Guided Low-Light Image Enhancement: A Large-Scale Real-World Event-Image Dataset and Novel Approach | CVPR 2024 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://vlislab22.github.io/eg-lowlight/) | [![GitHub](https://img.shields.io/github/stars/EthanLiang99/EvLight)](https://github.com/EthanLiang99/EvLight) |
 | `Sim2Real-EVFI` | [![arXiv](https://img.shields.io/badge/arXiv-2406.08090-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2406.08090)<br>From Sim-to-Real: Toward General Event-Based Low-Light Frame Interpolation with Per-Scene Optimization | SIGGRAPH Asia 2024 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://openimaginglab.github.io/Sim2Real/) | [![GitHub](https://img.shields.io/github/stars/OpenImagingLab/sim2real)](https://github.com/OpenImagingLab/sim2real) |
 | `EvLight++` | [IEEE Paper](https://ieeexplore.ieee.org/document/11192751)<br>EvLight++: Low-Light Video Enhancement With an Event Camera: A Large-Scale Real-World Dataset, Novel Method, and More | TPAMI 2026 | - | [![GitHub](https://img.shields.io/github/stars/EthanLiang99/EvLight)](https://github.com/EthanLiang99/EvLight) |
+| `FourierEvent` | [![arXiv](https://img.shields.io/badge/arXiv-2508.00308-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2508.00308)<br>Exploring Fourier Prior and Event Collaboration for Low-Light Image Enhancement | ACM MM 2025 | - | - |
+| `ERetinex` | [![arXiv](https://img.shields.io/badge/arXiv-2503.02484-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2503.02484)<br>ERetinex: Event Camera Meets Retinex Theory for Low-Light Image Enhancement | ICRA 2025 | - | - |
+| `NEC-Diff` | [![arXiv](https://img.shields.io/badge/arXiv-2603.20005-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2603.20005)<br>NEC-Diff: Noise-Robust Event-RAW Complementary Diffusion for Seeing Motion in Extreme Darkness | CVPR 2026 | - | [![GitHub](https://img.shields.io/github/stars/jinghan-xu/NEC-Diff)](https://github.com/jinghan-xu/NEC-Diff) |
 |  |
 |  |
 
@@ -502,6 +549,8 @@ If you find this work helpful for your research, please kindly consider citing o
 | `EMVS` | [IJCV Paper](https://rpg.ifi.uzh.ch/docs/IJCV17_Rebecq.pdf)<br>EMVS: Event-based Multi-View Stereo—3D Reconstruction with an Event Camera in Real-Time | IJCV 2018 | - | [![GitHub](https://img.shields.io/github/stars/uzh-rpg/rpg_emvs)](https://github.com/uzh-rpg/rpg_emvs) |
 | - | [![arXiv](https://img.shields.io/badge/arXiv-1807.07429-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/1807.07429)<br>Semi-Dense 3D Reconstruction with a Stereo Event Camera | ECCV 2018 | - | - |
 | `EventPS` | [CVPR Paper](https://openaccess.thecvf.com/content/CVPR2024/papers/Yu_EventPS_Real-Time_Photometric_Stereo_Using_an_Event_Camera_CVPR_2024_paper.pdf)<br>EventPS: Real-Time Photometric Stereo Using an Event Camera | CVPR 2024 | - | [Codeberg](https://codeberg.org/ybh1998/EventPS) |
+| `E2E-3D` | [![arXiv](https://img.shields.io/badge/arXiv-2501.00741-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2501.00741)<br>Towards End-to-End Neuromorphic Event-based 3D Object Reconstruction Without Physical Priors | ICME 2025 | - | - |
+| `RoEL` | [![arXiv](https://img.shields.io/badge/arXiv-2602.18258-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2602.18258)<br>RoEL: Robust Event-based 3D Line Reconstruction | T-RO 2026 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://gwangtak.github.io/roel/) | - |
 |  |
 |  |
 
@@ -532,6 +581,7 @@ If you find this work helpful for your research, please kindly consider citing o
 | `SaENeRF` | [![arXiv](https://img.shields.io/badge/arXiv-2504.16389-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2504.16389)<br>SaENeRF: Suppressing Artifacts in Event-based Neural Radiance Fields | IJCNN 2025 | - | [![GitHub](https://img.shields.io/github/stars/Mr-firework/SaENeRF)](https://github.com/Mr-firework/SaENeRF) |
 | `DynEventNeRF` | Dynamic EventNeRF: Reconstructing General Dynamic Scenes from Multi-view RGB and Event Streams | CVPR Workshop 2025 | - | [![GitHub](https://img.shields.io/github/stars/r00tman/DynEventNeRF)](https://github.com/r00tman/DynEventNeRF) |
 | `EventNeuS` | [![arXiv](https://img.shields.io/badge/arXiv-2602.03847-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2602.03847)<br>EventNeuS: 3D Mesh Reconstruction from a Single Event Camera | 3DV 2026 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://4dqv.mpi-inf.mpg.de/EventNeuS/) | - |
+| `HDR-NeRF-Events` | [![arXiv](https://img.shields.io/badge/arXiv-2601.15475-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2601.15475)<br>Seeing through Light and Darkness: Sensor-Physics Grounded Deblurring HDR NeRF from Single-Exposure Images and Events | CVPR 2026 | - | - |
 |  |
 |  |
 
@@ -560,6 +610,9 @@ If you find this work helpful for your research, please kindly consider citing o
 | `DiET-GS` | [CVPR Paper](https://openaccess.thecvf.com/content/CVPR2025/html/Lee_DiET-GS_Diffusion_Prior_and_Event_Stream-Assisted_Motion_Deblurring_3D_Gaussian_CVPR_2025_paper.html)<br>DiET-GS: Diffusion Prior and Event Stream-Assisted Motion Deblurring 3D Gaussian Splatting | CVPR 2025 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://diet-gs.github.io/) | [![GitHub](https://img.shields.io/github/stars/DiET-GS/DiET-GS)](https://github.com/DiET-GS/DiET-GS) |
 | `EBAD-Gaussian` | [![arXiv](https://img.shields.io/badge/arXiv-2504.10012-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2504.10012)<br>EBAD-Gaussian: Event-Driven Bundle Adjusted Deblur Gaussian Splatting | arXiv 2025 | - | - |
 | `Elite-EvGS` | [![arXiv](https://img.shields.io/badge/arXiv-2409.13392-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2409.13392)<br>Elite-EvGS: Learning Event-based 3D Gaussian Splatting by Distilling Event-to-Video Priors | arXiv 2024 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://vlislab22.github.io/elite-evgs/) | - |
+| `E-3DGS-LargeScale` | [![arXiv](https://img.shields.io/badge/arXiv-2502.10827-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2502.10827)<br>E-3DGS: Event-Based Novel View Rendering of Large-Scale Scenes Using 3D Gaussian Splatting | 3DV 2025 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://4dqv.mpi-inf.mpg.de/E3DGS/) | - |
+| `DEGS` | [![arXiv](https://img.shields.io/badge/arXiv-2510.07752-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2510.07752)<br>DEGS: Deformable Event-based 3D Gaussian Splatting from RGB and Event Stream | TVCG 2025 | - | - |
+| `E2EGS` | [![arXiv](https://img.shields.io/badge/arXiv-2603.14684-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2603.14684)<br>E2EGS: Event-to-Edge Gaussian Splatting for Pose-Free 3D Reconstruction | CVPR 2026 | - | - |
 |  |
 |  |
 
@@ -578,12 +631,12 @@ If you find this work helpful for your research, please kindly consider citing o
 
 | Model | Paper | Venue | Website | GitHub |
 |:-:|:-|:-:|:-:|:-:|
-| `EventCLIP` | EventCLIP: Adapting CLIP for Event-based Object Recognition | arXiv 2023 | - | - |
+| `EventCLIP` | [![arXiv](https://img.shields.io/badge/arXiv-2306.06354-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2306.06354)<br>EventCLIP: Adapting CLIP for Event-based Object Recognition | arXiv 2023 | - | - |
 | `ExACT` | [![arXiv](https://img.shields.io/badge/arXiv-2403.12534-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2403.12534)<br>ExACT: Language-guided Conceptual Reasoning and Uncertainty Estimation for Event-based Action Recognition | CVPR 2024 | - | - |
-| `EventBind` | EventBind: Learning a Unified Representation to Bind Them All for Event-based Open-world Understanding | ECCV 2024 | - | - |
-| `CEIA` | CEIA: CLIP-Based Event-Image Alignment for Open-World Event-Based Understanding | arXiv 2024 | - | - |
-| `Expanding Event` | Expanding Event Modality Applications through a Robust CLIP-Based Encoder | arXiv 2024 | - | - |
-| `EZSR` | EZSR: Event-based Zero-Shot Recognition | CVPR 2025 | - | - |
+| `EventBind` | [![arXiv](https://img.shields.io/badge/arXiv-2308.03135-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2308.03135)<br>EventBind: Learning a Unified Representation to Bind Them All for Event-based Open-world Understanding | ECCV 2024 | - | - |
+| `CEIA` | [![arXiv](https://img.shields.io/badge/arXiv-2407.06611-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2407.06611)<br>CEIA: CLIP-Based Event-Image Alignment for Open-World Event-Based Understanding | ECCVW 2024 | - | - |
+| `Expanding Event` | [![arXiv](https://img.shields.io/badge/arXiv-2412.03093-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2412.03093)<br>Expanding Event Modality Applications through a Robust CLIP-Based Encoder | arXiv 2024 | - | - |
+| `EZSR` | [![arXiv](https://img.shields.io/badge/arXiv-2407.21616-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2407.21616)<br>EZSR: Event-based Zero-Shot Recognition | CVPR 2025 | - | - |
 |  |
 |  |
 
@@ -613,7 +666,7 @@ If you find this work helpful for your research, please kindly consider citing o
 |:-:|:-|:-:|:-:|:-:|
 | `ECDP` | [![arXiv](https://img.shields.io/badge/arXiv-2301.01928-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2301.01928)<br>Event Camera Data Pre-training | ICCV 2023 | - | [![GitHub](https://img.shields.io/github/stars/Yan98/Event-Camera-Data-Pre-training)](https://github.com/Yan98/Event-Camera-Data-Pre-training) |
 | `MEM` | [![arXiv](https://img.shields.io/badge/arXiv-2212.10368-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2212.10368)<br>Masked Event Modeling: Self-Supervised Pretraining for Event Cameras | WACV 2024 | - | [![GitHub](https://img.shields.io/github/stars/tum-vision/mem)](https://github.com/tum-vision/mem) |
-| `DECP` | Data-efficient Event Camera Pre-training via Disentangled Masked Modeling | arXiv 2024 | - | - |
+| `DECP` | [![arXiv](https://img.shields.io/badge/arXiv-2403.00416-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2403.00416)<br>Data-efficient Event Camera Pre-training via Disentangled Masked Modeling | arXiv 2024 | - | - |
 | `ECDP-Dense` | Event Camera Data Dense Pre-training | ECCV 2024 | - | - |
 | `SD2Event` | SD2Event: Self-supervised Learning of Dynamic Detectors and Contextual Descriptors for Event Cameras | CVPR 2024 | - | - |
 | `EvRepSL` | Event-Stream Representation via Self-Supervised Learning for Event-Based Vision | TIP 2024 | - | - |
@@ -621,6 +674,7 @@ If you find this work helpful for your research, please kindly consider citing o
 | `STP` | Efficient Event Camera Data Pretraining with Adaptive Prompt Fusion | ICCV 2025 | - | - |
 | `EventPretrain` | Revealing Latent Information: A Physics-inspired Self-supervised Pre-training Framework | ACM MM 2025 | - | - |
 | `CM3AE` | A Unified RGB Frame and Event-Voxel/-Frame Pre-training Framework | ACM MM 2025 | - | - |
+| `GEP` | [![arXiv](https://img.shields.io/badge/arXiv-2603.23032-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2603.23032)<br>Generative Event Pretraining with Foundation Model Alignment | CVPR 2026 | - | - |
 |  |
 |  |
 
@@ -639,6 +693,8 @@ If you find this work helpful for your research, please kindly consider citing o
 | `FFEvent` | FFEvent: Fast Fourier-based Knowledge Transfer for Event Cameras | Expert Systems with Applications 2026 | - | - |
 | `Semantic-E2VID` | Exploring The Missing Semantics In Event Modality | arXiv 2025 | - | - |
 | `TGVFM` | Temporal-Guided Visual Foundation Models for Event-Based Vision | arXiv 2025 | - | - |
+| `VELoRA` | [![arXiv](https://img.shields.io/badge/arXiv-2412.20064-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2412.20064)<br>VELoRA: A Low-Rank Adaptation Approach for Efficient RGB-Event based Recognition | arXiv 2024 | - | - |
+| `ADAE` | [![arXiv](https://img.shields.io/badge/arXiv-2601.02020-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2601.02020)<br>Adapting Depth Anything to Adverse Imaging Conditions with Events | arXiv 2025 | - | - |
 |  |
 |  |
 
@@ -656,6 +712,9 @@ If you find this work helpful for your research, please kindly consider citing o
 | `LLM-EvRep` | Learning an LLM-Compatible Event Representation Using a Self-Supervised Framework | WWW Companion 2025 | - | - |
 | `EventVL` | EventVL: Understand Event Streams via Multimodal Large Language Model | arXiv 2025 | - | - |
 | `EventFlash` | EventFlash: Towards Efficient MLLMs for Event-Based Vision | arXiv 2026 | - | - |
+| `EventBench` | [![arXiv](https://img.shields.io/badge/arXiv-2511.18448-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2511.18448)<br>EventBench: Towards Comprehensive Benchmarking of Event-based MLLMs | arXiv 2025 | - | - |
+| `EvQA` | [![arXiv](https://img.shields.io/badge/arXiv-2512.11510-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2512.11510)<br>Reconstruction as a Bridge for Event-Based Visual Question Answering | arXiv 2025 | - | - |
+| `Event-MLLM` | [![arXiv](https://img.shields.io/badge/arXiv-2603.27558-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2603.27558)<br>Learning to See through Illumination Extremes with Event Streaming in MLLMs | arXiv 2026 | - | - |
 |  |
 |  |
 
@@ -670,6 +729,7 @@ If you find this work helpful for your research, please kindly consider citing o
 | `EP-VLM` | Event-Priori-Based Vision-Language Model for Efficient Visual Understanding | arXiv 2025 | - | - |
 | `Talk2Event` | Talk2Event: Grounded Understanding of Dynamic Scenes from Event Cameras | NeurIPS 2025 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://talk2event.github.io/) | - |
 | `E-VLA` | E-VLA: Event-Augmented Vision-Language-Action Model for Dark and Blurred Scenes | arXiv 2026 | - | - |
+| `LLaFEA` | [![arXiv](https://img.shields.io/badge/arXiv-2503.06934-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2503.06934)<br>LLaFEA: Frame-Event Complementary Fusion for Fine-Grained Spatiotemporal Understanding in LMMs | arXiv 2025 | - | - |
 |  |
 |  |
 
@@ -683,6 +743,7 @@ If you find this work helpful for your research, please kindly consider citing o
 | `Ev-LaFOR` | Label-Free Event-based Object Recognition via Joint Learning with Image Reconstruction from Events | ICCV 2023 (Oral) | - | - |
 | `EventDance++` | EventDance++: Language-guided Unsupervised Source-free Cross-modal Adaptation for Event-based Object Recognition | arXiv 2024 | - | - |
 | `ExACT` | [![arXiv](https://img.shields.io/badge/arXiv-2403.12534-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2403.12534)<br>ExACT: Language-guided Conceptual Reasoning and Uncertainty Estimation for Event-based Action Recognition | CVPR 2024 | - | - |
+| `ESTR-CoT` | [![arXiv](https://img.shields.io/badge/arXiv-2507.02200-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2507.02200)<br>ESTR-CoT: Towards Explainable Event Stream based Scene Text Recognition with Chain-of-Thought Reasoning | arXiv 2025 | - | - |
 |  |
 |  |
 
@@ -699,6 +760,8 @@ If you find this work helpful for your research, please kindly consider citing o
 | `rpg_vid2e` | [![arXiv](https://img.shields.io/badge/arXiv-1912.03095-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/1912.03095)<br>Video to Events: Recycling Video Datasets for Event Cameras | CVPR 2020 | - | [![GitHub](https://img.shields.io/github/stars/uzh-rpg/rpg_vid2e)](https://github.com/uzh-rpg/rpg_vid2e) |
 | `v2e` | [![arXiv](https://img.shields.io/badge/arXiv-2006.07722-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2006.07722)<br>v2e: From Video Frames to Realistic DVS Events | CVPRW 2021 | - | [![GitHub](https://img.shields.io/github/stars/SensorsINI/v2e)](https://github.com/SensorsINI/v2e) |
 | `DVS-Voltmeter` | [DVS-Voltmeter: Stochastic Process-Based Event Simulator for Dynamic Vision Sensors](https://link.springer.com/chapter/10.1007/978-3-031-20071-7_34) | ECCV 2022 | - | [![GitHub](https://img.shields.io/github/stars/Lynn0306/DVS-Voltmeter)](https://github.com/Lynn0306/DVS-Voltmeter) |
+| `ADV2E` | [![arXiv](https://img.shields.io/badge/arXiv-2411.12250-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2411.12250)<br>ADV2E: Bridging the Gap Between Analogue Circuit and Discrete Frames in the Video-to-Events Simulator | arXiv 2024 | - | - |
+| `SENPI` | [![arXiv](https://img.shields.io/badge/arXiv-2503.09754-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2503.09754)<br>A PyTorch-Enabled Tool for Synthetic Event Camera Data Generation and Algorithm Development | arXiv 2025 | - | - |
 |  |
 |  |
 
@@ -726,6 +789,8 @@ If you find this work helpful for your research, please kindly consider citing o
 | `DA4Event` | DA4Event: Towards Bridging the Sim-to-Real Gap for Event Cameras Using Domain Adaptation | arXiv 2021 | - | - |
 | `N-ROD` | N-ROD: A Neuromorphic Dataset for Synthetic-to-Real Domain Adaptation | arXiv 2021 | - | - |
 | `Sim2Real-EVFI` | [![arXiv](https://img.shields.io/badge/arXiv-2406.08090-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2406.08090)<br>From Sim-to-Real: Toward General Event-Based Low-Light Frame Interpolation with Per-Scene Optimization | SIGGRAPH Asia 2024 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://openimaginglab.github.io/Sim2Real/) | [![GitHub](https://img.shields.io/github/stars/OpenImagingLab/sim2real)](https://github.com/OpenImagingLab/sim2real) |
+| `EQS` | [![arXiv](https://img.shields.io/badge/arXiv-2504.12515-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2504.12515)<br>Event Quality Score: Assessing the Realism of Simulated Event Camera Streams | CVPRW 2025 | - | - |
+| `CARLA-DVS` | [![arXiv](https://img.shields.io/badge/arXiv-2506.13722-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2506.13722)<br>How Real is CARLA's Dynamic Vision Sensor? A Study on the Sim-to-Real Gap in Traffic Object Detection | arXiv 2025 | - | - |
 |  |
 |  |
 
