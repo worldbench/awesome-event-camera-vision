@@ -321,11 +321,11 @@ If you find this work helpful for your research, please kindly consider citing o
 | Model | Paper | Venue | Website | GitHub |
 |:-:|:-|:-:|:-:|:-:|
 | `DVS-Gesture` | A Low Power, Fully Event-Based Gesture Recognition System | CVPR 2017 | - | - |
-| `PointNet-EVS` | [![arXiv](https://img.shields.io/badge/arXiv-1904.07518-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/1904.07518)<br>Space-Time Event Clouds for Gesture Recognition: From RGB Cameras to Event Cameras | CVPRW 2019 | - | - |
+| `PointNet-EVS` | [IEEE Paper](https://ieeexplore.ieee.org/document/8659288)<br>Space-Time Event Clouds for Gesture Recognition: From RGB Cameras to Event Cameras | CVPRW 2019 | - | - |
 | `E2(GO)MOTION` | [![arXiv](https://img.shields.io/badge/arXiv-2112.03596-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2112.03596)<br>E2(GO)MOTION: Motion Augmented Event Stream for Egocentric Action Recognition | CVPR 2022 | - | - |
 | `ExACT` | [![arXiv](https://img.shields.io/badge/arXiv-2403.12534-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2403.12534)<br>ExACT: Language-guided Conceptual Reasoning and Uncertainty Estimation for Event-based Action Recognition | CVPR 2024 | - | - |
-| `HARDVS-Method` | [![arXiv](https://img.shields.io/badge/arXiv-2312.08849-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2312.08849)<br>HARDVS: Revisiting Human Activity Recognition with Dynamic Vision Sensors | AAAI 2024 | - | - |
-| `DailyDVS-Method` | DailyDVS-200: A Comprehensive Benchmark Dataset for Event-Based Action Recognition | ECCV 2024 | - | - |
+| `HARDVS-Method` | [![arXiv](https://img.shields.io/badge/arXiv-2211.09648-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2211.09648)<br>HARDVS: Revisiting Human Activity Recognition with Dynamic Vision Sensors | AAAI 2024 | - | - |
+| `DailyDVS-Method` | [![arXiv](https://img.shields.io/badge/arXiv-2407.05106-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2407.05106)<br>DailyDVS-200: A Comprehensive Benchmark Dataset for Event-Based Action Recognition | ECCV 2024 | - | - |
 | `EventFly-Action` | EventFly: Event Camera Perception from Ground to the Sky | CVPR 2025 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://event-fly.github.io/) | - |
 | `EventTransAct` | [![arXiv](https://img.shields.io/badge/arXiv-2308.13711-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2308.13711)<br>EventTransAct: A video transformer-based framework for Event-camera based action recognition | IROS 2023 | - | - |
 | `SpikePoint` | [![arXiv](https://img.shields.io/badge/arXiv-2310.07189-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2310.07189)<br>SpikePoint: An Efficient Point-based Spiking Neural Network for Event Cameras Action Recognition | ICLR 2024 | - | - |
