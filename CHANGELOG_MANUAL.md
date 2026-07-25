@@ -460,3 +460,50 @@ Git 添加、提交或推送；用户在 Windows 中自行完成版本控制。
 - 待用户处理：
   - 在 Overleaf 编译 `main.tex`，重点检查 catalog 删除九行后的行底色、分页及方法演进图布局。
   - 在 Windows 环境自行检查 Git 差异并提交、推送。
+
+### 2026-07-25-16：修复REPORT按旧编号误分重建子类
+
+- 执行者：Codex
+- 范围：外层 `tools/reconstruction_screening/build_inventory.py`、`generate_full_report.py`、重建 inventory/全量结果、`docs/reconstruction_screening/REPORT.md`、`PROJECT_STATUS.md` 和本修改历史；未修改主项目论文文件，未执行 Git。
+- 修改前：
+  - 报告生成器用固定 catalog 编号区间推断类别，例如74--92强制归入 NeRF、93--110强制归入3DGS。
+  - 删除论文并连续重编号后，当前3DGS实际范围已变为85--101，导致 EvGGS 至 IncEventGS 共8项被误列进 NeRF。
+  - `REPORT.md` 因而错误显示 NeRF 19项、3DGS 9项；NeurIPS 2024 `Event-3DGS` 虽未删除，却出现在 NeRF 表中。
+- 修改后：
+  - inventory 直接解析 catalog 每行的 `\circnum{}`，保存 `catalog_category_no` 和 `catalog_category`。
+  - 全量报告生成器读取该显式类别，不再依据会随删减变化的编号区间。
+  - 重新生成后 NeRF 为18项、3DGS为17项；`Event-3DGS`、Event3DGS、EvGGS 等全部回到3DGS表。
+- 修改原因与证据：
+  - `sections/catalog_tables.tex` 明确用 `\circnum{11}` 标识 NeRF、`\circnum{12}` 标识3DGS，这是比连续序号稳定的当前事实来源。
+  - 用户主要依据 `REPORT.md` 决定删减，因此错误分组会直接影响人工判断，必须修复生成源而非只手改报告。
+- 验证：
+  - 重建 inventory 共101项，12个子类合计101项，无 `unknown` 类别。
+  - 3DGS 表完整列出编号85--101的17项；NeurIPS 2024 `Event-3DGS` 为第91项、当前引用30，位于3DGS表。
+  - NeRF 表为编号67--84的18项；报告重建成功，未访问网络或刷新引用缓存。
+- 待用户处理：
+  - 后续以修复后的 `docs/reconstruction_screening/REPORT.md` 继续进行人工删减。
+
+### 2026-07-25-17：为全量REPORT增加代码、stars和数据集审计
+
+- 执行者：Codex
+- 范围：外层 `tools/reconstruction_screening/audit_open_source.py`、`generate_full_report.py`、GitHub 审计缓存、机器可读结果、`docs/reconstruction_screening/REPORT.md`、`PROJECT_STATUS.md` 和本修改历史；未修改主项目论文文件，未执行 Git。
+- 修改前：
+  - `REPORT.md` 只有 venue、引用量、引用/年和引文初筛提示，无法直接判断论文是否真正开放代码/数据。
+  - 旧人工材料只覆盖少数论文，stars 没有统一快照；“有 GitHub 链接”与“仓库实际含代码”未区分。
+- 修改后：
+  - 新增可重复运行的 `audit_open_source.py`：用少量宽泛 GitHub 搜索加未匹配项精确搜索发现候选，所有查询、仓库元数据、文件树和 README 结果均缓存，默认重跑不联网，显式刷新才重新请求。
+  - 对仓库递归文件树检测实质代码文件；README 写有 coming soon/TODO 且缺少代码时标为“占位/待发布”；空仓库标为“仓库无代码”；历史链接404标为“仓库失效”。
+  - 记录 GitHub stars 快照，并区分数据下载入口、仓库内数据/脚本、承诺未发布和本轮未检出。
+  - `REPORT.md` 每个子类总表新增“代码/仓库”“GitHub ★”“数据集”三列，并在报告末尾加入保守解释和状态图例。
+  - 为避免同名污染，完整题名/arXiv 身份或既有人工证据才视为高置信；仅仓库名相同的结果显示“同名候选”，不直接认定为论文官方开源。
+- 修改原因与证据：
+  - 用户明确把真实开源、开放数据集、假开源和 GitHub stars 作为下一轮删减的重要依据。
+  - GitHub API 提供仓库 stars、默认分支和递归文件树；公开 README 用于判断代码/数据是否仍是 coming soon/TODO。
+  - 初轮宽松匹配曾把多个 NeRF 方法指向同一个 `enerf` 仓库，并把 EvDiff 指向 EVDI；最终版提高阈值并重新生成，撤回这些误匹配。
+- 验证：
+  - 当前 catalog 101项均有一行开源审计结果；检出37个 GitHub 仓库，其中30个为人工证据或完整题名/身份高置信匹配，7个为明确标注的同名候选。
+  - 检测到32项仓库含至少3个实质代码文件，3项为占位或无代码风险，15项 README 含明确数据下载入口。
+  - CoRL 2024 `Event3DGS` 未检出高置信仓库；NeurIPS 2024 `Event-3DGS` 独立匹配 `lanpokn/Event-3DGS`，未再混用同一身份。
+  - 报告仍保留“本轮未检出不等于绝对未开源”的限制；stars 是2026-07-25 GitHub API 快照，会随时间变化。
+- 待用户处理：
+  - 下一轮删减时优先复核“占位/待发布”“仓库无代码”“仓库失效”和低-star项；点击报告中的仓库链接确认作者身份及最新状态。
