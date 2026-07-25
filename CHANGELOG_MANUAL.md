@@ -368,3 +368,41 @@ Git 添加、提交或推送；用户在 Windows 中自行完成版本控制。
 - 待用户处理：
   - 在 Overleaf 编译 `main.tex`，重点检查 reconstruction catalog 删行后的跨页、行底色和参考文献显示。
   - 在 Windows 环境自行检查 Git 差异并提交；建议把本轮主稿、Bib、审计和变更日志作为同一批提交。
+
+### 2026-07-25-13：第一轮补充删减EventDiff并保留EvDiff
+
+- 执行者：Codex
+- 范围：主项目 `sections/3_method.tex`、`sections/catalog_tables.tex`、`main.bib`；外层 reconstruction 报告、数据、生成源、专项审计、项目状态和本修改历史；未修改 `main.tex`，未执行 Git。
+- 修改前：
+  - `EventDiff` 位于 reconstruction catalog 第35项，正文 Frame Interpolation 段以 `\cite{chen2025eventdiff}` 概述，并在 Bib 中保留以下完整条目：
+
+```bibtex
+@article{chen2025eventdiff,
+  title={{EventDiff}: A Unified and Efficient Diffusion Model Framework for Event-based Video Frame Interpolation},
+  author={Zheng, Hanle and Han, Xujie and Peng, Zegang and Zhang, Shangbin and Du, Guangxun and Zou, Zhuo and Wang, Xilin and Wu, Jibin and Guo, Hao and Deng, Lei},
+  journal={arXiv preprint arXiv:2505.08235},
+  year={2025}
+}
+```
+
+  - catalog 共112项，Bib 共567条，Tex 共引用386个唯一 citation key。
+  - `EventDiff` 和 `EvDiff` 同为2025年扩散工作；前者仍是纯 arXiv 的 VFI 方法，后者已有 Ming-Hsuan Yang 官方论文列表的 ECCV 2026 接收记录。
+- 修改后：
+  - 从 catalog、正文和 `main.bib` 删除 `EventDiff` 及 citation key `chen2025eventdiff`；其后 catalog 条目连续重编号。
+  - 保留 `EvDiff` 及 `li2025evdiff`，不修改其当前 Bib。
+  - catalog 从112项减为111项；Bib 从567条减为566条；Tex 唯一 citation key 从386减为385。
+  - 全量报告、纯 arXiv 附录、inventory、机器结果、筛查规则和项目状态同步为111项；`EventDiff` 从“中优先级复核”改为“第一轮已删除”。
+- 原因/证据：
+  - 用户明确决定二选一时删除 `EventDiff`。
+  - `EventDiff` 截至核验日仍为 arXiv:2505.08235，未找到代码或数据，且 diffusion VFI 已有 REVDM、EGVD、EPA 等代表工作。
+  - `EvDiff` 作者包括 Ming-Hsuan Yang、Luc Van Gool、Danda Pani Paudel；Ming-Hsuan Yang 官方论文列表已将其列为 ECCV 2026，且一阶段扩散和 surrogate training 在生成先验演进中更具代表性。
+  - 完整比较和删除前 Bib 条目已追加到 `docs/reference_audit/reconstruction_pruning_round1_2026-07-25.md`。
+- 验证：
+  - inventory 为111行，编号1--111连续；102项绑定 Bib，9项未绑定，catalog 明写 arXiv 的条目为11项。
+  - `main.bib` 有566个条目和566个唯一 key；Tex 有385个唯一引用 key，缺失引用为0。
+  - 主项目内 `EventDiff` 和 `chen2025eventdiff` 命中为0；`EvDiff` 和 `li2025evdiff` 仍存在。
+  - `main.tex` SHA-256 仍为 `87385960d87cd63685662b43e610e502f538087847f7aea7847a9c925eca252a`；`main.bib` SHA-256 为 `2da1ff9845c8bd1834fc63476fd8cfa74af89419ffda060e80c0019c3bb3a735`。
+  - 当前环境没有 LaTeX 工具链，未做完整编译；静态引用、JSON、报告再生成和连续编号检查通过。
+- 待用户处理：
+  - 在 Overleaf 编译并检查 catalog 重编号后的行底色、分页和参考文献显示。
+  - 在 Windows 环境自行执行 Git 添加、提交和推送。
