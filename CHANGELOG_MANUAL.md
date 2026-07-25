@@ -406,3 +406,30 @@ Git 添加、提交或推送；用户在 Windows 中自行完成版本控制。
 - 待用户处理：
   - 在 Overleaf 编译并检查 catalog 重编号后的行底色、分页和参考文献显示。
   - 在 Windows 环境自行执行 Git 添加、提交和推送。
+
+### 2026-07-25-14：第一轮补充删除E-3DGS
+
+- 执行者：Codex
+- 范围：主项目 reconstruction 正文、catalog、`main.bib`；外层报告、机器数据、生成源、专项审计、项目状态和本修改历史；未执行 Git。
+- 修改前：
+  - `E-3DGS: 3D Gaussian Splatting with Exposure and Motion Events` 位于 catalog 第102项，正文 Event-Enhanced 3DGS 段引用 `yin2025e3dgs`。
+  - Bib 条目为 Applied Optics 64(14):3897，DOI `10.1364/AO.557565`，7位作者，2025年。
+  - 旧筛查结论因 exposure events、硬件、EME-3D 数据和标注代码而保护该论文。
+  - catalog 111项，Bib 566条，Tex 385个唯一 citation key。
+- 修改后：
+  - 从正文、catalog 和 `main.bib` 删除该 E-3DGS 及 `yin2025e3dgs`；不影响另一篇 3DV 2025 的 `E-3DGS-LargeScale`。
+  - 后续 catalog 连续重编号；catalog 110项，Bib 565条，Tex 384个唯一 citation key。
+  - 当前报告把 E-3DGS 从“较低可见度venue但保护”撤回为“第一轮已删除”；所有仍作为当前依据的状态、报告和生成源同步更新。
+- 原因/证据：
+  - 用户实际核查后确认论文标注的 GitHub 长期未更新，属于假开源，并明确要求删除。
+  - 在拥挤的 event-3DGS 路线中，低引用与不可用复现资产共同削弱其保留价值。
+  - 完整删除前 Bib 和证据链接见 `docs/reference_audit/reconstruction_pruning_round1_2026-07-25.md`。
+- 验证：
+  - inventory 为110行，编号1--110连续；101项绑定 Bib，9项未绑定。
+  - `main.bib` 有565个条目和565个唯一 key；Tex 有384个唯一引用 key，缺失引用为0。
+  - `yin2025e3dgs` 和目标完整题名在主项目中命中为0；`E-3DGS-LargeScale`、`zahid2025e3dgslarge` 仍保留。
+  - `main.bib` SHA-256 为 `9e9e285544ebe26bc33ad704046e57b3c1130b827ec4a0f134f69c7a6b58539d`。
+  - 当前环境没有 LaTeX 工具链，未做完整编译；静态引用、JSON、报告再生成和编号检查通过。
+- 待用户处理：
+  - 在 Overleaf 编译并检查 catalog 行底色、分页和参考文献。
+  - 在 Windows 环境自行执行 Git 添加、提交和推送。
