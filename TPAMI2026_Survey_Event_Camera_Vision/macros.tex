@@ -1,0 +1,90 @@
+% macros.tex — Event Camera Vision Survey
+% Last updated: 2026/04/21
+
+% ---- Math ----
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+
+% ---- Algorithms ----
+\usepackage{algorithmic}
+\usepackage{algorithm}
+
+% ---- Tables ----
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{colortbl}
+\usepackage{longtable}
+\usepackage{adjustbox}
+
+% ---- Graphics ----
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+
+% ---- Colors (xcolor must come before tcolorbox) ----
+\usepackage[dvipsnames]{xcolor}
+
+% ---- Modality Icons (fontawesome5) ----
+\usepackage{fontawesome5}
+\newcommand{\iconev}{\textcolor{blue!80}{\faBolt}}
+\newcommand{\iconcam}{\textcolor{red!70!black}{\faCamera}}
+\newcommand{\icontext}{\textcolor{orange!80!black}{\faFont}}
+\newcommand{\icondepth}{\textcolor{violet}{\faLayerGroup}}
+\newcommand{\iconimu}{\textcolor{teal}{\faCompass}}
+\newcommand{\iconvideo}{\textcolor{green!60!black}{\faFilm}}
+\newcommand{\iconthrd}{\textcolor{brown}{\faCubes}}
+\newcommand{\iconcode}{\textcolor{gray!70}{\faGithub}}
+
+% ---- TikZ ----
+\usepackage{tikz}
+\usetikzlibrary{trees,arrows.meta,positioning,calc,shapes.geometric,shapes.misc,decorations.pathreplacing,backgrounds,fit}
+
+% ---- Boxes ----
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{breakable}
+\tcbuselibrary{listings}
+\tcbuselibrary{skins}
+
+% ---- Lists ----
+\usepackage{enumitem}
+
+% ---- Typography ----
+\usepackage{microtype}
+
+% ---- Symbols ----
+\usepackage{pifont}
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
+% ---- Numbered-circle macro for functional categories ----
+\newcommand{\circnum}[1]{\tikz[baseline=(char.base)]{%
+  \node[shape=circle,draw=gray!70,inner sep=1.2pt,font=\sffamily\tiny\bfseries,minimum size=0.38cm](char){#1};}}
+
+% ---- Venue abbreviation macro ----
+\newcommand{\venue}[2]{#1\kern0.03em'\kern-0.02em#2}
+
+% ---- Alternating row color for catalog tables ----
+\definecolor{rowgray}{gray}{0.95}
+\newcommand{\rowalt}{\rowcolor{rowgray}}
+
+% ---- Convenience macros ----
+\usepackage{xspace}
+\newcommand*{\ie}{\emph{i.e.}\@\xspace}
+\newcommand*{\eg}{\emph{e.g.}\@\xspace}
+\newcommand*{\vs}{\emph{vs.}\@\xspace}
+\newcommand*{\etal}{\emph{et~al.}\@\xspace}
+
+% ---- Link colors ----
+\definecolor{link}{RGB}{52,204,204}
+
+% ---- Hyperref & Cleveref (must be loaded near last) ----
+\usepackage[pagebackref=false,colorlinks,linkcolor=link,citecolor=link,urlcolor=magenta]{hyperref}
+\usepackage[capitalize,noabbrev]{cleveref}
+\crefname{section}{Section}{Sections}
+\crefname{table}{Tab.}{Tabs.}
+\crefname{figure}{Fig.}{Figs.}
+\crefname{equation}{Eq.}{Eqs.}

@@ -1,0 +1,491 @@
+\section{Methods: A Hierarchical Taxonomy}
+\label{sec:method}
+
+We organize the core methods of event camera vision into three interrelated pillars: \textit{perception} (\cref{sec:perception}), which addresses tasks that extract structured information from event streams; \textit{reconstruction} (\cref{sec:reconstruction}), which recovers visual signals (images, videos, and 3D scenes) from events; and \textit{understanding} (\cref{sec:understanding}), which connects events with high-level semantics through foundation models and language. For each pillar, we present a structured taxonomy, trace the evolution of approaches, and highlight the paradigm shifts driven by large-scale pre-trained models.
+
+
+% ======================================================================
+% 3.1 Perception
+% ======================================================================
+\subsection{Event Camera Perception}
+\label{sec:perception}
+
+Event camera perception encompasses tasks that extract structured information --- object locations, semantic labels, dense geometry, motion fields, and human poses --- from asynchronous event streams. We survey five core tasks, tracing the evolution from early CNN-based approaches to the current landscape of Transformers, state space models, spiking neural networks, and foundation model adaptations.
+
+
+% ----------------------------------------------------------------------
+% 3.1.1 Object Detection
+% ----------------------------------------------------------------------
+\subsubsection{Object Detection}
+\label{sec:perception_det}
+
+Object detection from event cameras is challenging because events encode brightness changes rather than appearance, and the asynchronous nature of the data requires rethinking the frame-centric detection paradigm.
+
+\noindent\circnum{1}~\textbf{CNN and RNN Approaches.} Early work adapted conventional detectors to event representations. Pseudo-label-based detection~\cite{iacono2018dvs} applied supervised learning on DVS data under ego-motion. RED~\cite{perot2020red} demonstrated detection on a 1-megapixel event camera using a feed-forward CNN, establishing the Gen1 and 1Mpx benchmarks. ASTMNet~\cite{li2022astmnet} introduced an asynchronous spatio-temporal memory network for continuous detection. MatrixLSTM~\cite{cannici2020matrixlstm} proposed a differentiable recurrent surface for processing asynchronous events.
+
+\noindent\circnum{2}~\textbf{Transformer-Based Methods.} RVT~\cite{gehrig2023rvt} marked a turning point by introducing a multi-stage recurrent Vision Transformer that achieved 47.2\% mAP on Gen1 while being 6$\times$ faster than prior art. HMNet~\cite{hamaguchi2023hmnet} proposed a hierarchical neural memory network for low-latency processing. GET~\cite{peng2023get} used group event tokens for efficient representation. SODFormer~\cite{zhao2023sodformer} introduced streaming object detection fusing events and frames. SAST~\cite{peng2024sast} (CVPR'24) employed scene-adaptive sparse Transformers. EGSST~\cite{wang2024egsst} combined graph structure with spatiotemporal Transformers at NeurIPS'24.
+
+\noindent\circnum{3}~\textbf{Graph Neural Networks.} AEGNN~\cite{schaefer2022aegnn} processed events as asynchronous spatiotemporal graphs with per-event message passing. DAGr~\cite{gehrig2024dagr}, published in \textit{Nature}, demonstrated that graph-based event processing achieves the latency of a 5,000-fps camera with the bandwidth of a 45-fps camera for automotive detection --- arguably the most impactful result in event-based perception to date.
+
+\noindent\circnum{4}~\textbf{State Space Models.} S5-ViT~\cite{zubic2024s5vit} (CVPR'24 Spotlight) combined S4/S5-style state space layers with Vision Transformers, achieving 33\% faster training than recurrent methods while being robust to input frequency mismatches. SMamba~\cite{li2025smamba} introduced sparse Mamba for event-based detection at AAAI'25.
+
+\noindent\circnum{5}~\textbf{Spiking Neural Networks.} SNNs offer a biologically plausible and energy-efficient alternative. Spiking-YOLO~\cite{kim2020spikingyolo} was the first SNN-based detector. EMS-YOLO~\cite{su2023emsyolo} enabled deep directly-trained SNNs for detection. SpikeYOLO~\cite{li2024spikeyolo} (ECCV'24 Best Paper Candidate) combined integer-valued training with spike-driven inference. EAS-SNN~\cite{wang2024eassnn} introduced end-to-end adaptive sampling. HsVT~\cite{li2025hsvt} proposed hybrid spiking Vision Transformers at ICML'25.
+
+\noindent\circnum{6}~\textbf{Other Paradigms.} MvHeat-DET~\cite{wang2025mvheat} (CVPR'25) introduced heat conduction-based detection with a mixture-of-experts framework and the EvDET200K benchmark. Ev-3DOD~\cite{li2025ev3dod} pushed event cameras into 3D object detection at CVPR'25.
+
+\noindent\circnum{7}~\textbf{Label-Efficient and Multi-Modal Fusion.} LEOD~\cite{wu2024leod} addressed the label scarcity problem through label-efficient training strategies. EOLO~\cite{zhou2024eolo} fused events and frames for robust all-day detection. CAFR~\cite{cao2024cafr} introduced hierarchical feature refinement for event-frame fusion.
+
+A comprehensive catalog of event-based detection methods is provided in \cref{tab:perception_catalog}; quantitative benchmark comparisons are in \cref{sec:appendix}.
+
+
+% ----------------------------------------------------------------------
+% 3.1.2 Semantic Segmentation
+% ----------------------------------------------------------------------
+\subsubsection{Semantic Segmentation}
+\label{sec:perception_seg}
+
+Semantic segmentation assigns a class label to every pixel in the event stream, enabling dense scene understanding for applications such as autonomous driving and robot navigation.
+
+\noindent\circnum{1}~\textbf{Supervised Approaches.} EV-SegNet~\cite{alonso2019evsegnet} pioneered event-based semantic segmentation with a CNN operating on event histograms. ESS~\cite{sun2022ess} transferred segmentation knowledge from labeled still images to unlabeled event streams via unsupervised domain adaptation, a landmark in reducing annotation requirements. HALSIE~\cite{biber2024halsie} simultaneously exploited image and event modalities. EISNet introduced multi-modal fusion for event-image segmentation. ESEG~\cite{li2025eseg} (AAAI'25) incorporated explicit edge-semantic guidance. HybridFusion (AAAI'25) proposed efficient frame-event fusion.
+
+\noindent\circnum{2}~\textbf{Annotation-Efficient Methods.} HPL-ESS~\cite{liu2024hpless} introduced hybrid pseudo-labeling for unsupervised event segmentation. EV-WSSS~\cite{wang2024evwsss} explored weakly supervised segmentation for event cameras at ECCV'24.
+
+\noindent\circnum{3}~\textbf{SNN and SSM Approaches.} SpikingEDN proposed an adaptive spiking encoder-decoder for efficient segmentation. SLTNet used spike-driven lightweight Transformers. MambaSeg~\cite{chen2024mambaseg} harnessed Mamba for image-event semantic segmentation.
+
+\noindent\circnum{4}~\textbf{Open-Vocabulary and Foundation Model Methods.} OpenESS~\cite{kong2024openess} (CVPR'24 Highlight) was the first to achieve open-vocabulary event segmentation by transferring CLIP knowledge through frame-to-event distillation, achieving 53.93\% mIoU on DDD17 \textit{without any event labels}. EventSAM~\cite{chen2024eventsam} adapted the Segment Anything Model for event streams. OVOSE~\cite{bendali2024ovose} used synthetic events with foundation model distillation. SEAL~\cite{li2026seal} (ICLR'26) enabled open-vocabulary event instance segmentation at both instance and part levels. These methods are further discussed in \cref{sec:understanding}.
+
+\noindent\circnum{5}~\textbf{Instance and Panoptic Segmentation.} GMNN~\cite{yang2023gmnn} applied graph mixer neural networks for panoptic segmentation. CTOS introduced continuous-time object segmentation at high temporal resolution.
+
+\noindent\circnum{6}~\textbf{Motion Segmentation.} Events are naturally well-suited for detecting independently moving objects. EV-IMO~\cite{mitrokhin2019evimo} established the first motion segmentation dataset and pipeline. EMSGC~\cite{zhou2021emsgc} used spatio-temporal graph cuts. Un-EvMoSeg~\cite{zhang2024unevmoseg} achieved unsupervised event-based independent motion segmentation at ECCV'24.
+
+\cref{tab:perception_catalog} catalogs all segmentation methods; quantitative comparisons are in \cref{sec:appendix}.
+
+
+% ----------------------------------------------------------------------
+% 3.1.3 Depth and Optical Flow Estimation
+% ----------------------------------------------------------------------
+\subsubsection{Depth and Optical Flow Estimation}
+\label{sec:perception_depth_flow}
+
+Depth estimation and optical flow estimation are closely related dense prediction tasks that recover scene geometry and pixel-level motion, respectively. Event cameras enable both with high temporal resolution and robustness to challenging illumination --- crucial for real-time 3D perception in autonomous systems. We discuss these two complementary tasks together, as many recent methods address both within unified frameworks.
+
+\paragraph{Monocular Depth Estimation.}
+E2Depth~\cite{hidalgo2020e2depth} was the first to learn dense monocular depth from events alone using a recurrent architecture. RAMNet~\cite{gehrig2021ramnet} combined events and frames through a recurrent asynchronous multimodal network. EReFormer~\cite{xu2024ereformer} introduced recurrent Transformers for event-based depth. The most recent trend involves foundation model distillation: EventDAM~\cite{xu2025depthanycvent} (ICCV'25) distills proxy depth labels from Depth Anything v2 to train event-specific networks without ground-truth depth annotations --- a paradigm-defining result that exemplifies the ``era of large models'' approach (see also \cref{sec:understanding}).
+
+\paragraph{Stereo Depth Estimation.}
+Stereo event cameras enable disparity estimation from event correspondences. DDES~\cite{tulyakov2019ddes} learned event sequence embeddings for dense stereo. SE-CFF~\cite{nam2022secff} focused on future event predictions for stereo matching. DTC-SPADE~\cite{zhang2022dtcspade} used discrete time convolutions for fast stereo. ADES~\cite{cho2023ades} learned adaptive dense event stereo from the image domain. More recently, EMatch~\cite{li2025ematch} (ICCV'25) proposed a unified framework for both optical flow and stereo matching, and ActiveEventNet~\cite{wang2025activeeventnet} (CVPR'25) introduced active stereo to address texture-less regions.
+
+\paragraph{Optical Flow Estimation.}
+The continuous temporal sampling of event cameras makes them natural sensors for optical flow estimation, capturing motion at rates far beyond frame-based cameras.
+
+\noindent\circnum{1}~\textbf{Self-Supervised and Unsupervised.} EV-FlowNet~\cite{zhu2018evflownet} pioneered self-supervised optical flow from events using photometric and smoothness losses. Zhu~\etal~\cite{zhu2019unsupervised} extended this to jointly learn flow, depth, and egomotion without ground truth.
+
+\noindent\circnum{2}~\textbf{Dense Supervised.} E-RAFT~\cite{gehrig2021eraft} adapted the RAFT architecture for events, establishing a strong baseline on MVSEC and DSEC benchmarks. DCEIFlow~\cite{wan2022dceiflow} learned dense and continuous optical flow from events and images.
+
+\noindent\circnum{3}~\textbf{Contrast Maximization.} The Secrets of Event-Based Optical Flow~\cite{shiba2022secretsof} provided deep insights into contrast maximization for flow estimation, later extended to depth and ego-motion~\cite{shiba2024cmaxsecrets}.
+
+\noindent\circnum{4}~\textbf{Architecture Innovations.} TMA~\cite{liu2023tma} aggregated temporal motion for improved flow. RPEFlow~\cite{wan2023rpeflow} fused RGB, point cloud, and events for joint optical and scene flow. EEMFlow~\cite{liu2024eemflow} achieved efficient meshflow estimation at CVPR'24. SDformerFlow introduced spatiotemporal swin spikeformers. BAT~\cite{li2025bat} proposed bidirectional adaptive temporal correlation.
+
+\noindent\circnum{5}~\textbf{SNN-Based.} Spike-FlowNet~\cite{lee2020spikeflownet} demonstrated energy-efficient hybrid spiking-analog flow estimation.
+
+\cref{tab:perception_catalog} catalogs all depth and optical flow estimation methods; quantitative comparisons are in \cref{sec:appendix}.
+
+
+% ----------------------------------------------------------------------
+% 3.1.4 Object Tracking
+% ----------------------------------------------------------------------
+\subsubsection{Object Tracking}
+\label{sec:perception_track}
+
+Event cameras enable tracking at speeds and dynamic ranges impossible for frame-based trackers, making them valuable for high-speed and low-light scenarios.
+
+\noindent\circnum{1}~\textbf{Feature Tracking.} EKLT~\cite{gehrig2019eklt} asynchronously tracked features extracted from frames using events, achieving high temporal resolution. Data-driven approaches~\cite{messikommer2023etracker} learned feature tracking for event cameras. BlinkTrack~\cite{wang2024blinktrack} achieved feature tracking over 100 FPS by fusing events and images.
+
+\noindent\circnum{2}~\textbf{Single Object Tracking.} The field has developed rapidly with dedicated benchmarks. VisEvent~\cite{wang2023visevent} established an RGB-event tracking benchmark. STNet~\cite{zhang2022stnet} applied spiking Transformers for event-only tracking. CEUTrack~\cite{tang2022ceutrack} and COESOT unified color-event tracking. HDETrack~\cite{wang2024hdetrack} (CVPR'24) introduced a high-resolution event tracking benchmark with the EventVOT dataset.
+
+\noindent\circnum{3}~\textbf{Mamba-Based Tracking.} A recent trend applies state space models for efficient temporal reasoning. Mamba-FETrack~\cite{wang2024mambafe} introduced frame-event tracking via Mamba. MambaEVT~\cite{wang2024mambaevt} applied Mamba to pure event-stream tracking.
+
+\noindent\circnum{4}~\textbf{Cross-Modal and Long-Term.} CRSOT~\cite{tang2024crsot} addressed cross-resolution tracking with unaligned sensors. AMTTrack and FELT~\cite{wang2024felt} established a long-term event tracking benchmark. GS-EVT~\cite{wang2024gsevt} combined Gaussian Splatting with event cameras for cross-modal tracking.
+
+\cref{tab:perception_catalog} catalogs all tracking methods; quantitative comparisons are in \cref{sec:appendix}.
+
+
+% ----------------------------------------------------------------------
+% 3.1.5 Action Recognition and Pose Estimation
+% ----------------------------------------------------------------------
+\subsubsection{Action Recognition and Pose Estimation}
+\label{sec:perception_action_pose}
+
+Action recognition and pose estimation both exploit the temporal richness of event cameras to understand human behavior. We group them together because they share complementary goals: recognizing \textit{what} a person is doing (action) and estimating \textit{how} they are moving (pose). Many applications --- such as sports analysis, rehabilitation, and human-robot interaction --- require both capabilities jointly.
+
+\paragraph{Action and Gesture Recognition.}
+The temporal richness and privacy-preserving nature of events make them attractive for action and gesture recognition.
+
+\noindent\circnum{1}~\textbf{Gesture Recognition.} IBM's DVS128 Gesture system~\cite{amir2017dvs128gesture} demonstrated fully event-based gesture recognition at low power, establishing a widely-used benchmark. Spike Gating Flow~\cite{zhang2022spikegatingflow} introduced hierarchical SNNs for online gesture recognition at NeurIPS'22.
+
+\noindent\circnum{2}~\textbf{Action Recognition.} N-EPIC-Kitchens~\cite{plizzari2022nepickitchens} extended EPIC-Kitchens with synthetic events for egocentric action recognition. HARDVS~\cite{wang2023hardvs} and THU-EACT-50~\cite{gao2023thueact} established large-scale event action benchmarks. DailyDVS-200~\cite{wang2024dailydvs200} (ECCV'24) further scaled to 200 categories with 47 participants.
+
+\noindent\circnum{3}~\textbf{Efficient Architectures.} SpikePoint~\cite{ren2024spikepoint} (ICLR'24) achieved efficient point-based SNN action recognition. SpikMamba combined SNNs with Mamba for action recognition. EventMAE~\cite{chen2025eventmae} applied masked autoencoders for point-wise action recognition.
+
+\noindent\circnum{4}~\textbf{Language-Guided.} ExACT~\cite{tang2024exact} (CVPR'24) pioneered language-guided conceptual reasoning for event-based action recognition, using GPT-4-generated captions and CLIP-based alignment. This cross-modal approach is further discussed in \cref{sec:understanding}.
+
+\paragraph{Human Pose Estimation.}
+Event cameras capture fast human motions without blur, enabling high-frequency pose estimation critical for sports analysis, rehabilitation, and human-robot interaction.
+
+\noindent\circnum{1}~\textbf{Body Pose.} DHP19~\cite{calabrese2019dhp19} established the first multi-view DVS dataset for 3D human pose estimation. EventCap~\cite{xu2020eventcap} achieved monocular 3D capture of high-speed human motions. EventHPE~\cite{zou2021eventhpe} estimated 3D human pose and shape from events. EventPointPose~\cite{wang2024eventpointpose} explored 3D event representations for pose estimation.
+
+\noindent\circnum{2}~\textbf{Hand Pose.} EventHands~\cite{rudnev2021eventhands} demonstrated real-time neural 3D hand pose estimation from event streams. EvRGBHand~\cite{jiang2024evrgbhand} (CVPR'24) complemented events with RGB frames for hand mesh reconstruction. EventEgoHands~\cite{li2025eventegohands} addressed egocentric event-based 3D hand reconstruction.
+
+\noindent\circnum{3}~\textbf{Egocentric Pose.} EventEgo3D~\cite{millerdurai2024eventego3d} (CVPR'24) captured 3D human motion from egocentric event streams using a head-mounted event camera, later extended to EventEgo3D++~\cite{millerdurai2025eventego3dpp} with improved accuracy and robustness.
+
+\cref{tab:perception_catalog} catalogs all action recognition and pose estimation methods; quantitative comparisons are in \cref{sec:appendix}.
+
+\input{sections/catalog_tables}
+
+
+% ======================================================================
+% 3.2 Reconstruction
+% ======================================================================
+\subsection{Event Camera Reconstruction}
+\label{sec:reconstruction}
+
+Event camera reconstruction aims to recover dense visual information --- intensity images, high-frame-rate videos, and 3D scene geometry --- from sparse, asynchronous event streams. This area has witnessed explosive growth, with over 130 methods published to date. We organize the literature into four categories: event-to-video reconstruction (\cref{sec:recon_e2v}), which recovers continuous video from events; video frame interpolation and deblurring (\cref{sec:recon_vfi_deblur}), which leverages events to enhance frame-based video; image enhancement (\cref{sec:recon_enhance}), which uses events for super-resolution, HDR, and low-light imaging; and 3D reconstruction (\cref{sec:recon3d}), which recovers scene geometry and appearance.
+
+
+% ----------------------------------------------------------------------
+% 3.2.1 Event-to-Video Reconstruction
+% ----------------------------------------------------------------------
+\subsubsection{Event-to-Video Reconstruction}
+\label{sec:recon_e2v}
+
+Event-to-video (E2V) reconstruction converts asynchronous event streams into dense intensity videos, enabling compatibility with conventional vision pipelines while preserving the temporal advantages of event cameras. We organize E2V methods by their learning paradigm: discriminative, generative, and self-supervised.
+
+
+\paragraph{Discriminative Models.}
+\label{sec:recon_e2v_disc}
+
+Discriminative models learn a direct mapping from event representations to target intensity frames. This family constitutes the most extensively studied line of work in event-to-video reconstruction.
+
+\noindent\circnum{1}~\textbf{Foundational Work.} E2VID~\cite{rebecq2019e2vid} was the first to demonstrate that a recurrent convolutional network could reconstruct high-quality video from events alone, processing event voxel grids through a UNet with ConvLSTM modules. Its follow-up, E2VID+~\cite{stoffregen2020hqf}, addressed the sim-to-real gap by training on more realistic simulated data and introducing a principled photometric loss. These works established the dominant paradigm of the field: convert events to a tensor representation and process with a recurrent encoder-decoder.
+
+\noindent\circnum{2}~\textbf{Architectural Evolution.} Subsequent work has explored diverse architectures to improve reconstruction quality and efficiency. ET-Net~\cite{weng2021etnet} introduced Transformers into event-based video reconstruction, leveraging self-attention to capture long-range spatiotemporal dependencies. SPADE-E2VID~\cite{cadena2021spadee2vid} incorporated spatially adaptive normalization to better handle scene-dependent variations. HyperE2VID~\cite{ercan2024hypere2vid} employed hypernetworks to dynamically generate reconstruction parameters conditioned on the event input, enabling a single model to adapt to varying scene dynamics. Most recently, EventMamba~\cite{zhang2025eventmamba} leveraged state space models (Mamba) for efficient temporal modeling, using random window offsets and Hilbert space-filling curves to enhance spatio-temporal locality while maintaining linear computational complexity.
+
+\noindent\circnum{3}~\textbf{Unified Models.} A recent trend seeks to address multiple reconstruction tasks within a single framework. UniINR~\cite{lu2024uniinr} unified rolling shutter correction, deblurring, and interpolation via implicit neural representations. These unified approaches reduce the need for task-specific architectures and point toward general-purpose event-based reconstruction.
+
+
+\paragraph{Generative Models.}
+\label{sec:recon_e2v_gen}
+
+While discriminative models optimize per-pixel reconstruction losses (\eg, MSE, SSIM), generative models leverage learned priors to produce perceptually realistic outputs. This paradigm has undergone a dramatic shift from GANs to diffusion models.
+
+\noindent\circnum{1}~\textbf{GAN-Based Approaches.} cGAN-E2V~\cite{wang2019cgane2v} was the first to apply conditional GANs to event-to-video generation, producing HDR images and high-frame-rate video. However, GANs for event-based reconstruction remained relatively unexplored due to training instability and mode collapse issues.
+
+\noindent\circnum{2}~\textbf{Diffusion-Based Paradigm Shift.} The introduction of diffusion models~\cite{ho2020ddpm} has fundamentally changed generative event reconstruction, beginning in 2024. E2VIDiff~\cite{liang2024e2vidiff} first applied diffusion priors to event-to-video reconstruction, demonstrating superior perceptual quality compared to discriminative baselines. TRG-Diffusion~\cite{zhu2024trgdiffusion} incorporated temporal residual guidance to maintain temporal consistency. HDRev-Diff~\cite{yang2025hdrevdiff} extended diffusion priors to HDR reconstruction. EVDiffuser~\cite{chen2025evdiffuser} introduced a modality-adaptive diffusion pipeline for consistent video enhancement.
+
+\textit{Discussion.} The shift from discriminative to generative reconstruction represents one of the most significant paradigm changes in the field. Diffusion-based methods excel in perceptual quality metrics (LPIPS, FID) and produce more visually realistic outputs, but they are typically 10--100$\times$ slower than discriminative models due to iterative denoising. The ability to repurpose pre-trained video diffusion models~\cite{chen2025revdm} is particularly notable, as it demonstrates that the rich visual priors learned from internet-scale video data can be effectively transferred to the event modality --- a hallmark of the ``era of large models'' theme of this survey.
+
+
+\paragraph{Self-Supervised Approaches.}
+\label{sec:recon_e2v_ss}
+
+Self-supervised methods address the scarcity of paired event-ground truth data by learning reconstruction objectives that do not require explicit supervision.
+
+Early work by Paredes-Vall{\'e}s and de Croon~\cite{paredes2021backtoeventbasics} demonstrated that photometric constancy --- the principle that a reconstructed image, when used to re-simulate events, should produce events consistent with the input --- provides a powerful self-supervised signal. EvINR~\cite{wang2024evinr} revisited event generation models through implicit neural representations for self-supervised event-to-video reconstruction.
+
+We note that large-scale self-supervised pre-training methods (\eg, MEM~\cite{klenk2024mem}, ECDP~\cite{yang2023ecdp}, TESPEC) that learn general-purpose event representations are discussed in \cref{sec:understanding}, as their primary contribution lies in representation learning rather than reconstruction.
+
+\cref{tab:recon_catalog} provides a comprehensive catalog of all E2V reconstruction methods; quantitative benchmark comparisons are in \cref{sec:appendix}.
+
+
+% ----------------------------------------------------------------------
+% 3.2.2 Video Frame Interpolation and Deblurring
+% ----------------------------------------------------------------------
+\subsubsection{Video Frame Interpolation and Deblurring}
+\label{sec:recon_vfi_deblur}
+
+Events provide continuous temporal information between consecutive frames, making them powerful guides for both interpolating missing frames and recovering sharp images from motion blur. We organize this subsection into frame interpolation, motion deblurring, and joint methods.
+
+
+\paragraph{Frame Interpolation.}
+The microsecond temporal resolution of events makes them powerful guides for interpolating between RGB frames. TimeLens~\cite{tulyakov2021timelens} pioneered this direction with a synthesis-based approach. CBMNet~\cite{kim2023cbmnet} introduced cross-modal asymmetric bidirectional motion fields. TimeLens-XL~\cite{ma2024timelensxl} scaled to large motions and real-time operation, while TimeTracker~\cite{liu2025timetracker} handled non-linear motion trajectories via continuous point tracking. REVDM~\cite{chen2025revdm} repurposed pre-trained video diffusion models for event-based frame interpolation, achieving 33\% better perceptual quality than autoregressive methods and generalizing across different event camera sensors. EGVD~\cite{wang2025egvd} combined event guidance with video diffusion for physically realistic large-motion interpolation. EventDiff~\cite{chen2025eventdiff} proposed a unified diffusion framework for event-based video frame interpolation. EPA~\cite{li2025epa} boosted event-based interpolation with DINO-based perceptual alignment.
+
+
+\paragraph{Motion Deblurring.}
+Events naturally complement blurry frames because they record the precise timing of brightness changes during the exposure window. mEDI~\cite{pan2019medi} was the first to exploit this complementarity, using events to decompose a blurry frame into a sequence of sharp frames. EFNet~\cite{sun2022efnet} introduced cross-modal attention for event-frame fusion. DA-Deblur~\cite{sun2024dadeblur} proposed motion-aware event representations tailored for deblurring. EVDM~\cite{zhang2025evdm} brought Mamba-based architectures to event-guided video deblurring, achieving real-time performance on real-world data.
+
+
+\paragraph{Joint Interpolation and Deblurring.}
+REFID~\cite{sun2023refid} combined interpolation with ad-hoc deblurring. TimeReplayer~\cite{he2022timereplayer} unlocked the potential of event cameras for video interpolation through self-supervised temporal replay. EVDI~\cite{zhang2022evdi} unified motion deblurring and frame interpolation in a self-supervised framework, with its extension EVDI++~\cite{zhang2025evdiplus} further improving via iterative refinement. Sim2Real-EVFI~\cite{zhang2024sim2realevfi} bridged the sim-to-real gap for event-based frame interpolation through per-scene optimization.
+
+\cref{tab:recon_catalog} catalogs all VFI and deblurring methods; quantitative comparisons are in \cref{sec:appendix}.
+
+
+% ----------------------------------------------------------------------
+% 3.2.3 Image Enhancement
+% ----------------------------------------------------------------------
+\subsubsection{Image Enhancement}
+\label{sec:recon_enhance}
+
+Event cameras provide complementary temporal and dynamic-range information that can enhance conventional images in multiple dimensions: spatial resolution, dynamic range, and low-light visibility. We organize image enhancement methods into three categories.
+
+
+\paragraph{Super-Resolution.}
+Events provide temporal information that can guide spatial super-resolution of low-resolution frames. STIR~\cite{lu2023stir} learned spatial-temporal implicit neural representations for event-guided video SR. eSL-Net++~\cite{yu2023eslnetplus} jointly addressed blur and low resolution. EvTexture~\cite{kai2024evtexture} demonstrated event-driven texture enhancement at ICML'24. MamEVSR~\cite{xiao2025mamevsr} employed state space models, and EvEnhancer~\cite{lu2025evenhancer} (CVPR'25 Highlight) achieved continuous space-time super-resolution with strong generalizability.
+
+
+\paragraph{HDR Reconstruction.}
+The inherent high dynamic range of event cameras enables HDR imaging from events alone or in combination with conventional LDR frames. NeurImg-HDR~\cite{han2023neurimghdr} fused neuromorphic and conventional images for hybrid HDR. HDRev-Net~\cite{yang2023hdrevnet} learned event-guided HDR video reconstruction. EventHDR~\cite{zou2025eventhdr} extended this to high-speed HDR video generation. SEE~\cite{lu2025see} introduced a broader light range enhancement approach at NeurIPS'25, expanding beyond traditional HDR to handle extreme illumination variations.
+
+
+\paragraph{Low-Light Enhancement.}
+Events maintain high signal quality in low-light conditions due to their sensitivity to relative brightness changes. EvLowLight~\cite{liang2023evlowlight} proposed coherent event-guided low-light video enhancement. NER-Net~\cite{liu2024rled} addressed nighttime perception. EvLight~\cite{liang2024evlight} contributed a large-scale real-world dataset and approach for event-guided low-light enhancement, later extended to EvLight++~\cite{chen2026evlightpp}. ERetinex~\cite{guo2025eretinex} connected event cameras with classical Retinex theory.
+
+\cref{tab:recon_catalog} catalogs all image enhancement methods; quantitative comparisons are in \cref{sec:appendix}.
+
+
+% ----------------------------------------------------------------------
+% 3.2.4 3D Reconstruction
+% ----------------------------------------------------------------------
+\subsubsection{3D Reconstruction}
+\label{sec:recon3d}
+
+Event cameras offer unique advantages for 3D reconstruction: their continuous temporal sensing captures fine-grained camera motion between frames, their HDR capability handles challenging illumination, and their lack of motion blur enables sharp 3D models from fast-moving cameras. We organize 3D methods by their underlying scene representation: geometric, NeRF-based, and 3DGS-based.
+
+
+\paragraph{Geometric and Semi-Dense Reconstruction.}
+\label{sec:recon3d_geo}
+
+Classical approaches leverage geometric principles to reconstruct 3D structure directly from events. EMVS~\cite{rebecq2018emvs} proposed event-based multi-view stereo, back-projecting events along viewing rays into a discretized 3D space and selecting depths that maximize event consistency. This approach operates in real-time and produces semi-dense depth maps. Zhou~\etal~\cite{zhou2018semidense} extended this to stereo event cameras for semi-dense 3D reconstruction. More recently, EventPS~\cite{yu2024eventps} introduced real-time photometric stereo using an event camera, recovering surface normals from the continuous brightness changes captured by events under varying illumination.
+
+While elegant and efficient, geometric methods are inherently limited by the sparsity of events in texture-less regions and require known camera motion. Neural approaches, discussed below, overcome these limitations by learning scene priors from data.
+
+
+\paragraph{Neural Radiance Fields ({NeRF}) with Events.}
+\label{sec:recon3d_nerf}
+
+The introduction of Neural Radiance Fields (NeRF) opened a new paradigm for event-based 3D reconstruction, enabling photorealistic novel view synthesis by learning volumetric scene representations from event streams.
+
+\noindent\circnum{1}~\textbf{Foundational Event NeRFs.} Three concurrent works established this direction in 2023. Ev-NeRF~\cite{hwang2023evnerf} proposed an event-based NeRF that learns from accumulated event counts. EventNeRF~\cite{rudnev2023eventnerf} demonstrated that a NeRF can be learned from a single color event camera, without requiring any conventional frames. E-NeRF~\cite{klenk2023enerf} formulated a physically grounded event generation model within the NeRF framework, enabling training from a moving event camera.
+
+\noindent\circnum{2}~\textbf{Event-Enhanced NeRF from Degraded Images.} A major application of events in NeRF is to overcome image degradation. E2NeRF~\cite{qi2023e2nerf} used events to enhance NeRF training from motion-blurred images. BeNeRF~\cite{li2024benerf} reconstructed a NeRF from a single blurry image and its accompanying event stream. E3NeRF~\cite{qi2024e3nerf} improved efficiency for event-enhanced reconstruction. EvDeblurNeRF~\cite{cannici2024evdeblurnerf} and Deblur-e-NeRF~\cite{low2024deblurenerf} specifically addressed motion blur under high-speed or low-light conditions. EBAD-NeRF~\cite{qi2024ebadnerf} introduced event-driven bundle adjustment for joint pose refinement and deblurring.
+
+\noindent\circnum{3}~\textbf{Robust and Specialized NeRFs.} Robust-e-NeRF~\cite{weng2023robustenerf} handled sparse and noisy events under non-uniform motion. AE-NeRF~\cite{feng2025aenerf} augmented event NeRFs for non-ideal conditions and larger scenes. EvHDR-NeRF~\cite{chen2025evhdrnerf} leveraged events' HDR capability to build high dynamic range radiance fields from single-exposure images. LSE-NeRF~\cite{liao2025lsenerf} learned sensor modeling errors for deblurred NeRFs using RGB-event stereo. SaENeRF~\cite{zhang2025saenerf} focused on suppressing artifacts specific to event-based NeRF rendering.
+
+\noindent\circnum{4}~\textbf{Dynamic Scene NeRFs.} DE-NeRF~\cite{ma2023denerf} introduced deformable neural radiance fields using both RGB and event cameras for dynamic scenes. EvDNeRF~\cite{bhattacharya2024evdnerf} reconstructed event data itself with dynamic NeRFs. DynEventNeRF~\cite{rudnev2025dyneventnerf} reconstructed general dynamic scenes from multi-view RGB and event streams.
+
+\noindent\circnum{5}~\textbf{Surface Reconstruction.} EventNeuS~\cite{sachan2026eventneus} extended neural implicit surfaces (NeuS) to event cameras, enabling 3D mesh reconstruction from a single event camera --- moving beyond radiance field representations toward explicit geometry. E-NeMF~\cite{wang2025enemf} proposed event-based neural motion fields for novel space-time view synthesis, converting sparse events into dense optical flow for motion field optimization.
+
+Event-based NeRFs have demonstrated remarkable capabilities, but they inherit NeRF's computational limitations: training typically requires hours, and rendering is slow. This has motivated the adoption of 3D Gaussian Splatting, discussed next.
+
+
+\paragraph{3D Gaussian Splatting ({3DGS}) with Events.}
+\label{sec:recon3d_3dgs}
+
+3D Gaussian Splatting (3DGS)~\cite{kerbl20233dgs} represents scenes as collections of anisotropic 3D Gaussians that are rasterized via differentiable splatting, enabling real-time rendering at orders-of-magnitude faster speeds than NeRF. The combination of 3DGS with event cameras has emerged as one of the most active research frontiers since 2024, with over 25 methods published within two years.
+
+\noindent\circnum{1}~\textbf{Early Event-Based 3DGS.} Event3DGS~\cite{xiong2024event3dgs} was among the first to apply 3DGS to event data for high-speed robot egomotion reconstruction. Event-3DGS~\cite{lan2024event3dgs} (NeurIPS'24) formulated event-based 3D reconstruction within the Gaussian Splatting framework. EvGGS~\cite{wang2024evggs} proposed a collaborative learning framework for event-based generalizable Gaussian Splatting.
+
+\noindent\circnum{2}~\textbf{Deblurring via Event-Guided 3DGS.} A major application mirrors the NeRF deblurring paradigm: using events to recover sharp 3D representations from blurry inputs. EaDeblur-GS~\cite{weng2024eadeblurgs} introduced event-assisted 3D deblur reconstruction. BeSplat~\cite{matta2025besplat} reconstructed Gaussian Splats from a single blurry image and event stream. DiET-GS~\cite{lee2025dietgs} combined diffusion priors with event streams for motion deblurring 3DGS --- notably bridging generative reconstruction (diffusion) with 3D representation (3DGS). EBAD-GS~\cite{deng2025ebadgaussian} extended event-driven bundle adjustment to Gaussian Splatting. DeblurSplat~\cite{zhang2025deblursplat} achieved SfM-free deblurring 3DGS using DUSt3R for initialization and events for supervision.
+
+\noindent\circnum{3}~\textbf{Event-Enhanced 3DGS.} EvaGaussians~\cite{yu2025evagaussians} used event streams to assist Gaussian Splatting from blurry images. E2GS~\cite{deguchi2024e2gs} enhanced 3DGS with event data for improved quality. EF-3DGS~\cite{liao2025ef3dgs} enabled free-trajectory reconstruction. E-3DGS~\cite{yin2025e3dgs} incorporated both exposure and motion events.
+
+\noindent\circnum{4}~\textbf{Pose-Free Reconstruction.} A critical challenge in 3D reconstruction is the requirement for accurate camera poses, typically obtained from Structure-from-Motion (SfM) pipelines that fail on event-only data. IncEventGS~\cite{huang2025inceventgs} (CVPR'25) pioneered pose-free Gaussian Splatting from a single event camera, jointly estimating poses and scene geometry. E2EGS~\cite{li2026e2egs} extended this with an event-to-edge approach for trajectory estimation and Gaussian initialization.
+
+\noindent\circnum{5}~\textbf{Dynamic and 4D Reconstruction.} EventBoosted-3DGS~\cite{xu2025eventboosted3dgs} introduced event-boosted deformable Gaussians for dynamic scene reconstruction. Ev4DGS~\cite{liu2025ev4dgs} addressed novel-view rendering of non-rigid objects from monocular event streams. E-4DGS~\cite{wang2025e4dgs} achieved high-fidelity dynamic reconstruction from multi-view event cameras with event-based initialization and event-adaptive slicing. DEGS~\cite{he2026degs} used event motion priors to guide deformation field optimization.
+
+\noindent\circnum{6}~\textbf{SLAM and Large-Scale.} EGS-SLAM~\cite{chen2025egsslam} integrated events with RGB-D Gaussian Splatting for robust SLAM under motion blur. E-3DGS (Large-Scale)~\cite{zahid2025e3dgslarge} (3DV 2025) extended event-based 3DGS to large and unbounded scenes, outperforming EventNeRF by 11--25\% in PSNR.
+
+\noindent\circnum{7}~\textbf{Generalizable Reconstruction.} Elite-EvGS~\cite{zhang2024eliteevgs} proposed learning event-based 3DGS by distilling event-to-video priors, enabling generalization to unseen scenes without per-scene optimization.
+
+\textit{Discussion.} The rapid growth of event-based 3DGS reflects two converging trends: the real-time rendering advantage of 3DGS over NeRF, and the unique ability of events to provide continuous motion supervision between frames. Key open challenges include (i)~scaling to outdoor and unbounded scenes, (ii)~improving pose-free reconstruction robustness, (iii)~unifying static and dynamic representations, and (iv)~achieving real-time reconstruction (not just rendering) on edge devices.
+
+\cref{tab:recon_catalog} summarizes the key characteristics of all event-based 3D reconstruction methods.
+
+
+% ======================================================================
+% 3.3 Understanding
+% ======================================================================
+\subsection{Event Camera Understanding}
+\label{sec:understanding}
+
+The most distinctive contribution of this survey is the systematic review of event camera understanding --- an emerging area where large-scale pre-trained models are adapted to event data for semantic reasoning, open-vocabulary recognition, and language-grounded perception. Unlike the perception tasks in \cref{sec:perception}, which rely on task-specific architectures trained on event-specific labeled data, understanding methods leverage the rich visual and semantic priors encoded in foundation models (\eg, CLIP, SAM, GPT) to overcome the fundamental bottleneck of limited labeled event data. We organize this section around three themes that collectively define the frontier of event-based vision in the era of large models. \cref{fig:understanding_overview} maps the landscape of foundation model adaptation for event cameras.
+
+\begin{figure*}[t]
+\centering
+\begin{tikzpicture}[
+    font=\sffamily\scriptsize,
+    fmbox/.style={rounded corners=3pt, draw=#1!80, fill=#1!12, thick, minimum width=2cm, minimum height=0.7cm, align=center, font=\sffamily\scriptsize\bfseries},
+    methodbox/.style={rounded corners=2pt, draw=#1!60, fill=#1!6, minimum width=1.8cm, minimum height=0.5cm, align=center, font=\sffamily\tiny, inner sep=2pt},
+    taskbox/.style={rounded corners=2pt, draw=gray!50, fill=gray!5, minimum width=1.8cm, minimum height=0.5cm, align=center, font=\sffamily\tiny\itshape, inner sep=2pt},
+    arr/.style={-Stealth, thick, #1!60},
+    larr/.style={-Stealth, thin, #1!40},
+]
+
+% Foundation Models (top row)
+\node[fmbox=blue] (clip) at (0, 0) {CLIP};
+\node[fmbox=green!60!black] (sam) at (3.5, 0) {SAM};
+\node[fmbox=red!70!black] (diff) at (7, 0) {Diffusion\\Models};
+\node[fmbox=violet] (depth) at (10.5, 0) {Depth\\Anything};
+\node[fmbox=orange] (llm) at (14, 0) {LLMs /\\MLLMs};
+
+% Title
+\node[font=\sffamily\small\bfseries, text=gray!70] at (7, 1.2) {Pre-trained Foundation Models};
+\draw[gray!30, thick, dashed] (-1.5, 0.7) -- (15.5, 0.7);
+
+% Event-specific methods (middle row)
+\node[methodbox=blue] (eclip) at (-0.9, -1.5) {EventCLIP};
+\node[methodbox=blue] (ebind) at (0.9, -1.5) {EventBind};
+\node[methodbox=blue] (ezsr) at (0, -2.3) {EZSR};
+
+\node[methodbox=green!60!black] (esam) at (2.8, -1.5) {EventSAM};
+\node[methodbox=green!60!black] (evsam) at (4.2, -1.5) {EvSAM};
+
+\node[methodbox=red!70!black] (revdm) at (6.2, -1.5) {REVDM};
+\node[methodbox=red!70!black] (e2vidiff) at (7.8, -1.5) {E2VIDiff};
+
+\node[methodbox=violet] (edam) at (10.5, -1.5) {EventDAM};
+
+\node[methodbox=orange] (egpt) at (13.1, -1.5) {EventGPT};
+\node[methodbox=orange] (evl) at (14.9, -1.5) {EventVL};
+\node[methodbox=orange] (efl) at (14, -2.3) {EventFlash};
+
+% Arrows from foundation models to methods
+\draw[arr=blue] (clip) -- (eclip);
+\draw[arr=blue] (clip) -- (ebind);
+\draw[arr=green!60!black] (sam) -- (esam);
+\draw[arr=green!60!black] (sam) -- (evsam);
+\draw[arr=red!70!black] (diff) -- (revdm);
+\draw[arr=red!70!black] (diff) -- (e2vidiff);
+\draw[arr=violet] (depth) -- (edam);
+\draw[arr=orange] (llm) -- (egpt);
+\draw[arr=orange] (llm) -- (evl);
+
+% Tasks (bottom row)
+\node[taskbox] (t1) at (-0.5, -3.5) {Zero-shot\\Recognition};
+\node[taskbox] (t2) at (2, -3.5) {Open-Vocab\\Segmentation};
+\node[taskbox] (t3) at (4.5, -3.5) {Segment\\Anything};
+\node[taskbox] (t4) at (7, -3.5) {Generative\\Reconstruction};
+\node[taskbox] (t5) at (9.5, -3.5) {Depth\\Estimation};
+\node[taskbox] (t6) at (12, -3.5) {VQA \&\\Captioning};
+\node[taskbox] (t7) at (14.5, -3.5) {Embodied\\Intelligence};
+
+% Arrows from methods to tasks
+\draw[larr=blue] (ezsr) -- (t1);
+\draw[larr=blue] (eclip) -- (t2);
+\draw[larr=green!60!black] (esam) -- (t3);
+\draw[larr=red!70!black] (revdm) -- (t4);
+\draw[larr=violet] (edam) -- (t5);
+\draw[larr=orange] (egpt) -- (t6);
+\draw[larr=orange] (efl) -- (t7);
+
+% Additional cross-references
+\node[methodbox=blue] (openess) at (2, -2.3) {OpenESS};
+\draw[larr=blue] (openess) -- (t2);
+
+% Label rows
+\node[font=\sffamily\tiny\bfseries, text=gray!50, rotate=90] at (-2, -1.5) {Methods};
+\node[font=\sffamily\tiny\bfseries, text=gray!50, rotate=90] at (-2, -3.5) {Tasks};
+
+\end{tikzpicture}
+\caption{Landscape of foundation model adaptation for event camera understanding. Five families of pre-trained models (\textcolor{blue!80}{CLIP}, \textcolor{green!60!black}{SAM}, \textcolor{red!60!black}{Diffusion}, \textcolor{violet}{Depth Anything}, \textcolor{orange!80}{LLMs/MLLMs}) are adapted to event data through contrastive alignment, adapter modules, knowledge distillation, or end-to-end training. Each pathway enables qualitatively new capabilities --- from zero-shot recognition to visual question answering --- that were previously unavailable for event cameras.}
+\label{fig:understanding_overview}
+\end{figure*}
+
+
+% ----------------------------------------------------------------------
+% 3.3.1 Open-Vocabulary Perception
+% ----------------------------------------------------------------------
+\subsubsection{Open-Vocabulary Perception}
+\label{sec:understanding_ov}
+
+A defining capability of foundation-model-adapted event vision is \textit{open-vocabulary understanding}: recognizing or segmenting objects described by arbitrary text queries, without being limited to a predefined set of categories. This subsection consolidates work on CLIP-based alignment, open-vocabulary segmentation and detection, foundation model adaptation, self-supervised pre-training, and cross-modal knowledge transfer --- all of which share the common goal of enabling event models to generalize beyond closed-set categories.
+
+\paragraph{CLIP-Based Alignment and Zero-Shot Recognition.}
+CLIP~\cite{radford2021clip} provides a powerful image-text embedding space that can serve as a bridge between event data and natural language. EventCLIP~\cite{wu2023eventclip} was the first to adapt CLIP for event-based recognition, converting events to 2D grid representations and introducing a feature adapter for temporal aggregation. EventBind~\cite{zhou2024eventbind} (ECCV'24) proposed Hierarchical Triple Contrastive Alignment (HTCA) across image, text, and event modalities, achieving state-of-the-art on N-Caltech101 and N-ImageNet. CEIA~\cite{wei2024ceia} used images as a bridge to align events with CLIP's space via LoRA-based event encoder training, preserving CLIP's zero-shot ability while adapting to events. The Expanding Event encoder~\cite{zhou2024expanding} extended alignment to five modalities (image, event, text, sound, depth) with anti-catastrophic-forgetting mechanisms.
+
+EZSR~\cite{cho2025ezsr} (CVPR'25) represents a breakthrough: it develops an event encoder without relying on reconstruction networks, synthesizes training events from static RGB images at scale, and achieves 47.84\% zero-shot accuracy on N-ImageNet with ViT-B/16 --- \textit{surpassing even supervised methods}. This result demonstrates that event-text alignment, when properly designed, can be more effective than event-specific supervised training.
+
+ExACT~\cite{tang2024exact} (CVPR'24) applies CLIP-based reasoning to action recognition, using GPT-4-generated action captions to build the SeAct dataset and achieving 94.83\% accuracy on PAF through language-guided conceptual reasoning.
+
+\paragraph{Open-Vocabulary Segmentation and Detection.}
+OpenESS~\cite{kong2024openess} (CVPR'24 Highlight) was the first open-vocabulary event-based segmentation method. It transfers CLIP knowledge to event streams via two mechanisms: (i)~frame-to-event contrastive distillation, which aligns event features with CLIP image features, and (ii)~text-to-event semantic consistency regularization. Remarkably, OpenESS achieves 53.93\% mIoU on DDD17 and 43.31\% on DSEC-Semantic \textit{without any event or frame labels during training} --- demonstrating that language supervision alone can enable dense event perception.
+
+OVOSE~\cite{bendali2024ovose} extended open-vocabulary segmentation using synthetic event data and foundation model distillation. An adaptive event stream slicing method~\cite{li2025ovdetection} brought open-vocabulary capabilities to object detection, using SNN-based slicing with CLIP distillation from an RGB teacher. SEAL~\cite{li2026seal} (ICLR'26) represents the current state of the art, enabling Semantic-aware Segment Any Events at both instance and part-level granularity through open-vocabulary event instance segmentation (OV-EIS), with four benchmarks spanning coarse-to-fine semantic granularity.
+
+\paragraph{Foundation Model Adaptation.}
+Beyond CLIP, other foundation models --- particularly the Segment Anything Model (SAM)~\cite{kirillov2023sam} and DINOv2 --- have been adapted to event data through lightweight adapters and knowledge distillation.
+
+\noindent\circnum{1}~\textbf{SAM Adaptation.} EventSAM~\cite{chen2024eventsam} (CVPR'24) adapts SAM for event segmentation through multi-scale feature distillation that aligns event token embeddings with RGB counterparts. It also contributes the RGBE-SEG dataset. SAM-Event-Adapter~\cite{zhou2024sameventadapter} (ICRA'24) introduces a lightweight adapter that incorporates event data into SAM in a patch-compatible format. EvSAM~\cite{hu2025evsam} leverages SAM's generalization for RGB-event multimodal segmentation under adverse conditions.
+
+\noindent\circnum{2}~\textbf{DINOv2 and Visual Foundation Models.} A spike-driven Transformer~\cite{liu2024spikedinov2} uses DINOv2 as a teacher for cross-modality knowledge distillation, achieving 49\% error reduction and 70\% energy savings for event-based depth estimation. TGVFM~\cite{zhang2025tgvfm} integrates Visual Foundation Models with temporal context fusion via Long-Range Temporal Attention and Dual Spatiotemporal Attention, achieving 16--21\% improvement over prior methods across segmentation, depth, and detection.
+
+\noindent\circnum{3}~\textbf{Semantic Transfer for Reconstruction.} Semantic-E2VID transfers SAM's visual semantic knowledge to the event encoder for semantic-aware event-to-video reconstruction, demonstrating that foundation model priors benefit not only understanding but also reconstruction quality.
+
+\paragraph{Self-Supervised Pre-training and Cross-Modal Transfer.}
+Self-supervised pre-training learns general-purpose event representations from unlabeled data, reducing dependence on expensive annotations, while cross-modal transfer bridges the domain gap between richly annotated RGB data and sparsely annotated event data.
+
+\noindent\circnum{1}~\textbf{Masked Modeling.} MEM~\cite{klenk2024mem} (WACV'24) trained a discrete VAE to compress event histograms into visual tokens and pre-trained a ViT with 50\% patch masking, improving classification on N-ImageNet by 7.96\%. DECP~\cite{chen2024decp} proposed data-efficient pre-training with semantic-uniform masking and disentangled reconstruction (local spatio-temporal and global semantic branches), converging faster with minimal data.
+
+\noindent\circnum{2}~\textbf{Contrastive Learning.} ECDP~\cite{yang2023ecdp} (ICCV'23) used paired event-RGB data with conditional masking and probability distribution alignment for pre-training. Its extension, ECDP-Dense~\cite{yang2024ecdpdense} (ECCV'24), generalized to dense prediction tasks (segmentation, flow, depth) by enforcing context-to-context similarity. CM3AE~\cite{wang2025cm3ae} (ACM MM 2025) built a unified pre-training framework across RGB frames, event images, and event voxels using 2.5M data pairs with multi-modal fusion reconstruction and contrastive learning.
+
+\noindent\circnum{3}~\textbf{Temporal Modeling.} TESPEC~\cite{liu2025tespec} (ICCV'25) introduced temporal tube masking across event histograms and used a recurrent backbone to reconstruct intensity video at masked patches --- the first method to explicitly leverage long event sequences during pre-training. STP~\cite{yang2025stp} (ICCV'25) achieved remarkable efficiency: 68.87\% top-1 accuracy on N-ImageNet with 1/10 of the pre-training parameters and 1/3 of the training epochs compared to prior methods.
+
+\noindent\circnum{4}~\textbf{Physics-Inspired and Task-Agnostic.} EventPretrain~\cite{wang2025eventpretrain} (ACM MM 2025) proposed a three-stage physics-inspired framework: Difference-guided Masked Modeling, Backbone-fixed Feature Transition, and Focus-aimed Contrastive Learning, showing strong robustness to sparse and noisy events. EvRepSL~\cite{kang2024evrepsl} trained a representation generator that, once learned, produces device- and task-agnostic representations improving downstream performance without fine-tuning. SD2Event~\cite{huang2024sd2event} (CVPR'24) learned self-supervised dynamic keypoint detectors and contextual feature descriptors.
+
+\noindent\circnum{5}~\textbf{Cross-Modal Knowledge Transfer.} EventDance~\cite{zheng2024eventdance} (CVPR'24) was the first to achieve source-free image-to-event cross-modal adaptation --- transferring knowledge from an image-trained model to events without accessing the source image data. EventFly~\cite{kong2025eventfly} (CVPR'25) addressed cross-platform adaptation, enabling a model trained on vehicle-mounted events to transfer to drones and quadruped robots through Event Activation Prior (EAP), EventBlend data mixing, and EventMatch dual-discriminator alignment. Depth AnyEvent~\cite{xu2025depthanycvent} (ICCV'25) distills dense proxy depth labels from Depth Anything v2 to train event-specific depth networks, achieving competitive results with fully supervised methods \textit{without requiring any depth annotations}. S5-ViT~\cite{zubic2024s5vit} (CVPR'24 Spotlight) demonstrated that SSM architectures pre-trained on events transfer robustly across different input frequencies, addressing a key practical challenge in event deployment. FFEvent~\cite{song2026ffevent} introduced Fourier-based RGB-to-event transfer with a bidirectional reverse state space model, achieving state-of-the-art across 8 benchmarks.
+
+\textit{Discussion.} The progression from closed-set perception (\cref{sec:perception}) to open-vocabulary understanding represents a paradigm shift: instead of collecting labeled event data for each new category, a single model trained with language supervision can recognize any category. This dramatically reduces the annotation burden and enables deployment in open-world scenarios where the set of target objects is not known in advance. The rapid progress in event SSL raises an important question: should the field pursue \textit{event-native} foundation models trained from scratch on event data, or continue adapting RGB-pre-trained models? Current evidence suggests that adaptation is more data-efficient, but native pre-training --- if sufficient event data becomes available --- may ultimately capture event-specific temporal structure that RGB priors cannot provide.
+
+
+% ----------------------------------------------------------------------
+% 3.3.2 Scene Understanding and Reasoning
+% ----------------------------------------------------------------------
+\subsubsection{Scene Understanding and Reasoning}
+\label{sec:understanding_reasoning}
+
+While open-vocabulary perception (\cref{sec:understanding_ov}) endows event models with the ability to recognize \textit{what} is in a scene, scene understanding and reasoning address \textit{why} and \textit{how} --- answering questions, grounding language in event streams, and enabling embodied agents to act on event-based perception. We organize this subsection around multimodal LLMs, visual grounding and embodied intelligence, and language-guided recognition.
+
+\paragraph{Event-Based Multimodal LLMs.}
+Multimodal large language models (MLLMs) have demonstrated remarkable visual understanding capabilities on images and videos. Extending MLLMs to process event camera data opens the door to scene-level reasoning, visual question answering, and free-form description of dynamic event streams --- capabilities far beyond what task-specific models can provide.
+
+EventGPT~\cite{zhou2025eventgpt} (CVPR'25) was the first MLLM designed for event stream understanding. It employs an event encoder, a spatio-temporal aggregator, and an event-language adapter, trained through a three-stage paradigm: (i)~warm-up on RGB-text pairs, (ii)~alignment on synthetic N-ImageNet-Chat data ($\sim$1M pairs), and (iii)~fine-tuning on real-world Event-Chat data. EventGPT supports scene summarization, reasoning, and question answering on event streams. EventVL~\cite{li2025eventvl} introduced an Event Spatiotemporal Representation for comprehensive feature extraction, together with EventVL-Base (1.4M multimodal pairs) and EventVL-QA (75K QA pairs) --- the largest event-language datasets to date. EventFlash~\cite{kong2026eventflash} addresses the efficiency bottleneck: current event MLLMs process only short event clips (\eg, 5 temporal bins in EventGPT), whereas EventFlash supports up to 1,000 bins through adaptive temporal window aggregation and sparse density-guided attention, achieving a 12.4$\times$ throughput improvement. Its EventMind dataset contains over 500K instruction sets.
+
+An alternative direction explores whether existing LLMs can understand events \textit{without any event-specific training}. Wu~\etal~\cite{wu2025llmzeroshot} (ICASSP'25) showed that GPT-4o, when combined with CLIP-based event-to-image conversion and carefully designed prompts, achieves zero-shot event recognition that surpasses supervised baselines on N-ImageNet. LLM-EvRep~\cite{cho2025llmevrep} (WWW'25) trains an encoder-decoder to generate LLM-compatible event representations via self-supervised learning, outperforming E2VID-based conversion by 15--50\% when evaluated with GPT-4o.
+
+\textit{Discussion.} Event MLLMs are still in their infancy. The largest event-language dataset (EventMind, 500K+) is orders of magnitude smaller than image-language resources (LAION-5B). Temporal reasoning over long, continuous event streams remains largely unexplored. Yet the early results demonstrate that MLLMs can bring a qualitatively different level of understanding to event data --- moving from ``what object?'' to ``what is happening, why, and what might happen next?''
+
+\paragraph{Visual Grounding and Embodied Intelligence.}
+Language grounding --- connecting event streams with natural language descriptions --- enables humans to query event-based systems using free-form text, while embodied intelligence applies these capabilities to real-world agents.
+
+Talk2Event~\cite{zheng2025talk2event} (NeurIPS'25) established the first large-scale benchmark for language-driven object grounding in event-based perception, containing 5,567 scenes, 13,458 annotated objects, and over 30,000 validated referring expressions with four structured grounding attributes (appearance, status, relation-to-viewer, relation-to-others). It proposes EventRefer with a Mixture of Event-Attribute Experts (MoEE) architecture. NeuroViG~\cite{li2025neurovig} (WACV'25) used event streams for selective triggering of RGB cameras in video grounding, achieving 4$\times$ energy reduction with less than 1\% accuracy loss.
+
+On the frontier of embodied intelligence, EP-VLM~\cite{yang2025epvlm} uses event-camera motion priors to guide patch-wise sparsification of RGB visual inputs for VLMs, achieving 50\% FLOPs savings while retaining 98\% accuracy. E-VLA~\cite{miao2026evla} introduces an event-augmented Vision-Language-Action model for robotic manipulation under extreme conditions, maintaining over 80\% task success in complete darkness where image-only baselines fail entirely --- demonstrating the practical value of events for embodied AI.
+
+\paragraph{Language-Guided Recognition.}
+Ev-LaFOR~\cite{cho2023evlafor} (ICCV'23 Oral) pioneered label-free event recognition by reconstructing images from events and performing recognition through CLIP, using category-guided attraction and repulsion losses to bridge textual and visual features. EventDance++~\cite{zheng2024eventdancepp} extended cross-modal adaptation with language-guided VLM enrichment for source-free event recognition.
+
+\cref{tab:understanding_catalog} provides a comprehensive catalog of all scene understanding and reasoning methods.
+
+
+% ----------------------------------------------------------------------
+% 3.3.3 Event Data Simulation and Generation
+% ----------------------------------------------------------------------
+\subsubsection{Event Data Simulation and Generation}
+\label{sec:understanding_gen}
+
+A critical bottleneck for event camera research is the scarcity of large-scale, diverse, and accurately labeled event data. This subsection covers three complementary approaches to addressing this bottleneck: physics-based simulators that generate synthetic events from existing video or 3D environments, learned generative models that produce events from text or other conditional inputs, and sim-to-real transfer methods that bridge the gap between synthetic and real event data.
+
+\paragraph{Physics-Based Simulators.}
+Physics-based event simulators convert conventional video or rendered frames into synthetic event streams by modeling the logarithmic intensity change and temporal dynamics of event camera pixels. ESIM~\cite{rebecq2018esim} established the foundational framework for event camera simulation, generating events from an adaptive rendering engine that interpolates camera trajectories and computes per-pixel brightness changes. v2e~\cite{hu2021v2e} extended simulation to arbitrary video inputs with realistic noise modeling, enabling the conversion of any existing video dataset into synthetic event data. DVS-Voltmeter~\cite{lin2022dvsvoltmeter} proposed a more physically accurate model by incorporating pixel-level circuit dynamics including bandwidth limitations and refractory periods. These simulators have been instrumental in generating training data for supervised learning (\eg, the training of E2VID~\cite{rebecq2019e2vid} and many subsequent methods), creating evaluation benchmarks with ground-truth labels, and enabling large-scale self-supervised pre-training.
+
+\paragraph{Learned and Neural Generation.}
+A creative application of foundation models is generating synthetic event data from text or other conditional inputs, addressing the data scarcity problem from the generative side.
+
+Text-to-Events~\cite{barchid2024texttoevents} (NICE'24) was the first text-to-events model, generating event streams of smooth motion directly from text prompts without intermediate intensity frame generation, using an autoencoder plus diffusion model architecture. ControlEvents~\cite{wu2025controlevents} leveraged Stable Diffusion priors for controllable event data synthesis conditioned on text labels, 2D skeletons, and 3D body poses. Notably, it can generate events from \textit{unseen text labels}, enabling a form of zero-shot data augmentation.
+
+\textit{Discussion.} Text-guided event generation is still nascent but holds significant potential. If synthetic events can faithfully replicate the statistical properties of real events, they could dramatically scale up training data for all event-based tasks --- particularly for rare or dangerous scenarios (\eg, near-collisions, extreme weather) that are difficult to capture with real event cameras.
+
+\paragraph{Sim-to-Real Transfer.}
+Despite the availability of simulators, a significant domain gap persists between synthetic and real events due to noise characteristics, contrast threshold variations, and temporal dynamics that are difficult to model accurately. Bridging this sim-to-real gap is essential for methods trained on simulated data to generalize to real-world deployment. E2VID+~\cite{stoffregen2020hqf} addressed this gap by training on more realistic simulated data and introducing a principled photometric loss. Sim2Real-EVFI~\cite{zhang2024sim2realevfi} bridged the sim-to-real gap for event-based frame interpolation through per-scene optimization. EventFly~\cite{kong2025eventfly} (CVPR'25) introduced cross-platform adaptation strategies including EventBlend data mixing, enabling transfer across different event camera platforms and mounting configurations. More broadly, the self-supervised and cross-modal transfer methods discussed in \cref{sec:understanding_ov} provide indirect sim-to-real bridges by learning representations that are robust to domain shifts.
+
+\cref{tab:understanding_catalog} provides a comprehensive catalog of all event data simulation and generation methods.

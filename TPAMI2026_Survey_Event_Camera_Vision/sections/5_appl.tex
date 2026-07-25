@@ -1,0 +1,289 @@
+\section{Applications}
+\label{sec:appl}
+
+Event cameras have transitioned from laboratory curiosities to practical deployment candidates across diverse application domains. In this section, we survey real-world applications organized by maturity level --- from commercially deployed systems to emerging research directions. For each domain, we highlight why event cameras are uniquely suited and identify the key methods driving adoption. \cref{fig:applications} showcases event cameras across representative deployment scenarios. \cref{tab:appl_mobility} and \cref{tab:appl_specialized} catalog representative methods for mobility and specialized applications, respectively.
+
+\begin{figure*}[t]
+    \centering
+    \fbox{\parbox{0.97\textwidth}{\centering\vspace{0.6em}
+    \begin{tabular}{cccc}
+    \textbf{(a) Autonomous Driving} & \textbf{(b) UAV Navigation} & \textbf{(c) Eye Tracking} & \textbf{(d) Space Imaging} \\[2pt]
+    \textit{DSEC~/ DAGr} & \textit{EventFly} & \textit{EV-Eye} & \textit{e-STURT} \\[8pt]
+    \textbf{(e) Medical Microscopy} & \textbf{(f) Robotic Manipulation} & \textbf{(g) Privacy-Preserving} & \textbf{(h) High-Speed Sports} \\[2pt]
+    \textit{EventLFM} & \textit{E-VLA} & \textit{Event anonymization} & \textit{Ball tracking}
+    \end{tabular}
+    \vspace{0.6em}}}
+    \caption{Event cameras deployed across diverse application domains. \textbf{(a)}~Automotive perception at high dynamic range (DSEC, DAGr). \textbf{(b)}~Low-latency obstacle avoidance for UAVs (EventFly, $<$3.5\,ms). \textbf{(c)}~Near-eye gaze tracking at $>$10,000\,Hz (EV-Eye). \textbf{(d)}~Space situational awareness and star tracking (e-STURT). \textbf{(e)}~kHz-rate 3D fluorescence microscopy (EventLFM). \textbf{(f)}~Robotic manipulation in complete darkness (E-VLA). \textbf{(g)}~Privacy-by-design monitoring (event anonymization). \textbf{(h)}~High-speed ball tracking and spin estimation. Figures sourced from respective publications.}
+    \label{fig:applications}
+\end{figure*}
+
+
+% ============================================================
+% TABLE: Mobility Applications
+% ============================================================
+\begin{table*}[t]
+\centering
+\caption{Event camera methods for mobility applications. Methods are grouped by domain and listed in chronological order. \textbf{In} denotes the input modality (\iconev~events, \iconcam~frames). \textbf{Arch.} denotes the backbone architecture family.}
+\label{tab:appl_mobility}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{rl l c c c l}
+\toprule
+\textbf{\#} & \textbf{Method} & \textbf{Venue} & \textbf{Domain} & \textbf{In} & \textbf{Arch.} & \textbf{Key Contribution} \\
+\midrule
+\multicolumn{7}{l}{\textit{Autonomous Driving}} \\
+\midrule
+1 & Steering Prediction~\cite{maqueda2018steering} & CVPR'18 & AD & \iconev & CNN & First end-to-end event-based steering prediction \\
+\rowalt
+2 & DDD20~\cite{hu2020ddd20} & ITSC'20 & AD & \iconev\iconcam & --- & 51-hour, 4{,}000\,km end-to-end driving dataset \\
+3 & ESS~\cite{sun2022ess} & ECCV'22 & AD & \iconev\iconcam & CNN & Semantic segmentation from events and still images \\
+\rowalt
+4 & SODFormer~\cite{zhao2023sodformer} & TPAMI'23 & AD & \iconev\iconcam & ViT & Streaming detection with Transformer fusion \\
+5 & DAGr~\cite{gehrig2024dagr} & Nature'24 & AD & \iconev\iconcam & GNN & Graph-based detection matching 5{,}000-fps latency \\
+\rowalt
+6 & OpenESS~\cite{kong2024openess} & CVPR'24 & AD & \iconev\iconcam & ViT & Open-vocabulary semantic segmentation for driving \\
+\midrule
+\multicolumn{7}{l}{\textit{SLAM \& Visual Odometry}} \\
+\midrule
+7 & CMax~\cite{gallego2018cmax} & CVPR'18 & SLAM & \iconev & Optim. & Contrast maximization framework for ego-motion \\
+\rowalt
+8 & EVO~\cite{rebecq2018evo} & TPAMI'18 & SLAM & \iconev & Geom. & Real-time 6-DoF tracking from photometric depth maps \\
+9 & Ultimate SLAM~\cite{vidal2018ultimateslam} & RA-L'18 & SLAM & \iconev\iconcam & Geom. & Fused events, images, and IMU for robust SLAM \\
+\rowalt
+10 & ESVIO~\cite{chen2023esvio} & RA-L'23 & SLAM & \iconev & VIO & Stereo event visual-inertial odometry \\
+11 & PL-EVIO~\cite{guan2023plevio} & T-ASE'23 & SLAM & \iconev\iconcam & VIO & Point and line features for monocular event VIO \\
+\rowalt
+12 & EVI-SAM~\cite{guan2024evisam} & Adv.~Intell.~Sys.'24 & SLAM & \iconev\iconcam & Hybrid & Tightly-coupled event-visual-inertial state estimation \\
+13 & EN-SLAM~\cite{deng2024enslam} & CVPR'24 & SLAM & \iconev\iconcam & Neural & Implicit event-RGBD neural SLAM \\
+\rowalt
+14 & CMax-SLAM~\cite{gallego2024cmaxslam} & arXiv'24 & SLAM & \iconev & Optim. & Rotational-motion bundle adjustment and SLAM \\
+15 & ESVO2~\cite{zhou2025esvo2} & TRO'25 & SLAM & \iconev & Geom. & Direct VIO with stereo event cameras \\
+\rowalt
+16 & EGS-SLAM~\cite{chen2025egsslam} & arXiv'25 & SLAM & \iconev\iconcam & 3DGS & Gaussian Splatting SLAM with events \\
+17 & Egomotion~\cite{nunes2025egomotion} & CVPR'25 & SLAM & \iconev & Geom. & Full-DoF egomotion via geometric solvers \\
+\midrule
+\multicolumn{7}{l}{\textit{UAV / Drone Vision}} \\
+\midrule
+\rowalt
+18 & UZH-FPV~\cite{delmerico2019uzhfpv} & ICRA'19 & UAV & \iconev\iconcam & --- & Drone racing benchmark with event cameras \\
+19 & Falanga~\etal~\cite{falanga2020obstacle} & Sci.~Robot.'20 & UAV & \iconev & Bio. & Event-only obstacle avoidance at 3.5\,ms latency \\
+\rowalt
+20 & Sparse Gated~\cite{sanket2022navdrone} & arXiv'22 & UAV & \iconev & RNN & Event-based drone racing navigation \\
+21 & Bio-OA~\cite{li2023tamingdrone} & MobiCom'23 & UAV & \iconev & Neuromorphic & Bio-inspired drone obstacle avoidance \\
+\rowalt
+22 & Mono-OA~\cite{bhattacharya2024monocorl} & CoRL'24 & UAV & \iconev & CNN & Monocular event-based quadrotor obstacle avoidance \\
+23 & EvMAPPER~\cite{muglikar2025evmapper} & ICRA'25 & UAV & \iconev\iconcam & CNN & High-altitude aerial orthomapping \\
+\rowalt
+24 & EventFly~\cite{kong2025eventfly} & CVPR'25 & UAV & \iconev\iconcam & Hybrid & Cross-platform event perception transfer \\
+\midrule
+\multicolumn{7}{l}{\textit{Robotics}} \\
+\midrule
+25 & Neuromorphic Route~\cite{shrestha2023neuromorphicroute} & Sci.~Robot.'23 & Robot. & \iconev & SNN & SNN-based route following through vegetation \\
+\rowalt
+26 & Tactile~\cite{zhang2024tactile} & arXiv'24 & Robot. & \iconev & Bio. & Neuromorphic tactile sensing at 2\,ms \\
+27 & Obstacle Manip.~\cite{bartolozzi2025obstacle} & IJRR'25 & Robot. & \iconev & Neuromorphic & Neuromorphic obstacle avoidance in manipulation \\
+\rowalt
+28 & E-VLA~\cite{miao2026evla} & arXiv'26 & Robot. & \iconev\iconcam & VLA & Event-augmented VLA for dark-scene manipulation \\
+\bottomrule
+\end{tabular}
+}
+\end{table*}
+
+
+% ============================================================
+% TABLE: Specialized Applications
+% ============================================================
+\begin{table*}[t]
+\centering
+\caption{Event camera methods for specialized applications. Methods are grouped by domain and listed in chronological order.}
+\label{tab:appl_specialized}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{rl l c l}
+\toprule
+\textbf{\#} & \textbf{Method} & \textbf{Venue} & \textbf{Domain} & \textbf{Key Result} \\
+\midrule
+\multicolumn{5}{l}{\textit{Eye Tracking \& Gaze Estimation}} \\
+\midrule
+1 & EV-Eye~\cite{chen2023eveye} & NeurIPS'23 & Eye & Large-scale multimodal eye tracking (48 participants, 2.7B events) \\
+\rowalt
+2 & 3ET~\cite{chen20233et} & BioCAS'23 & Eye & Efficient ConvLSTM-based eye tracking \\
+3 & Retina~\cite{li2024retina} & CVPRW'24 & Eye & Ultra-low-power tracking with only 64K parameters \\
+\rowalt
+4 & Gaze $>$10K\,Hz~\cite{stoffregen2024tvcggaze} & TVCG'24 & Eye & Near-eye gaze tracking beyond 10{,}000\,Hz \\
+5 & Swift-Eye~\cite{wang2024swifteye} & TVCG'24 & Eye & Anti-blink pupil tracking at kHz rates \\
+\midrule
+\multicolumn{5}{l}{\textit{Space \& Satellite}} \\
+\midrule
+\rowalt
+6 & Star Tracking~\cite{cohen2019startracking} & CVPRW'19 & Space & First event-based star tracking pipeline \\
+7 & FIESTA~\cite{ralph2022fiesta} & Front.~Neurosci.'22 & Space & Real-time space object detection and tracking \\
+\rowalt
+8 & Async.~Kalman~\cite{afshar2023asynckalman} & NeurIPSW'23 & Space & Asynchronous Kalman filter for star tracking \\
+9 & EBS-EKF~\cite{liu2025ebsekf} & CVPR'25 & Space & Order-of-magnitude accuracy via centroiding + EKF \\
+\rowalt
+10 & e-STURT~\cite{chin2025esturt} & arXiv'25 & Space & First benchmark under spacecraft jitter \\
+\midrule
+\multicolumn{5}{l}{\textit{Medical \& Biological Imaging}} \\
+\midrule
+11 & Event Microscopy~\cite{wang2021microscopy} & Nat.~Meth.'21 & Medical & Event-driven acquisition reduces phototoxicity \\
+\rowalt
+12 & PDAVIS~\cite{gruev2023pdavis} & CVPRW'23 & Medical & Combined DVS with polarization sensing \\
+13 & Eve-SMLM~\cite{bhatt2023evesmlm} & Nat.~Meth.'23 & Medical & Super-resolution single-molecule localization \\
+\rowalt
+14 & EventLFM~\cite{li2024eventlfm} & Light: S\&A'24 & Medical & kHz-rate 3D fluorescence imaging \\
+15 & IEIM~\cite{wang2025ieim} & arXiv'25 & Medical & Inter-event interval microscopy \\
+\midrule
+\multicolumn{5}{l}{\textit{Industrial Inspection}} \\
+\midrule
+\rowalt
+16 & Defect Comp.~\cite{wang2023surfacedefect} & Nat.~Sci.~Rev.'23 & Industrial & Competition benchmarking event-based defect detection \\
+17 & Al.~Defect~\cite{li2024aluminumdefect} & JCDE'24 & Industrial & Surface defects $<$200\,$\mu$m on aluminum substrates \\
+\rowalt
+18 & Event PIV~\cite{guo2025eventpiv} & MST'25 & Industrial & Equivalent 10\,kHz flow velocity measurement \\
+\midrule
+\multicolumn{5}{l}{\textit{Privacy-Preserving Vision}} \\
+\midrule
+19 & Face Identity~\cite{barua2022faceidentity} & IEEE~FG'22 & Privacy & Neuromorphic face identity recognition \\
+\rowalt
+20 & Event Anon.~\cite{ahmad2024eventanontpami} & TPAMI'24 & Privacy & Joint privacy preservation and downstream tasks \\
+21 & Face Survey~\cite{berlincioni2024facesurvey} & PRL'24 & Privacy & Survey of neuromorphic face analysis \\
+\midrule
+\multicolumn{5}{l}{\textit{Neuromorphic Hardware}} \\
+\midrule
+\rowalt
+22 & Speck~\cite{bauer2023speck} & arXiv'23 & HW & First DVS+SNN SoC (327K neurons, sub-mW idle) \\
+23 & Loihi UAV~\cite{paredes2023neurochip} & RA-L'23 & HW & $<$1\,ms UAV obstacle avoidance on neuromorphic chip \\
+\rowalt
+24 & Neurom.~Flow~\cite{shiba2023neuromorphicof} & CVPRW'23 & HW & Real-time optical flow on neuromorphic hardware \\
+25 & Low-power Face~\cite{li2023lowpowerface} & arXiv'23 & HW & Asynchronous face detection on neuromorphic chip \\
+\midrule
+\multicolumn{5}{l}{\textit{Adverse Weather}} \\
+\midrule
+26 & Rain Removal~\cite{jiang2022rainremoval} & Front.~Neurorobot.'22 & Weather & First DVS rain removal approach \\
+\rowalt
+27 & EvDeraining~\cite{wang2023evderaining} & ICCV'23 & Weather & Unsupervised video deraining with events \\
+28 & De-Snowing~\cite{zhang2025desnowing} & arXiv'25 & Weather & Event-based de-snowing for driving \\
+\rowalt
+29 & PRE-Mamba~\cite{li2025premamba} & ICCV'25 & Weather & 4D state space model for ultra-high-freq.\ deraining \\
+\midrule
+\multicolumn{5}{l}{\textit{High-Speed Photography \& Sports}} \\
+\midrule
+30 & Ball Detection~\cite{delamare2023balldetect} & MMSports'23 & Sports & Event-based high-speed ball detection \\
+\rowalt
+31 & Ball Spin~\cite{gao2024ballspin} & CVPRW'24 & Sports & Fast-moving ball spin estimation \\
+32 & Ball Tracking~\cite{gao2024balltracking} & MMSports'24 & Sports & Time-consistent tracking for racquet sports \\
+\bottomrule
+\end{tabular}
+}
+\end{table*}
+
+
+\subsection{Autonomous Driving}
+\label{sec:appl_driving}
+
+Event cameras address critical limitations of conventional cameras in driving: motion blur at high speed, saturation from direct sunlight or headlights, and the fixed frame rate bottleneck for latency-critical perception. DSEC~\cite{gehrig2021dsec} established the standard multi-modal stereo driving benchmark, pairing a pair of 640$\times$480 event cameras with global-shutter RGB cameras and LiDAR. DAGr~\cite{gehrig2024dagr} (Nature 2024), discussed in \cref{sec:perception_det}, demonstrated the latency advantage of graph-based event processing, matching a 5{,}000-fps camera's response time while requiring only the bandwidth of a 45-fps system --- arguably the most impactful result in event-based automotive perception to date.
+
+RVT~\cite{gehrig2023rvt} and SODFormer~\cite{zhao2023sodformer} provide streaming detection from events and frames, with RVT achieving state-of-the-art object detection on the Gen1 and 1Mpx benchmarks through recurrent Vision Transformers. ESS~\cite{sun2022ess} introduced learning event-based semantic segmentation from still images, and OpenESS~\cite{kong2024openess} (CVPR 2024 Highlight) extended this to open-vocabulary segmentation, enabling recognition of classes unseen during training --- a critical capability for long-tail driving scenarios. MoE-HeatDet~\cite{zhang2025mvheatdet} (CVPR 2025) further advanced event-based detection with a mixture-of-experts heat conduction framework and the EvDET200K benchmark.
+
+End-to-end approaches, pioneered by Maqueda~\etal~\cite{maqueda2018steering} for steering prediction and extended by the DDD20 dataset~\cite{hu2020ddd20} (51 hours, 4{,}000\,km of synchronized event-frame driving data), demonstrate that events can directly drive vehicle control. EventFly~\cite{kong2025eventfly} (CVPR 2025) further showed that event perception models can transfer across ground vehicles, drones, and quadruped robots through a unified cross-platform framework, opening the door to shared perception backbones for heterogeneous autonomous agents. Prophesee has partnered with tier-1 automotive suppliers, placing event cameras on the path toward series production, and recent results on adverse weather robustness (\cref{sec:appl_weather}) further strengthen the case for event cameras in all-weather driving.
+
+
+\subsection{SLAM and Visual Odometry}
+\label{sec:appl_slam}
+
+Event cameras excel in SLAM scenarios that challenge frame-based methods: high-speed motion, low light, and high dynamic range. The contrast maximization framework~\cite{gallego2018cmax} provides an elegant principled foundation for event-based ego-motion estimation, extended to dense flow, depth, and full ego-motion~\cite{shiba2024cmaxsecrets}, with CMax-SLAM~\cite{gallego2024cmaxslam} scaling the framework to full rotational-motion bundle adjustment and SLAM. EVO~\cite{rebecq2018evo} achieved real-time 6-DoF tracking from photometric depth maps. Ultimate SLAM~\cite{vidal2018ultimateslam} fused events, images, and IMU for robust SLAM in HDR and high-speed conditions.
+
+The field has since diversified along several axes. Visual-inertial odometry systems now provide robust state estimation by tightly coupling events with IMU measurements: ESVIO~\cite{chen2023esvio} introduced stereo event visual-inertial odometry with competitive accuracy on the DAVIS and MVSEC benchmarks; PL-EVIO~\cite{guan2023plevio} added point and line feature tracking for improved robustness in texture-poor environments; and ESVO2~\cite{zhou2025esvo2} (TRO 2025) demonstrated direct visual-inertial odometry with stereo event cameras, achieving continuous-time state estimation. EVI-SAM~\cite{guan2024evisam} tightly couples events, frames, and IMU for real-time state estimation and 3D dense mapping.
+
+Neural and learning-based SLAM methods have emerged as a complementary paradigm. EN-SLAM~\cite{deng2024enslam} (CVPR 2024) introduced implicit event-RGBD neural SLAM, and EGS-SLAM~\cite{chen2025egsslam} combines Gaussian Splatting with event cameras for high-fidelity 3D reconstruction during SLAM. Full-DoF egomotion estimation~\cite{nunes2025egomotion} (CVPR 2025) leverages geometric solvers to recover complete camera motion from events. Visual place recognition using events~\cite{fischer2024nycvpr} is also emerging for long-term autonomy under changing illumination.
+
+
+\subsection{UAV and Drone Vision}
+\label{sec:appl_uav}
+
+The low latency, low power, and high dynamic range of event cameras make them ideal for UAV applications where weight, energy budget, and reaction time are tightly constrained. Falanga~\etal~\cite{falanga2020obstacle} (\textit{Science Robotics} 2020) demonstrated event-only obstacle avoidance for quadrotors with just 3.5\,ms total latency --- from photon to motor command --- enabling avoidance of objects approaching at 10\,m/s. This latency is approximately an order of magnitude lower than frame-based approaches at similar spatial resolution.
+
+Bio-inspired architectures have further reduced the computation--latency trade-off. Li~\etal~\cite{li2023tamingdrone} (MobiCom 2023) combined event cameras with neuromorphic processing for energy-efficient drone obstacle avoidance, while Bhattacharya~\etal~\cite{bhattacharya2024monocorl} (CoRL 2024) demonstrated monocular event-based obstacle avoidance for quadrotors. Sanket~\etal~\cite{sanket2022navdrone} explored sparse gated recurrent networks for event-based drone racing navigation. EventFly~\cite{kong2025eventfly} (CVPR 2025) enables cross-platform event perception transfer across vehicles, drones, and quadruped robots, introducing the first large-scale drone event camera dataset with detection, tracking, and action recognition annotations. EvMAPPER~\cite{muglikar2025evmapper} (ICRA 2025) extends event cameras to high-altitude aerial orthomapping, demonstrating that events can produce high-quality orthomosaic maps even under aggressive flight maneuvers. The UZH-FPV dataset~\cite{delmerico2019uzhfpv} benchmarks event-based perception for high-speed drone racing, providing synchronized events, images, and IMU data at speeds exceeding 12\,m/s.
+
+
+\subsection{Robotics}
+\label{sec:appl_robotics}
+
+Beyond navigation, event cameras enable novel robotic capabilities spanning tactile sensing, manipulation, and embodied intelligence. Neuromorphic tactile sensors based on event cameras~\cite{zhang2024tactile} detect press and slip events within 2\,ms for high-speed pick-and-place, leveraging the asynchronous output to provide sub-millisecond feedback to the control loop. Neuromorphic sequence learning~\cite{shrestha2023neuromorphicroute} (\textit{Science Robotics} 2023) enables SNN-based route following through vegetation using events, demonstrating that event-driven perception and neuromorphic processing can jointly achieve robust navigation in highly cluttered natural environments.
+
+Bartolozzi~\etal~\cite{bartolozzi2025obstacle} (IJRR 2025) introduced a neuromorphic approach to obstacle avoidance in robot manipulation, processing events asynchronously to achieve fast reactive behavior in constrained workspaces. E-VLA~\cite{miao2026evla} introduces an event-augmented Vision-Language-Action model that maintains over 80\% robotic manipulation success in complete darkness and under severe motion blur --- where image-only baselines fail entirely. By fusing event streams into a pre-trained VLA architecture, E-VLA demonstrates the unique potential of events for embodied AI in extreme conditions, suggesting that event cameras may become a standard modality for all-condition robotic systems.
+
+
+\subsection{Eye Tracking and Gaze Estimation}
+\label{sec:appl_eye}
+
+Eye tracking is arguably the most commercially mature event camera application, driven by the demand for low-latency, low-power gaze sensing in AR/VR headsets. EV-Eye~\cite{chen2023eveye} (NeurIPS 2023) provided the first large-scale multimodal event-based eye tracking dataset (48 participants, 2.7B events), establishing a benchmark for the field. Near-eye gaze tracking at over 10{,}000\,Hz~\cite{stoffregen2024tvcggaze} (IEEE TVCG 2024) has been demonstrated using hybrid frame-event systems, offering a $>$100$\times$ temporal resolution advantage over standard 120\,Hz eye trackers.
+
+Efficiency-focused approaches target deployment on neuromorphic hardware. 3ET~\cite{chen20233et} achieves efficient eye tracking via a change-based ConvLSTM, and Retina~\cite{li2024retina} pushes power efficiency further with only 64K parameters --- enabling deployment on sub-milliwatt neuromorphic processors suitable for battery-powered AR glasses. Swift-Eye~\cite{wang2024swifteye} enables anti-blink pupil tracking at kilohertz rates, solving the blink artifact problem that degrades frame-based trackers during rapid saccades.
+
+Samsung's SmartThings Vision product and Meta's XR research efforts represent early commercial adoption, leveraging events' low latency for responsive gaze interaction in AR/VR headsets. The combination of microsecond-level temporal resolution with milliwatt-level power consumption makes event cameras uniquely positioned for always-on gaze sensing --- a critical enabler for foveated rendering and attention-based interaction in next-generation mixed-reality devices.
+
+
+\subsection{Space and Satellite Applications}
+\label{sec:appl_space}
+
+Event cameras' radiation tolerance, low power consumption, and high dynamic range make them attractive for space applications where conventional cameras face challenges from cosmic ray interference, extreme lighting contrasts, and strict power budgets. Star tracking --- determining spacecraft attitude from observed star positions --- has been a primary focus, as events naturally encode the apparent motion of stars caused by spacecraft rotation.
+
+The field has progressed from initial feasibility demonstrations to precision-engineered solutions. Cohen~\etal~\cite{cohen2019startracking} formulated the event-based star tracking pipeline, including rotation averaging and bundle adjustment. An asynchronous Kalman filter approach~\cite{afshar2023asynckalman} (NeurIPS Workshop 2023) further improved temporal fusion for continuous attitude estimation. EBS-EKF~\cite{liu2025ebsekf} (CVPR 2025) achieves order-of-magnitude accuracy improvements over prior methods via a novel centroiding algorithm combined with an extended Kalman filter, demonstrating sub-arcsecond pointing precision.
+
+For space situational awareness, FIESTA~\cite{ralph2022fiesta} demonstrated real-time detection and tracking of resident space objects --- satellites, debris, and other bodies --- from event camera data. The e-STURT dataset~\cite{chin2025esturt} provides the first benchmark under controlled spacecraft jitter conditions, enabling systematic evaluation of star tracker robustness to the mechanical vibrations encountered in orbit. ESA and NASA are actively evaluating event cameras for future missions, with the combination of radiation hardness, HDR capability, and low data rate making them compelling for deep-space navigation and on-orbit servicing.
+
+
+\subsection{Medical and Biological Imaging}
+\label{sec:appl_medical}
+
+Event cameras offer unique advantages for biomedical imaging: high temporal resolution captures fast biological dynamics, event-driven acquisition reduces phototoxicity, and HDR handles the wide brightness range in fluorescence microscopy. These properties have driven adoption in three complementary imaging paradigms.
+
+Event-driven microscopy acquisition~\cite{wang2021microscopy} (\textit{Nature Methods} 2021) pioneered the paradigm of selectively imaging only changing regions, dramatically reducing phototoxicity and data volume --- a critical concern for live-cell imaging where excessive illumination causes cellular damage. EventLFM~\cite{li2024eventlfm} (\textit{Light: Science \& Applications} 2024) integrated event cameras with Fourier light field microscopy for kHz-rate 3D fluorescence imaging of neuronal signals, achieving volumetric imaging speeds previously only possible with multi-photon systems costing orders of magnitude more.
+
+Eve-SMLM~\cite{bhatt2023evesmlm} (\textit{Nature Methods} 2023) applied events to super-resolution single-molecule localization microscopy, exploiting the ability to detect individual fluorophore blinking events with microsecond precision. Inter-event interval microscopy (IEIM)~\cite{wang2025ieim} further exploits the temporal statistics of events for novel contrast mechanisms. PDAVIS~\cite{gruev2023pdavis} combines DVS with polarization sensing for biomedical and material stress analysis, opening new imaging modalities that are inaccessible with conventional cameras. Together, these advances demonstrate that event cameras are not merely faster alternatives to frame-based microscopes but enable fundamentally new imaging paradigms with reduced photodamage and enhanced temporal resolution.
+
+
+\subsection{Industrial Inspection}
+\label{sec:appl_industrial}
+
+High-speed manufacturing lines require inspection at rates beyond conventional cameras, where even slight defects must be caught without slowing production. Event cameras detect minute surface defects ($<$200\,$\mu$m) on aluminum substrates~\cite{li2024aluminumdefect} at production speed, with the sparse output enabling real-time processing without the bandwidth constraints of high-frame-rate area-scan cameras. Community competitions~\cite{wang2023surfacedefect} (\textit{National Science Review} 2023) have benchmarked event-based defect detection, establishing standardized evaluation protocols.
+
+Event-based particle image velocimetry (PIV)~\cite{guo2025eventpiv} achieves equivalent frame rates of 10\,kHz for non-intrusive flow velocity measurement in high-speed industrial jets, enabling turbulence characterization without the stroboscopic aliasing artifacts of conventional PIV systems. The asynchronous, per-pixel operation of event cameras makes them particularly suited for inspecting objects with mixed reflectance, where the HDR capability prevents simultaneous over- and under-exposure that plague conventional line-scan cameras. As event camera resolution continues to increase beyond 1\,Mpx, industrial adoption is expected to accelerate for applications ranging from semiconductor wafer inspection to food quality control.
+
+
+\subsection{Privacy-Preserving Vision}
+\label{sec:appl_privacy}
+
+A distinctive advantage of event cameras is their inherent privacy preservation: events encode brightness changes (motion and edges) without capturing texture or facial details. This makes them naturally suited for scenarios where monitoring is needed but appearance privacy must be maintained --- such as elderly care, smart homes, and public spaces.
+
+Event anonymization methods~\cite{ahmad2024eventanontpami} (TPAMI 2024) jointly optimize privacy preservation and downstream tasks such as person re-identification and pose estimation, demonstrating that useful behavior analysis can be performed while provably protecting identity. Neuromorphic face analysis~\cite{berlincioni2024facesurvey} reveals that while face identity can be partially recovered from events~\cite{barua2022faceidentity}, the information is substantially less than from RGB images, supporting events as a privacy-by-design sensing modality. E2PRIV~\cite{wang2024e2priv} further analyzed the privacy trade-offs in event-to-video reconstruction, highlighting that even when events are reconstructed into frame-like representations, identity leakage remains significantly lower than from native RGB.
+
+Samsung's SmartThings Vision uses event cameras for home security monitoring that detects intruders and falls without recording identifiable imagery. As privacy regulations (e.g., GDPR) increasingly constrain visual monitoring in public and private spaces, the inherent privacy properties of event cameras provide a compelling advantage that no post-processing anonymization of conventional cameras can fully match.
+
+
+\subsection{Neuromorphic Hardware Deployment}
+\label{sec:appl_hardware}
+
+The full potential of event cameras is realized when paired with neuromorphic processors that match their asynchronous, event-driven output, eliminating the frame-rate bottleneck and achieving end-to-end event-driven processing from photon to action. Speck~\cite{bauer2023speck} is the first integrated SoC combining a DVS with a 327K-neuron SNN processing pipeline on a single chip, achieving sub-milliwatt idle power and demonstrating that always-on vision is feasible within the power budget of a coin-cell battery.
+
+Event-driven vision and control on Intel Loihi~\cite{paredes2023neurochip} demonstrated $<$1\,ms total latency for UAV obstacle avoidance, with the entire perception-to-control pipeline running on the neuromorphic chip at 100\,mW. Real-time neuromorphic optical flow~\cite{shiba2023neuromorphicof} and low-power face detection on neuromorphic hardware~\cite{li2023lowpowerface} have also been demonstrated, highlighting the breadth of applications amenable to neuromorphic deployment.
+
+Bridging the gap between GPU-based research algorithms and neuromorphic edge deployment remains a key challenge: most state-of-the-art methods (\eg, DAGr~\cite{gehrig2024dagr}, discussed in \cref{sec:perception_det}, and RVT~\cite{gehrig2023rvt}) require GPU computation that negates the power advantages of event cameras. Closing this gap will require co-design of algorithms and hardware --- developing SNN-compatible architectures, as explored by Retina~\cite{li2024retina} for eye tracking and 3ET~\cite{chen20233et}, that can run on emerging neuromorphic chips such as Intel Loihi 2, SynSense Speck, and IBM NorthPole while maintaining competitive accuracy.
+
+
+\subsection{Adverse Weather Perception}
+\label{sec:appl_weather}
+
+Event cameras' response to brightness changes rather than absolute intensity provides partial immunity to certain weather artifacts, as rain, snow, and fog each produce distinctive event signatures that can be separated from scene dynamics. Early work addressed rain removal from DVS event videos~\cite{jiang2022rainremoval}, establishing that the temporal statistics of rain-induced events differ characteristically from object-motion events.
+
+EvDeraining~\cite{wang2023evderaining} (ICCV 2023) achieved unsupervised video deraining with events, leveraging the complementary strengths of events (sharp temporal boundaries) and frames (dense spatial context) without requiring paired rainy/clean training data. PRE-Mamba~\cite{li2025premamba} (ICCV 2025) introduced a 4D state space model for ultra-high-frequency event camera deraining, processing events at their native microsecond resolution to achieve superior rain streak removal. Recent work extends to de-snowing for autonomous driving~\cite{zhang2025desnowing}, addressing the distinct challenge of snow flakes that produce larger, more diffuse event clusters than rain drops.
+
+However, systematic evaluation of event camera robustness under diverse weather conditions (fog, heavy rain, snow, ice) remains limited. Fog, in particular, presents a distinct challenge: unlike rain and snow, fog does not produce discrete events but rather attenuates contrast globally, reducing the event rate and potentially silencing the sensor. Developing comprehensive adverse-weather benchmarks and multi-weather methods is an important open direction for enabling all-weather event-based autonomous driving (\cref{sec:appl_driving}).
+
+
+\subsection{High-Speed Photography and Sports}
+\label{sec:appl_sports}
+
+The microsecond temporal resolution of event cameras enables capture and analysis of fast dynamics invisible to conventional cameras, making them a natural fit for sports analytics where ball speeds routinely exceed 200\,km/h. Event-based ball detection~\cite{delamare2023balldetect} (ACM MMSports 2023) demonstrated reliable detection of fast-moving balls in cluttered scenes where frame-based methods suffer from motion blur, achieving robust tracking at ball speeds where conventional cameras produce multi-pixel streaks.
+
+Ball spin estimation~\cite{gao2024ballspin} (CVPRW 2024) exploits the ability to resolve rotational dynamics by detecting the asynchronous brightness changes caused by surface features on a spinning ball. Time-consistent ball tracking~\cite{gao2024balltracking} (ACM MMSports 2024) enables detailed biomechanical analysis for racquet sports, providing trajectory data at temporal resolutions sufficient for aerodynamic modeling of ball flight. Event-guided video frame interpolation~\cite{tulyakov2021timelens} enables high-frame-rate slow-motion replay from low-frame-rate footage, with potential applications in broadcast sports coverage where capturing action at 10{,}000+ fps conventionally requires expensive specialized cameras. As event camera resolution improves, applications are expected to expand to biomechanical analysis of athlete motion, referee decision support, and real-time tactical analysis.

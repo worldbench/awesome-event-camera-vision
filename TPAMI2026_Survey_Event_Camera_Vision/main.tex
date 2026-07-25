@@ -1,0 +1,57 @@
+\documentclass[10pt,journal,compsoc]{IEEEtran}
+
+% *** CITATION PACKAGES (must load before hyperref) ***
+\ifCLASSOPTIONcompsoc
+  \usepackage[nocompress]{cite}
+\else
+  \usepackage{cite}
+\fi
+
+% *** ALL OTHER PACKAGES + HYPERREF + CLEVEREF ***
+\input{macros}
+
+\begin{document}
+
+\title{Event Camera Vision in the Era of Large Models: A Survey}
+
+\author{
+Lingdong~Kong$^*$,
+Haiqian~Han$^*$,
+Lai~Xing~Ng,
+Xiangyang~Ji,
+Wei~Tsang~Ooi, and
+Benoit~R.~Cottereau
+\IEEEcompsocitemizethanks{
+\IEEEcompsocthanksitem L. Kong and W. T. Ooi are with the National University of Singapore. L. Kong is also with CNRS@CREATE, Singapore.
+\IEEEcompsocthanksitem H. Han and X. Ji are with Tsinghua University.
+\IEEEcompsocthanksitem L. X. Ng is with the Institute for Infocomm Research, A*STAR.
+\IEEEcompsocthanksitem B. R. Cottereau is with IPAL, CNRS IRL 2955, Singapore, and CerCo, CNRS UMR 5549, Université Toulouse III.
+\IEEEcompsocthanksitem The corresponding authors are X. Ji, W. T. Ooi, and B. R. Cottereau.
+\IEEEcompsocthanksitem (${*}$) These two authors contributed equally to this work.
+}
+}
+
+\IEEEtitleabstractindextext{
+\input{sections/0_abstract}
+}
+\IEEEpeerreviewmaketitle
+\maketitle
+
+% Sections
+\input{sections/1_intro}
+\input{sections/2_pre}
+\input{sections/3_method}
+\input{sections/4_data}
+\input{sections/5_appl}
+\input{sections/6_conclusion}
+
+\input{sections/appendix}
+
+% References
+\ifCLASSOPTIONcaptionsoff
+  \newpage
+\fi
+\bibliographystyle{IEEEtran}
+\bibliography{main}
+
+\end{document}

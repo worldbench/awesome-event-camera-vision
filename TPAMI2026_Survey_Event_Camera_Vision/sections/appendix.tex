@@ -1,0 +1,279 @@
+\appendices
+
+\section{Supplementary Benchmark Comparisons}
+\label{sec:appendix}
+
+This appendix provides detailed quantitative comparisons for each perception, reconstruction, and understanding task discussed in the main text. These tables complement the comprehensive method catalogs in \cref{sec:method} with specific benchmark results.
+
+\begin{table}[t]
+\centering
+\caption{Representative event-based object detection methods. Results on the Gen1 dataset (mAP, \%).}
+\label{tab:detection}
+\resizebox{\linewidth}{!}{
+\begin{tabular}{llccc}
+\toprule
+\textbf{Method} & \textbf{Venue} & \textbf{Paradigm} & \textbf{Gen1 mAP} & \textbf{Latency} \\
+\midrule
+RED~\cite{perot2020red}             & NeurIPS'20 & CNN       & 40.0 & -- \\
+AEGNN~\cite{schaefer2022aegnn}      & CVPR'22    & GNN       & -- & Per-event \\
+RVT~\cite{gehrig2023rvt}            & CVPR'23    & ViT+RNN   & 47.2 & $<$12\,ms \\
+SODFormer~\cite{zhao2023sodformer}   & TPAMI'23   & Transformer & -- & Streaming \\
+S5-ViT~\cite{zubic2024s5vit}        & CVPR'24    & SSM+ViT   & 47.7 & -- \\
+DAGr~\cite{gehrig2024dagr}          & Nature'24  & GNN       & -- & $\sim$5K fps \\
+SAST~\cite{peng2024sast}            & CVPR'24    & Sparse ViT & 48.5 & -- \\
+SpikeYOLO~\cite{li2024spikeyolo}    & ECCV'24    & SNN       & 32.5 & Low power \\
+SMamba~\cite{li2025smamba}           & AAAI'25    & Mamba     & -- & -- \\
+MvHeat~\cite{wang2025mvheat}        & CVPR'25    & Heat+MoE  & -- & -- \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{Representative event-based semantic segmentation methods. mIoU (\%) on DDD17-Seg and DSEC-Semantic. $^\dagger$Unsupervised domain adaptation (no event labels). $^\ddagger$Open-vocabulary (text supervision only). E: events; F: frames.}
+\label{tab:segmentation}
+\resizebox{\linewidth}{!}{
+\begin{tabular}{llccc}
+\toprule
+\textbf{Method} & \textbf{Venue} & \textbf{Input} & \textbf{DDD17} & \textbf{DSEC} \\
+\midrule
+EV-SegNet~\cite{alonso2019evsegnet}        & CVPRW'19  & E       & 54.81 & 51.76 \\
+EvDistill~\cite{wang2021evdistill}          & CVPR'21   & E       & 58.02 & -- \\
+ESS~\cite{sun2022ess}                       & ECCV'22   & E       & 61.37 & 51.57 \\
+EV-WSSS~\cite{wang2024evwsss}              & ECCV'24   & E       & 60.39 & 51.19 \\
+HPL-ESS$^\dagger$~\cite{liu2024hpless}     & CVPR'24   & E       & 53.51 & 55.19 \\
+OpenESS$^\ddagger$~\cite{kong2024openess}   & CVPR'24   & E       & 53.93 & 43.31 \\
+\midrule
+HALSIE~\cite{biber2024halsie}               & WACV'24   & E+F     & 60.66 & 52.43 \\
+HybridFusion                                & AAAI'25   & E+F     & 67.31 & 66.57 \\
+SpikingEDN                                  & TNNLS'24  & E+F     & 72.57 & 58.32 \\
+ESEG~\cite{li2025eseg}                      & AAAI'25   & E+F     & 77.85 & 74.77 \\
+MambaSeg~\cite{chen2024mambaseg}             & arXiv'25  & E+F     & \textbf{77.56} & \textbf{75.10} \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{Representative event-based depth estimation methods. \textbf{Monocular:} AbsRel ($\downarrow$) and $\delta{<}1.25$ ($\uparrow$) on MVSEC outdoor\_day1 and DSEC. \textbf{Stereo:} Mean Absolute Error (MAE, px, $\downarrow$) and 1-pixel error (1PE, \%, $\downarrow$) on DSEC stereo disparity benchmark.}
+\label{tab:depth}
+\resizebox{\linewidth}{!}{
+\begin{tabular}{llcccc}
+\toprule
+& & \multicolumn{2}{c}{\textbf{MVSEC}} & \multicolumn{2}{c}{\textbf{DSEC}} \\
+\cmidrule(lr){3-4} \cmidrule(lr){5-6}
+\textbf{Method} & \textbf{Venue} & AbsRel$\downarrow$ & $\delta{<}1.25$$\uparrow$ & AbsRel$\downarrow$ & $\delta{<}1.25$$\uparrow$ \\
+\midrule
+\multicolumn{6}{l}{\textit{Monocular}} \\
+E2Depth~\cite{hidalgo2020e2depth}         & 3DV'20    & 0.346 & 0.567 & 0.253 & 0.574 \\
+RAMNet~\cite{gehrig2021ramnet}             & RA-L'21   & 0.303 & 0.541 & --    & --    \\
+EReFormer~\cite{xu2024ereformer}           & TCSVT'24  & 0.271 & 0.664 & 0.286 & 0.569 \\
+EventDAM~\cite{xu2025depthanycvent}        & ICCV'25   & 0.365 & 0.489 & \textbf{0.191} & \textbf{0.691} \\
+\midrule
+& & \multicolumn{2}{c}{\textbf{MVSEC}} & \multicolumn{2}{c}{\textbf{DSEC}} \\
+\cmidrule(lr){3-4} \cmidrule(lr){5-6}
+& & \multicolumn{2}{c}{--} & MAE$\downarrow$ & 1PE$\downarrow$ \\
+\midrule
+\multicolumn{6}{l}{\textit{Stereo}} \\
+DDES~\cite{tulyakov2019ddes}               & ICCV 2019   & \multicolumn{2}{c}{--} & 0.576 & 10.92 \\
+SE-CFF~\cite{nam2022secff}                & CVPR'22   & \multicolumn{2}{c}{--} & 0.533 & 10.56 \\
+DTC-SPADE~\cite{zhang2022dtcspade}         & CVPR'22   & \multicolumn{2}{c}{--} & 0.527 & 9.52 \\
+EMatch~\cite{li2025ematch}                 & ICCV'25   & \multicolumn{2}{c}{--} & \textbf{0.470} & \textbf{8.44} \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{Representative event-based optical flow methods. AEE: average endpoint error (px, $\downarrow$). MVSEC results on outdoor\_day1 (dt=1). DSEC results on the official test benchmark. $^\dagger$Model-based (contrast maximization).}
+\label{tab:flow}
+\resizebox{\linewidth}{!}{
+\begin{tabular}{llccc}
+\toprule
+& & & \textbf{MVSEC} & \textbf{DSEC} \\
+\cmidrule(lr){4-4} \cmidrule(lr){5-5}
+\textbf{Method} & \textbf{Venue} & \textbf{Superv.} & AEE$\downarrow$ & AEE$\downarrow$ \\
+\midrule
+EV-FlowNet~\cite{zhu2018evflownet}          & RSS'18    & Self-sup.  & 0.49 & -- \\
+Zhu~\etal~\cite{zhu2019unsupervised}         & CVPR'19   & Self-sup.  & 0.32 & -- \\
+Spike-FlowNet~\cite{lee2020spikeflownet}     & ECCV'20   & Self-sup.  & 0.49 & -- \\
+MultiCM$^\dagger$~\cite{shiba2022secretsof}  & ECCV'22   & CMax       & 0.30 & 3.472 \\
+E-RAFT~\cite{gehrig2021eraft}                & 3DV'21    & Supervised & 0.27 & 0.788 \\
+TMA~\cite{liu2023tma}                        & ICCV'23   & Supervised & 0.25 & 0.743 \\
+EEMFlow~\cite{liu2024eemflow}                & CVPR'24   & Supervised & --   & 0.751 \\
+BAT~\cite{li2025bat}                         & arXiv'25  & Supervised & \textbf{0.21} & \textbf{0.655} \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{Representative event-based single object tracking methods. SR: success rate (\%, $\uparrow$); PR: precision rate (\%, $\uparrow$). E: events; RGB: conventional frames. $^\dagger$Event-only input (not directly comparable with RGB+E methods on COESOT).}
+\label{tab:tracking}
+\resizebox{\linewidth}{!}{
+\begin{tabular}{llc cc cc cc}
+\toprule
+& & & \multicolumn{2}{c}{\textbf{FE108}} & \multicolumn{2}{c}{\textbf{COESOT}} & \multicolumn{2}{c}{\textbf{EventVOT}} \\
+\cmidrule(lr){4-5} \cmidrule(lr){6-7} \cmidrule(lr){8-9}
+\textbf{Method} & \textbf{Venue} & \textbf{Input} & SR & PR & SR & PR & SR & PR \\
+\midrule
+CEUTrack~\cite{tang2022ceutrack}       & ICCV'23  & RGB+E & 55.6 & 84.5 & 62.0 & 70.5 & --   & -- \\
+Mamba-FETrack~\cite{wang2024mambafe}   & PRCV'24  & RGB+E & 58.7 & 91.0 & --   & --   & --   & -- \\
+CRSOT~\cite{tang2024crsot}            & TMM'25   & RGB+E & --   & --   & 60.8 & 75.1 & --   & -- \\
+AMTTrack                                & arXiv'24 & RGB+E & \textbf{65.6} & \textbf{95.9} & \textbf{68.8} & \textbf{82.9} & --   & -- \\
+\midrule
+HDETrack$^\dagger$~\cite{wang2024hdetrack} & CVPR'24 & E   & --   & --   & 52.3 & 59.0 & \textbf{57.0} & \textbf{57.3} \\
+MambaEVT$^\dagger$~\cite{wang2024mambaevt} & TCSVT'25 & E  & --   & --   & --   & --   & 56.5 & 56.7 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{Representative event-based action and gesture recognition methods. Top-1 accuracy (\%). DVS128: DVS128 Gesture (11 classes). Results on HARDVS and DailyDVS-200 are from each paper's reported numbers.}
+\label{tab:action}
+\resizebox{\linewidth}{!}{
+\begin{tabular}{llcccc}
+\toprule
+\textbf{Method} & \textbf{Venue} & \textbf{Paradigm} & \textbf{DVS128} & \textbf{HARDVS} & \textbf{D-200} \\
+\midrule
+Amir~\etal~\cite{amir2017dvs128gesture} & CVPR'17  & CNN     & 96.49 & --    & -- \\
+GET~\cite{peng2023get}                  & ICCV'23  & ViT     & 97.90 & --    & 37.28 \\
+SpikePoint~\cite{ren2024spikepoint}     & ICLR'24  & SNN     & 98.74 & --    & -- \\
+ExACT~\cite{tang2024exact}              & CVPR'24  & Lang.   & 98.86 & 90.10 & -- \\
+SpikMamba                                & MMAsia'24 & SNN+Mamba & \textbf{99.01} & \textbf{97.32} & -- \\
+EventMAE~\cite{chen2025eventmae}        & arXiv'25 & MAE     & 97.75 & --    & -- \\
+Swin-T                                   & --         & ViT     & --    & --    & \textbf{48.06} \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{Representative event-based human pose estimation methods. MPJPE: mean per-joint position error (mm, $\downarrow$). Body methods are evaluated on DHP19; hand methods on EvRealHands; egocentric methods on EE3D.}
+\label{tab:pose}
+\resizebox{\linewidth}{!}{
+\begin{tabular}{llccc}
+\toprule
+\textbf{Method} & \textbf{Venue} & \textbf{Target} & \textbf{Input} & \textbf{MPJPE (mm)} \\
+\midrule
+\multicolumn{5}{l}{\textit{Body Pose (DHP19)}} \\
+DHP19~\cite{calabrese2019dhp19}            & CVPRW'19 & Body & E     & 87.90 \\
+EventPointPose~\cite{wang2024eventpointpose} & 3DV'22  & Body & E     & 82.46 \\
+EventHPE~\cite{zou2021eventhpe}            & ICCV'21  & Body & E+F   & 48.87 \\
+\midrule
+\multicolumn{5}{l}{\textit{Hand Pose (EvRealHands)}} \\
+EventHands~\cite{rudnev2021eventhands}     & ICCV'21  & Hand & E     & 38.51 \\
+EvRGBHand~\cite{jiang2024evrgbhand}        & CVPR'24  & Hand & E+F   & \textbf{16.66} \\
+\midrule
+\multicolumn{5}{l}{\textit{Egocentric Pose (EE3D)}} \\
+EventEgo3D~\cite{millerdurai2024eventego3d}  & CVPR'24 & Ego  & E     & 107.30 \\
+EventEgo3D++~\cite{millerdurai2025eventego3dpp} & IJCV'25 & Ego & E   & 98.67 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\begin{table*}[t]
+\centering
+\caption{Comparison of representative event-to-video reconstruction methods. Results on the ECD, HQF, and MVSEC benchmarks. \textbf{MSE}: mean squared error ($\downarrow$); \textbf{SSIM}: structural similarity ($\uparrow$); \textbf{LPIPS}: perceptual distance ($\downarrow$). Best results are in \textbf{bold}. $^\dagger$Self-supervised method.}
+\label{tab:recon2d}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{llc ccc ccc ccc}
+\toprule
+& & & \multicolumn{3}{c}{\textbf{ECD}} & \multicolumn{3}{c}{\textbf{HQF}} & \multicolumn{3}{c}{\textbf{MVSEC}} \\
+\cmidrule(lr){4-6} \cmidrule(lr){7-9} \cmidrule(lr){10-12}
+\textbf{Method} & \textbf{Venue} & \textbf{Arch.} & MSE$\downarrow$ & SSIM$\uparrow$ & LPIPS$\downarrow$ & MSE$\downarrow$ & SSIM$\uparrow$ & LPIPS$\downarrow$ & MSE$\downarrow$ & SSIM$\uparrow$ & LPIPS$\downarrow$ \\
+\midrule
+E2VID~\cite{rebecq2019e2vid}            & TPAMI'20  & ConvLSTM    & 0.179 & 0.450 & 0.322 & 0.098 & 0.468 & 0.371 & 0.225 & 0.241 & 0.644 \\
+E2VID+~\cite{stoffregen2020hqf}   & ECCV'20   & ConvLSTM    & 0.070 & 0.503 & 0.236 & 0.036 & 0.533 & 0.252 & 0.132 & 0.262 & 0.514 \\
+SPADE-E2VID~\cite{cadena2021spadee2vid} & TIP'21    & SPADE+RNN   & 0.091 & 0.461 & 0.337 & 0.077 & 0.400 & 0.502 & 0.138 & 0.266 & 0.589 \\
+ET-Net~\cite{weng2021etnet}             & ICCV'21   & Transformer & 0.047 & 0.552 & 0.224 & 0.032 & 0.534 & 0.260 & 0.107 & 0.288 & 0.489 \\
+SSL-E2VID$^\dagger$~\cite{paredes2021backtoeventbasics} & CVPR'21 & ConvLSTM & 0.092 & 0.415 & 0.380 & 0.082 & 0.421 & 0.467 & 0.124 & 0.264 & 0.693 \\
+HyperE2VID~\cite{ercan2024hypere2vid}   & TIP'24    & HyperNet    & 0.033 & 0.576 & 0.212 & 0.031 & 0.530 & 0.257 & 0.076 & 0.315 & 0.476 \\
+EventMamba~\cite{zhang2025eventmamba}    & AAAI'25   & Mamba       & --    & --    & --    & \textbf{0.031} & \textbf{0.575} & \textbf{0.261} & \textbf{0.073} & \textbf{0.328} & \textbf{0.475} \\
+\bottomrule
+\end{tabular}
+}
+\end{table*}
+
+\begin{table*}[t]
+\centering
+\caption{Comparison of representative event-based 3D reconstruction methods. \textbf{Repr.}: scene representation; \textbf{Pose}: whether ground-truth camera poses are required; \textbf{Dynamic}: supports dynamic scene reconstruction; \textbf{RT Render}: real-time rendering capability.}
+\label{tab:3d_comparison}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{llcccccc}
+\toprule
+\textbf{Method} & \textbf{Venue} & \textbf{Repr.} & \textbf{Input} & \textbf{Pose} & \textbf{Dynamic} & \textbf{RT Render} & \textbf{Key Contribution} \\
+\midrule
+\multicolumn{8}{l}{\textit{Geometric}} \\
+EMVS~\cite{rebecq2018emvs}                  & IJCV 2018     & Voxel grid     & Events only     & Required  & \xmark & \cmark & Real-time multi-view stereo \\
+EventPS~\cite{yu2024eventps}                 & CVPR'24     & Normal map     & Events only     & N/A       & \xmark & \cmark & Photometric stereo from events \\
+\midrule
+\multicolumn{8}{l}{\textit{NeRF-based}} \\
+EventNeRF~\cite{rudnev2023eventnerf}         & CVPR'23     & NeRF           & Events only     & Required  & \xmark & \xmark & Single color event camera \\
+E2NeRF~\cite{qi2023e2nerf}                   & ICCV'23     & NeRF           & Events + Blurry & Required  & \xmark & \xmark & Deblurring from events \\
+Robust-e-NeRF~\cite{weng2023robustenerf}     & ICCV'23     & NeRF           & Events only     & Required  & \xmark & \xmark & Sparse \& noisy robustness \\
+DE-NeRF~\cite{ma2023denerf}                  & ICCV'23     & Deformable NeRF & Events + RGB   & Required  & \cmark & \xmark & Dynamic via deformation field \\
+EvHDR-NeRF~\cite{chen2025evhdrnerf}          & AAAI'25     & NeRF           & Events + LDR    & Required  & \xmark & \xmark & HDR radiance field \\
+EventNeuS~\cite{sachan2026eventneus}         & 3DV 2026      & NeuS           & Events only     & Required  & \xmark & \xmark & Mesh from single event camera \\
+\midrule
+\multicolumn{8}{l}{\textit{3DGS-based}} \\
+Event-3DGS~\cite{lan2024event3dgs}    & NeurIPS'24  & 3DGS           & Events only     & Required  & \xmark & \cmark & Event-based 3DGS framework \\
+IncEventGS~\cite{huang2025inceventgs}           & CVPR'25     & 3DGS           & Events only     & Pose-free & \xmark & \cmark & Joint pose + Gaussian estimation \\
+DiET-GS~\cite{lee2025dietgs}                 & CVPR'25     & 3DGS           & Events + Blurry & Required  & \xmark & \cmark & Diffusion prior + events \\
+EventBoosted~\cite{xu2025eventboosted3dgs}   & ICCV'25     & Deformable 3DGS & Events + RGB   & Required  & \cmark & \cmark & Event-boosted deformation \\
+E-4DGS~\cite{wang2025e4dgs}                  & ACM MM'25   & 4D-GS          & Events (multi)  & Required  & \cmark & \cmark & Multi-view event 4D Gaussians \\
+EGS-SLAM~\cite{chen2025egsslam}              & RA-L 2025     & 3DGS           & Events + RGB-D  & Estimated & \cmark & \cmark & Gaussian SLAM with events \\
+E-3DGS (L)~\cite{zahid2025e3dgslarge}        & 3DV 2025      & 3DGS           & Events only     & Required  & \xmark & \cmark & Large-scale / unbounded \\
+Elite-EvGS~\cite{zhang2024eliteevgs}           & arXiv'24    & 3DGS           & Events only     & Required  & \xmark & \cmark & Generalizable (no per-scene opt.) \\
+\bottomrule
+\end{tabular}
+}
+\end{table*}
+
+\begin{table*}[t]
+\centering
+\caption{Overview of representative event camera understanding methods. \textbf{Theme}: MLLM=Multimodal LLM, OV=Open-Vocabulary, FM=Foundation Model adaptation, Lang.=Language-Guided, SSL=Self-Supervised Pre-training, Xfer=Cross-Modal Transfer, Gen.=Text-Guided Generation.}
+\label{tab:understanding}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{lllllll}
+\toprule
+\textbf{Method} & \textbf{Venue} & \textbf{Theme} & \textbf{Foundation Model} & \textbf{Key Technique} & \textbf{Benchmark} & \textbf{Headline Result} \\
+\midrule
+EventGPT~\cite{zhou2025eventgpt}       & CVPR'25  & MLLM  & LLaVA        & 3-stage event MLLM training  & Event-Chat         & First event MLLM \\
+EventVL~\cite{li2025eventvl}            & arXiv'25 & MLLM  & LLM          & Spatiotemporal representation & EventVL-QA (75K)   & 1.4M training pairs \\
+EventFlash~\cite{kong2026eventflash}    & arXiv'26 & MLLM  & LLM          & Sparse density-guided attn.  & EventMind (500K+)  & 12.4$\times$ throughput \\
+\midrule
+EventCLIP~\cite{wu2023eventclip}        & arXiv 2023 & CLIP  & CLIP         & Feature adapter              & N-ImageNet         & Zero/few-shot recognition \\
+EventBind~\cite{zhou2024eventbind}      & ECCV'24  & CLIP  & CLIP         & Hierarchical contrastive     & N-ImageNet         & SOTA on N-Caltech/N-IN \\
+EZSR~\cite{cho2025ezsr}                & CVPR'25  & CLIP  & CLIP ViT-B/16 & Event encoder from RGB synth. & N-ImageNet        & 47.84\% zero-shot (surpasses sup.) \\
+\midrule
+OpenESS~\cite{kong2024openess}          & CVPR'24  & OV    & CLIP         & Frame-to-event distillation  & DDD17, DSEC        & 53.93\% mIoU (no labels) \\
+SEAL~\cite{li2026seal}                  & ICLR'26  & OV    & Foundation   & Open-vocab instance seg.     & DSEC-Ins, DDD17-Ins & Instance + part-level \\
+\midrule
+EventSAM~\cite{chen2024eventsam}        & CVPR'24  & FM    & SAM          & Multi-scale distillation     & RGBE-SEG           & SAM $\rightarrow$ events \\
+TGVFM~\cite{zhang2025tgvfm}            & arXiv'25 & FM    & ViT (VFM)    & Temporal context fusion      & Multi-task         & +16--21\% improvement \\
+EventDAM~\cite{xu2025depthanycvent}     & ICCV'25  & FM    & Depth Anything v2 & Dense-to-sparse distill. & DSEC               & No depth GT needed \\
+\midrule
+Talk2Event~\cite{zheng2025talk2event}   & NeurIPS'25 & Lang. & --         & MoE event-attribute experts  & Talk2Event (30K+)  & First event grounding benchmark \\
+E-VLA~\cite{miao2026evla}              & arXiv'26 & Lang. & VLA          & Event-augmented VLA          & Robotic manip.     & 80\%+ success in darkness \\
+\midrule
+MEM~\cite{klenk2024mem}                & WACV'24  & SSL   & --           & Masked event modeling (dVAE) & N-ImageNet         & +7.96\% classification \\
+TESPEC                                   & ICCV'25  & SSL   & --           & Temporal tube masking         & N-ImageNet         & Long-sequence pre-training \\
+STP                                      & ICCV'25  & SSL   & --           & Efficient pre-training        & N-ImageNet         & 1/10 params, 1/3 epochs \\
+\midrule
+EventDance~\cite{zheng2024eventdance}   & CVPR'24  & Xfer  & --           & Source-free adaptation        & N-Caltech101       & No source data needed \\
+EventFly~\cite{kong2025eventfly}        & CVPR'25  & Xfer  & --           & Cross-platform transfer       & Multi-platform     & Vehicle$\rightarrow$drone$\rightarrow$robot \\
+\midrule
+ControlEvents~\cite{wu2025controlevents} & arXiv'25 & Gen. & Stable Diffusion & Controllable event synth. & Synthetic events   & Zero-shot data augmentation \\
+\bottomrule
+\end{tabular}
+}
+\end{table*}

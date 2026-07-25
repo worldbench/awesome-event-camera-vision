@@ -1,0 +1,252 @@
+\section{Datasets \& Evaluations}
+\label{sec:data}
+
+The rapid growth of event-based vision research has been accompanied by an expanding ecosystem of datasets, benchmarks, and simulators. In this section, we provide a structured overview of the resources that underpin the methods reviewed in \cref{sec:method}, organized by task domain. We also discuss evaluation metrics and identify gaps in current benchmarking practices.
+
+
+\subsection{Event Camera Hardware}
+\label{sec:data_hardware}
+
+\cref{tab:sensors} summarizes the major event camera sensors used in the literature. The field has evolved from the original 128$\times$128-pixel DVS~\cite{lichtsteiner2008dvs} to megapixel-class sensors such as the Prophesee Gen4-CD and the EVK4-HD. The DAVIS family~\cite{brandli2014davis} remains widely used due to its co-located event and grayscale pixels, while Prophesee sensors dominate recent high-resolution benchmarks.
+
+\begin{table}[t]
+\centering
+\caption{Major event camera sensors used in the literature.}
+\label{tab:sensors}
+\resizebox{\linewidth}{!}{
+\begin{tabular}{clccc}
+\toprule
+\textbf{\#} & \textbf{Sensor} & \textbf{Resolution} & \textbf{DR (dB)} & \textbf{Latency} \\
+\midrule
+1 & DVS128          & 128$\times$128   & 120 & 15\,$\mu$s \\
+\rowalt
+2 & DAVIS240C       & 240$\times$180   & 120 & 3\,$\mu$s \\
+3 & DAVIS346        & 346$\times$260   & 120 & 3\,$\mu$s \\
+\rowalt
+4 & DVXplorer       & 640$\times$480   & $>$120 & -- \\
+5 & Prophesee Gen1  & 304$\times$240   & $>$120 & -- \\
+\rowalt
+6 & Prophesee Gen3.1& 640$\times$480   & $>$120 & -- \\
+7 & Prophesee Gen4-CD& 1280$\times$720  & $>$120 & -- \\
+\rowalt
+8 & EVK4-HD         & 1280$\times$720  & $>$120 & -- \\
+9 & Samsung DVS Gen3& Varies           & $>$120 & -- \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+
+\subsection{Datasets by Task}
+\label{sec:data_bytask}
+
+We catalog over 60 datasets organized by their primary application domain. Many datasets serve multiple tasks (\eg, DSEC~\cite{gehrig2021dsec} supports stereo depth, optical flow, segmentation, and SLAM); we list each under its most common usage.
+
+\paragraph{Classification.} N-MNIST and N-Caltech101~\cite{orchard2015nmnist} were the earliest event classification datasets, created by recording static images with a saccading event camera. CIFAR10-DVS~\cite{li2017cifar10dvs} followed a similar protocol at 128$\times$128 resolution. N-Cars~\cite{sironi2018ncars} provided real-world binary classification. N-ImageNet~\cite{kim2021nimagenet} (ICCV 2021) scaled to 1,000 classes with 1.78M samples, establishing the primary benchmark for event-based recognition. ES-ImageNet~\cite{bi2021esimagenet} provided a million-sample synthetic alternative.
+
+\paragraph{Object Detection.} The Prophesee Gen1 dataset~\cite{perot2020red} (304$\times$240, 39h of driving, 255K boxes) and the 1Mpx dataset~\cite{perot2020red} (1280$\times$720, 14h, 25M boxes) are the standard benchmarks. PKU-DAVIS-SOD~\cite{zhao2023sodformer} provides streaming detection annotations on DAVIS346. EvDET200K~\cite{wang2025mvheat} (CVPR 2025) offers 10 categories at HD resolution.
+
+\paragraph{Semantic Segmentation.} DDD17-Seg~\cite{binas2017ddd17} provides 6-class driving segmentation at 346$\times$260. DSEC-Semantic~\cite{sun2022ess} extends DSEC with 11-class pixel-level labels at 640$\times$440. EventScape~\cite{gehrig2021ramnet} offers synthetic labels from CARLA.
+
+\paragraph{Object Tracking.} Dedicated tracking datasets have grown rapidly: FE108~\cite{zhang2021fe108} (108 sequences), VisEvent~\cite{wang2023visevent} (820 pairs), COESOT~\cite{tang2022ceutrack} (1,354 sequences, 90 categories), EventVOT~\cite{wang2024hdetrack} (CVPR 2024, 1,141 HD videos), FELT~\cite{wang2024felt} (1,044 long-term videos), and CRSOT~\cite{tang2024crsot} (cross-resolution).
+
+\paragraph{Optical Flow.} MVSEC~\cite{zhu2018mvsec} and DSEC-Flow~\cite{gehrig2021dsec} provide real-world flow benchmarks. BlinkFlow~\cite{zhang2023blinkflow} (IROS 2023) uses synthetic data to push estimation limits.
+
+\paragraph{Depth Estimation.} MVSEC~\cite{zhu2018mvsec} and DSEC~\cite{gehrig2021dsec} provide stereo depth ground truth from LiDAR. EDS~\cite{hidalgo2022eds} supports event-aided sparse odometry.
+
+\paragraph{Action and Gesture Recognition.} DVS128 Gesture~\cite{amir2017dvs128gesture} (11 classes, 29 subjects) remains the standard gesture benchmark. HARDVS~\cite{wang2023hardvs} (300 classes), THU-EACT-50~\cite{gao2023thueact} (50 classes, multi-view), and DailyDVS-200~\cite{wang2024dailydvs200} (200 classes, 47 subjects) have scaled event-based action recognition.
+
+\paragraph{Human Pose.} DHP19~\cite{calabrese2019dhp19} provides multi-view DVS data with Vicon motion capture ground truth. EHPT-XC (NeurIPS 2024) extends to extreme conditions.
+
+\paragraph{Reconstruction.} 2D paired datasets include HQF~\cite{stoffregen2020hqf}, RLED~\cite{liu2024rled}, EvLight~\cite{liang2024evlight}, EventAID~\cite{cho2024eventaid}, and EventHDR~\cite{zou2025eventhdr}. 3D datasets include the IJRR dataset~\cite{mueggler2017ijrr}, CED~\cite{scheerlinck2019ced}, TUM-VIE~\cite{klenk2021tumvie}, VECtor~\cite{gao2022vector}, and PAEv3d~\cite{wang2024paev3d}.
+
+\paragraph{SLAM and Visual Odometry.} The IJRR dataset~\cite{mueggler2017ijrr}, MVSEC~\cite{zhu2018mvsec}, DSEC~\cite{gehrig2021dsec}, TUM-VIE~\cite{klenk2021tumvie}, VECtor~\cite{gao2022vector}, M3ED~\cite{chaney2023m3ed}, and EVIMO2~\cite{burner2022evimo2} provide multi-sensor data for event-based localization and mapping.
+
+\paragraph{Language and Understanding.} This is the newest dataset category, emerging in 2025. Talk2Event~\cite{zheng2025talk2event} provides 30K+ referring expressions for event grounding. N-ImageNet-Chat and Event-Chat~\cite{zhou2025eventgpt} supply event-language pairs for MLLM training. EventVL-Base~\cite{li2025eventvl} (1.4M pairs) and EventMind~\cite{kong2026eventflash} (500K+ instructions) support event MLLM development.
+
+\cref{tab:dataset_catalog} provides a consolidated catalog of major event camera datasets organized by task domain.
+
+\begin{table*}[p]
+\centering
+\caption{Consolidated catalog of major event camera datasets, organized by task domain. \textbf{Task}: Cls.=Classification, Det.=Detection, Seg.=Segmentation, Track.=Tracking, Flow=Optical Flow, Depth=Depth Estimation, Act.=Action/Gesture, Pose=Human Pose, Recon.=Reconstruction, SLAM=Simultaneous Localization and Mapping, Lang.=Language Understanding.}
+\label{tab:dataset_catalog}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{clllllll}
+\toprule
+\textbf{\#} & \textbf{Dataset} & \textbf{Venue} & \textbf{Sensor} & \textbf{Resolution} & \textbf{Task} & \textbf{Scale} & \textbf{Modalities} \\
+\midrule
+\multicolumn{8}{l}{\textit{Classification}} \\
+\midrule
+1  & N-MNIST~\cite{orchard2015nmnist}             & \venue{Front. Neurosci.}{15} & ATIS       & 28$\times$28    & Cls.   & 70K samples, 10 cls.        & Events \\
+\rowalt
+2  & N-Caltech101~\cite{orchard2015nmnist}        & \venue{Front. Neurosci.}{15} & ATIS       & 240$\times$180  & Cls.   & 8.2K samples, 101 cls.      & Events \\
+3  & CIFAR10-DVS~\cite{li2017cifar10dvs}          & \venue{Front. Neurosci.}{17} & DVS128     & 128$\times$128  & Cls.   & 10K samples, 10 cls.        & Events \\
+\rowalt
+4  & N-Cars~\cite{sironi2018ncars}                & \venue{CVPR}{18}             & ATIS       & 304$\times$240  & Cls.   & 24K samples, 2 cls.         & Events \\
+5  & ASL-DVS                                       & \venue{CVPRW}{19}            & DAVIS240   & 240$\times$180  & Cls.   & 100.8K samples, 24 cls.     & Events \\
+\rowalt
+6  & ES-ImageNet~\cite{bi2021esimagenet}           & \venue{Front. Neurosci.}{21} & Synthetic  & 224$\times$224  & Cls.   & 1.3M samples, 1000 cls.     & Events \\
+7  & N-ImageNet~\cite{kim2021nimagenet}            & \venue{ICCV}{21}             & Samsung    & 480$\times$640  & Cls.   & 1.78M samples, 1000 cls.    & Events \\
+\midrule
+\multicolumn{8}{l}{\textit{Detection}} \\
+\midrule
+8  & Gen1~\cite{perot2020red}                      & \venue{NeurIPS}{20}          & Prophesee Gen1  & 304$\times$240   & Det.   & 39h, 255K boxes             & Events \\
+\rowalt
+9  & 1Mpx~\cite{perot2020red}                      & \venue{NeurIPS}{20}          & Prophesee Gen4  & 1280$\times$720  & Det.   & 14h, 25M boxes              & Events \\
+10 & PKU-DAVIS-SOD~\cite{zhao2023sodformer}         & \venue{T-PAMI}{23}           & DAVIS346        & 346$\times$260   & Det.   & Streaming annotations       & Events+Frames \\
+\rowalt
+11 & EvDET200K~\cite{wang2025mvheat}                & \venue{CVPR}{25}             & Prophesee       & HD               & Det.   & 10 categories               & Events \\
+\midrule
+\multicolumn{8}{l}{\textit{Segmentation}} \\
+\midrule
+12 & DDD17-Seg~\cite{binas2017ddd17}               & arXiv'17                     & DAVIS346         & 346$\times$260   & Seg.   & 12h driving, 6 cls.         & Events+Frames \\
+\rowalt
+13 & EventScape~\cite{gehrig2021ramnet}             & \venue{RA-L}{21}             & Synthetic        & 1024$\times$512  & Seg.   & Synthetic (CARLA)           & Events+Frames+Depth \\
+14 & DSEC-Semantic~\cite{sun2022ess}                & \venue{ECCV}{22}             & Prophesee Gen3.1 & 640$\times$440   & Seg.   & 11 classes                  & Events+Stereo+LiDAR \\
+\midrule
+\multicolumn{8}{l}{\textit{Tracking}} \\
+\midrule
+15 & FE108~\cite{zhang2021fe108}                    & \venue{ICCV}{21}             & DAVIS346         & 346$\times$260   & Track. & 108 sequences               & Events+Frames \\
+\rowalt
+16 & COESOT~\cite{tang2022ceutrack}                 & arXiv'22                     & DVXplorer        & 640$\times$480   & Track. & 1,354 seqs, 90 cats.        & Events+Frames \\
+17 & VisEvent~\cite{wang2023visevent}               & \venue{T-CYB}{23}            & DAVIS346         & 346$\times$260   & Track. & 820 video pairs             & Events+Frames \\
+\rowalt
+18 & EventVOT~\cite{wang2024hdetrack}               & \venue{CVPR}{24}             & Prophesee Gen4   & 1280$\times$720  & Track. & 1,141 HD videos             & Events \\
+19 & FELT~\cite{wang2024felt}                       & arXiv'24                     & Various          & Various          & Track. & 1,044 long-term videos      & Events+Frames \\
+\rowalt
+20 & CRSOT~\cite{tang2024crsot}                     & \venue{T-MM}{25}             & Various          & Various          & Track. & Cross-resolution            & Events+Frames \\
+\midrule
+\multicolumn{8}{l}{\textit{Flow / Depth}} \\
+\midrule
+21 & MVSEC~\cite{zhu2018mvsec}                      & \venue{RA-L}{18}             & DAVIS346         & 346$\times$260   & Flow, Depth & Indoor/outdoor driving  & Events+Stereo+IMU+LiDAR \\
+\rowalt
+22 & DSEC~\cite{gehrig2021dsec}                     & \venue{RA-L}{21}             & Prophesee Gen3.1 & 640$\times$480   & Flow, Depth, Seg. & 53 driving seqs & Events+Stereo+LiDAR+GPS \\
+23 & EDS~\cite{hidalgo2022eds}                      & \venue{CVPR}{22}             & DAVIS346         & 346$\times$260   & Depth        & Indoor scenes          & Events+Frames \\
+\midrule
+\multicolumn{8}{l}{\textit{Action / Gesture}} \\
+\midrule
+24 & DVS128 Gesture~\cite{amir2017dvs128gesture}    & \venue{CVPR}{17}             & DVS128           & 128$\times$128   & Act.   & 1.3K clips, 29 subj.        & Events \\
+\rowalt
+25 & HARDVS~\cite{wang2023hardvs}                   & \venue{AAAI}{24}             & DAVIS346         & 346$\times$260   & Act.   & 107.6K clips, 300 cls.      & Events \\
+26 & THU-EACT-50~\cite{gao2023thueact}              & \venue{T-PAMI}{23}           & DAVIS346         & 346$\times$260   & Act.   & 50 classes, multi-view      & Events+Frames \\
+\rowalt
+27 & DailyDVS-200~\cite{wang2024dailydvs200}        & \venue{ECCV}{24}             & DAVIS346         & 346$\times$260   & Act.   & 22K clips, 200 cls.         & Events \\
+\midrule
+\multicolumn{8}{l}{\textit{Pose}} \\
+\midrule
+28 & DHP19~\cite{calabrese2019dhp19}                & \venue{CVPRW}{19}            & DVS128 ($\times$4) & 128$\times$128 & Pose   & 33 movements, Vicon GT      & Events (4 views) \\
+\rowalt
+29 & EHPT-XC~\cite{xu2024ehptxc}                    & \venue{NeurIPS}{24}          & Various          & Various          & Pose   & Extreme conditions          & Events+Frames \\
+\midrule
+\multicolumn{8}{l}{\textit{Reconstruction}} \\
+\midrule
+30 & HQF~\cite{stoffregen2020hqf}             & arXiv'20                     & DAVIS240         & 240$\times$180   & Recon. & Indoor/outdoor scenes       & High-rate frames \\
+\rowalt
+31 & RLED~\cite{liu2024rled}                      & \venue{CVPR}{24}             & DAVIS346         & 346$\times$260   & Low-light & Low-light driving        & Paired RGB frames \\
+32 & EvLight~\cite{liang2024evlight}                & \venue{CVPR}{24}             & Various          & Various          & Low-light & Large-scale paired data  & Paired RGB frames \\
+\rowalt
+33 & CED~\cite{scheerlinck2019ced}                  & \venue{CVPRW}{19}            & DAVIS346         & 346$\times$260   & Recon. & Diverse real-world scenes   & Events+Frames \\
+34 & EventAID~\cite{cho2024eventaid}                & \venue{T-PAMI}{25}           & Various          & Various          & Multi-task & Degradation types       & Paired RGB frames \\
+\rowalt
+35 & EventHDR~\cite{zou2025eventhdr}               & \venue{T-PAMI}{25}           & Prophesee        & 1280$\times$720  & HDR    & High-speed HDR video        & HDR ground truth \\
+36 & PAEv3d~\cite{wang2024paev3d}                     & \venue{ICRA}{24}             & Prophesee        & 1280$\times$720  & 3D Recon. & Multi-view with events  & Events+Frames+Pose \\
+\midrule
+\multicolumn{8}{l}{\textit{SLAM}} \\
+\midrule
+37 & IJRR~\cite{mueggler2017ijrr}                  & \venue{IJRR}{17}             & DAVIS240         & 240$\times$180   & SLAM   & Indoor 6-DoF motions        & Events+Frames+IMU+Pose \\
+\rowalt
+38 & TUM-VIE~\cite{klenk2021tumvie}                & \venue{IROS}{21}             & Prophesee        & 1280$\times$720  & SLAM   & Stereo events + IMU         & Events+Stereo+IMU+Pose \\
+39 & VECtor~\cite{gao2022vector}                   & \venue{RA-L}{22}             & Prophesee        & 640$\times$480   & SLAM   & 3D LiDAR maps               & Events+Stereo+LiDAR+IMU \\
+\rowalt
+40 & EVIMO2~\cite{burner2022evimo2}                 & arXiv'22                     & Samsung          & 640$\times$480   & Seg., SLAM & Object-level annotations & Events+RGB+Depth+Pose \\
+41 & M3ED~\cite{chaney2023m3ed}                     & \venue{CVPRW}{23}            & Prophesee        & 640$\times$480   & SLAM   & Multi-robot, multi-env      & Events+Stereo+LiDAR+IMU \\
+\midrule
+\multicolumn{8}{l}{\textit{Language}} \\
+\midrule
+42 & Talk2Event~\cite{zheng2025talk2event}           & \venue{NeurIPS}{25}          & Various          & Various          & Grounding & 5.6K scenes, 30K+ exprs. & Events+Language \\
+\rowalt
+43 & N-ImageNet-Chat~\cite{zhou2025eventgpt}         & \venue{CVPR}{25}             & Various          & Various          & MLLM   & Event-language pairs         & Events+Language \\
+44 & EventVL-Base~\cite{li2025eventvl}               & arXiv'25                     & Various          & Various          & MLLM   & 1.4M multimodal pairs        & Events+Language \\
+\rowalt
+45 & EventMind~\cite{kong2026eventflash}             & arXiv'26                     & Various          & Various          & MLLM   & 500K+ instructions           & Events+Language \\
+\bottomrule
+\end{tabular}
+}
+\end{table*}
+
+
+\subsection{Simulators}
+\label{sec:data_simulators}
+
+Event camera simulators are essential for generating large-scale training data and evaluating algorithms under controlled conditions. ESIM~\cite{rebecq2018esim} (CoRL 2018) provides photorealistic event simulation via adaptive rendering coupled with UnrealCV. rpg\_vid2e~\cite{gehrig2020vid2e} (CVPR 2020) recycles existing video datasets by driving ESIM from interpolated video frames. v2e~\cite{hu2021v2e} (CVPRW 2021) generates realistic DVS events from video with detailed noise modeling including pixel-level threshold mismatch, bandwidth limitations, and leak events. DVS-Voltmeter~\cite{lin2022dvsvoltmeter} (ECCV 2022) introduces physics-based stochastic process modeling of DVS pixel circuits. The choice of simulator significantly impacts the sim-to-real gap; recent work increasingly favors v2e and DVS-Voltmeter for their more realistic noise models.
+
+\cref{tab:simulators} compares the major event camera simulators.
+
+\begin{table}[t]
+\centering
+\caption{Comparison of event camera simulators.}
+\label{tab:simulators}
+\resizebox{\linewidth}{!}{
+\begin{tabular}{cllllc}
+\toprule
+\textbf{\#} & \textbf{Simulator} & \textbf{Venue} & \textbf{Input} & \textbf{Noise Model} & \textbf{Real-time} \\
+\midrule
+1 & ESIM~\cite{rebecq2018esim}                 & \venue{CoRL}{18}  & 3D scenes   & Basic (threshold)      & \cmark \\
+\rowalt
+2 & rpg\_vid2e~\cite{gehrig2020vid2e}          & \venue{CVPR}{20}  & Videos      & Inherited (ESIM)       & \xmark \\
+3 & v2e~\cite{hu2021v2e}                       & \venue{CVPRW}{21} & Videos      & Advanced (pixel-level)  & \xmark \\
+\rowalt
+4 & DVS-Voltmeter~\cite{lin2022dvsvoltmeter}   & \venue{ECCV}{22}  & Videos      & Physics-based (circuit) & \xmark \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+
+\subsection{Evaluation Metrics}
+\label{sec:data_metrics}
+
+\cref{tab:metrics} summarizes the standard evaluation metrics by task.
+
+\begin{table}[t]
+\centering
+\caption{Standard evaluation metrics for event-based vision tasks.}
+\label{tab:metrics}
+\resizebox{\linewidth}{!}{
+\begin{tabular}{ll}
+\toprule
+\textbf{Task} & \textbf{Metrics} \\
+\midrule
+Object Detection     & mAP (\%), mAP$_{50}$ \\
+Semantic Segmentation & mIoU (\%) \\
+Depth Estimation     & AbsRel, SqRel, $\delta < 1.25$ \\
+Optical Flow         & AEE (px), \%Outlier \\
+Object Tracking      & AUC, Precision, Normalized Precision \\
+Action Recognition   & Top-1 Accuracy (\%) \\
+Human Pose           & MPJPE (mm), PCK (\%) \\
+Image Reconstruction & PSNR (dB), SSIM, LPIPS \\
+3D Reconstruction    & PSNR, SSIM, Chamfer Distance \\
+SLAM                 & ATE (m), RPE (m, deg) \\
+Open-Vocabulary      & mIoU (\%), Zero-shot Accuracy (\%) \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+
+\subsection{Discussion}
+\label{sec:data_discussion}
+
+Despite rapid growth, the event camera dataset ecosystem faces several structural challenges:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Scale gap.} The largest event classification dataset (N-ImageNet, 1.78M samples) is two orders of magnitude smaller than ImageNet (14M) and four orders smaller than web-scale datasets (\eg, LAION-5B). This limits the scale of pre-training and the diversity of learned representations.
+
+    \item \textbf{Sensor bias.} The majority of datasets use DAVIS346 (346$\times$260) or Prophesee Gen3 (640$\times$480) sensors. Very few leverage the newer megapixel-class sensors (Gen4, EVK4-HD), limiting evaluation of methods at resolutions relevant to practical deployment.
+
+    \item \textbf{Format fragmentation.} Event data is stored in diverse formats (\texttt{.aedat}, \texttt{.raw}, \texttt{.h5}, \texttt{.npy}, rosbag) with no community-wide standard, creating unnecessary friction for researchers.
+
+    \item \textbf{No unified multi-task benchmark.} Unlike COCO (detection + segmentation + captioning) or KITTI (detection + depth + flow + SLAM), no single event dataset supports evaluation across all major tasks.
+
+    \item \textbf{Language data scarcity.} The largest event-language dataset (EventMind, 500K+) is tiny compared to image-language scale (LAION-5B), constraining the development of event MLLMs.
+\end{itemize}

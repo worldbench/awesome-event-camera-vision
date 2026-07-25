@@ -1,0 +1,162 @@
+\section{Introduction}
+\label{sec:intro}
+
+
+\IEEEPARstart{C}{onventional} frame-based cameras have served as the dominant visual sensors for decades, capturing dense intensity images at fixed intervals. While remarkably successful, this paradigm imposes fundamental limitations: temporal resolution is bounded by the frame rate, dynamic range is constrained to approximately 60\,dB, and redundant data is generated even in static scenes, leading to unnecessary bandwidth and power consumption. These limitations become critical bottlenecks in scenarios demanding real-time responsiveness --- such as autonomous navigation at high speed, robotic manipulation of fast-moving objects, and always-on perception on energy-constrained platforms.
+
+Event cameras, also known as Dynamic Vision Sensors (DVS)~\cite{lichtsteiner2008dvs}, represent a fundamentally different approach to visual sensing. Inspired by biological retinas, each pixel independently and asynchronously reports brightness changes as a stream of ``events'' --- timestamped tuples $(x, y, t, p)$ encoding the pixel location, microsecond-precise time, and polarity (sign) of the intensity change. This design yields several remarkable properties: (i)~temporal resolution on the order of microseconds, enabling capture of motions invisible to conventional cameras; (ii)~high dynamic range exceeding 120\,dB (compared to $\sim$60\,dB for standard sensors), supporting operation from direct sunlight to near darkness; (iii)~extremely low power consumption (typically in the milliwatt range), suitable for edge and embedded deployment; and (iv)~minimal motion blur, since events are generated continuously rather than accumulated over an exposure window. These properties have motivated a growing body of research exploring event cameras for a wide range of computer vision tasks.
+
+
+\subsection{Evolution of the Field}
+\label{sec:intro_evolution}
+
+The study of event-based vision can be broadly divided into three eras (\cref{fig:overview}). The \textit{early era} (2008--2017) focused on sensor design, basic event processing algorithms, and proof-of-concept demonstrations for tasks such as optical flow estimation~\cite{benosman2014opticalflow}, feature tracking~\cite{kueng2016feature}, and simultaneous localization and mapping (SLAM)~\cite{kim2016slam}. Methods in this period were predominantly model-based, relying on geometric principles and contrast maximization~\cite{gallego2018cmax} to exploit the unique structure of event data.
+
+The \textit{deep learning era} (2018--2023) witnessed a paradigm shift, as convolutional neural networks (CNNs) and recurrent architectures were adapted to process event representations. Pioneering works such as E2VID~\cite{rebecq2019e2vid} for event-to-video reconstruction and EV-FlowNet~\cite{zhu2018evflownet} for self-supervised optical flow demonstrated that deep learning could unlock substantially higher performance than hand-crafted methods. This period also saw rapid growth in event-specific datasets~\cite{gehrig2021dsec,perot2020red}, benchmarks, and the exploration of spiking neural networks (SNNs) as a biologically plausible processing paradigm for event data.
+
+We are now in the \textit{era of large models} (2024--present), which motivates this survey. The emergence of large-scale pre-trained models --- vision transformers (ViTs), diffusion models, contrastive language-image pre-training (CLIP)~\cite{radford2021clip}, the Segment Anything Model (SAM)~\cite{kirillov2023sam}, and multimodal large language models (MLLMs) --- has fundamentally reshaped the landscape. These models bring powerful visual and semantic priors that can be transferred to the event modality, overcoming the longstanding challenge of limited labeled event data. Concurrently, state space models (SSMs/Mamba)~\cite{gu2023mamba} and advanced 3D representations such as 3D Gaussian Splatting (3DGS)~\cite{kerbl20233dgs} have introduced new architectural paradigms for efficient temporal modeling and neural scene reconstruction from events. The confluence of these advances has enabled capabilities that were previously unattainable: open-vocabulary event-based recognition without task-specific labels, event-guided video generation via diffusion priors, pose-free 3D reconstruction from a single event camera, and natural language grounding in dynamic event streams.
+
+\begin{figure*}[t]
+\centering
+\begin{tikzpicture}[
+    font=\sffamily\scriptsize,
+    pillar/.style={rounded corners=4pt, draw=#1!70, fill=#1!10, thick, minimum width=2.6cm, minimum height=0.9cm, align=center, font=\sffamily\scriptsize\bfseries},
+    detail/.style={rounded corners=2pt, draw=#1!50, fill=#1!5, text width=3.0cm, align=left, font=\sffamily\tiny, inner sep=3pt, minimum height=0.4cm},
+    ctr/.style={rounded rectangle, draw=black!80, fill=gray!8, very thick, text width=3.8cm, align=center, font=\sffamily\small\bfseries, minimum height=1.1cm},
+    arr/.style={-Stealth, thick, #1!50},
+]
+
+% Central node
+\node[ctr] (center) at (0,0) {Event Camera Vision\\in the Era of Large Models};
+
+% Pillar nodes
+\node[pillar=cyan!70!black] (pre) at (-7, 0) {Sec.~2\\Preliminaries};
+\node[pillar=blue] (per) at (-3.5, 2.8) {Sec.~3.1\\Perception};
+\node[pillar=green!60!black] (rec) at (3.5, 2.8) {Sec.~3.2\\Reconstruction};
+\node[pillar=orange] (und) at (7, 0) {Sec.~3.3\\Understanding};
+\node[pillar=teal] (dat) at (-3.5, -2.8) {Sec.~4\\Datasets};
+\node[pillar=purple] (app) at (3.5, -2.8) {Sec.~5\\Applications};
+
+% Arrows
+\draw[arr=cyan!70!black] (center) -- (pre);
+\draw[arr=blue] (center) -- (per);
+\draw[arr=green!60!black] (center) -- (rec);
+\draw[arr=orange] (center) -- (und);
+\draw[arr=teal] (center) -- (dat);
+\draw[arr=purple] (center) -- (app);
+
+% Detail boxes -- Preliminaries
+\node[detail=cyan!70!black, anchor=east] at ([xshift=-0.3cm]pre.west) {Sensor Principles\\Data Representations (6)\\Processing Paradigms (6)};
+
+% Detail boxes -- Perception
+\node[detail=blue, anchor=south] at ([yshift=0.3cm]per.north) {Detection, Segmentation\\Depth \& Flow, Tracking\\Action Recog. \& Pose Estim.};
+
+% Detail boxes -- Reconstruction
+\node[detail=green!60!black, anchor=south] at ([yshift=0.3cm]rec.north) {E2V, VFI \& Deblurring\\Image Enhancement\\3D Reconstruction};
+
+% Detail boxes -- Understanding
+\node[detail=orange, anchor=west] at ([xshift=0.3cm]und.east) {Open-Vocab Perception\\Scene Understanding \& Reasoning\\Simulation \& Generation};
+
+% Detail boxes -- Datasets
+\node[detail=teal, anchor=north] at ([yshift=-0.3cm]dat.south) {60+ Datasets, 4 Simulators\\Sensor Hardware Catalog\\Evaluation Metrics};
+
+% Detail boxes -- Applications
+\node[detail=purple, anchor=north] at ([yshift=-0.3cm]app.south) {Driving, SLAM, UAV, Robotics\\Eye Track., Space, Medical\\Industrial, Privacy, Sports};
+
+% Challenge node at bottom
+\node[rounded corners=3pt, draw=violet!60, fill=violet!8, font=\sffamily\tiny\bfseries, minimum width=2.2cm, align=center] (ch) at (0, -3.6) {Sec.~6: Challenges \& Future};
+\draw[arr=violet, dashed] (center) -- (ch);
+
+\end{tikzpicture}
+\caption{Overview of this survey. We provide a comprehensive review of event camera vision organized around six pillars: \textit{preliminaries} (\cref{sec:pre}), \textit{perception} (\cref{sec:perception}), \textit{reconstruction} (\cref{sec:reconstruction}), \textit{understanding} (\cref{sec:understanding}), \textit{datasets and evaluations} (\cref{sec:data}), and \textit{applications} (\cref{sec:appl}). Each pillar is detailed with its core topics and representative methods. The understanding pillar (\textcolor{orange}{orange}) highlights the ``era of large models'' theme that distinguishes this survey from prior work.}
+\label{fig:overview}
+\end{figure*}
+
+
+\subsection{Related Surveys}
+\label{sec:intro_related}
+
+Several surveys have previously reviewed aspects of event-based vision. The seminal work by Gallego~\etal~\cite{gallego2022survey} provided a comprehensive overview of the field up to 2020, covering sensor principles, event representations, and classical algorithms for feature detection, optical flow, depth estimation, and image reconstruction. Zheng~\etal~\cite{zheng2024deeplearning} focused specifically on deep learning methods for event-based vision, offering benchmark experiments for reconstruction and recognition tasks. Domain-specific surveys have addressed event-based SLAM~\cite{huang2023eslam}, stereo depth estimation~\cite{ghosh2025stereodepth}, object detection for autonomous driving~\cite{zhou2024detection}, 3D reconstruction~\cite{xu2025recon3d}, and visual media restoration~\cite{kar2025restoration}. Application-oriented reviews have examined event cameras in automotive sensing~\cite{shariff2024automotive}, UAV systems~\cite{akanbi2025uav}, and mobile embodied perception~\cite{wang2025mobile}.
+
+While these surveys have made valuable contributions, none adequately addresses the transformative impact of large-scale pre-trained models on event-based vision. Gallego~\etal's survey~\cite{gallego2022survey} predates the transformer and diffusion revolutions. Zheng~\etal~\cite{zheng2024deeplearning} covers deep learning methods but does not discuss foundation model adaptation, open-vocabulary understanding, or generative reconstruction paradigms. Task-specific surveys~\cite{xu2025recon3d,kar2025restoration,ghosh2025stereodepth} provide depth in their respective areas but lack a unified perspective. No existing survey covers the intersection of event cameras with MLLMs, vision-language models, or self-supervised pre-training at scale.
+
+
+\subsection{Scope and Contributions}
+\label{sec:intro_scope}
+
+This survey aims to fill this gap by providing a comprehensive, up-to-date review of event camera vision in the era of large models. Our contributions are as follows:
+
+\begin{itemize}[leftmargin=*]
+
+    \item \textbf{Comprehensive and timely coverage.} We review over 400 papers spanning the full spectrum of event camera vision, with particular emphasis on methods from 2024--2026 that leverage large-scale pre-trained models, diffusion priors, state space models, and 3D Gaussian Splatting.
+
+    \item \textbf{A unified five-pillar taxonomy.} We organize the literature around benchmarks and datasets, perception, reconstruction, understanding, and applications --- providing a coherent framework that connects low-level event processing to high-level semantic reasoning and real-world deployment. Within each pillar, we adopt a consistent task-based organization: perception covers 5 core tasks, reconstruction 4 output-oriented tasks, and understanding 3 capability-driven themes.
+
+    \item \textbf{The first survey of event camera understanding.} We systematically review the emerging area of event-based understanding, including event MLLMs (EventGPT, EventVL, EventFlash), CLIP-based recognition (EventCLIP, EventBind, EZSR), open-vocabulary segmentation (OpenESS, SEAL), and SAM/DINO adaptation --- an area not covered by any prior survey.
+
+    \item \textbf{Identification of paradigm shifts.} For each area, we highlight how large models have changed the dominant approaches: from discriminative to generative reconstruction, from supervised to open-vocabulary perception, from NeRF to 3DGS for 3D representation, and from task-specific to foundation-model-based understanding.
+
+    \item \textbf{A living community resource.} We maintain a continuously updated companion repository\footnote{\url{https://github.com/worldbench/awesome-event-camera-vision}} containing curated paper lists, dataset links, and code repositories, ensuring that this survey remains a practical and evolving reference.
+
+\end{itemize}
+
+
+\subsection{Organization}
+\label{sec:intro_organization}
+
+The remainder of this paper is organized as follows. \Cref{sec:pre} introduces the preliminaries of event cameras, including sensor principles, event representations, and key processing paradigms. \Cref{sec:method} presents our main survey, organized into three interrelated areas: perception (\ie, detection, segmentation, depth and optical flow, tracking, and action recognition and pose estimation), reconstruction (\ie, event-to-video reconstruction, video frame interpolation and deblurring, image enhancement, and 3D reconstruction), and understanding (\ie, open-vocabulary perception, scene understanding and reasoning, and event data simulation and generation). \Cref{sec:data} provides a comprehensive review of datasets, benchmarks, and simulators. \Cref{sec:appl} surveys real-world applications across autonomous driving, robotics, UAVs, eye tracking, space imaging, medical microscopy, and more. Finally, \Cref{sec:conclusion} discusses open challenges, emerging opportunities, and future research directions. \cref{fig:taxonomy} provides an overview of the survey's organization.
+
+\begin{figure*}[t]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tikzpicture}[
+    grow=right,
+    level distance=2.8cm,
+    sibling distance=0.4cm,
+    edge from parent/.style={draw, -Stealth, thick, gray!70},
+    every node/.style={font=\sffamily\small},
+    rootnode/.style={rounded rectangle, draw=black!80, fill=gray!10, very thick, text width=3cm, align=center, font=\sffamily\small\bfseries, minimum height=0.8cm},
+    l1node/.style={rounded rectangle, draw=#1!80, fill=#1!10, thick, text width=2.4cm, align=center, font=\sffamily\small\bfseries, minimum height=0.7cm},
+    l2node/.style={rounded corners=2pt, draw=#1!60, fill=#1!5, text width=3.2cm, align=left, font=\sffamily\scriptsize, minimum height=0.5cm},
+    level 1/.style={sibling distance=3.2cm, level distance=3.2cm},
+    level 2/.style={sibling distance=0.65cm, level distance=3.8cm},
+]
+\node [rootnode] {Event Camera\\Vision Survey}
+    child {node [l1node=violet] {Sec.~6: Challenges\\{\scriptsize\& Future}} edge from parent[draw=violet!60]}
+    child {node [l1node=purple] {Sec.~5:\\Applications}
+        child {node [l2node=purple] {Driving, SLAM, UAV, Robotics,\\Eye Track., Space, Medical, ...} edge from parent[draw=purple!50]}
+    edge from parent[draw=purple!60]}
+    child {node [l1node=teal] {Sec.~4: Datasets\\{\scriptsize\& Evaluations}}
+        child {node [l2node=teal] {Simulators \& Metrics} edge from parent[draw=teal!50]}
+        child {node [l2node=teal] {60+ Datasets (by task)} edge from parent[draw=teal!50]}
+        child {node [l2node=teal] {Sensor Hardware} edge from parent[draw=teal!50]}
+    edge from parent[draw=teal!60]}
+    child {node [l1node=orange] {Sec.~3.3:\\Understanding}
+        child {node [l2node=orange] {Event Data Simulation \& Generation} edge from parent[draw=orange!50]}
+        child {node [l2node=orange] {Scene Understanding \& Reasoning} edge from parent[draw=orange!50]}
+        child {node [l2node=orange] {Open-Vocabulary Perception} edge from parent[draw=orange!50]}
+    edge from parent[draw=orange!60]}
+    child {node [l1node=green!60!black] {Sec.~3.2:\\Reconstruction}
+        child {node [l2node=green!60!black] {3D Reconstruction} edge from parent[draw=green!40]}
+        child {node [l2node=green!60!black] {Image Enhancement} edge from parent[draw=green!40]}
+        child {node [l2node=green!60!black] {Video Frame Interp. \& Deblurring} edge from parent[draw=green!40]}
+        child {node [l2node=green!60!black] {Event-to-Video Reconstruction} edge from parent[draw=green!40]}
+    edge from parent[draw=green!50]}
+    child {node [l1node=blue] {Sec.~3.1:\\Perception}
+        child {node [l2node=blue] {Action Recog. \& Pose Estim.} edge from parent[draw=blue!40]}
+        child {node [l2node=blue] {Object Tracking} edge from parent[draw=blue!40]}
+        child {node [l2node=blue] {Depth \& Optical Flow Estim.} edge from parent[draw=blue!40]}
+        child {node [l2node=blue] {Semantic Segmentation} edge from parent[draw=blue!40]}
+        child {node [l2node=blue] {Object Detection} edge from parent[draw=blue!40]}
+    edge from parent[draw=blue!60]}
+    child {node [l1node=cyan!70!black] {Sec.~2:\\Preliminaries}
+        child {node [l2node=cyan!70!black] {Processing Paradigms (6)} edge from parent[draw=cyan!40]}
+        child {node [l2node=cyan!70!black] {Data Representations (6)} edge from parent[draw=cyan!40]}
+        child {node [l2node=cyan!70!black] {Sensor Principles} edge from parent[draw=cyan!40]}
+    edge from parent[draw=cyan!60]}
+;
+\end{tikzpicture}
+}
+\caption{Taxonomy overview of this survey. We organize event camera vision into five pillars: \textit{preliminaries} (sensor principles and processing paradigms), \textit{perception} (5 core tasks), \textit{reconstruction} (4 task-based categories), \textit{understanding} (3 foundation-model-driven themes), \textit{datasets and evaluations}, and \textit{applications} (12 deployment domains). The understanding pillar (\textcolor{orange}{orange}) highlights the ``era of large models'' theme that distinguishes this survey.}
+\label{fig:taxonomy}
+\end{figure*}

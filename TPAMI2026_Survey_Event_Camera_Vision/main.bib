@@ -1,0 +1,4413 @@
+% ==== Section 0: Introduction ====
+
+% ---- Event Camera Hardware & Foundational ----
+
+@article{lichtsteiner2008dvs,
+    title={A 128$\times$128 120 dB 15 $\mu$s latency asynchronous temporal contrast vision sensor},
+    author={Patrick Lichtsteiner and Christoph Posch and Tobi Delbr{\"u}ck},
+    journal={IEEE Journal of Solid-State Circuits},
+    volume={43},
+    number={2},
+    pages={566--576},
+    year={2008}
+}
+
+% ---- Surveys ----
+
+@article{gallego2022survey,
+    title={Event-based vision: A survey},
+    author={Guillermo Gallego and Tobi Delbr{\"u}ck and Garrick Orchard and Chiara Bartolozzi and Brian Taba and Andrea Censi and Stefan Leutenegger and Andrew J Davison and J{\"o}rg Conradt and Kostas Daniilidis and Davide Scaramuzza},
+    journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+    volume={44},
+    number={1},
+    pages={154--180},
+    year={2022}
+}
+
+@article{zheng2024deeplearning,
+    title={Deep learning for event-based vision: A comprehensive survey and benchmarks},
+    author={Xu Zheng and Yexin Liu and Yunfan Lu and Tongyan Hua and Tianbo Pan and Weiming Zhang and Dacheng Tao and Lin Wang},
+    journal={arXiv preprint arXiv:2302.08890},
+    year={2024}
+}
+
+@article{huang2023eslam,
+    title={Event-based simultaneous localization and mapping: A comprehensive survey},
+    author={Kunping Huang and Sen Zhang and Jing Zhang and Dacheng Tao},
+    journal={arXiv preprint arXiv:2304.09793},
+    year={2023}
+}
+
+@article{ghosh2025stereodepth,
+    title={Event-based stereo depth estimation: A survey},
+    author={Suman Ghosh and Guillermo Gallego},
+    journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+    year={2025}
+}
+
+@article{zhou2024detection,
+    title={Deep event-based object detection in autonomous driving: A survey},
+    author={Bingquan Zhou and Jie Jiang},
+    journal={arXiv preprint arXiv:2405.03995},
+    year={2024}
+}
+
+@article{xu2025recon3d,
+    title={A survey of {3D} reconstruction with event cameras},
+    author={Chuanzhi Xu and Haoxian Zhou and Langyi Chen and Haodong Chen and Zeke Zexi Hu and Zhicheng Lu and Ying Zhou and Vera Chung and Qiang Qu and Weidong Cai},
+    journal={Computational Visual Media},
+    year={2025}
+}
+
+@article{kar2025restoration,
+    title={Event camera guided visual media restoration \& {3D} reconstruction: A survey},
+    author={Aupendu Kar and Vishnu Raj and Guan-Ming Su},
+    journal={arXiv preprint arXiv:2509.09971},
+    year={2025}
+}
+
+@article{shariff2024automotive,
+    title={Event cameras in automotive sensing: A review},
+    author={Waseem Shariff and Mehdi Sefidgar Dilmaghani and Paul Kielty and Mohamed Moustafa and Joe Lemley and Peter Corcoran},
+    journal={IEEE Access},
+    volume={12},
+    pages={51275--51306},
+    year={2024}
+}
+
+@article{akanbi2025uav,
+    title={Event-based vision application on autonomous unmanned aerial vehicle: A systematic review of prospects and challenges},
+    author={Ibrahim Akanbi and Michael Ayomoh},
+    journal={Sensors},
+    volume={26},
+    number={1},
+    pages={81},
+    year={2025}
+}
+
+@article{wang2025mobile,
+    title={Event camera meets mobile embodied perception: Abstraction, algorithm, acceleration, application},
+    author={Haoyang Wang and Ruishan Guo and Pengtao Ma and Ciyu Ruan and Xinyu Luo and Wenhua Ding and Tianyang Zhong and Jingao Xu and Yunhao Liu and Xinlei Chen},
+    journal={ACM Computing Surveys},
+    year={2025}
+}
+
+% ---- Early Era Methods ----
+
+@article{benosman2014opticalflow,
+    title={Event-based visual flow},
+    author={Ryad Benosman and Charles Clercq and Xavier Lagorce and Sio-Hoi Ieng and Chiara Bartolozzi},
+    journal={IEEE Transactions on Neural Networks and Learning Systems},
+    volume={25},
+    number={2},
+    pages={407--417},
+    year={2014}
+}
+
+@inproceedings{kueng2016feature,
+    title={Low-latency visual odometry using event-based feature tracks},
+    author={Beat Kueng and Elias Mueggler and Guillermo Gallego and Davide Scaramuzza},
+    booktitle={IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},
+    pages={16--23},
+    year={2016}
+}
+
+@inproceedings{kim2016slam,
+    title={Real-time {3D} reconstruction and {6-DoF} tracking with an event camera},
+    author={Hanme Kim and Stefan Leutenegger and Andrew J Davison},
+    booktitle={ECCV},
+    pages={349--364},
+    year={2016}
+}
+
+@inproceedings{gallego2018cmax,
+    title={A unifying contrast maximization framework for event cameras, with applications to motion, depth, and optical flow estimation},
+    author={Guillermo Gallego and Henri Rebecq and Davide Scaramuzza},
+    booktitle={CVPR},
+    pages={3867--3876},
+    year={2018}
+}
+
+% ---- Deep Learning Era Methods ----
+
+@inproceedings{rebecq2019e2vid,
+    title={Events-to-video: Bringing modern computer vision to event cameras},
+    author={Henri Rebecq and Ren{\'e} Ranftl and Vladlen Koltun and Davide Scaramuzza},
+    booktitle={CVPR},
+    pages={3857--3866},
+    year={2019}
+}
+
+@inproceedings{zhu2018evflownet,
+    title={{EV-FlowNet}: Self-supervised optical flow estimation for event-based cameras},
+    author={Alex Zhu and Liangzhe Yuan and Kenneth Chaney and Kostas Daniilidis},
+    booktitle={Robotics: Science and Systems (RSS)},
+    year={2018}
+}
+
+% ---- Foundation Models (General) ----
+
+@inproceedings{radford2021clip,
+    title={Learning transferable visual models from natural language supervision},
+    author={Alec Radford and Jong Wook Kim and Chris Hallacy and Aditya Ramesh and Gabriel Goh and Sandhini Agarwal and Girish Sastry and Amanda Askell and Pamela Mishkin and Jack Clark and Gretchen Krueger and Ilya Sutskever},
+    booktitle={ICML},
+    pages={8748--8763},
+    year={2021}
+}
+
+@inproceedings{kirillov2023sam,
+    title={Segment anything},
+    author={Alexander Kirillov and Eric Mintun and Nikhila Ravi and Hanzi Mao and Chloe Rolland and Laura Gustafson and Tete Xiao and Spencer Whitehead and Alexander C Berg and Wan-Yen Lo and Piotr Doll{\'a}r and Ross Girshick},
+    booktitle={ICCV},
+    pages={4015--4026},
+    year={2023}
+}
+
+@article{gu2023mamba,
+    title={Mamba: Linear-time sequence modeling with selective state spaces},
+    author={Albert Gu and Tri Dao},
+    journal={arXiv preprint arXiv:2312.00752},
+    year={2023}
+}
+
+@article{kerbl20233dgs,
+    title={{3D} {G}aussian splatting for real-time radiance field rendering},
+    author={Bernhard Kerbl and Georgios Kopanas and Thomas Leimk{\"u}hler and George Drettakis},
+    journal={ACM Transactions on Graphics},
+    volume={42},
+    number={4},
+    pages={1--14},
+    year={2023}
+}
+
+
+% ==== Section 1: Benchmarks & Datasets ====
+
+% ---- Classification Datasets ----
+
+@article{orchard2015nmnist,
+  title={Converting Static Image Datasets to Spiking Neuromorphic Datasets Using Saccades},
+  author={Orchard, Garrick and Jayawant, Ajinkya and Cohen, Gregory K. and Thakor, Nitish},
+  journal={Frontiers in Neuroscience},
+  volume={9},
+  pages={437},
+  year={2015}
+}
+
+@article{orchard2015ncaltech101,
+  title={Converting Static Image Datasets to Spiking Neuromorphic Datasets Using Saccades},
+  author={Orchard, Garrick and Jayawant, Ajinkya and Cohen, Gregory K. and Thakor, Nitish},
+  journal={Frontiers in Neuroscience},
+  volume={9},
+  pages={437},
+  year={2015}
+}
+
+@article{li2017cifar10dvs,
+  title={{CIFAR10-DVS}: An Event-Stream Dataset for Object Classification},
+  author={Li, Hongmin and Liu, Hanchao and Ji, Xiangyang and Li, Guoqi and Shi, Luping},
+  journal={Frontiers in Neuroscience},
+  volume={11},
+  pages={309},
+  year={2017}
+}
+
+@inproceedings{sironi2018ncars,
+  title={{HATS}: Histograms of Averaged Time Surfaces for Robust Event-Based Object Classification},
+  author={Sironi, Amos and Brambilla, Manuele and Bourdis, Nicolas and Lagorce, Xavier and Benosman, Ryad},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={1731--1740},
+  year={2018}
+}
+
+@inproceedings{kim2021nimagenet,
+  title={{N-ImageNet}: Towards Robust, Fine-Grained Object Recognition with Event Cameras},
+  author={Kim, Junho and Bae, Jaehyeok and Park, Gangin and Zhang, Dongsu and Kim, Young Min},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  pages={2146--2156},
+  year={2021}
+}
+
+@article{lin2021esimagenet,
+  title={{ES-ImageNet}: A Million Event-Stream Classification Dataset for Spiking Neural Networks},
+  author={Lin, Yihan and Ding, Wenrui and Qiang, Shaohua and Deng, Lei and Li, Guoqi},
+  journal={Frontiers in Neuroscience},
+  volume={15},
+  pages={726582},
+  year={2021}
+}
+
+% ---- Object Detection Datasets ----
+
+@article{detournemire2020gen1,
+  title={A Large Scale Event-Based Detection Dataset for Automotive},
+  author={de Tournemire, Pierre and Nber, Davide and Migliore, Davide and Bartolozzi, Chiara and Benosman, Ryad},
+  journal={arXiv preprint arXiv:2001.08499},
+  year={2020}
+}
+
+@inproceedings{perot2020red1mpx,
+  title={Learning to Detect Objects with a 1 Megapixel Event Camera},
+  author={Perot, Etienne and de Tournemire, Pierre and Nber, Davide and Chiavazza, Jean-Baptiste and Benosman, Ryad},
+  booktitle={Advances in Neural Information Processing Systems},
+  volume={33},
+  pages={16639--16652},
+  year={2020}
+}
+
+@inproceedings{boretti2023pedro,
+  title={{PEDRo}: An Event-Based Dataset for Person Detection in Robotics},
+  author={Boretti, Chiara and Bich, Philippe and Bhatt, Naga Venkata Sai Raviteja and Bhattacharya, Arijit},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops},
+  year={2023}
+}
+
+@article{huang2023pkudavissod,
+  title={{SODFormer}: Streaming Object Detection with Transformer Using Events and Frames},
+  author={Li, Dianze and Li, Jianing and Tian, Yonghong},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  volume={45},
+  number={12},
+  pages={14020--14037},
+  year={2023}
+}
+
+@inproceedings{zhang2025evdet200k,
+  title={Object Detection using Event Camera: A {MoE} Heat Conduction based Detector and A New Benchmark},
+  author={Wang, Xiao and Jin, Yu and Wu, Wentao and Zhang, Wei and Zhu, Lin and Jiang, Bo and Tian, Yonghong},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year={2025}
+}
+
+% ---- Semantic Segmentation Datasets ----
+
+@article{binas2017ddd17,
+  title={{DDD17}: End-to-End {DAVIS} Driving Dataset},
+  author={Binas, Jonathan and Neil, Daniel and Liu, Shih-Chii and Delbruck, Tobi},
+  journal={arXiv preprint arXiv:1711.01458},
+  year={2017}
+}
+
+@inproceedings{sun2022ess,
+  title={{ESS}: Learning Event-Based Semantic Segmentation from Still Images},
+  author={Sun, Zhaoning and Messikommer, Nico and Gehrig, Daniel and Scaramuzza, Davide},
+  booktitle={Proceedings of the European Conference on Computer Vision},
+  pages={341--357},
+  year={2022}
+}
+
+@article{gehrig2021eventscape,
+  title={Combining Events and Frames Using Recurrent Asynchronous Multimodal Networks for Monocular Depth Prediction},
+  author={Gehrig, Daniel and Loquercio, Antonio and Derpanis, Konstantinos G. and Scaramuzza, Davide},
+  journal={IEEE Robotics and Automation Letters},
+  volume={6},
+  number={2},
+  pages={2822--2829},
+  year={2021}
+}
+
+@inproceedings{chen2024eventsam,
+  title={Segment Any Event Streams via Weighted Adaptation of Pivotal Tokens},
+  author={Chen, Zhiwen and Zhu, Zhiyu and Zhang, Yifan and Hou, Junhui and Shi, Guangming and Wu, Jinjian},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year={2024}
+}
+
+@article{burner2022evimo2,
+  title={{EVIMO2}: An Event Camera Dataset for Motion Segmentation, Optical Flow, Structure from Motion, and Visual Inertial Odometry},
+  author={Burner, Levi and Mitrokhin, Anton and Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis},
+  journal={arXiv preprint arXiv:2205.03467},
+  year={2022}
+}
+
+% ---- Object Tracking Datasets ----
+
+@inproceedings{zhang2021fe108,
+  title={Object Tracking by Jointly Exploiting Frame and Event Domain},
+  author={Zhang, Jiqing and Yang, Xin and Fu, Yingkai and Wei, Xiaopeng and Yin, Baocai and Dong, Bo},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  pages={13043--13052},
+  year={2021}
+}
+
+@article{wang2023visevent,
+  title={{VisEvent}: Reliable Object Tracking via Collaboration of Frame and Event Flows},
+  author={Wang, Xiao and Li, Jianing and Zhu, Lin and Zhang, Zhipeng and Chen, Zhe and Li, Xin and Wang, Yaowei and Tian, Yonghong and Wu, Feng},
+  journal={IEEE Transactions on Cybernetics},
+  volume={53},
+  number={3},
+  pages={1997--2010},
+  year={2023}
+}
+
+@article{tang2025coesot,
+  title={Revisiting Color-Event Based Tracking: A Unified Network, Dataset, and Metric},
+  author={Tang, Chuanming and Wang, Xiao and Huang, Ju and Jiang, Bo and Zhu, Lin and Li, Jianlin and Chen, Yaowei and Tian, Yonghong},
+  journal={Pattern Recognition},
+  volume={157},
+  pages={110882},
+  year={2025}
+}
+
+@inproceedings{wang2024eventvot,
+  title={Event Stream-Based Visual Object Tracking: A High-Resolution Benchmark Dataset and A Novel Baseline},
+  author={Wang, Xiao and Li, Shiao and Lin, Chuanming and Zhu, Lin and Chen, Zhe and Li, Hongwei and Tian, Yonghong},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year={2024}
+}
+
+@article{wang2024felt,
+  title={Long-Term Visual Object Tracking with Event Cameras},
+  author={Wang, Xiao and Lou, Xufeng and Wang, Shiao and Huang, Ju and Chen, Lan and Jiang, Bo},
+  journal={arXiv preprint arXiv:2409.05765},
+  year={2024}
+}
+
+@article{tang2025crsot,
+  title={Cross-Resolution Object Tracking Using Unaligned Frame and Event Cameras},
+  author={Zhu, Yabin and Wang, Xiao and Li, Chenglong and Jiang, Bo and Zhu, Lin and Huang, Zhixiang and Tian, Yonghong and Tang, Jin},
+  journal={IEEE Transactions on Multimedia},
+  year={2025}
+}
+
+% ---- Optical Flow Datasets ----
+
+@article{zhu2018mvsec,
+  title={The Multivehicle Stereo Event Camera Dataset: An Event Camera Dataset for {3D} Perception},
+  author={Zhu, Alex Zihao and Thakur, Dinesh and {\"O}zaslan, Tolga and Pfrommer, Bernd and Kumar, Vijay and Daniilidis, Kostas},
+  journal={IEEE Robotics and Automation Letters},
+  volume={3},
+  number={3},
+  pages={2032--2039},
+  year={2018}
+}
+
+@article{gehrig2021dsec,
+  title={{DSEC}: A Stereo Event Camera Dataset for Driving Scenarios},
+  author={Gehrig, Mathias and Aarents, Willem and Gehrig, Daniel and Scaramuzza, Davide},
+  journal={IEEE Robotics and Automation Letters},
+  volume={6},
+  number={3},
+  pages={4947--4954},
+  year={2021}
+}
+
+@inproceedings{luo2023blinkflow,
+  title={{BlinkFlow}: A Dataset to Push the Limits of Event-Based Optical Flow Estimation},
+  author={Li, Yijin and Huang, Zhaoyang and Chen, Shuo and Shi, Xiaoyu and Li, Hongsheng and Bao, Hujun and Cui, Zhaopeng and Zhang, Guofeng},
+  booktitle={Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems},
+  year={2023}
+}
+
+% ---- Depth Estimation Datasets ----
+
+@inproceedings{hidalgo2022eds,
+  title={Event-Aided Direct Sparse Odometry},
+  author={Hidalgo-Carri{\'o}, Javier and Gehrig, Daniel and Scaramuzza, Davide},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={5781--5790},
+  year={2022}
+}
+
+% ---- Action & Gesture Recognition Datasets ----
+
+@inproceedings{amir2017dvs128gesture,
+  title={A Low Power, Fully Event-Based Gesture Recognition System},
+  author={Amir, Arnon and Taba, Brian and Berg, David and Melano, Timothy and McKinstry, Jeffrey and Di Nolfo, Carmelo and Nayak, Tapan and Andreopoulos, Alexander and Garreau, Guillaume and Mendoza, Marcela and Kusnitz, Jeff and Debole, Michael and Esser, Steve and Delbruck, Tobi and Flickner, Myron and Modha, Dharmendra},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={7388--7397},
+  year={2017}
+}
+
+@inproceedings{bi2019asldvs,
+  title={Space-Time Event Clouds for Gesture Recognition: From {RGB} Cameras to Event Cameras},
+  author={Bi, Yin and Chadha, Aaron and Abbas, Alhabib and Bourtsoulatze, Eirina and Andreopoulos, Yiannis},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops},
+  year={2019}
+}
+
+@inproceedings{plizzari2022nepickitchens,
+  title={{E2(GO)MOTION}: Motion Augmented Event Stream for Egocentric Action Recognition},
+  author={Plizzari, Chiara and Planamente, Mirco and Goletto, Gabriele and Cannici, Marco and Gusso, Emanuele and Matteucci, Matteo and Caputo, Barbara},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={19935--19947},
+  year={2022}
+}
+
+@article{tang2023thueact50,
+  title={Action Recognition and Benchmark Using Event Cameras},
+  author={Gao, Yue and Lu, Jiaxuan and Li, Siqi and Ma, Nan and Du, Shaoyi and Li, Yipeng and Dai, Qionghai},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  volume={45},
+  number={11},
+  pages={13752--13767},
+  year={2023}
+}
+
+@inproceedings{wang2024hardvs,
+  title={{HARDVS}: Revisiting Human Activity Recognition with Dynamic Vision Sensors},
+  author={Wang, Xiao and Wu, Zongzhen and Jiang, Bo and Bao, Zhimin and Zhu, Lin and Li, Guoqi and Wang, Yaowei and Tian, Yonghong},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume={38},
+  pages={5765--5773},
+  year={2024}
+}
+
+@inproceedings{wang2024dailydvs200,
+  title={{DailyDVS-200}: A Comprehensive Benchmark Dataset for Event-Based Action Recognition},
+  author={Wang, Qi and Xu, Zhou and Lin, Yuming and Ye, Jingtao and Li, Hongsheng and Zhu, Guangming and Shah, Syed Afaq Ali and Bennamoun, Mohammed and Zhang, Liang},
+  booktitle={Proceedings of the European Conference on Computer Vision},
+  year={2024}
+}
+
+% ---- Human Pose Estimation Datasets ----
+
+@inproceedings{calabrese2019dhp19,
+  title={{DHP19}: Dynamic Vision Sensor {3D} Human Pose Dataset},
+  author={Calabrese, Enrico and Taverni, Gemma and Easthope, Christopher and Ber{\'e}nyi, Sophie and Corradi, Federico and Longinotti, Andrea and Eng, Kynan and Delbruck, Tobi},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops},
+  year={2019}
+}
+
+@inproceedings{xu2024ehptxc,
+  title={A Benchmark Dataset for Event-Guided Human Pose Estimation and Tracking in Extreme Conditions},
+  author={Xu, others},
+  booktitle={Advances in Neural Information Processing Systems},
+  year={2024}
+}
+
+% ---- Reconstruction Datasets (2D Paired) ----
+
+@inproceedings{stoffregen2020hqf,
+  title={Reducing the Sim-to-Real Gap for Event Cameras},
+  author={Stoffregen, Timo and Scheerlinck, Cedric and Scaramuzza, Davide and Drummond, Tom and Barnes, Nick and Kleeman, Lindsay and Mahony, Robert},
+  booktitle={Proceedings of the European Conference on Computer Vision},
+  pages={534--549},
+  doi={10.1007/978-3-030-58583-9_32},
+  year={2020}
+}
+
+@inproceedings{liu2024rled,
+  title={Seeing Motion at Nighttime with an Event Camera},
+  author={Liu, Haoyue and Peng, Shihan and Zhu, Lin and Chang, Yi and Zhou, Hanyu and Yan, Luxin},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year={2024}
+}
+
+@inproceedings{liang2024evlight,
+  title={Towards Robust Event-Guided Low-Light Image Enhancement: A Large-Scale Real-World Event-Image Dataset and Novel Approach},
+  author={Liang, Guoqiang and Chen, Kanghao and Li, Hangyu and Lu, Yunfan and Wang, Lin},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={23--34},
+  year={2024}
+}
+
+@article{sun2025eventaid,
+  title={{EventAID}: Benchmarking Event-Aided Image/Video Enhancement Algorithms with a Large-Scale Dataset and a Quality Assessment Metric},
+  author={Duan, Peiqi and Li, Boyu and Yang, Yixin and Lou, Hanyue and Teng, Minggui and Ma, Yi and Shi, Boxin},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year={2025}
+}
+
+@inproceedings{tulyakov2021timelens,
+  title={{TimeLens}: Event-Based Video Frame Interpolation},
+  author={Tulyakov, Stepan and Gehrig, Daniel and Georgoulis, Stamatios and Erbach, Julius and Gehrig, Mathias and Li, Yuanyou and Scaramuzza, Davide},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={6398--6408},
+  year={2021}
+}
+
+@article{zou2025eventhdr,
+  title={{EventHDR}: From Event to High-Speed {HDR} Videos and Beyond},
+  author={Zou, Yunhao and Fu, Ying and Takatani, Tsuyoshi and Zheng, Yinqiang},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  volume={47},
+  number={1},
+  pages={32--50},
+  doi={10.1109/TPAMI.2024.3473705},
+  year={2025}
+}
+
+@inproceedings{duan2024led,
+  title={{LED}: A Large-Scale Real-World Paired Dataset for Event Camera Denoising},
+  author={Duan, Yuxing and Peng, Shihan and Zhu, Lin and Zhang, Wei and Chang, Yi and Zhong, Sheng and Yan, Luxin},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year={2024}
+}
+
+% ---- Reconstruction Datasets (3D & Multi-View) ----
+
+@article{mueggler2017ijrr,
+  title={The Event-Camera Dataset and Simulator: Event-Based Data for Pose Estimation, Visual Odometry, and {SLAM}},
+  author={Mueggler, Elias and Rebecq, Henri and Gallego, Guillermo and Delbruck, Tobi and Scaramuzza, Davide},
+  journal={The International Journal of Robotics Research},
+  volume={36},
+  number={2},
+  pages={142--149},
+  year={2017}
+}
+
+@inproceedings{scheerlinck2019ced,
+  title={{CED}: Color Event Camera Dataset},
+  author={Scheerlinck, Cedric and Rebecq, Henri and Stoffregen, Timo and Barnes, Nick and Mahony, Robert and Scaramuzza, Davide},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops},
+  year={2019}
+}
+
+@inproceedings{klenk2021tumvie,
+  title={{TUM-VIE}: The {TUM} Stereo Visual-Inertial Event Dataset},
+  author={Klenk, Simon and Chui, Jason and Demmel, Nikolaus and Cremers, Daniel},
+  booktitle={Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems},
+  pages={8601--8608},
+  year={2021}
+}
+
+@article{gao2022vector,
+  title={{VECtor}: A Versatile Event-Centric Benchmark for Multi-Sensor {SLAM}},
+  author={Gao, Ling and Liang, Yuxuan and Yang, Jiaqi and Wu, Shaoxun and Wang, Chenyu and Chen, Jiaben and Kneip, Laurent},
+  journal={IEEE Robotics and Automation Letters},
+  volume={7},
+  number={3},
+  pages={8016--8023},
+  year={2022}
+}
+
+@inproceedings{wang2024paev3d,
+  title={Physical Priors Augmented Event-Based {3D} Reconstruction},
+  author={Wang, Jiaxu and He, Junhao and Zhang, Ziyi and Xu, Renjing},
+  booktitle={2024 IEEE International Conference on Robotics and Automation},
+  pages={16810--16817},
+  doi={10.1109/ICRA57147.2024.10611153},
+  year={2024}
+}
+
+% ---- SLAM / VO Datasets ----
+
+@inproceedings{chaney2023m3ed,
+  title={{M3ED}: Multi-Robot, Multi-Sensor, Multi-Environment Event Dataset},
+  author={Chaney, Kenneth and Cladera, Fernando and Wang, Ziyun and Bisulco, Anthony and Isler, M. Ani and Lee, Gerry and Taylor, Camillo J. and Daniilidis, Kostas},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops},
+  year={2023}
+}
+
+@inproceedings{wang2020tartanair,
+  title={{TartanAir}: A Dataset to Push the Limits of Visual {SLAM}},
+  author={Wang, Wenshan and Zhu, Delong and Wang, Xiangwei and Hu, Yaoyu and Qiu, Yuheng and Wang, Chen and Hu, Yafei and Kapoor, Ashish and Scherer, Sebastian},
+  booktitle={Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems},
+  pages={4909--4916},
+  year={2020}
+}
+
+% ---- Simulators ----
+
+@inproceedings{rebecq2018esim,
+  title={{ESIM}: An Open Event Camera Simulator},
+  author={Rebecq, Henri and Gehrig, Daniel and Scaramuzza, Davide},
+  booktitle={Proceedings of the Conference on Robot Learning},
+  pages={969--982},
+  year={2018}
+}
+
+@inproceedings{gehrig2020vid2e,
+  title={Video to Events: Recycling Video Datasets for Event Cameras},
+  author={Gehrig, Daniel and Gehrig, Mathias and Hidalgo-Carri{\'o}, Javier and Scaramuzza, Davide},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={3586--3596},
+  year={2020}
+}
+
+@inproceedings{hu2021v2e,
+  title={{v2e}: From Video Frames to Realistic {DVS} Events},
+  author={Hu, Yuhuang and Liu, Shih-Chii and Delbruck, Tobi},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops},
+  pages={1312--1321},
+  year={2021}
+}
+
+@inproceedings{lin2022dvsvoltmeter,
+  title={{DVS-Voltmeter}: Stochastic Process-Based Event Simulator for Dynamic Vision Sensors},
+  author={Lin, Songnan and Ma, Ye and Guo, Zhenhua and Wen, Bihan},
+  booktitle={Proceedings of the European Conference on Computer Vision},
+  pages={578--593},
+  year={2022}
+}
+
+
+% ==== Section 2: Event Camera Perception ====
+
+% ---- Object Detection ----
+
+@inproceedings{iacono2018dvsdetection,
+  title={Pseudo-Labels for Supervised Learning on Dynamic Vision Sensor Data, Applied to Object Detection under Ego-Motion},
+  author={Iacono, Marynel and Weber, Claudius and Glette, Kyrre and Torresen, Jim},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops},
+  year={2018}
+}
+
+@inproceedings{cannici2019yole,
+  title={{YOLE} -- You Only Look at Events},
+  author={Cannici, Marco and Ciccone, Marco and Matteucci, Matteo and Bhatt, Aditya},
+  booktitle={Proceedings of the European Conference on Computer Vision Workshops},
+  year={2018}
+}
+
+@inproceedings{kim2020spikingyolo,
+  title={{Spiking-YOLO}: Spiking Neural Network for Energy-Efficient Object Detection},
+  author={Kim, Seijoon and Park, Seongsik and Na, Byunggook and Yoon, Sungroh},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume={34},
+  pages={11270--11277},
+  year={2020}
+}
+
+@inproceedings{perot2020red,
+  title={Learning to Detect Objects with a 1 Megapixel Event Camera},
+  author={Perot, Etienne and de Tournemire, Pierre and Nber, Davide and Chiavazza, Jean-Baptiste and Benosman, Ryad},
+  booktitle={Advances in Neural Information Processing Systems},
+  volume={33},
+  year={2020}
+}
+
+@inproceedings{cannici2020matrixlstm,
+  title={A Differentiable Recurrent Surface for Asynchronous Event-Based Data},
+  author={Cannici, Marco and Ciccone, Marco and Romanoni, Andrea and Matteucci, Matteo},
+  booktitle={Proceedings of the European Conference on Computer Vision},
+  pages={136--152},
+  year={2020}
+}
+
+@inproceedings{schaefer2022aegnn,
+  title={{AEGNN}: Asynchronous Event-Based Graph Neural Networks},
+  author={Schaefer, Simon and Gehrig, Daniel and Scaramuzza, Davide},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={12746--12756},
+  year={2022}
+}
+
+@article{li2022astmnet,
+  title={Asynchronous Spatio-Temporal Memory Network for Continuous Event-Based Object Detection},
+  author={Li, Jianing and Li, Jia and Zhu, Lin and Xiang, Xijie and Huang, Tiejun and Tian, Yonghong},
+  journal={IEEE Transactions on Image Processing},
+  volume={31},
+  pages={2609--2622},
+  year={2022}
+}
+
+@inproceedings{gehrig2023rvt,
+  title={Recurrent Vision Transformers for Object Detection with Event Cameras},
+  author={Gehrig, Mathias and Scaramuzza, Davide},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={13884--13893},
+  year={2023}
+}
+
+@inproceedings{hamaguchi2023hmnet,
+  title={Hierarchical Neural Memory Network for Low Latency Event Processing},
+  author={Hamaguchi, Ryuhei and Furushima, Yasutaka and Onishi, Masaki and Sasaki, Ken},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={22867--22876},
+  year={2023}
+}
+
+@inproceedings{peng2024get,
+  title={{GET}: Group Event Transformer for Event-Based Vision},
+  author={Peng, Yansong and Zhang, Yueyi and Xiong, Zhiwei and Sun, Xiaoyan and Wu, Feng},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  year={2023}
+}
+
+@inproceedings{su2023emsyolo,
+  title={Deep Directly-Trained Spiking Neural Networks for Object Detection},
+  author={Su, Qiaoyi and Chou, Yuhong and Hu, Yifan and Li, Jianing and Mei, Shijie and Zhang, Ziyang and Li, Guoqi},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  pages={6555--6565},
+  year={2023}
+}
+
+@article{huang2023sodformer,
+  title={{SODFormer}: Streaming Object Detection with Transformer Using Events and Frames},
+  author={Li, Dianze and Li, Jianing and Tian, Yonghong},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  volume={45},
+  number={12},
+  pages={14020--14037},
+  year={2023}
+}
+
+@inproceedings{zhou2023renet,
+  title={{RGB}-Event Fusion for Moving Object Detection in Autonomous Driving},
+  author={Zhou, Zhuyun and Wu, Zongwei and Boutteau, R\'emi and Yang, Fan and Demonceaux, C\'edric and Ginhac, Dominique},
+  booktitle={Proceedings of the IEEE International Conference on Robotics and Automation},
+  year={2023}
+}
+
+@inproceedings{zubic2024s5vit,
+  title={State Space Models for Event Cameras},
+  author={Zubi{\'c}, Nikola and Gehrig, Mathias and Scaramuzza, Davide},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year={2024}
+}
+
+@inproceedings{wu2024leod,
+  title={{LEOD}: Label-Efficient Object Detection for Event Cameras},
+  author={Wu, Ziyi and Gehrig, Mathias and Qin, Qing and Scaramuzza, Davide},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year={2024}
+}
+
+@article{gehrig2024dagr,
+  title={Low-Latency Automotive Vision with Event Cameras},
+  author={Gehrig, Daniel and Gehrig, Mathias and Hidalgo-Carri{\'o}, Javier and Scaramuzza, Davide},
+  journal={Nature},
+  volume={629},
+  pages={1034--1040},
+  year={2024}
+}
+
+@inproceedings{kim2024spikeyolo,
+  title={{SpikeYOLO}: Integer-Valued Training and Spike-Driven Inference Spiking Neural Network for Object Detection},
+  author={Luo, Xinhao and Yao, Man and Chou, Yuhong and Xu, Bo and Li, Guoqi},
+  booktitle={Proceedings of the European Conference on Computer Vision},
+  year={2024}
+}
+
+@inproceedings{li2024egsst,
+  title={Event-Based Graph Spatiotemporal Sensitive Transformer for Object Detection},
+  author={Li, others},
+  booktitle={Advances in Neural Information Processing Systems},
+  year={2024}
+}
+
+@inproceedings{zuo2024eolo,
+  title={Chasing Day and Night: Towards Robust and Efficient All-Day Object Detection Guided by an Event Camera},
+  author={Cao, Jiahang and Zheng, Xu and Lyu, Yuanhuiyi and Wang, Jiaxu and Xu, Renjing and Wang, Lin},
+  booktitle={Proceedings of the IEEE International Conference on Robotics and Automation},
+  year={2024}
+}
+
+@inproceedings{cao2024cafr,
+  title={Embracing Events and Frames with Hierarchical Feature Refinement Network for Object Detection},
+  author={Cao, Hu and Zhang, Zehua and Xia, Yan and Li, Xinyi and Xia, Jiahao and Chen, Guang and Knoll, Alois},
+  booktitle={Proceedings of the European Conference on Computer Vision},
+  year={2024}
+}
+
+@inproceedings{li2025smamba,
+  title={{SMamba}: Sparse Mamba for Event-Based Object Detection},
+  author={Li, others},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  year={2025}
+}
+
+@inproceedings{zhang2025mvheatdet,
+  title={Object Detection Using Event Camera: A {MoE} Heat Conduction Based Detector and A New Benchmark},
+  author={Wang, Xiao and Jin, Yu and Wu, Wentao and Zhang, Wei and Zhu, Lin and Jiang, Bo and Tian, Yonghong},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year={2025}
+}
+
+@inproceedings{li2025ev3dod,
+  title={{Ev-3DOD}: Pushing the Temporal Boundaries of {3D} Object Detection with Event Cameras},
+  author={Li, others},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year={2025}
+}
+
+@inproceedings{wang2025hsvt,
+  title={Hybrid Spiking Vision Transformer for Object Detection with Event Cameras},
+  author={Wang, others},
+  booktitle={Proceedings of the International Conference on Machine Learning},
+  year={2025}
+}
+
+% ---- Semantic Segmentation ----
+
+@inproceedings{alonso2019evsegnet,
+  title={{EV-SegNet}: Semantic Segmentation for Event-Based Cameras},
+  author={Alonso, I{\~n}igo and Murillo, Ana C.},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops},
+  year={2019}
+}
+
+@inproceedings{mitrokhin2019evimo,
+  title={{EV-IMO}: Motion Segmentation Dataset and Learning Pipeline for Event Cameras},
+  author={Mitrokhin, Anton and Ye, Chengxi and Ferm{\"u}ller, Cornelia and Aloimonos, Yiannis and Delbr{\"u}ck, Tobi},
+  booktitle={Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems},
+  pages={6105--6112},
+  year={2019}
+}
+
+@article{zhou2021emsgc,
+  title={Event-Based Motion Segmentation with Spatio-Temporal Graph Cuts},
+  author={Zhou, Yi and Gallego, Guillermo and Lu, Xiuyuan and Liu, Siqi and Shen, Shaojie},
+  journal={IEEE Transactions on Neural Networks and Learning Systems},
+  volume={32},
+  number={8},
+  pages={3636--3651},
+  year={2021}
+}
+
+@inproceedings{wang2021evdistill,
+  title={{EvDistill}: Asynchronous Events to End-Task Learning via Bidirectional Reconstruction-Guided Cross-Modal Knowledge Distillation},
+  author={Wang, Lin and Chae, Yujeong and Yoon, Kuk-Jin},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={608--619},
+  year={2021}
+}
+
+@inproceedings{sun2022essseg,
+  title={{ESS}: Learning Event-Based Semantic Segmentation from Still Images},
+  author={Sun, Zhaoning and Messikommer, Nico and Gehrig, Daniel and Scaramuzza, Davide},
+  booktitle={Proceedings of the European Conference on Computer Vision},
+  pages={341--357},
+  year={2022}
+}
+
+@inproceedings{karaev2023gmnn,
+  title={Asynchronous Events-Based Panoptic Segmentation Using Graph Mixer Neural Network},
+  author={Kachole, Sanket and Alkendi, Yusra and Naeini, Fariborz Baghaei and Makris, Dimitrios and Zweiri, Yahya},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops},
+  year={2023}
+}
+
+@inproceedings{biber2024halsie,
+  title={{HALSIE}: Hybrid Approach to Learning Segmentation by Simultaneously Exploiting Image and Event Modalities},
+  author={Biber, Shristi and Wang, Hao and Bhatt, Neel and Bhatt, Desingh and Sandamirskaya, Yulia},
+  booktitle={IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
+  year={2024}
+}
+
+@inproceedings{kong2024openess,
+  title={{OpenESS}: Event-Based Semantic Scene Understanding with Open Vocabularies},
+  author={Kong, Lingdong and Liu, Youquan and Ng, Lai Xing and Cottereau, Benoit R. and Ooi, Wei Tsang},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year={2024}
+}
+
+@inproceedings{chen2024hpless,
+  title={{HPL-ESS}: Hybrid Pseudo-Labeling for Unsupervised Event-Based Semantic Segmentation},
+  author={Jing, Linglin and Ding, Yiming and Gao, Yunpeng and Wang, Zhigang and Yan, Xu and Wang, Dong and Schaefer, Gerald and Fang, Hui and Zhao, Bin and Li, Xuelong},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year={2024}
+}
+
+@inproceedings{chen2024eventsamseg,
+  title={Segment Any Event Streams via Weighted Adaptation of Pivotal Tokens},
+  author={Chen, Zhiwen and Zhu, Zhiyu and Zhang, Yifan and Hou, Junhui and Shi, Guangming and Wu, Jinjian},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year={2024}
+}
+
+@article{kim2024ovose,
+  title={{OVOSE}: Open-Vocabulary Semantic Segmentation in Event-Based Cameras},
+  author={Kim, others},
+  journal={arXiv preprint arXiv:2408.06773},
+  year={2024}
+}
+
+@inproceedings{zhang2024evwsss,
+  title={Finding Meaning in Points: Weakly Supervised Semantic Segmentation for Event Cameras},
+  author={Zhang, others},
+  booktitle={Proceedings of the European Conference on Computer Vision},
+  year={2024}
+}
+
+@inproceedings{chen2024unevmoseg,
+  title={{Un-EvMoSeg}: Unsupervised Event-Based Independent Motion Segmentation},
+  author={Wang, Ziyun and Guo, Jinyuan and Daniilidis, Kostas},
+  booktitle={Proceedings of the European Conference on Computer Vision},
+  year={2024}
+}
+
+@article{wang2024mambaseg,
+  title={{MambaSeg}: Harnessing Mamba for Accurate and Efficient Image-Event Semantic Segmentation},
+  author={Wang, others},
+  journal={arXiv preprint arXiv:2410.07583},
+  year={2024}
+}
+
+@inproceedings{sun2025eseg,
+  title={{ESEG}: Event-Based Segmentation Boosted by Explicit Edge-Semantic Guidance},
+  author={Sun, others},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  year={2025}
+}
+
+@article{yu2025ctos,
+  title={Continuous-Time Object Segmentation Using High Temporal Resolution Event Camera},
+  author={Yu, others},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year={2025}
+}
+
+@inproceedings{wu2025lifrseg,
+  title={{LiFR-Seg}: Anytime High-Frame-Rate Segmentation via Event-Guided Propagation},
+  author={Wu, others},
+  booktitle={Advances in Neural Information Processing Systems},
+  year={2025}
+}
+
+@inproceedings{li2026seal,
+  title={Segment Any Events with Language},
+  author={Li, others},
+  booktitle={Proceedings of the International Conference on Learning Representations},
+  year={2026}
+}
+
+% ---- Depth Estimation (Monocular) ----
+
+@inproceedings{hidalgo2020e2depth,
+  title={Learning Monocular Dense Depth from Events},
+  author={Hidalgo-Carri{\'o}, Javier and Gehrig, Daniel and Scaramuzza, Davide},
+  booktitle={Proceedings of the International Conference on 3D Vision},
+  pages={534--542},
+  year={2020}
+}
+
+@article{gehrig2021ramnet,
+  title={Combining Events and Frames Using Recurrent Asynchronous Multimodal Networks for Monocular Depth Prediction},
+  author={Gehrig, Daniel and Loquercio, Antonio and Derpanis, Konstantinos G. and Scaramuzza, Davide},
+  journal={IEEE Robotics and Automation Letters},
+  volume={6},
+  number={2},
+  pages={2822--2829},
+  year={2021}
+}
+
+@article{liu2023even,
+  title={{EVEN}: An Event-Based Framework for Monocular Depth Estimation at Adverse Night Conditions},
+  author={Liu, others},
+  journal={arXiv preprint arXiv:2302.03860},
+  year={2023}
+}
+
+@article{cho2024ereformer,
+  title={Event-Based Monocular Dense Depth Estimation with Recurrent Transformers},
+  author={Cho, others},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year={2024}
+}
+
+@article{wu2023srfnet,
+  title={{SRFNet}: Monocular Depth Estimation with Fine-Grained Structure via Spatial Reliability-Oriented Fusion of Frames and Events},
+  author={Wu, others},
+  journal={arXiv preprint arXiv:2309.09164},
+  year={2023}
+}
+
+@article{rao2024emodepth,
+  title={Self-Supervised Event-Based Monocular Depth Estimation Using Cross-Modal Consistency},
+  author={Rao, others},
+  journal={arXiv preprint arXiv:2401.07218},
+  year={2024}
+}
+
+@article{zhang2025cfrnet,
+  title={High-Rate Monocular Depth Estimation via Cross Frame-Rate Collaboration of Frames and Events},
+  author={Zhang, others},
+  journal={International Journal of Computer Vision},
+  year={2025}
+}
+
+@inproceedings{wu2025eventdam,
+  title={Depth Any Event Stream: Enhancing Event-Based Monocular Depth Estimation via Dense-to-Sparse Distillation},
+  author={Wu, others},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  year={2025}
+}
+
+% ---- Depth Estimation (Stereo) ----
+
+@inproceedings{tulyakov2019ddes,
+  title={Learning an Event Sequence Embedding for Dense Event-Based Deep Stereo},
+  author={Tulyakov, Stepan and Fleuret, Fran{\c{c}}ois and Salzmann, Mathieu and Fua, Pascal},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  pages={1527--1537},
+  year={2019}
+}
+
+@article{zhou2021esvo,
+  title={{ESVO}: Event-Based Stereo Visual Odometry},
+  author={Zhou, Yi and Gallego, Guillermo and Shen, Shaojie},
+  journal={IEEE Transactions on Robotics},
+  volume={37},
+  number={5},
+  pages={1433--1450},
+  year={2021}
+}
+
+@inproceedings{nam2022secff,
+  title={Stereo Depth from Events Cameras: Concentrate and Focus on the Future},
+  author={Nam, Yeongwoo and Mostafavi, Mohammad and Yoon, Kuk-Jin and Choi, Jonghyun},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={6114--6123},
+  year={2022}
+}
+
+@inproceedings{zhang2022dtcspade,
+  title={Discrete Time Convolution for Fast Event-Based Stereo},
+  author={Zhang, Kaixuan and Che, Kaiwei and Zhang, Jianguo and Cheng, Jie and Zhang, Ziyang and Guo, Qinghai and Leng, Luziwei},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={8676--8686},
+  year={2022}
+}
+
+@inproceedings{cho2022scsnet,
+  title={Selection and Cross Similarity for Event-Image Deep Stereo},
+  author={Cho, Hoonhee and Yoon, Kuk-Jin},
+  booktitle={Proceedings of the European Conference on Computer Vision},
+  pages={470--486},
+  year={2022}
+}
+
+@article{ranccon2022stereospike,
+  title={{StereoSpike}: Depth Learning with a Spiking Neural Network},
+  author={Ran{\c{c}}on, Ulysse and Cuadrado-Anaya, Javier and Cottereau, Benoit R. and Masquelier, Timoth{\'e}e},
+  journal={IEEE Access},
+  volume={10},
+  pages={127428--127439},
+  year={2022}
+}
+
+@inproceedings{cho2023ades,
+  title={Learning Adaptive Dense Event Stereo from the Image Domain},
+  author={Cho, Hoonhee and Yoon, Kuk-Jin},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={17797--17806},
+  year={2023}
+}
+
+@article{wang2024tscnet,
+  title={Event-Based Stereo Depth Estimation by Temporal-Spatial Context Learning},
+  author={Wang, others},
+  journal={IEEE Transactions on Neural Networks and Learning Systems},
+  year={2024}
+}
+
+@inproceedings{wu2025ematch,
+  title={{EMatch}: A Unified Framework for Event-Based Optical Flow and Stereo Matching},
+  author={Wu, others},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  year={2025}
+}
+
+@inproceedings{shi2025activeeventnet,
+  title={Active Event-Based Stereo Vision},
+  author={Shi, others},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year={2025}
+}
+
+% ---- Optical Flow Estimation ----
+
+@inproceedings{zhu2019unsupervised,
+  title={Unsupervised Event-Based Learning of Optical Flow, Depth, and Egomotion},
+  author={Zhu, Alex Zihao and Yuan, Liangzhe and Chaney, Kenneth and Daniilidis, Kostas},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={989--997},
+  year={2019}
+}
+
+@inproceedings{lee2020spikeflownet,
+  title={{Spike-FlowNet}: Event-Driven Optical Flow Estimation with Energy-Efficient Hybrid Neural Networks},
+  author={Lee, Chankyu and Kosta, Adarsh Kumar and Zhu, Alex Zihao and Chaney, Kenneth and Daniilidis, Kostas and Roy, Kaushik},
+  booktitle={Proceedings of the European Conference on Computer Vision},
+  pages={366--382},
+  year={2020}
+}
+
+@inproceedings{gehrig2021eraft,
+  title={{E-RAFT}: Dense Optical Flow from Event Cameras},
+  author={Gehrig, Mathias and Millh{\"a}usler, Mario and Gehrig, Daniel and Scaramuzza, Davide},
+  booktitle={Proceedings of the International Conference on 3D Vision},
+  pages={197--206},
+  year={2021}
+}
+
+@inproceedings{shiba2022secretsof,
+  title={Secrets of Event-Based Optical Flow},
+  author={Shiba, Shintaro and Aoki, Yoshimitsu and Gallego, Guillermo},
+  booktitle={Proceedings of the European Conference on Computer Vision},
+  pages={628--645},
+  year={2022}
+}
+
+@article{wan2022dceiflow,
+  title={Learning Dense and Continuous Optical Flow from an Event Camera},
+  author={Wan, Zhexiong and Dai, Yuchao and Mao, Yuxin},
+  journal={IEEE Transactions on Image Processing},
+  volume={31},
+  pages={7237--7251},
+  year={2022}
+}
+
+@inproceedings{liu2023tma,
+  title={{TMA}: Temporal Motion Aggregation for Event-Based Optical Flow},
+  author={Liu, Haotian and Chen, Guang and Qu, Sanqing and Zhang, Yanping and Li, Zhijun and Knoll, Alois and Jiang, Changjun},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  year={2023}
+}
+
+@inproceedings{luo2023admflow,
+  title={Learning Optical Flow from Event Camera with Rendered Dataset},
+  author={Luo, Xinglong and Luo, Kunming and Luo, Ao and Wang, Zhengning and Tan, Ping and Liu, Shuaicheng},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  year={2023}
+}
+
+@inproceedings{wan2023rpeflow,
+  title={{RPEFlow}: Multimodal Fusion of {RGB}-PointCloud-Event for Joint Optical Flow and Scene Flow Estimation},
+  author={Wan, Zhexiong and Mao, Yuxin and Zhang, Jing and Dai, Yuchao},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  year={2023}
+}
+
+@inproceedings{wu2024idnet,
+  title={Lightweight Event-Based Optical Flow Estimation via Iterative Deblurring},
+  author={Wu, others},
+  booktitle={Proceedings of the IEEE International Conference on Robotics and Automation},
+  year={2024}
+}
+
+@inproceedings{huang2024eemflow,
+  title={Efficient Meshflow and Optical Flow Estimation from Event Cameras},
+  author={Huang, others},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year={2024}
+}
+
+@article{li2024sdformerflow,
+  title={{SDformerFlow}: Spatiotemporal Swin Spikeformer for Event-Based Optical Flow Estimation},
+  author={Tian, Yi and Andrade-Cetto, Juan},
+  journal={arXiv preprint arXiv:2409.04082},
+  year={2024}
+}
+
+@article{shiba2024secretsext,
+  title={Secrets of Event-Based Optical Flow, Depth and Ego-Motion Estimation by Contrast Maximization},
+  author={Shiba, Shintaro and Aoki, Yoshimitsu and Gallego, Guillermo},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  volume={46},
+  number={12},
+  pages={9653--9666},
+  year={2024}
+}
+
+@article{liu2025bat,
+  title={{BAT}: Learning Event-Based Optical Flow with Bidirectional Adaptive Temporal Correlation},
+  author={Liu, others},
+  journal={arXiv preprint arXiv:2502.04744},
+  year={2025}
+}
+
+% ---- Object Tracking ----
+
+@article{gehrig2019eklt,
+  title={{EKLT}: Asynchronous Photometric Feature Tracking Using Events and Frames},
+  author={Gehrig, Daniel and Rebecq, Henri and Gallego, Guillermo and Scaramuzza, Davide},
+  journal={International Journal of Computer Vision},
+  volume={127},
+  number={6},
+  pages={601--618},
+  year={2019}
+}
+
+@inproceedings{alzugaray2020haste,
+  title={{HASTE}: Multi-Hypothesis Asynchronous Speeded-Up Tracking of Events},
+  author={Alzugaray, Ignacio and Chli, Margarita},
+  booktitle={Proceedings of the British Machine Vision Conference},
+  year={2020}
+}
+
+@inproceedings{zhang2022stnet,
+  title={Spiking Transformers for Event-Based Single Object Tracking},
+  author={Zhang, Jiqing and Dong, Bo and Zhang, Haiwei and Ding, Jianchuan and Heide, Felix and Yin, Baocai and Yang, Xin},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={8801--8810},
+  year={2022}
+}
+
+@article{tang2022ceutrack,
+  title={Revisiting Color-Event Based Tracking: A Unified Network, Dataset, and Metric},
+  author={Tang, Chuanming and Wang, Xiao and Huang, Ju and Jiang, Bo and Zhu, Lin and Zhang, Jianlin and Wang, Yaowei and Tian, Yonghong},
+  journal={arXiv preprint arXiv:2211.11010},
+  year={2022}
+}
+
+@article{wang2023viseventtrack,
+  title={{VisEvent}: Reliable Object Tracking via Collaboration of Frame and Event Flows},
+  author={Wang, Xiao and Li, Jianing and Zhu, Lin and Zhang, Zhipeng and Chen, Zhe and Li, Xin and Wang, Yaowei and Tian, Yonghong and Wu, Feng},
+  journal={IEEE Transactions on Cybernetics},
+  volume={53},
+  number={3},
+  pages={1997--2010},
+  year={2023}
+}
+
+@inproceedings{messikommer2023etracker,
+  title={Data-Driven Feature Tracking for Event Cameras},
+  author={Messikommer, Nico and Fang, Carter and Gehrig, Mathias and Scaramuzza, Davide},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={5765--5775},
+  year={2023}
+}
+
+@inproceedings{zhang2023afnet,
+  title={Frame-Event Alignment and Fusion Network for High Frame Rate Tracking},
+  author={Zhang, Jiqing and Wang, Yuanchen and Liu, Wenxi and Li, Meng and Bai, Jinpeng and Yin, Baocai and Yang, Xin},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year={2023}
+}
+
+@inproceedings{wang2024hdetrack,
+  title={Event Stream-Based Visual Object Tracking: A High-Resolution Benchmark Dataset and A Novel Baseline},
+  author={Wang, Xiao and Wang, Shiao and Tang, Chuanming and Zhu, Lin and Jiang, Bo and Tian, Yonghong and Tang, Jin},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year={2024}
+}
+
+@article{wang2024amttrack,
+  title={Long-Term Visual Object Tracking with Event Cameras},
+  author={Wang, Xiao and Lou, Xufeng and Wang, Shiao and Huang, Ju and Chen, Lan and Jiang, Bo},
+  journal={arXiv preprint arXiv:2409.05765},
+  year={2024}
+}
+
+@article{tang2024crsottrack,
+  title={Cross-Resolution Object Tracking Using Unaligned Frame and Event Cameras},
+  author={Zhu, Yabin and Wang, Xiao and Li, Chenglong and Jiang, Bo and Zhu, Lin and Huang, Zhixiang and Tian, Yonghong and Tang, Jin},
+  journal={arXiv preprint arXiv:2401.02826},
+  year={2024}
+}
+
+@article{liu2024mambafetrack,
+  title={{Mamba-FETrack}: Frame-Event Tracking via State Space Model},
+  author={Liu, others},
+  journal={arXiv preprint arXiv:2404.18174},
+  year={2024}
+}
+
+@article{wang2025mambaevt,
+  title={{MambaEVT}: Event Stream Based Visual Object Tracking Using State Space Model},
+  author={Wang, others},
+  journal={IEEE Transactions on Circuits and Systems for Video Technology},
+  year={2025}
+}
+
+@article{li2024gsevt,
+  title={{GS-EVT}: Cross-Modal Event Camera Tracking Based on {Gaussian Splatting}},
+  author={Li, others},
+  journal={arXiv preprint arXiv:2409.19228},
+  year={2024}
+}
+
+@article{liu2024blinktrack,
+  title={{BlinkTrack}: Feature Tracking over 100 {FPS} via Events and Images},
+  author={Liu, others},
+  journal={arXiv preprint arXiv:2409.17981},
+  year={2024}
+}
+
+% ---- Action & Gesture Recognition ----
+
+@inproceedings{amir2017dvsgesture,
+  title={A Low Power, Fully Event-Based Gesture Recognition System},
+  author={Amir, Arnon and Taba, Brian and Berg, David and Melano, Timothy and McKinstry, Jeffrey and Di Nolfo, Carmelo and Nayak, Tapan and Andreopoulos, Alexander and Garreau, Guillaume and Mendoza, Marcela and Kusnitz, Jeff and Debole, Michael and Esser, Steve and Delbruck, Tobi and Flickner, Myron and Modha, Dharmendra},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={7388--7397},
+  year={2017}
+}
+
+@inproceedings{plizzari2022e2gomotion,
+  title={{E2(GO)MOTION}: Motion Augmented Event Stream for Egocentric Action Recognition},
+  author={Plizzari, Chiara and Planamente, Mirco and Goletto, Gabriele and Cannici, Marco and Gusso, Emanuele and Matteucci, Matteo and Caputo, Barbara},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={19935--19947},
+  year={2022}
+}
+
+@inproceedings{plizzari2022nepickitchensmethod,
+  title={{N-EPIC-Kitchens}: The Event-Based Camera Extension of {EPIC-Kitchens}},
+  author={Plizzari, Chiara and Planamente, Mirco and Goletto, Gabriele and Cannici, Marco and Gusso, Emanuele and Matteucci, Matteo and Caputo, Barbara},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year={2022}
+}
+
+@inproceedings{zhu2022spikegatingflow,
+  title={The Spike Gating Flow: A Hierarchical Structure Based Spiking Neural Network for Online Gesture Recognition},
+  author={Zhao, Zihao and Wang, Yanhong and Zou, Qiaosha and Xu, Tie and Tao, Fangbo and Zhang, Jiansong and Wang, Xiaoan and Shi, C.-J. Richard and Luo, Junwen and Xie, Yuan},
+  booktitle={Advances in Neural Information Processing Systems},
+  year={2022}
+}
+
+@article{tang2023thueact50method,
+  title={Action Recognition and Benchmark Using Event Cameras},
+  author={Gao, Yue and Lu, Jiaxuan and Li, Siqi and Ma, Nan and Du, Shaoyi and Li, Yipeng and Dai, Qionghai},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  volume={45},
+  number={11},
+  pages={13752--13767},
+  year={2023}
+}
+
+@inproceedings{wang2024hardvsmethod,
+  title={{HARDVS}: Revisiting Human Activity Recognition with Dynamic Vision Sensors},
+  author={Wang, Xiao and Wu, Zongzhen and Jiang, Bo and Bao, Zhimin and Zhu, Lin and Li, Guoqi and Wang, Yaowei and Tian, Yonghong},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  year={2024}
+}
+
+@inproceedings{ren2024spikepoint,
+  title={{SpikePoint}: An Efficient Point-Based Spiking Neural Network for Event Cameras Action Recognition},
+  author={Ren, Hongwei and Zhou, Yue and Huang, Yulong and Fu, Haotian and Lin, Xiaopeng and Song, Jie and Cheng, Bojun},
+  booktitle={Proceedings of the International Conference on Learning Representations},
+  year={2024}
+}
+
+@inproceedings{zhou2024exact,
+  title={{ExACT}: Language-Guided Conceptual Reasoning and Uncertainty Estimation for Event-Based Action Recognition},
+  author={Zhou, Jiazhou and Zheng, Xu and Lyu, Yuanhuiyi and Wang, Lin},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year={2024}
+}
+
+@inproceedings{wang2024dailydvs200method,
+  title={{DailyDVS-200}: A Comprehensive Benchmark Dataset for Event-Based Action Recognition},
+  author={Wang, Qi and Xu, Zhou and Lin, Yuming and Ye, Jingtao and Li, Hongsheng and Zhu, Guangming and Shah, Syed Afaq Ali and Bennamoun, Mohammed and Zhang, Liang},
+  booktitle={Proceedings of the European Conference on Computer Vision},
+  year={2024}
+}
+
+@inproceedings{li2024spikmamba,
+  title={{SpikMamba}: When {SNN} Meets Mamba in Event-Based Human Action Recognition},
+  author={Li, others},
+  booktitle={Proceedings of the ACM Multimedia Asia},
+  year={2024}
+}
+
+@article{zhang2025eventmae,
+  title={Event Masked Autoencoder: Point-Wise Action Recognition},
+  author={Zhang, others},
+  journal={arXiv preprint arXiv:2502.08888},
+  year={2025}
+}
+
+@article{wang2025egoevgesture,
+  title={{EgoEvGesture}: Gesture Recognition Based on Egocentric Event Camera},
+  author={Wang, others},
+  journal={arXiv preprint arXiv:2503.10419},
+  year={2025}
+}
+
+% ---- Human Pose Estimation ----
+
+@inproceedings{calabrese2019dhp19method,
+  title={{DHP19}: Dynamic Vision Sensor {3D} Human Pose Dataset},
+  author={Calabrese, Enrico and Taverni, Gemma and Easthope, Christopher and Ber{\'e}nyi, Sophie and Corradi, Federico and Longinotti, Andrea and Eng, Kynan and Delbruck, Tobi},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops},
+  year={2019}
+}
+
+@inproceedings{xu2020eventcap,
+  title={{EventCap}: Monocular {3D} Capture of High-Speed Human Motions Using an Event Camera},
+  author={Xu, Lan and Xu, Weipeng and Golyanik, Vladislav and Habermann, Marc and Fang, Lu and Theobalt, Christian},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={4968--4978},
+  year={2020}
+}
+
+@inproceedings{rudnev2021eventhands,
+  title={{EventHands}: Real-Time Neural {3D} Hand Pose Estimation from an Event Stream},
+  author={Rudnev, Viktor and Golyanik, Vladislav and Wang, Jiayi and Seidel, Hans-Peter and Mueller, Franziska and Elgharib, Mohamed and Theobalt, Christian},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  pages={11713--11722},
+  year={2021}
+}
+
+@inproceedings{zou2021eventhpe,
+  title={{EventHPE}: Event-Based {3D} Human Pose and Shape Estimation},
+  author={Zou, Shihao and Guo, Chuan and Zuo, Xinxin and Wang, Sen and Hu, Pengyu and Gong, Shaogang and Li, Haibin and Cheng, Li},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  pages={11435--11444},
+  year={2021}
+}
+
+@inproceedings{goyal2023moveenet,
+  title={{MoveEnet}: Online High-Frequency Human Pose Estimation with an Event Camera},
+  author={Goyal, Gaurvi and Di Pietro, Franco and Carissimi, Nicolo and Glover, Arren and Bartolozzi, Chiara},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops},
+  year={2023}
+}
+
+@article{chen2024eventpointpose,
+  title={Exploring Event-Based Human Pose Estimation with {3D} Event Representations},
+  author={Yin, Xiaoting and Shi, Hao and Chen, Jiaan and Wang, Ze and Ye, Yaozu and Yang, Kailun and Wang, Kaiwei},
+  journal={International Journal of Computer Vision},
+  year={2024}
+}
+
+@inproceedings{millerdurai2024eventego3d,
+  title={{EventEgo3D}: {3D} Human Motion Capture from Egocentric Event Streams},
+  author={Millerdurai, Christen and Akada, Hiroyasu and Wang, Jian and Luvizon, Diogo and Theobalt, Christian and Golyanik, Vladislav},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year={2024}
+}
+
+@inproceedings{zhou2024evrgbhand,
+  title={Complementing Event Streams and {RGB} Frames for Hand Mesh Reconstruction},
+  author={Jiang, Jianping and Zhou, Xinyu and Wang, Bingxuan and Deng, Xiaoming and Xu, Chao and Shi, Boxin},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year={2024}
+}
+
+@article{millerdurai2025eventego3dpp,
+  title={{EventEgo3D++}: {3D} Human Motion Capture from a Head-Mounted Event Camera},
+  author={Millerdurai, Christen and Akada, Hiroyasu and Wang, Jian and Luvizon, Diogo and Pagani, Alain and Stricker, Didier and Theobalt, Christian and Golyanik, Vladislav},
+  journal={International Journal of Computer Vision},
+  year={2025}
+}
+
+@article{gao2025eventegohands,
+  title={{EventEgoHands}: Event-Based Egocentric {3D} Hand Mesh Reconstruction},
+  author={Gao, others},
+  journal={arXiv preprint arXiv:2503.12345},
+  year={2025}
+}
+
+
+% ==== Section 3: Event Camera Reconstruction ====
+
+% ---- Discriminative Reconstruction Models ----
+
+@article{rebecq2019e2vidjournal,
+  title={High Speed and High Dynamic Range Video with an Event Camera},
+  author={Rebecq, Henri and Ranftl, Ren{\'e} and Koltun, Vladlen and Scaramuzza, Davide},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  volume={42},
+  number={6},
+  pages={1485--1497},
+  year={2019}
+}
+
+@inproceedings{pan2019medi,
+  title={Bringing a Blurry Frame Alive at High Frame-Rate with an Event Camera},
+  author={Pan, Liyuan and Scheerlinck, Cedric and Yu, Xin and Hartley, Richard and Liu, Miaomiao and Dai, Yuchao},
+  booktitle={CVPR},
+  year={2019}
+}
+
+@inproceedings{wang2020eslnet,
+  title={Event Enhanced High-Quality Image Recovery},
+  author={Wang, Bishan and He, Jingwei and Yu, Lei and Xia, Gui-Song and Yang, Wen},
+  booktitle={ECCV},
+  year={2020}
+}
+
+@article{cadena2021spadee2vid,
+  title={{SPADE-E2VID}: Spatially-Adaptive Denormalization for Event-Based Video Reconstruction},
+  author={Cadena, Pablo Rodrigo Gantier and Qian, Yeqiang and Wang, Chunxiang and Yang, Ming},
+  journal={IEEE Transactions on Image Processing},
+  volume={30},
+  pages={2488--2500},
+  year={2021}
+}
+
+@inproceedings{weng2021etnet,
+  title={Event-based Video Reconstruction Using Transformer},
+  author={Weng, Wenming and Zhang, Yueyi and Xiong, Zhiwei},
+  booktitle={ICCV},
+  year={2021}
+}
+
+@inproceedings{chen2022ecir,
+  title={{E-CIR}: Event-Enhanced Continuous Intensity Recovery},
+  author={Song, Chen and Huang, Qixing and Bajaj, Chandrajit},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={7803--7812},
+  year={2022}
+}
+
+@inproceedings{lu2023stir,
+  title={Learning Spatial-Temporal Implicit Neural Representations for Event-Guided Video Super-Resolution},
+  author={Lu, Yunfan and Wang, Zipeng and Liu, Minjie and Wang, Hongjian and Wang, Lin},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={1557--1567},
+  year={2023}
+}
+
+@inproceedings{zhu2022evsnn,
+  title={Event-Based Video Reconstruction via Potential-Assisted Spiking Neural Network},
+  author={Zhu, Lin and Wang, Xiao and Chang, Yi and Li, Jianing and Huang, Tiejun and Tian, Yonghong},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={3594--3604},
+  year={2022}
+}
+
+@inproceedings{sun2022efnet,
+  title={Event-Based Fusion for Motion Deblurring with Cross-modal Attention},
+  author={Sun, Lei and Sakaridis, Christos and Liang, Jingyun and Jiang, Qi and Yang, Kailun and Sun, Peng and Ye, Yaozu and Wang, Kaiwei and Van Gool, Luc},
+  booktitle={ECCV},
+  year={2022}
+}
+
+@article{xiang2023superfast,
+  title={{SuperFast}: 200x Video Frame Interpolation via Event Camera},
+  author={Gao, Yue and Li, Siqin and Li, Yipeng and Guo, Yandong and Dai, Qionghai},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year={2023}
+}
+
+@article{yu2023esai,
+  title={Learning to See Through With Events},
+  author={Yu, Lei and Zhang, Xiang and Liao, Wei and Yang, Wen and Xia, Gui-Song},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  volume={45},
+  number={7},
+  pages={8660--8678},
+  doi={10.1109/TPAMI.2022.3227448},
+  year={2023}
+}
+
+@inproceedings{sun2023refid,
+  title={{REFID}: Event-Based Frame Interpolation with Ad-hoc Deblurring},
+  author={Sun, Lei and Gehrig, Daniel and Sakaridis, Christos and Gehrig, Mathias and Liang, Jingyun and Sun, Peng and Xu, Zhijie and Wang, Kaiwei and Van Gool, Luc and Scaramuzza, Davide},
+  journal={arXiv preprint arXiv:2301.05191},
+  booktitle={CVPR},
+  year={2023}
+}
+
+@inproceedings{kim2023cbmnet,
+  title={Event-Based Video Frame Interpolation with Cross-Modal Asymmetric Bidirectional Motion Fields},
+  author={Kim, Taewoo and Chae, Yujeong and Jang, Hyun-Kurl and Yoon, Kuk-Jin},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={18032--18042},
+  doi={10.1109/CVPR52729.2023.01729},
+  year={2023}
+}
+
+@article{han2023neurimghdr,
+  title={Hybrid High Dynamic Range Imaging Fusing Neuromorphic and Conventional Images},
+  author={Han, Jin and Yang, Yixin and Duan, Peiqi and Zhou, Chu and Ma, Lei and Xu, Chao and Huang, Tiejun and Sato, Imari and Shi, Boxin},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year={2023}
+}
+
+@inproceedings{yang2023hdrevnet,
+  title={Learning Event Guided High Dynamic Range Video Reconstruction},
+  author={Yang, Yixin and Han, Jin and Liang, Jinxiu and Sato, Imari and Shi, Boxin},
+  booktitle={CVPR},
+  year={2023}
+}
+
+@inproceedings{liang2023evlowlight,
+  title={Coherent Event Guided Low-Light Video Enhancement},
+  author={Liang, Jinxiu and Yang, Yixin and Li, Boyu and Duan, Peiqi and Xu, Yong and Shi, Boxin},
+  booktitle={ICCV},
+  year={2023}
+}
+
+@inproceedings{ma2024timelensxl,
+  title={{TimeLens-XL}: Real-Time Event-Based Video Frame Interpolation with Large Motion},
+  author={Ma, Yongrui and Guo, Shi and Chen, Yutian and Xue, Tianfan and Gu, Jinwei},
+  booktitle={Proceedings of the European Conference on Computer Vision},
+  pages={178--194},
+  doi={10.1007/978-3-031-72907-2_11},
+  year={2024}
+}
+
+@inproceedings{sun2024dadeblur,
+  title={Motion-Aware Event Representation-Driven Image Deblurring},
+  author={Sun, Zhijing and Fu, Xueyang and Huang, Longzhuo and Liu, Aiping and Zha, Zheng-Jun},
+  booktitle={Proceedings of the European Conference on Computer Vision},
+  year={2024}
+}
+
+@inproceedings{lu2024uniinr,
+  title={{UniINR}: Event-Guided Unified Rolling Shutter Correction, Deblurring, and Interpolation},
+  author={Lu, Yunfan and Liang, Guoqiang and Wang, Yusheng and Wang, Lin and Xiong, Hui},
+  journal={arXiv preprint arXiv:2305.15078},
+  booktitle={ECCV},
+  year={2024}
+}
+
+@article{ercan2024hypere2vid,
+  title={{HyperE2VID}: Improving Event-Based Video Reconstruction via Hypernetworks},
+  author={Ercan, Burak and Eker, Onur and Saglam, Canberk and Erdem, Aykut and Erdem, Erkut},
+  journal={IEEE Transactions on Image Processing},
+  volume={33},
+  pages={1826--1837},
+  doi={10.1109/TIP.2024.3372460},
+  year={2024}
+}
+
+@inproceedings{liu2024evfids,
+  title={Video Frame Interpolation via Direct Synthesis with the Event-based Reference},
+  author={Liu, Yuhan and Deng, Yongjian and Chen, Hao and Yang, Zhen},
+  booktitle={CVPR},
+  year={2024}
+}
+
+@article{cao2025noise2image,
+  title={{Noise2Image}: Noise-Enabled Static Scene Recovery for Event Cameras},
+  author={Cao, Ruiming and Galor, Dekel and Kohli, Amit and Yates, Jacob L. and Waller, Laura},
+  journal={arXiv preprint arXiv:2404.01298},
+  year={2025}
+}
+
+@inproceedings{kai2024evtexture,
+  title={{EvTexture}: Event-driven Texture Enhancement for Video Super-Resolution},
+  author={Kai, Dachun and Lu, Jiayao and Zhang, Yueyi and Sun, Xiaoyan},
+  journal={arXiv preprint arXiv:2406.13457},
+  booktitle={ICML},
+  year={2024}
+}
+
+@inproceedings{kim2024elednet,
+  title={Towards Real-World Event-Guided Low-Light Video Enhancement and Deblurring},
+  author={Kim, Taewoo and Jeong, Jaeseok and Cho, Hoonhee and Jeong, Yuhwan and Yoon, Kuk-Jin},
+  booktitle={Proceedings of the European Conference on Computer Vision},
+  year={2024}
+}
+
+@inproceedings{tang2024stlr,
+  title={Spike-Temporal Latent Representation for Energy-Efficient Event-to-Video Reconstruction},
+  author={Tang, Jianxiong and Lai, Jian-Huang and Yang, Lingxiao and Xie, Xiaohua},
+  booktitle={Proceedings of the European Conference on Computer Vision},
+  pages={163--179},
+  doi={10.1007/978-3-031-72946-1_10},
+  year={2024}
+}
+
+@inproceedings{xiao2025mamevsr,
+  title={Event-Based Video Super-Resolution via State Space Models},
+  author={Xiao, Zeyu and Wang, Xinchao},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={12564--12574},
+  year={2025}
+}
+
+@article{chen2026evlightpp,
+  title={{EvLight++}: Low-Light Video Enhancement With an Event Camera: A Large-Scale Real-World Dataset, Novel Method, and More},
+  author={Chen, Kanghao and Liang, Guoqiang and Lu, Yunfan and Li, Hangyu and Wang, Lin},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  volume={48},
+  number={2},
+  pages={1608--1625},
+  doi={10.1109/TPAMI.2025.3617801},
+  year={2026}
+}
+
+% ---- Generative Reconstruction Models ----
+
+@inproceedings{wang2019cgane2v,
+  title={Event-Based High Dynamic Range Image and Very High Frame Rate Video Generation Using Conditional Generative Adversarial Networks},
+  author={Wang, Lin and Kim, Tae-Kyun and Yoon, Kuk-Jin},
+  booktitle={CVPR},
+  year={2019}
+}
+
+@article{liang2024e2vidiff,
+  title={{E2VIDiff}: Perceptual Events-to-Video Reconstruction Using Diffusion Priors},
+  author={Liang, Jinxiu and Yu, Bohan and Yang, Yixin and Han, Yiming and Shi, Boxin},
+  journal={arXiv preprint arXiv:2407.08231},
+  year={2024}
+}
+
+@inproceedings{zhu2024trgdiffusion,
+  title={Temporal Residual Guided Diffusion Framework for Event-Driven Video Reconstruction},
+  author={Zhu, Lin and Zheng, Yunlong and Zhang, Yijun and Wang, Xiao and Wang, Lizhi and Huang, Hua},
+  booktitle={Proceedings of the European Conference on Computer Vision},
+  pages={411--427},
+  doi={10.1007/978-3-031-73661-2_23},
+  year={2024}
+}
+
+@inproceedings{chen2025revdm,
+  title={Repurposing Pre-Trained Video Diffusion Models for Event-Based Video Interpolation},
+  author={Chen, Jingxi and Feng, Brandon Y. and Cai, Haoming and Wang, Tianfu and Burner, Levi and Yuan, Dehao and Fermuller, Cornelia and Metzler, Christopher A. and Aloimonos, Yiannis},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={12456--12466},
+  year={2025}
+}
+
+@inproceedings{xie2025egdeblurring,
+  title={Diffusion-based Event Generation for High-Quality Image Deblurring},
+  author={Xie, Xinan and Zhang, Qing and Zheng, Wei-Shi},
+  booktitle={CVPR},
+  year={2025}
+}
+
+% ---- Self-Supervised & Pre-training Frameworks ----
+
+@inproceedings{song2020darke2v,
+  title={Learning to See in the Dark with Events},
+  author={Zhang, Song and Zhang, Yu and Jiang, Zhe and Zou, Dongqing and Ren, Jimmy and Zhou, Bin},
+  booktitle={Proceedings of the European Conference on Computer Vision},
+  pages={666--682},
+  doi={10.1007/978-3-030-58523-5_39},
+  year={2020}
+}
+
+@inproceedings{he2022timereplayer,
+  title={{TimeReplayer}: Unlocking the Potential of Event Cameras for Video Interpolation},
+  author={He, Weihua and You, Kaichao and Qiao, Zhendong and Jia, Xu and Zhang, Ziyang and Wang, Wenhui and Lu, Huchuan and Wang, Yaoyuan and Liao, Jianxing},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={17804--17813},
+  year={2022}
+}
+
+@inproceedings{zhang2022evdi,
+  title={Unifying Motion Deblurring and Frame Interpolation with Events},
+  author={Zhang, Xiang and Yu, Lei},
+  booktitle={CVPR},
+  year={2022}
+}
+
+@inproceedings{zhang2023san,
+  title={Generalizing Event-Based Motion Deblurring in Real-World Scenarios},
+  author={Zhang, Xiang and Yu, Lei and Yang, Wen and Liu, Jianzhuang and Xia, Gui-Song},
+  journal={arXiv preprint arXiv:2308.05932},
+  booktitle={ICCV},
+  year={2023}
+}
+
+@inproceedings{wang2023evderaining,
+  title={Unsupervised Video Deraining with an Event Camera},
+  author={Wang, Jin and Weng, Wenming and Zhang, Yueyi and Xiong, Zhiwei},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  pages={10797--10806},
+  doi={10.1109/ICCV51070.2023.00994},
+  year={2023}
+}
+
+@inproceedings{klenk2024mem,
+  title={Masked Event Modeling: Self-Supervised Pretraining for Event Cameras},
+  author={Klenk, Simon and Bonello, David and Koestler, Lukas and Araslanov, Nikita and Cremers, Daniel},
+  journal={arXiv preprint arXiv:2212.10368},
+  booktitle={WACV},
+  year={2024}
+}
+
+@inproceedings{wang2024evinr,
+  title={Revisit Event Generation Model: Self-Supervised Learning of Event-to-Video Reconstruction with Implicit Neural Representations},
+  author={Wang, Zipeng and Lu, Yunfan and Wang, Lin},
+  journal={arXiv preprint arXiv:2407.18500},
+  booktitle={ECCV},
+  year={2024}
+}
+
+@inproceedings{zhang2024sim2realevfi,
+  title={From Sim-to-Real: Toward General Event-Based Low-Light Frame Interpolation with Per-Scene Optimization},
+  author={Zhang, Ziran and Ma, Yongrui and Chen, Yueting and Zhang, Feng and Gu, Jinwei and Xue, Tianfan and Guo, Shi},
+  booktitle={{SIGGRAPH} Asia 2024 Conference Papers},
+  pages={1--10},
+  doi={10.1145/3680528.3687649},
+  year={2024}
+}
+
+% ---- Geometric & Semi-Dense 3D Reconstruction ----
+
+@article{rebecq2018emvs,
+  title={{EMVS}: Event-based Multi-View Stereo---{3D} Reconstruction with an Event Camera in Real-Time},
+  author={Rebecq, Henri and Gallego, Guillermo and Mueggler, Elias and Scaramuzza, Davide},
+  journal={International Journal of Computer Vision},
+  volume={126},
+  pages={1394--1414},
+  year={2018}
+}
+
+@inproceedings{zhou2018semidense,
+  title={Semi-Dense {3D} Reconstruction with a Stereo Event Camera},
+  author={Zhou, Yi and Gallego, Guillermo and Rebecq, Henri and Kneip, Laurent and Li, Hongdong and Scaramuzza, Davide},
+  booktitle={Proceedings of the European Conference on Computer Vision},
+  year={2018}
+}
+
+@inproceedings{yu2024eventps,
+  title={{EventPS}: Real-Time Photometric Stereo Using an Event Camera},
+  author={Yu, Bohan and Ren, Jieji and Han, Jin and Wang, Feishi and Liang, Jinxiu and Shi, Boxin},
+  booktitle={CVPR},
+  year={2024}
+}
+
+% ---- Neural Radiance Fields ({NeRF}) with Events ----
+
+@inproceedings{hwang2023evnerf,
+  title={{Ev-NeRF}: Event Based Neural Radiance Field},
+  author={Hwang, Inwoo and Kim, Junho and Kim, Young Min},
+  journal={arXiv preprint arXiv:2206.12455},
+  booktitle={WACV},
+  year={2023}
+}
+
+@inproceedings{rudnev2023eventnerf,
+  title={{EventNeRF}: Neural Radiance Fields from a Single Colour Event Camera},
+  author={Rudnev, Viktor and Elgharib, Mohamed and Theobalt, Christian and Golyanik, Vladislav},
+  journal={arXiv preprint arXiv:2206.11896},
+  booktitle={CVPR},
+  year={2023}
+}
+
+@article{klenk2023enerf,
+  title={{E-NeRF}: Neural Radiance Fields From a Moving Event Camera},
+  author={Klenk, Simon and Koestler, Lukas and Scaramuzza, Davide and Cremers, Daniel},
+  journal={IEEE Robotics and Automation Letters},
+  volume={8},
+  number={3},
+  pages={1587--1594},
+  doi={10.1109/LRA.2023.3240646},
+  year={2023}
+}
+
+@inproceedings{qi2023e2nerf,
+  title={{E2NeRF}: Event Enhanced Neural Radiance Fields from Blurry Images},
+  author={Qi, Yunshan and Zhu, Lin and Zhang, Yu and Li, Jia},
+  booktitle={ICCV},
+  year={2023}
+}
+
+@inproceedings{low2023robustenerf,
+  title={Robust {e-NeRF}: {NeRF} from Sparse \& Noisy Events under Non-Uniform Motion},
+  author={Low, Weng Fei and Lee, Gim Hee},
+  journal={arXiv preprint arXiv:2309.08596},
+  booktitle={ICCV},
+  year={2023}
+}
+
+@inproceedings{ma2023denerf,
+  title={{DE-NeRF}: Deformable Neural Radiance Fields using {RGB} and Event Cameras},
+  author={Ma, Qi and Paudel, Danda Pani and Chhatkuli, Ajad and Van Gool, Luc},
+  journal={arXiv preprint arXiv:2309.08416},
+  booktitle={ICCV},
+  year={2023}
+}
+
+@inproceedings{bhattacharya2024evdnerf,
+  title={{EvDNeRF}: Reconstructing Event Data with Dynamic Neural Radiance Fields},
+  author={Bhattacharya, Anish and Madaan, Ratnesh and Cladera, Fernando and Vemprala, Sai and Bonatti, Rogerio and Daniilidis, Kostas and Kapoor, Ashish and Kumar, Vijay and Matni, Nikolai and Gupta, Jayesh K.},
+  booktitle={WACV},
+  year={2024}
+}
+
+@inproceedings{cannici2024evdeblurnerf,
+  title={Mitigating Motion Blur in Neural Radiance Fields with Events and Frames},
+  author={Cannici, Marco and Scaramuzza, Davide},
+  journal={arXiv preprint arXiv:2403.19780},
+  booktitle={CVPR},
+  year={2024}
+}
+
+@inproceedings{qi2024ebadnerf,
+  title={{EBAD-NeRF}: Deblurring Neural Radiance Fields with Event-Driven Bundle Adjustment},
+  author={Qi, Yunshan and Zhu, Lin and Zhao, Yifan and Bao, Nan and Li, Jia},
+  journal={arXiv preprint arXiv:2406.14360},
+  booktitle={ACM MM},
+  year={2024}
+}
+
+@inproceedings{li2024benerf,
+  title={{BeNeRF}: Neural Radiance Fields from a Single Blurry Image and Event Stream},
+  author={Li, Wenpu and Wan, Pian and Wang, Peng and Li, Jinghang and Zhou, Yi and Liu, Peidong},
+  journal={arXiv preprint arXiv:2407.02174},
+  booktitle={ECCV},
+  year={2024}
+}
+
+@inproceedings{low2024deblurenerf,
+  title={Deblur e-{NeRF}: {NeRF} from Motion-Blurred Events under High-Speed or Low-Light Conditions},
+  author={Low, Weng Fei and Lee, Gim Hee},
+  booktitle={Proceedings of the European Conference on Computer Vision},
+  year={2024}
+}
+
+@inproceedings{chen2024eventid,
+  title={Event-{ID}: Intrinsic Decomposition Using an Event Camera},
+  author={Chen, Zehao and Lu, Zhan and Ma, De and Tang, Huajin and Jiang, Xudong and Zheng, Qian and Pan, Gang},
+  booktitle={Proceedings of the 32nd ACM International Conference on Multimedia},
+  pages={10095--10104},
+  doi={10.1145/3664647.3681133},
+  year={2024}
+}
+
+@inproceedings{feng2025aenerf,
+  title={{AE-NeRF}: Augmenting Event-Based Neural Radiance Fields for Non-Ideal Conditions and Larger Scenes},
+  author={Feng, Chaoran and Yu, Wangbo and Cheng, Xinhua and Tang, Zhenyu and Zhang, Junwu and Yuan, Li and Tian, Yonghong},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  year={2025}
+}
+
+@inproceedings{chen2025evhdrnerf,
+  title={{EvHDR-NeRF}: Building High Dynamic Range Radiance Fields with Single Exposure Images and Events},
+  author={Chen, Zehao and Liao, Zhanfeng and Ma, De and Tang, Huajin and Zheng, Qian and Pan, Gang},
+  booktitle={AAAI},
+  year={2025}
+}
+
+@inproceedings{rudnev2025dyneventnerf,
+  title={Dynamic {EventNeRF}: Reconstructing General Dynamic Scenes from Multi-view {RGB} and Event Streams},
+  author={Rudnev, Viktor and Fox, Gereon and Elgharib, Mohamed and Theobalt, Christian and Golyanik, Vladislav},
+  booktitle={CVPR Workshop},
+  year={2025}
+}
+
+@inproceedings{sachan2026eventneus,
+  title={{EventNeuS}: {3D} Mesh Reconstruction from a Single Event Camera},
+  author={Sachan, Shreyas and Rudnev, Viktor and Elgharib, Mohamed and Theobalt, Christian and Golyanik, Vladislav},
+  booktitle={International Conference on {3D} Vision},
+  year={2026}
+}
+
+% ---- {3D} {Gaussian Splatting} ({3DGS}) with Events ----
+
+@inproceedings{wang2024evggs,
+  title={{EvGGS}: A Collaborative Learning Framework for Event-based Generalizable Gaussian Splatting},
+  author={Wang, Jiaxu and He, Junhao and Zhang, Ziyi and Sun, Mingyuan and Sun, Jingkai and Xu, Renjing},
+  booktitle={Proceedings of the 41st International Conference on Machine Learning},
+  series={Proceedings of Machine Learning Research},
+  volume={235},
+  pages={50561--50579},
+  publisher={PMLR},
+  url={https://proceedings.mlr.press/v235/wang24w.html},
+  year={2024}
+}
+
+@inproceedings{yu2025evagaussians,
+  title={{EvaGaussians}: Event Stream Assisted Gaussian Splatting from Blurry Images},
+  author={Yu, Wangbo and Feng, Chaoran and Li, Jianing and Tang, Jiye and Yang, Jiashu and Tang, Zhenyu and Cao, Meng and Jia, Xu and Yang, Yuchao and Yuan, Li and Tian, Yonghong},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  year={2025}
+}
+
+@inproceedings{xiong2024event3dgs,
+  title={{Event3DGS}: Event-Based {3D} {Gaussian Splatting} for High-Speed Robot Egomotion},
+  author={Xiong, Tianyi and Wu, Jiayi and He, Botao and Fermuller, Cornelia and Aloimonos, Yiannis and Huang, Heng and Metzler, Christopher A.},
+  journal={arXiv preprint arXiv:2406.02972},
+  booktitle={CoRL},
+  year={2024}
+}
+
+@article{weng2024eadeblurgs,
+  title={{EaDeblur-GS}: Event Assisted {3D} Deblur Reconstruction with Gaussian Splatting},
+  author={Weng, Yuchen and Shen, Zhengwen and Chen, Ruofan and Wang, Qi and Wang, Jun},
+  journal={arXiv preprint arXiv:2407.13520},
+  year={2024}
+}
+
+@inproceedings{wu2024evgs,
+  title={{EV-GS}: Event-Based Gaussian Splatting for Efficient and Accurate Radiance Field Rendering},
+  author={Wu, Jingqian and Zhu, Shuo and Wang, Chutian and Lam, Edmund Y.},
+  booktitle={2024 IEEE 34th International Workshop on Machine Learning for Signal Processing},
+  pages={1--6},
+  doi={10.1109/MLSP58920.2024.10734753},
+  year={2024}
+}
+
+@inproceedings{deguchi2024e2gs,
+  title={{E2GS}: Event Enhanced {Gaussian Splatting}},
+  author={Deguchi, Hiroyuki and Masuda, Mana and Nakabayashi, Takuya and Saito, Hideo},
+  booktitle={ICIP},
+  year={2024}
+}
+
+@inproceedings{huang2025inceventgs,
+  title={{IncEventGS}: Pose-Free Gaussian Splatting from a Single Event Camera},
+  author={Huang, Jian and Dong, Chengrui and Chen, Xuanhua and Liu, Peidong},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={26933--26942},
+  year={2025}
+}
+
+@inproceedings{liao2025ef3dgs,
+  title={{EF-3DGS}: Event-Aided Free-Trajectory {3D} Gaussian Splatting},
+  author={Liao, Bohao and Zhai, Wei and Wan, Zengyu and Cheng, Zhixin and Yang, Wenfei and Zhang, Tianzhu and Cao, Yang and Zha, Zheng-Jun},
+  booktitle={Advances in Neural Information Processing Systems},
+  year={2025}
+}
+
+@article{yin2025e3dgs,
+  title={{E-3DGS}: {3D} Gaussian Splatting with Exposure and Motion Events},
+  author={Yin, Xiaoting and Shi, Hao and Bao, Yuhan and Bing, Zhenshan and Liao, Yiyi and Yang, Kailun and Wang, Kaiwei},
+  journal={Applied Optics},
+  volume={64},
+  number={14},
+  pages={3897},
+  doi={10.1364/AO.557565},
+  year={2025}
+}
+
+@inproceedings{xu2025eventboosted3dgs,
+  title={Event-Boosted Deformable {3D} Gaussians for Dynamic Scene Reconstruction},
+  author={Xu, Wenhao and Weng, Wenming and Zhang, Yueyi and Xu, Ruikang and Xiong, Zhiwei},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  year={2025}
+}
+
+@inproceedings{lan2024event3dgs,
+  title={{Event-3DGS}: Event-Based {3D} Reconstruction Using {3D} Gaussian Splatting},
+  author={Lan, Peikun and Han, Haiqian and Li, Jianing and Wei, Henglu and Ji, Xiangyang},
+  booktitle={Advances in Neural Information Processing Systems},
+  year={2024}
+}
+
+@article{wu2025sweepevgs,
+  title={{SweepEvGS}: Event-Based {3D} Gaussian Splatting for Macro and Micro Radiance Field Rendering From a Single Sweep},
+  author={Wu, Jingqian and Zhu, Shuo and Wang, Chutian and Shi, Boxin and Lam, Edmund Y.},
+  journal={IEEE Transactions on Circuits and Systems for Video Technology},
+  volume={35},
+  number={12},
+  pages={12734--12746},
+  doi={10.1109/TCSVT.2025.3583735},
+  year={2025}
+}
+
+@inproceedings{yura2025eventsplat,
+  title={{EventSplat}: {3D} {Gaussian Splatting} from Moving Event Cameras for Real-Time Rendering},
+  author={Yura, Toshiya and Mirzaei, Ashkan and Gilitschenski, Igor},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year={2025}
+}
+
+@inproceedings{matta2025besplat,
+  title={{BeSplat}: {Gaussian Splatting} from a Single Blurry Image and Event Stream},
+  author={Matta, Gopi Raju and Trisha, Reddypalli and Mitra, Kaushik},
+  booktitle={WACVW},
+  year={2025}
+}
+
+@inproceedings{lee2025dietgs,
+  title={{DiET-GS}: Diffusion Prior and Event Stream-Assisted Motion Deblurring {3D} Gaussian Splatting},
+  author={Lee, Seungjun and Lee, Gim Hee},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={21739--21749},
+  year={2025}
+}
+
+@inproceedings{deng2025ebadgaussian,
+  title={{EBAD-GS}: Deblurring Gaussian Splatting with Event-Driven Bundle Adjustment},
+  author={Deng, Yufei and Wang, Yuanjian and Tang, Chenwei and Fan, Jiahao and Xiao, Rong and Lv, Jiancheng},
+  booktitle={ICASSP 2026--2026 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
+  pages={10902--10906},
+  doi={10.1109/ICASSP55912.2026.11464704},
+  url={https://doi.org/10.1109/ICASSP55912.2026.11464704},
+  year={2026}
+}
+
+% ---- Generalizable 3D Reconstruction ----
+
+@inproceedings{zhang2024eliteevgs,
+  title={{Elite-EvGS}: Learning Event-based {3D} Gaussian Splatting by Distilling Event-to-Video Priors},
+  author={Zhang, Zixin and Chen, Kanghao and Wang, Lin},
+  booktitle={2025 IEEE International Conference on Robotics and Automation ({ICRA})},
+  pages={13972--13978},
+  doi={10.1109/ICRA55743.2025.11127518},
+  url={https://doi.org/10.1109/ICRA55743.2025.11127518},
+  year={2025}
+}
+
+% ==== Section 4: Event Camera Understanding ====
+
+% ---- Event-Based Multimodal LLMs ----
+
+@inproceedings{yang2025llmzeroshot,
+  title={Can Large Language Models Grasp Event Signals? Exploring Pure Zero-Shot Event-based Recognition},
+  author={Yang, others},
+  booktitle={ICASSP},
+  year={2025}
+}
+
+@inproceedings{wang2025eventgpt,
+  title={{EventGPT}: Event Stream Understanding with Multimodal Large Language Models},
+  author={Wang, others},
+  booktitle={CVPR},
+  year={2025}
+}
+
+@inproceedings{zhang2025llmevrep,
+  title={Learning an {LLM}-Compatible Event Representation Using a Self-Supervised Framework},
+  author={Zhang, others},
+  booktitle={WWW Companion},
+  year={2025}
+}
+
+@article{chen2025eventvl,
+  title={{EventVL}: Understand Event Streams via Multimodal Large Language Model},
+  author={Chen, others},
+  journal={arXiv preprint},
+  year={2025}
+}
+
+@article{li2026eventflash,
+  title={{EventFlash}: Towards Efficient {MLLMs} for Event-Based Vision},
+  author={Li, others},
+  journal={arXiv preprint},
+  year={2026}
+}
+
+% ---- CLIP-Based Event Understanding ----
+
+@inproceedings{kim2024eventbind,
+  title={{EventBind}: Learning a Unified Representation to Bind Them All for Event-based Open-world Understanding},
+  author={Kim, others},
+  booktitle={ECCV},
+  year={2024}
+}
+
+@article{zhou2024ceia,
+  title={{CEIA}: {CLIP}-Based Event-Image Alignment for Open-World Event-Based Understanding},
+  author={Zhou, others},
+  journal={arXiv preprint},
+  year={2024}
+}
+
+@article{zhang2024expandingevent,
+  title={Expanding Event Modality Applications through a Robust {CLIP}-Based Encoder},
+  author={Zhang, others},
+  journal={arXiv preprint},
+  year={2024}
+}
+
+@inproceedings{cho2025ezsr,
+  title={{EZSR}: Event-based Zero-Shot Recognition},
+  author={Cho, others},
+  booktitle={CVPR},
+  year={2025}
+}
+
+% ---- Open-Vocabulary & Zero-Shot Understanding ----
+% NOTE: OpenESS (kong2024openess), OVOSE (kim2024ovose), SEAL (li2026seal) already in Section 2
+
+@article{zhang2025ovdetection,
+  title={Adaptive Event Stream Slicing for Open-Vocabulary Event-Based Object Detection},
+  author={Zhang, others},
+  journal={arXiv preprint},
+  year={2025}
+}
+
+% ---- Foundation Model Adaptation ----
+% NOTE: EventSAM (chen2024eventsam) already in Section 1; chen2024eventsamseg already in Section 2
+
+@inproceedings{li2024sameventadapter,
+  title={{SAM-Event-Adapter}: Adapting Segment Anything Model for Event-{RGB} Semantic Segmentation},
+  author={Li, others},
+  booktitle={ICRA},
+  year={2024}
+}
+
+@article{zhang2024spikedinov2,
+  title={A Novel Energy-Efficient Spike Transformer Network for Depth Estimation via Cross-modality Knowledge Distillation},
+  author={Zhang, others},
+  journal={arXiv preprint},
+  year={2024}
+}
+
+@article{li2025evsam,
+  title={{EvSAM}: Segment Anything Model with Event-based Assistance},
+  author={Li, others},
+  journal={ACM Transactions on Multimedia Computing, Communications, and Applications},
+  year={2025}
+}
+
+@article{wu2025semantice2vid,
+  title={Exploring the Missing Semantics in Event Modality},
+  author={Wu, others},
+  journal={arXiv preprint},
+  year={2025}
+}
+
+@article{chen2025tgvfm,
+  title={Temporal-Guided Visual Foundation Models for Event-Based Vision},
+  author={Chen, others},
+  journal={arXiv preprint},
+  year={2025}
+}
+
+% ---- Language-Guided Event Understanding ----
+
+@inproceedings{cho2023evlafor,
+  title={Label-Free Event-based Object Recognition via Joint Learning with Image Reconstruction from Events},
+  author={Cho, others},
+  booktitle={ICCV},
+  year={2023}
+}
+
+@article{zheng2024eventdancepp,
+  title={{EventDance++}: Language-guided Unsupervised Source-free Cross-modal Adaptation for Event-based Object Recognition},
+  author={Zheng, others},
+  journal={arXiv preprint},
+  year={2024}
+}
+
+@inproceedings{wang2025neurovig,
+  title={{NeuroViG}: Integrating Event Cameras for Resource-Efficient Video Grounding},
+  author={Wang, others},
+  booktitle={WACV},
+  year={2025}
+}
+
+@article{chen2025epvlm,
+  title={Event-Priori-Based Vision-Language Model for Efficient Visual Understanding},
+  author={Chen, others},
+  journal={arXiv preprint},
+  year={2025}
+}
+
+@inproceedings{kong2025talk2event,
+  title={{Talk2Event}: Grounded Understanding of Dynamic Scenes from Event Cameras},
+  author={Kong, others},
+  booktitle={NeurIPS},
+  year={2025}
+}
+
+@article{wang2026evla,
+  title={{E-VLA}: Event-Augmented Vision-Language-Action Model for Dark and Blurred Scenes},
+  author={Wang, others},
+  journal={arXiv preprint},
+  year={2026}
+}
+
+% ---- Self-Supervised Pre-training ----
+% NOTE: ECDP (yan2023ecdp) and MEM (klenk2024mem) already in Section 3
+
+@article{li2024decp,
+  title={Data-efficient Event Camera Pre-training via Disentangled Masked Modeling},
+  author={Li, others},
+  journal={arXiv preprint},
+  year={2024}
+}
+
+@inproceedings{wu2024ecdpdense,
+  title={Event Camera Data Dense Pre-training},
+  author={Wu, others},
+  booktitle={ECCV},
+  year={2024}
+}
+
+@inproceedings{gu2024sd2event,
+  title={{SD2Event}: Self-supervised Learning of Dynamic Detectors and Contextual Descriptors for Event Cameras},
+  author={Gu, others},
+  booktitle={CVPR},
+  year={2024}
+}
+
+@article{zhang2024evrepsl,
+  title={Event-Stream Representation via Self-Supervised Learning for Event-Based Vision},
+  author={Zhang, others},
+  journal={IEEE Transactions on Image Processing},
+  year={2024}
+}
+
+@inproceedings{wang2025tespec,
+  title={Temporally-Enhanced Self-Supervised Pretraining for Event Cameras},
+  author={Wang, others},
+  booktitle={ICCV},
+  year={2025}
+}
+
+@inproceedings{liu2025stp,
+  title={Efficient Event Camera Data Pretraining with Adaptive Prompt Fusion},
+  author={Liu, others},
+  booktitle={ICCV},
+  year={2025}
+}
+
+@inproceedings{zhang2025eventpretrain,
+  title={Revealing Latent Information: A Physics-inspired Self-supervised Pre-training Framework},
+  author={Zhang, others},
+  booktitle={ACM MM},
+  year={2025}
+}
+
+@inproceedings{wang2025cm3ae,
+  title={A Unified {RGB} Frame and Event-Voxel/-Frame Pre-training Framework},
+  author={Wang, others},
+  booktitle={ACM MM},
+  year={2025}
+}
+
+% ---- Cross-Modal Knowledge Transfer ----
+
+@inproceedings{zheng2024eventdance,
+  title={{EventDance}: Unsupervised Source-free Cross-modal Adaptation for Event-based Object Recognition},
+  author={Zheng, others},
+  booktitle={CVPR},
+  year={2024}
+}
+
+@inproceedings{kong2025eventfly,
+  title={{EventFly}: Event Camera Perception from Ground to the Sky},
+  author={Kong, Lingdong and Lu, Dongyue and Xu, Xiang and Ng, Lai Xing and Ooi, Wei Tsang and Cottereau, Benoit R.},
+  booktitle={CVPR},
+  year={2025}
+}
+
+@article{li2026ffevent,
+  title={{FFEvent}: Fast Fourier-based Knowledge Transfer for Event Cameras},
+  author={Li, others},
+  journal={Expert Systems with Applications},
+  year={2026}
+}
+
+% ---- Text-Guided Event Data Generation ----
+
+@inproceedings{yang2024text2events,
+  title={Text-to-Events: Synthetic Event Camera Streams from Conditional Text Input},
+  author={Yang, others},
+  booktitle={NICE},
+  year={2024}
+}
+
+@article{li2025controlevents,
+  title={{ControlEvents}: Controllable Synthesis of Event Camera Data with Foundational Prior from Image Diffusion Models},
+  author={Li, others},
+  journal={arXiv preprint},
+  year={2025}
+}
+
+
+% ==== Section 5: Applications ====
+
+% ---- Autonomous Driving ----
+
+@inproceedings{maqueda2018steering,
+  title={Event-Based Vision Meets Deep Learning on Steering Prediction for Self-Driving Cars},
+  author={Maqueda, Ana I. and Loquercio, Antonio and Gallego, Guillermo and Garc{\'i}a, Narciso and Scaramuzza, Davide},
+  booktitle={CVPR},
+  year={2018}
+}
+
+@inproceedings{hu2020ddd20,
+  title={{DDD20} End-to-End Event Camera Driving Dataset},
+  author={Hu, Yuhuang and Binas, Jonathan and Neil, Daniel and Liu, Shih-Chii and Delbruck, Tobi},
+  booktitle={ITSC},
+  year={2020}
+}
+
+% NOTE: ESS (sun2022ess), SODFormer (huang2023sodformer), DAGR (gehrig2024dagr) already in earlier sections
+
+% ---- SLAM & Visual Odometry ----
+% NOTE: CMax (gallego2018cmax) already in Section 0
+
+@article{rebecq2018evo,
+  title={Event-Based, {6-DOF} Camera Tracking from Photometric Depth Maps},
+  author={Rebecq, Henri and Horstschaefer, Timo and Gallego, Guillermo and Scaramuzza, Davide},
+  journal={arXiv preprint arXiv:1711.03771},
+  year={2018}
+}
+
+@article{vidal2018ultimateslam,
+  title={Ultimate {SLAM}? Combining Events, Images, and {IMU} for Robust Visual {SLAM}},
+  author={Vidal, Antoni Rosinol and Rebecq, Henri and Horstschaefer, Timo and Scaramuzza, Davide},
+  journal={IEEE Robotics and Automation Letters},
+  year={2018}
+}
+
+@article{chen2023esvio,
+  title={{ESVIO}: Event-Based Stereo Visual-Inertial Odometry},
+  author={Chen, Peiyu and Guan, Weipeng and Lu, Peng},
+  journal={IEEE Robotics and Automation Letters},
+  year={2023}
+}
+
+@article{guan2023plevio,
+  title={{PL-EVIO}: Robust Monocular Event-Based Visual Inertial Odometry with Point and Line Features},
+  author={Guan, Weipeng and Chen, Peiyu and Xie, Yuhan and Lu, Peng},
+  journal={IEEE Transactions on Automation Science and Engineering},
+  year={2023}
+}
+
+@article{guan2024evisam,
+  title={{EVI-SAM}: Robust, Real-Time, Tightly-Coupled Event-Visual-Inertial State Estimation and {3D} Dense Mapping},
+  author={Guan, Weipeng and Chen, Peiyu and Zhao, Huibin and Wang, Yu and Lu, Peng},
+  journal={Advanced Intelligent Systems},
+  year={2024}
+}
+
+@inproceedings{deng2024enslam,
+  title={Implicit Event-{RGBD} Neural {SLAM}},
+  author={Deng, others},
+  booktitle={CVPR},
+  year={2024}
+}
+
+@article{gallego2024cmaxslam,
+  title={{CMax-SLAM}: Event-Based Rotational-Motion Bundle Adjustment and {SLAM} System},
+  author={Guo, Shuang and Gallego, Guillermo},
+  journal={arXiv preprint},
+  year={2024}
+}
+
+@article{zhou2025esvo2,
+  title={{ESVO2}: Direct Visual-Inertial Odometry with Stereo Event Cameras},
+  author={Niu, Junkai and Zhong, Sheng and Lu, Xiuyuan and Shen, Shaojie and Gallego, Guillermo and Zhou, Yi},
+  journal={IEEE Transactions on Robotics},
+  year={2025}
+}
+
+@inproceedings{nunes2025egomotion,
+  title={Full-{DoF} Egomotion Estimation for Event Cameras Using Geometric Solvers},
+  author={Nunes, others},
+  booktitle={CVPR},
+  year={2025}
+}
+
+% ---- UAV / Drone Vision ----
+
+@inproceedings{delmerico2019uzhfpv,
+  title={The {UZH-FPV} Drone Racing Dataset},
+  author={Delmerico, Jeffrey and Scaramuzza, Davide},
+  booktitle={ICRA},
+  year={2019}
+}
+
+@article{falanga2020obstacle,
+  title={Dynamic Obstacle Avoidance for Quadrotors with Event Cameras},
+  author={Falanga, Davide and Kim, Suseong and Scaramuzza, Davide},
+  journal={Science Robotics},
+  year={2020}
+}
+
+@article{sanket2022navdrone,
+  title={Event-Based Navigation for Autonomous Drone Racing with Sparse Gated Recurrent Network},
+  author={Sanket, Nitin J. and Singh, Chethan Parameshwara and Ganguly, Chahat and Fermller, Cornelia and Aloimonos, Yiannis},
+  journal={arXiv preprint},
+  year={2022}
+}
+
+@inproceedings{li2023tamingdrone,
+  title={Taming Event Cameras with Bio-Inspired Architecture and Algorithm: A Case for Drone Obstacle Avoidance},
+  author={Li, others},
+  booktitle={MobiCom},
+  year={2023}
+}
+
+@inproceedings{bhattacharya2024monocorl,
+  title={Monocular Event-Based Vision for Obstacle Avoidance with a Quadrotor},
+  author={Bhattacharya, others},
+  booktitle={CoRL},
+  year={2024}
+}
+
+@inproceedings{muglikar2025evmapper,
+  title={{EvMAPPER}: High Altitude Orthomapping with Event Cameras},
+  author={Muglikar, others},
+  booktitle={ICRA},
+  year={2025}
+}
+
+% NOTE: EventFly (kong2025eventfly) already in Section 4
+
+% ---- Robotics ----
+
+@article{shrestha2023neuromorphicroute,
+  title={Neuromorphic Sequence Learning with an Event Camera on Routes Through Vegetation},
+  author={Shrestha, others},
+  journal={Science Robotics},
+  year={2023}
+}
+
+@article{zhang2024tactile,
+  title={A Novel Bioinspired Neuromorphic Vision-Based Tactile Sensor for Fast Tactile Perception},
+  author={Zhang, others},
+  journal={arXiv preprint},
+  year={2024}
+}
+
+@article{bartolozzi2025obstacle,
+  title={A Neuromorphic Approach to Obstacle Avoidance in Robot Manipulation},
+  author={Bartolozzi, others},
+  journal={The International Journal of Robotics Research},
+  year={2025}
+}
+
+% NOTE: E-VLA (wang2026evla) already in Section 4
+
+% ---- Eye Tracking & Gaze Estimation ----
+
+@inproceedings{zhao2023eveye,
+  title={Rethinking High-frequency Eye Tracking through the Lenses of Event Cameras},
+  author={Zhao, others},
+  booktitle={NeurIPS},
+  year={2023}
+}
+
+@inproceedings{chen2023three_et,
+  title={{3ET}: Efficient Event-based Eye Tracking using a Change-based {ConvLSTM}},
+  author={Chen, others},
+  booktitle={IEEE BioCAS},
+  year={2023}
+}
+
+@inproceedings{wang2024retina,
+  title={Retina: Low-Power Eye Tracking with Event Camera and Spiking Hardware},
+  author={Wang, others},
+  booktitle={CVPRW},
+  year={2024}
+}
+
+@article{stoffregen2024gazetracking,
+  title={Event-Based, Near-Eye Gaze Tracking Beyond 10,000 Hz},
+  author={Stoffregen, others},
+  journal={IEEE Transactions on Visualization and Computer Graphics},
+  year={2024}
+}
+
+@article{chen2024swifteye,
+  title={Towards Anti-blink Pupil Tracking for Precise and Robust Near-Eye Movement Analysis with Event Cameras},
+  author={Chen, others},
+  journal={IEEE Transactions on Visualization and Computer Graphics},
+  year={2024}
+}
+
+% ---- Space & Satellite ----
+
+@inproceedings{cohen2019startracking,
+  title={Star Tracking using an Event Camera},
+  author={Cohen, others},
+  booktitle={CVPRW},
+  year={2019}
+}
+
+@article{ralph2022fiesta,
+  title={{FIESTA}: Real-Time Event-Based Unsupervised Feature Consolidation and Tracking for Space Situational Awareness},
+  author={Ralph, others},
+  journal={Frontiers in Neuroscience},
+  year={2022}
+}
+
+@inproceedings{afshar2023asynckalman,
+  title={Asynchronous Kalman Filter for Event-Based Star Tracking},
+  author={Afshar, others},
+  booktitle={NeurIPS Workshop},
+  year={2023}
+}
+
+@inproceedings{liu2025ebsekf,
+  title={{EBS-EKF}: Accurate and High Frequency Event-based Star Tracking},
+  author={Liu, others},
+  booktitle={CVPR},
+  year={2025}
+}
+
+@article{chin2025esturt,
+  title={{e-STURT}: Event-based Star Tracking under Spacecraft Jitter: the {e-STURT} Dataset},
+  author={Chin, others},
+  journal={arXiv preprint},
+  year={2025}
+}
+
+% ---- Medical & Biological Imaging ----
+
+@article{wang2021microscopy,
+  title={Event-driven Acquisition for Content-enriched Microscopy},
+  author={Wang, others},
+  journal={Nature Methods},
+  year={2021}
+}
+
+@inproceedings{gruev2023pdavis,
+  title={{PDAVIS}: Bio-Inspired Polarization Event Camera},
+  author={Gruev, others},
+  booktitle={CVPRW},
+  year={2023}
+}
+
+@article{bhatt2023evesmlm,
+  title={Event-Based Single-Molecule Localization Microscopy},
+  author={Bhatt, others},
+  journal={Nature Methods},
+  year={2023}
+}
+
+@article{li2024eventlfm,
+  title={Event Camera Integrated Fourier Light Field Microscopy for Ultrafast {3D} Imaging},
+  author={Li, others},
+  journal={Light: Science \& Applications},
+  year={2024}
+}
+
+@article{wang2025ieim,
+  title={Inter-event Interval Microscopy for Event Cameras},
+  author={Wang, others},
+  journal={arXiv preprint},
+  year={2025}
+}
+
+% ---- Industrial Inspection ----
+
+@article{wang2023surfacedefect,
+  title={Surface Defect Detection Competition with a Bio-inspired Vision Sensor},
+  author={Wang, others},
+  journal={National Science Review},
+  year={2023}
+}
+
+@article{li2024aluminumdefect,
+  title={High-Performance Surface Defect Detection of Aluminum Substrate Based on Event Camera},
+  author={Li, others},
+  journal={Journal of Computational Design and Engineering},
+  year={2024}
+}
+
+@article{guo2025eventpiv,
+  title={Event-based Particle Image Velocimetry for High-speed Flows},
+  author={Guo, others},
+  journal={Measurement Science and Technology},
+  year={2025}
+}
+
+% ---- Privacy-Preserving Vision ----
+
+@inproceedings{barua2022faceidentity,
+  title={Neuromorphic Event-based Face Identity Recognition},
+  author={Barua, others},
+  booktitle={IEEE FG},
+  year={2022}
+}
+
+@article{ahmad2023eventanon,
+  title={Person Re-Identification without Identification via Event Anonymization},
+  author={Ahmad, others},
+  journal={arXiv preprint},
+  year={2023}
+}
+
+@article{wang2024e2priv,
+  title={{E2PRIV}: Privacy-Preserving Event-to-Video Reconstruction},
+  author={Wang, others},
+  journal={arXiv preprint},
+  year={2024}
+}
+
+@article{ahmad2024eventanontpami,
+  title={Event Anonymization: Privacy-Preserving Person Re-Identification and Pose Estimation},
+  author={Ahmad, others},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year={2024}
+}
+
+@article{berlincioni2024facesurvey,
+  title={Neuromorphic Face Analysis: A Survey},
+  author={Berlincioni, others},
+  journal={Pattern Recognition Letters},
+  year={2024}
+}
+
+% ---- Neuromorphic Hardware Deployment ----
+
+@article{bauer2023speck,
+  title={{Speck}: A Smart Event-based Vision Sensor with a Low Latency 327K Neuron {CNN} Processing Pipeline},
+  author={Bauer, others},
+  journal={arXiv preprint},
+  year={2023}
+}
+
+@article{paredes2023neurochip,
+  title={Event-driven Vision and Control for {UAVs} on a Neuromorphic Chip},
+  author={Paredes-Valles, Federico and Scheper, Kirk Y. and de Croon, Guido C. H. E.},
+  journal={IEEE Robotics and Automation Letters},
+  year={2023}
+}
+
+@inproceedings{shiba2023neuromorphicof,
+  title={Neuromorphic Optical Flow and Real-time Implementation with Event Cameras},
+  author={Shiba, others},
+  booktitle={CVPRW},
+  year={2023}
+}
+
+@article{li2023lowpowerface,
+  title={Low-power Event-based Face Detection with Asynchronous Neuromorphic Hardware},
+  author={Li, others},
+  journal={arXiv preprint},
+  year={2023}
+}
+
+% ---- Adverse Weather Perception ----
+
+@article{jiang2022rainremoval,
+  title={A Novel Rain Removal Approach for Outdoor Dynamic Vision Sensor Event Videos},
+  author={Jiang, others},
+  journal={Frontiers in Neurorobotics},
+  year={2022}
+}
+
+% NOTE: EvDeraining (wang2023evderaining) already in Section 3
+
+@article{zhang2025desnowing,
+  title={Event-Based De-Snowing for Autonomous Driving},
+  author={Zhang, others},
+  journal={arXiv preprint},
+  year={2025}
+}
+
+@inproceedings{li2025premamba,
+  title={{PRE-Mamba}: A {4D} State Space Model for Ultra-High-Frequent Event Camera Deraining},
+  author={Li, others},
+  booktitle={ICCV},
+  year={2025}
+}
+
+% ---- High-Speed Photography & Sports ----
+
+@inproceedings{delamare2023balldetect,
+  title={Event-based High-speed Ball Detection in Sports Video},
+  author={Delamare, others},
+  booktitle={ACM MMSports},
+  year={2023}
+}
+
+@inproceedings{gao2024ballspin,
+  title={Event-based Ball Spin Estimation in Sports},
+  author={Gao, others},
+  booktitle={CVPRW},
+  year={2024}
+}
+
+@inproceedings{gao2024balltracking,
+  title={Time-consistent Ball Tracking and Spin Estimation with Event Camera},
+  author={Gao, others},
+  booktitle={ACM MMSports},
+  year={2024}
+}
+
+
+% ==== Section 6: Other Resources (Relevant Surveys) ====
+
+% NOTE: gallego2022survey, zheng2024deeplearning, huang2023eslam already in Section 0
+
+@article{chakravarthi2024innovations,
+  title={Recent Event Camera Innovations: A Survey},
+  author={Chakravarthi, others},
+  journal={arXiv preprint arXiv:2408.13627},
+  year={2024}
+}
+
+@article{bolten2024applicationdriven,
+  title={An Application-Driven Survey on Event-Based Neuromorphic Computer Vision},
+  author={Bolten, others},
+  journal={Information},
+  volume={15},
+  number={8},
+  pages={472},
+  year={2024}
+}
+
+
+% ==== Additional references for Preliminaries (Sec. 2) ====
+
+@article{brandli2014davis,
+  title={A 240$\times$180 130 dB 3 $\mu$s latency global shutter spatiotemporal vision sensor},
+  author={Brandli, Christian and Berner, Raphael and Yang, Minhao and Liu, Shih-Chii and Delbr{\"u}ck, Tobi},
+  journal={IEEE Journal of Solid-State Circuits},
+  volume={49},
+  number={10},
+  pages={2333--2341},
+  year={2014}
+}
+
+@article{davies2018loihi,
+  title={Loihi: A neuromorphic manycore processor with on-chip learning},
+  author={Davies, Mike and Srinivasa, Narayan and Lin, Tsung-Han and Chinya, Gautham and Cao, Yongqiang and Choday, Sri Harsha and Dimou, Georgios and Joshi, Prasad and Imam, Nabil and Jain, Shweta and Liao, Yanqing and Lin, Chia-Kuan and Lines, Andrew and Liu, Ruokun and Mathaikutty, Deepak and McCoy, Steve and Paul, Arnab and Tse, Jonathan and Venkataramanan, Guruguhanathan and Weng, Yi-Hsin and Wild, Andreas and Yang, Yoonseok and Wang, Hong},
+  journal={IEEE Micro},
+  volume={38},
+  number={1},
+  pages={82--99},
+  year={2018}
+}
+
+@article{lagorce2017hots,
+  title={HOTS: A hierarchy of event-based time-surfaces for pattern recognition},
+  author={Lagorce, Xavier and Orchard, Garrick and Galluppi, Francesco and Shi, Bertram E. and Benosman, Ryad B.},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  volume={39},
+  number={7},
+  pages={1346--1359},
+  year={2017}
+}
+
+@inproceedings{zhou2025eventgpt,
+  title={{EventGPT}: Event Stream Understanding with Multimodal Large Language Models},
+  author={Zhou, Shaoyu and Kang, Zhongyang and Xie, Changyin and Ye, Hanwen and Zhang, Zhigang and Shi, Jianping and Zhong, Yisong},
+  booktitle={CVPR},
+  year={2025}
+}
+
+@article{li2025eventvl,
+  title={{EventVL}: Understand Event Streams via Multimodal Large Language Model},
+  author={Li, Pengteng and Wang, Yunfan and Chen, Haoran and Dong, Jingyi and Zhong, Yisong},
+  journal={arXiv preprint arXiv:2501.13707},
+  year={2025}
+}
+
+@article{kong2026eventflash,
+  title={{EventFlash}: Towards Efficient {MLLMs} for Event-Based Vision},
+  author={Kong, Lingdong and Cao, Youquan and Lyu, Lai Xing and Pan, Yingjie and Zhang, Yuanpei and Liu, Ziwei},
+  journal={arXiv preprint arXiv:2501.01506},
+  year={2026}
+}
+
+@inproceedings{zhou2024eventbind,
+  title={{EventBind}: Learning a Unified Representation to Bind Them All for Event-based Open-world Understanding},
+  author={Zhou, Jiazhou and Zheng, Xu and Lyu, Yuanhuiyi and Wang, Lin},
+  booktitle={ECCV},
+  year={2024}
+}
+
+@inproceedings{zhou2024sameventadapter,
+  title={{SAM}-Event-Adapter: Adapting Segment Anything Model for Event-{RGB} Semantic Segmentation},
+  author={Zhou, Haixin and Chen, Tao and Wang, Liansheng},
+  booktitle={ICRA},
+  year={2024}
+}
+
+@inproceedings{yang2025hdrevdiff,
+  title={Event-guided {HDR} Reconstruction with Diffusion Priors},
+  author={Yang, Yixin and Wei, Yunxuan and Zou, Dongqing and Ren, Jimmy S. and Shi, Boxin},
+  booktitle={ICCV},
+  year={2025}
+}
+
+@inproceedings{xu2025depthanycvent,
+  title={Depth Any Event Stream: Enhancing Event-based Monocular Depth Estimation via Dense-to-Sparse Distillation},
+  author={Xu, Zhiyuan and Zuo, Yilan and Zhong, Yisong and Zhang, Zhigang},
+  booktitle={ICCV},
+  year={2025}
+}
+
+@article{liu2024spikedinov2,
+  title={A Novel Energy-Efficient Spike Transformer Network for Depth Estimation via Cross-modality Knowledge Distillation},
+  author={Liu, Xin and Chen, Yongjian and Wang, Peng and Fang, Lu},
+  journal={arXiv preprint arXiv:2404.09303},
+  year={2024}
+}
+
+@article{liu2023speck,
+  title={Speck: A Smart Event-based Vision Sensor with a Low Latency 327{K} Neuron {CNN} Processing Pipeline},
+  author={Liu, Shih-Chii and Rueckauer, Benjamin and Ceolini, Enea and Huber, Adrian and Delbruck, Tobi},
+  journal={arXiv preprint arXiv:2304.06793},
+  year={2023}
+}
+
+@article{kang2024evrepsl,
+  title={Event-Stream Representation via Self-Supervised Learning for Event-Based Vision},
+  author={Kang, Zhongyang and Zhong, Yisong and Xie, Changyin and Zhang, Zhigang},
+  journal={IEEE Transactions on Image Processing},
+  volume={33},
+  year={2024}
+}
+
+@article{li2024spikeyolo,
+  title={Integer-Valued Training and Spike-Driven Inference {SNN} for Object Detection},
+  author={Luo, Xinhao and Yao, Man and Chou, Yuhong and Xu, Bo and Li, Guoqi},
+  journal={arXiv preprint arXiv:2405.14607},
+  year={2024}
+}
+
+@article{zhang2022spikegatingflow,
+  title={The Spike Gating Flow: A Hierarchical Structure-Based Spiking Neural Network for Online Gesture Recognition},
+  author={Zhao, Zihao and Wang, Yanhong and Zou, Qiaosha and Xu, Tie and Tao, Fangbo and Zhang, Jiansong and Wang, Xiaoan and Shi, C.-J. Richard and Luo, Junwen and Xie, Yuan},
+  journal={arXiv preprint arXiv:2210.13182},
+  year={2022}
+}
+
+@inproceedings{zhang2025eventmamba,
+  title={{EventMamba}: Enhancing Spatio-Temporal Locality with State Space Models for Event-Based Video Reconstruction},
+  author={Ge, Chengjie and Fu, Xueyang and He, Peng and Wang, Kunyu and Cao, Chengzhi and Zha, Zheng-Jun},
+  booktitle={AAAI},
+  year={2025}
+}
+
+@article{wang2024mambaevt,
+  title={{MambaEVT}: Event Stream based Visual Object Tracking using State Space Model},
+  author={Wang, Xiao and Wang, Chao and Wang, Shiao and Wang, Xixi and Zhao, Zhicheng and Zhu, Lin and Jiang, Bo},
+  journal={IEEE Transactions on Circuits and Systems for Video Technology},
+  year={2024}
+}
+
+@article{wang2024mambafe,
+  title={{Mamba-FETrack}: Frame-Event Tracking via State Space Model},
+  author={Huang, Ju and Wang, Shiao and Wang, Shuai and Wu, Zhe and Wang, Xiao and Jiang, Bo},
+  journal={arXiv preprint arXiv:2404.18174},
+  year={2024}
+}
+
+@article{shiba2024cmaxsecrets,
+  title={Secrets of Event-Based Optical Flow, Depth and Ego-Motion Estimation by Contrast Maximization},
+  author={Shiba, Shintaro and Aoki, Yoshimitsu and Gallego, Guillermo},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year={2024}
+}
+
+@article{shiba2024cmaxslam,
+  title={{CMax-SLAM}: Event-Based Rotational-Motion Bundle Adjustment and {SLAM} System},
+  author={Shiba, Shintaro and Aoki, Yoshimitsu and Gallego, Guillermo},
+  journal={arXiv preprint arXiv:2403.08119},
+  year={2024}
+}
+
+@inproceedings{peng2023get,
+  title={{GET}: Group Event Transformer for Event-Based Vision},
+  author={Peng, Yansong and Zhang, Yueyi and Xiong, Zhiwei and Sun, Xiaoyan and Wu, Feng},
+  booktitle={ICCV},
+  year={2023}
+}
+
+
+% ==== Additional references for Sec. 3 (Reconstruction) ====
+
+@inproceedings{ho2020ddpm,
+  title={Denoising Diffusion Probabilistic Models},
+  author={Ho, Jonathan and Jain, Ajay and Abbeel, Pieter},
+  booktitle={NeurIPS},
+  year={2020}
+}
+
+@inproceedings{paredes2021backtoeventbasics,
+  title={Back to Event Basics: Self-Supervised Learning of Image Reconstruction for Event Cameras via Photometric Constancy},
+  author={Paredes-Vall{\'e}s, Federico and de Croon, Guido C. H. E.},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={3446--3455},
+  year={2021}
+}
+
+@inproceedings{weng2023robustenerf,
+  title={Robust e-{NeRF}: {NeRF} from Sparse and Noisy Events under Non-Uniform Motion},
+  author={Low, Weng Fei and Lee, Gim Hee},
+  booktitle={ICCV},
+  year={2023}
+}
+
+@article{qi2024e3nerf,
+  title={{E3NeRF}: Efficient Event-Enhanced Neural Radiance Fields from Blurry Images},
+  author={Qi, Yunshan and Li, Jia and Zhao, Yifan and Zhang, Yu and Zhu, Lin},
+  journal={arXiv preprint arXiv:2408.01840},
+  year={2024}
+}
+
+@article{zhang2025saenerf,
+  title={{SaENeRF}: Suppressing Artifacts in Event-based Neural Radiance Fields},
+  author={Zhang, Qiang and Dong, Gangwei and Sun, Jingkai and Xu, Renjing},
+  journal={arXiv preprint arXiv:2504.16389},
+  year={2025}
+}
+
+@inproceedings{liao2025lsenerf,
+  title={{LSE-NeRF}: Learning Sensor Modeling Errors for Deblurred Neural Radiance Fields with {RGB}-Event Stereo},
+  author={Liao, Zhanfeng and Chen, Zehao and Ma, De and Pan, Gang},
+  booktitle={3DV},
+  year={2025}
+}
+
+@inproceedings{wang2025enemf,
+  title={{E-NeMF}: Event-based Neural Motion Field for Novel Space-time View Synthesis},
+  author={Liu, Yan and Chen, Zehao and Yan, Haojie and Ma, De and Tang, Huajin and Zheng, Qian and Pan, Gang},
+  booktitle={ICCV},
+  year={2025}
+}
+
+@inproceedings{liu2025ev4dgs,
+  title={{Ev4DGS}: Novel-view Rendering of Non-Rigid Objects from Monocular Event Streams},
+  author={Nakabayashi, Takuya and Kairanda, Navami and Saito, Hideo and Golyanik, Vladislav},
+  booktitle={BMVC},
+  year={2025}
+}
+
+@inproceedings{wang2025e4dgs,
+  title={{E-4DGS}: High-Fidelity Dynamic Reconstruction from Multi-view Event Cameras},
+  author={Feng, Chaoran and Tang, Zhenyu and Yu, Wangbo and Pang, Yatian and Zhao, Yian and Zhao, Jianbin and Yuan, Li and Tian, Yonghong},
+  booktitle={ACM MM},
+  year={2025}
+}
+
+@article{he2026degs,
+  title={{DEGS}: Deformable Event-Based {3D} Gaussian Splatting From {RGB} and Event Stream},
+  author={He, Junhao and Wang, Jiaxu and Li, Jia and Sun, Mingyuan and Zhang, Qiang and Cao, Jiahang and Zhang, Ziyi and Gu, Yi and Sun, Jingkai and Xu, Renjing},
+  journal={IEEE Transactions on Visualization and Computer Graphics},
+  volume={32},
+  number={2},
+  pages={1698--1712},
+  doi={10.1109/TVCG.2025.3618768},
+  year={2026}
+}
+
+@article{chen2025egsslam,
+  title={{EGS-SLAM}: {RGB-D} Gaussian Splatting {SLAM} with Events},
+  author={Chen, Siyu and Yuan, Shenghai and Nguyen, Thien-Minh and Huang, Zhuyu and Shi, Chenyang and Jing, Jin and Xie, Lihua},
+  journal={IEEE Robotics and Automation Letters},
+  year={2025}
+}
+
+@inproceedings{zahid2025e3dgslarge,
+  title={{E-3DGS}: Event-Based Novel View Rendering of Large-Scale Scenes Using {3DGS}},
+  author={Zahid, Sohaib and Rudnev, Viktor and Ilg, Eddy and Golyanik, Vladislav},
+  booktitle={3DV},
+  year={2025}
+}
+
+@article{li2026e2egs,
+  title={{E2EGS}: Event-to-Edge Gaussian Splatting for Pose-Free {3D} Reconstruction},
+  author={Kim, Yunsoo and Sung, Changki and Hong, Dasol and Myung, Hyun},
+  journal={arXiv preprint arXiv:2603.14684},
+  year={2026}
+}
+
+@article{zhang2025deblursplat,
+  title={{DeblurSplat}: {SfM}-free {3DGS} with Event Camera for Robust Deblurring},
+  author={Li, Pengteng and Lu, Yunfan and Song, Pinhao and Guo, Weiyu and Yao, Huizai and Yu, F. Richard and Xiong, Hui},
+  journal={arXiv preprint arXiv:2509.18898},
+  year={2025}
+}
+
+@article{yu2023eslnetplus,
+  title={Learning to Super-Resolve Blurry Images With Events},
+  author={Yu, Lei and Wang, Bishan and Zhang, Xiang and Zhang, Haijian and Yang, Wen and Liu, Jianzhuang and Xia, Gui-Song},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  volume={45},
+  number={8},
+  pages={10027--10043},
+  doi={10.1109/TPAMI.2023.3240397},
+  year={2023}
+}
+
+@inproceedings{lu2025evenhancer,
+  title={{EvEnhancer}: Empowering Effectiveness, Efficiency and Generalizability for Continuous Space-Time Video Super-Resolution with Events},
+  author={Wei, Shuoyan and Li, Feng and Tang, Shengeng and Zhao, Yao and Bai, Huihui},
+  booktitle={CVPR},
+  year={2025}
+}
+
+@article{lu2025see,
+  title={{SEE}: See Everything Every Time: Adaptive Brightness Adjustment for Broad Light Range Images via Events},
+  author={Lu, Yunfan and Xu, Xiaogang and Lu, Hao and Qian, Yanlin and Li, Pengteng and Yao, Huizai and Yang, Bin and Li, Junyi and Cai, Qianyi and Guo, Weiyu and Xiong, Hui},
+  journal={arXiv preprint arXiv:2502.21120},
+  year={2025}
+}
+
+@inproceedings{guo2025eretinex,
+  title={{ERetinex}: Event Camera Meets Retinex Theory for Low-Light Image Enhancement},
+  author={Guo, Xuejian and Tian, Zhiqiang and Wang, Yuehang and Li, Siqi and Jiang, Yu and Du, Shaoyi and Gao, Yue},
+  booktitle={2025 IEEE International Conference on Robotics and Automation},
+  pages={3759--3765},
+  doi={10.1109/ICRA55743.2025.11127340},
+  year={2025}
+}
+
+@article{wang2025egvd,
+  title={{EGVD}: Event-Guided Video Diffusion Model for Physically Realistic Large-Motion Frame Interpolation},
+  author={Zhang, Ziran and Li, Xiaohui and Liu, Yihao and Wang, Yujin and Chen, Yueting and Xue, Tianfan and Guo, Shi},
+  journal={arXiv preprint arXiv:2503.20268},
+  year={2025}
+}
+
+@article{chen2025eventdiff,
+  title={{EventDiff}: A Unified and Efficient Diffusion Model Framework for Event-based Video Frame Interpolation},
+  author={Zheng, Hanle and Han, Xujie and Peng, Zegang and Zhang, Shangbin and Du, Guangxun and Zou, Zhuo and Wang, Xilin and Wu, Jibin and Guo, Hao and Deng, Lei},
+  journal={arXiv preprint arXiv:2505.08235},
+  year={2025}
+}
+
+@inproceedings{chen2025evdiffuser,
+  title={Event-Guided Consistent Video Enhancement with Modality-Adaptive Diffusion Pipeline},
+  author={Chen, Kanghao and Zhang, Zixin and Liang, Guoqiang and Jiang, Lutao and Wang, Zeyu and Chen, Ying-Cong},
+  booktitle={Advances in Neural Information Processing Systems},
+  year={2025}
+}
+
+@inproceedings{li2025epa,
+  title={{EPA}: Boosting Event-based Video Frame Interpolation with Perceptually Aligned Learning},
+  author={Liu, Yuhan and Fu, Linghui and Yang, Zhen and Chen, Hao and Li, Youfu and Deng, Yongjian},
+  booktitle={NeurIPS},
+  year={2025}
+}
+
+@article{zhang2025evdiplus,
+  title={{EVDI++}: Event-based Video Deblurring and Interpolation via Self-Supervised Learning},
+  author={Zhang, Chi and Zhang, Xiang and Jiang, Chenxu and Xia, Gui-Song and Yu, Lei},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  pages={1--18},
+  doi={10.1109/TPAMI.2026.3697759},
+  url={https://doi.org/10.1109/TPAMI.2026.3697759},
+  year={2026}
+}
+
+@inproceedings{yang2023ecdp,
+  title={Event Camera Data Pre-training},
+  author={Yang, Yan and Pan, Liyuan and Liu, Liu},
+  booktitle={ICCV},
+  year={2023}
+}
+
+@inproceedings{zhang2025evdm,
+  title={{EVDM}: Event-based Real-world Video Deblurring with Mamba},
+  author={Sun, Zhijing and Xu, Senyan and Liu, Kean and Tian, Runze and Fu, Xueyang and Zha, Zheng-Jun},
+  booktitle={ICCV},
+  year={2025}
+}
+
+% ==== Additional references for Sec. 3.1 (Perception) ====
+
+@inproceedings{iacono2018dvs,
+  title={Pseudo-Labels for Supervised Learning on Dynamic Vision Sensor Data, Applied to Object Detection under Ego-Motion},
+  author={Iacono, Marco and Weber, Stefan and Glover, Arren and Bartolozzi, Chiara},
+  booktitle={CVPRW},
+  year={2018}
+}
+
+@article{zhao2023sodformer,
+  title={{SODFormer}: Streaming Object Detection with Transformer Using Events and Frames},
+  author={Li, Dianze and Li, Jianing and Tian, Yonghong},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year={2023}
+}
+
+@inproceedings{wang2024egsst,
+  title={Event-based Graph Spatiotemporal Sensitive Transformer for Object Detection},
+  author={Wang, Peiyi and Peng, Yansong and Zhang, Haiwei and Zhang, Yueyi and Sun, Xiaoyan and Wu, Feng},
+  booktitle={NeurIPS},
+  year={2024}
+}
+
+@inproceedings{zhou2024eolo,
+  title={Chasing Day and Night: Towards Robust and Efficient All-Day Object Detection Guided by an Event Camera},
+  author={Cao, Jiahang and Zheng, Xu and Lyu, Yuanhuiyi and Wang, Jiaxu and Xu, Renjing and Wang, Lin},
+  booktitle={ICRA},
+  year={2024}
+}
+
+@inproceedings{wang2025mvheat,
+  title={Object Detection using Event Camera: A {MoE} Heat Conduction based Detector and A New Benchmark},
+  author={Wang, Xiao and Jin, Yu and Wu, Wentao and Zhang, Wei and Zhu, Lin and Jiang, Bo and Tian, Yonghong},
+  booktitle={CVPR},
+  year={2025}
+}
+
+@inproceedings{li2025hsvt,
+  title={Hybrid Spiking Vision Transformer for Object Detection with Event Cameras},
+  author={Xu, Qi and Deng, Jie and Shen, Jiangrong and Chen, Biwu and Tang, Huajin and Pan, Gang},
+  booktitle={ICML},
+  year={2025}
+}
+
+@inproceedings{liu2024hpless,
+  title={{HPL-ESS}: Hybrid Pseudo-Labeling for Unsupervised Event-based Semantic Segmentation},
+  author={Jing, Linglin and Ding, Yiming and Gao, Yunpeng and Wang, Zhigang and Yan, Xu and Wang, Dong and Schaefer, Gerald and Fang, Hui and Zhao, Bin and Li, Xuelong},
+  booktitle={CVPR},
+  year={2024}
+}
+
+@inproceedings{wang2024evwsss,
+  title={Finding Meaning in Points: Weakly Supervised Semantic Segmentation for Event Cameras},
+  author={Cho, Hoonhee and Yoon, Sung-Hoon and Kweon, Hyeokjun and Yoon, Kuk-Jin},
+  booktitle={ECCV},
+  year={2024}
+}
+
+@article{chen2024mambaseg,
+  title={{MambaSeg}: Harnessing Mamba for Accurate and Efficient Image-Event Semantic Segmentation},
+  author={Gu, Fuqiang and Li, Yuanke and Long, Xianlei and Ji, Kangping and Chen, Chao and Gu, Qingyi and Ni, Zhenliang},
+  journal={arXiv preprint arXiv:2412.05638},
+  year={2024}
+}
+
+@inproceedings{li2025eseg,
+  title={{ESEG}: Event-Based Segmentation Boosted by Explicit Edge-Semantic Guidance},
+  author={Zhao, Yucheng and Lyu, Gengyu and Li, Ke and Wang, Zihao and Chen, Hao and Yang, Zhen and Deng, Yongjian},
+  booktitle={AAAI},
+  year={2025}
+}
+
+@article{bendali2024ovose,
+  title={{OVOSE}: Open-Vocabulary Semantic Segmentation in Event-Based Cameras},
+  author={Rahman, Muhammad Rameez Ur and Giraldo, Jhony H. and Spinelli, Indro and Lathuili\`ere, St\'ephane and Galasso, Fabio},
+  journal={arXiv preprint arXiv:2408.16493},
+  year={2024}
+}
+
+@inproceedings{yang2023gmnn,
+  title={Asynchronous Events-based Panoptic Segmentation using Graph Mixer Neural Network},
+  author={Kachole, Sanket and Alkendi, Yusra and Naeini, Fariborz Baghaei and Makris, Dimitrios and Zweiri, Yahya},
+  booktitle={CVPRW},
+  year={2023}
+}
+
+@inproceedings{zhang2024unevmoseg,
+  title={Unsupervised Event-based Independent Motion Segmentation},
+  author={Wang, Ziyun and Guo, Jinyuan and Daniilidis, Kostas},
+  booktitle={ECCV},
+  year={2024}
+}
+
+@article{xu2024ereformer,
+  title={Event-based Monocular Dense Depth Estimation with Recurrent Transformers},
+  author={Liu, Xu and Li, Jianing and Fan, Xiaopeng and Tian, Yonghong},
+  journal={IEEE Transactions on Circuits and Systems for Video Technology},
+  year={2024}
+}
+
+@inproceedings{li2025ematch,
+  title={{EMatch}: A Unified Framework for Event-based Optical Flow and Stereo Matching},
+  author={Zhang, Pengjie and Zhu, Lin and Wang, Xiao and Wang, Lizhi and Lu, Wanxuan and Huang, Hua},
+  booktitle={ICCV},
+  year={2025}
+}
+
+@inproceedings{wang2025activeeventnet,
+  title={Active Event-based Stereo Vision},
+  author={Li, Jianing and Zhang, Yunjian and Han, Haiqian and Ji, Xiangyang},
+  booktitle={CVPR},
+  year={2025}
+}
+
+@inproceedings{liu2024eemflow,
+  title={Efficient Meshflow and Optical Flow Estimation from Event Cameras},
+  author={Luo, Xinglong and Luo, Ao and Wang, Zhengning and Lin, Chunyu and Zeng, Bing and Liu, Shuaicheng},
+  booktitle={CVPR},
+  year={2024}
+}
+
+@article{li2025bat,
+  title={{BAT}: Learning Event-based Optical Flow with Bidirectional Adaptive Temporal Correlation},
+  author={Xu, Gangwei and Lin, Haotong and Zhang, Zhaoxing and Luo, Hongcheng and Sun, Haiyang and Yang, Xin},
+  journal={arXiv preprint arXiv:2502.02492},
+  year={2025}
+}
+
+@article{wang2024blinktrack,
+  title={{BlinkTrack}: Feature Tracking over 100 {FPS} via Events and Images},
+  author={Shen, Yichen and Li, Yijin and Chen, Shuo and Li, Guanglin and Huang, Zhaoyang and Bao, Hujun and Cui, Zhaopeng and Zhang, Guofeng},
+  journal={arXiv preprint arXiv:2409.17981},
+  year={2024}
+}
+
+@article{wang2024gsevt,
+  title={{GS-EVT}: Cross-Modal Event Camera Tracking based on Gaussian Splatting},
+  author={Liu, Tao and Yuan, Runze and Ju, Yi'ang and Xu, Xun and Yang, Jiaqi and Meng, Xiangting and Lagorce, Xavier and Kneip, Laurent},
+  journal={arXiv preprint arXiv:2412.09087},
+  year={2024}
+}
+
+@inproceedings{tang2024crsot,
+  title={Cross-Resolution Object Tracking Using Unaligned Frame and Event Cameras},
+  author={Zhu, Yabin and Wang, Xiao and Li, Chenglong and Jiang, Bo and Zhu, Lin and Huang, Zhixiang and Tian, Yonghong and Tang, Jin},
+  booktitle={IEEE Transactions on Multimedia},
+  year={2025}
+}
+
+@inproceedings{tang2024exact,
+  title={{ExACT}: Language-guided Conceptual Reasoning and Uncertainty Estimation for Event-based Action Recognition},
+  author={Tang, Jiazhou and Zheng, Xu and Wang, Lin},
+  booktitle={CVPR},
+  year={2024}
+}
+
+@article{wang2023hardvs,
+  title={{HARDVS}: Revisiting Human Activity Recognition with Dynamic Vision Sensors},
+  author={Wang, Xiao and Wu, Zongzhen and Jiang, Bo and Bao, Zhimin and Zhu, Lin and Li, Guoqi and Wang, Yaowei and Tian, Yonghong},
+  journal={arXiv preprint arXiv:2211.09648},
+  year={2023}
+}
+
+@article{gao2023thueact,
+  title={Action Recognition and Benchmark Using Event Cameras},
+  author={Gao, Yue and Lu, Jiaxuan and Li, Siqi and Ma, Nan and Du, Shaoyi and Li, Yipeng and Dai, Qionghai},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year={2023}
+}
+
+@article{chen2025eventmae,
+  title={Event Masked Autoencoder: Point-wise Action Recognition},
+  author={Sun, Jingkai and Zhang, Qiang and Wang, Jiaxu and Cao, Jiahang and Cheng, Hao and Xu, Renjing},
+  journal={arXiv preprint arXiv:2501.01280},
+  year={2025}
+}
+
+@article{wang2024eventpointpose,
+  title={Exploring Event-based Human Pose Estimation with {3D} Event Representations},
+  author={Yin, Xiaoting and Shi, Hao and Chen, Jiaan and Wang, Ze and Ye, Yaozu and Ni, Huajian and Yang, Kailun and Wang, Kaiwei},
+  journal={Computer Vision and Image Understanding},
+  year={2024}
+}
+
+@inproceedings{jiang2024evrgbhand,
+  title={Complementing Event Streams and {RGB} Frames for Hand Mesh Reconstruction},
+  author={Jiang, Jianping and Zhou, Xinyu and Wang, Bingxuan and Deng, Xiaoming and Xu, Chao and Shi, Boxin},
+  booktitle={CVPR},
+  year={2024}
+}
+
+@article{li2025eventegohands,
+  title={{EventEgoHands}: Event-based Egocentric {3D} Hand Mesh Reconstruction},
+  author={Hara, Ryosei and Ikeda, Wataru and Hatano, Masashi and Isogawa, Mariko},
+  journal={arXiv preprint arXiv:2501.14851},
+  year={2025}
+}
+
+
+% ==== Additional references for Sec. 3.3 (Understanding) ====
+
+@inproceedings{wu2025llmzeroshot,
+  title={Can Large Language Models Grasp Event Signals? Exploring Pure Zero-Shot Event-based Recognition},
+  author={Yu, Zongyou and Qu, Qiang and Chen, Xiaoming and Wang, Chen},
+  booktitle={ICASSP},
+  year={2025}
+}
+
+@inproceedings{cho2025llmevrep,
+  title={Learning an {LLM}-Compatible Event Representation Using a Self-Supervised Framework},
+  author={Yu, Zongyou and Qu, Qiang and Zhang, Qian and Zhang, Nan and Chen, Xiaoming},
+  booktitle={WWW Companion},
+  year={2025}
+}
+
+@article{wei2024ceia,
+  title={{CEIA}: {CLIP}-Based Event-Image Alignment for Open-World Event-Based Understanding},
+  author={Xu, Wenhao and Weng, Wenming and Zhang, Yueyi and Xiong, Zhiwei},
+  journal={arXiv preprint arXiv:2407.06611},
+  year={2024}
+}
+
+@article{zhou2024expanding,
+  title={Expanding Event Modality Applications through a Robust {CLIP}-Based Encoder},
+  author={Zhou, Jiazhou and Zheng, Xu and Wang, Lin},
+  journal={arXiv preprint arXiv:2412.06772},
+  year={2024}
+}
+
+@article{li2025ovdetection,
+  title={Adaptive Event Stream Slicing for Open-Vocabulary Event-Based Object Detection},
+  author={Zhang, Jinchang and Li, Zijun and Lin, Jiakai and Lu, Guoyu},
+  journal={arXiv preprint arXiv:2504.01391},
+  year={2025}
+}
+
+@article{hu2025evsam,
+  title={{EvSAM}: Segment Anything Model with Event-based Assistance},
+  author={Ding, Yi and Yao, Bowen and Liu, Yuhan and Chen, Hao and Ding, Ding and Yang, Zhen and Li, Youfu and Deng, Yongjian},
+  journal={ACM Transactions on Multimedia Computing, Communications, and Applications},
+  year={2025}
+}
+
+@article{zhang2025tgvfm,
+  title={Temporal-Guided Visual Foundation Models for Event-Based Vision},
+  author={Xia, Ruihao and Cai, Junhong and Leng, Luziwei and Wang, Liuyi and Liu, Chengju and Cheng, Ran and Tang, Yang and Zhou, Pan},
+  journal={arXiv preprint arXiv:2503.02495},
+  year={2025}
+}
+
+@inproceedings{zheng2025talk2event,
+  title={Talk2Event: Grounded Understanding of Dynamic Scenes from Event Cameras},
+  author={Zheng, Xu and Tang, Jiazhou and Wang, Lin},
+  booktitle={NeurIPS},
+  year={2025}
+}
+
+@inproceedings{li2025neurovig,
+  title={{NeuroViG}: Integrating Event Cameras for Resource-Efficient Video Grounding},
+  author={Weerakoon, Dulanga and Subbaraju, Vigneshwaran and Lim, Joo Hwee and Misra, Archan},
+  booktitle={WACV},
+  year={2025}
+}
+
+@article{yang2025epvlm,
+  title={Event-Priori-Based Vision-Language Model for Efficient Visual Understanding},
+  author={Qin, Haotong and Hu, Cheng and Magno, Michele},
+  journal={arXiv preprint arXiv:2506.07627},
+  year={2025}
+}
+
+@article{miao2026evla,
+  title={{E-VLA}: Event-Augmented Vision-Language-Action Model for Dark and Blurred Scenes},
+  author={Zhai, Jiajun and Shi, Hao and Guo, Shangwei and Yang, Kailun and Wang, Kaiwei},
+  journal={arXiv preprint arXiv:2604.04834},
+  year={2026}
+}
+
+@article{chen2024decp,
+  title={Data-efficient Event Camera Pre-training via Disentangled Masked Modeling},
+  author={Huang, Zhenpeng and Li, Chao and Chen, Hao and Deng, Yongjian and Geng, Yifeng and Wang, Limin},
+  journal={arXiv preprint arXiv:2403.00416},
+  year={2024}
+}
+
+@inproceedings{yang2024ecdpdense,
+  title={Event Camera Data Dense Pre-training},
+  author={Yang, Yan and Pan, Liyuan and Liu, Liu},
+  booktitle={ECCV},
+  year={2024}
+}
+
+@inproceedings{liu2025tespec,
+  title={{TESPEC}: Temporally-Enhanced Self-Supervised Pretraining for Event Cameras},
+  author={Mohammadi, Mohammad and Wu, Ziyi and Gilitschenski, Igor},
+  booktitle={ICCV},
+  year={2025}
+}
+
+@inproceedings{yang2025stp,
+  title={Efficient Event Camera Data Pretraining with Adaptive Prompt Fusion},
+  author={Yang, Yan and Pan, Liyuan and Liu, Liu},
+  booktitle={ICCV},
+  year={2025}
+}
+
+@inproceedings{wang2025eventpretrain,
+  title={Revealing Latent Information: A Physics-inspired Self-supervised Pre-training Framework},
+  author={Zhu, Lin and Liu, Ruonan and Wang, Xiao and Wang, Lizhi and Huang, Hua},
+  booktitle={ACM MM},
+  year={2025}
+}
+
+@inproceedings{huang2024sd2event,
+  title={{SD2Event}: Self-supervised Learning of Dynamic Detectors and Contextual Descriptors for Event Cameras},
+  author={Gao, Yuan and Zhu, Yuqing and Li, Xinjun and Du, Yimin and Zhang, Tianzhu},
+  booktitle={CVPR},
+  year={2024}
+}
+
+@article{song2026ffevent,
+  title={{FFEvent}: Fast Fourier-based Knowledge Transfer for Event Cameras},
+  author={Lin, Yuhui and Zhang, Jiahao and Yu, Siyue and Xiao, Jimin and Lu, Jiaxuan},
+  journal={Expert Systems with Applications},
+  year={2026}
+}
+
+@inproceedings{barchid2024texttoevents,
+  title={Text-to-Events: Synthetic Event Camera Streams from Conditional Text Input},
+  author={Barchid, Sami and Mennesson, Jos{\'e} and Dj{\'e}raba, Chaabane},
+  booktitle={NICE},
+  year={2024}
+}
+
+@article{wu2025controlevents,
+  title={{ControlEvents}: Controllable Synthesis of Event Camera Data with Foundational Prior from Image Diffusion Models},
+  author={Wu, Shanshan and Gallego, Guillermo},
+  journal={arXiv preprint arXiv:2503.11027},
+  year={2025}
+}
+
+
+% ==== Additional references for Sec. 4, 5, 6 ====
+
+@article{bi2021esimagenet,
+  title={{ES-ImageNet}: A Million Event-Stream Classification Dataset for Spiking Neural Networks},
+  author={Lin, Yihan and Ding, Wei and Qiang, Shaohua and Deng, Lei and Li, Guoqi},
+  journal={Frontiers in Neuroscience},
+  year={2021}
+}
+
+@article{cho2024eventaid,
+  title={{EventAid}: Benchmarking Event-aided Image/Video Enhancement Algorithms with Real-captured Hybrid Dataset},
+  author={Duan, Peiqi and Li, Boyu and Yang, Yixin and Lou, Hanyue and Teng, Minggui and Ma, Yi and Shi, Boxin},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year={2025}
+}
+
+@article{zhang2023blinkflow,
+  title={{BlinkFlow}: A Dataset to Push the Limits of Event-based Optical Flow Estimation},
+  author={Li, Yijin and Huang, Zhaoyang and Chen, Shuo and Shi, Xiaoyu and Li, Hongsheng and Bao, Hujun and Cui, Zhaopeng and Zhang, Guofeng},
+  journal={arXiv preprint arXiv:2303.18165},
+  year={2023}
+}
+
+@article{fischer2024nycvpr,
+  title={{NYC-Event-VPR}: A Large-Scale High-Resolution Event-Based Visual Place Recognition Dataset},
+  author={Pan, Taiyi and He, Junyang and Chen, Chao and Li, Yiming and Feng, Chen},
+  journal={arXiv preprint},
+  year={2024}
+}
+
+@inproceedings{chen2023eveye,
+  title={Rethinking High-frequency Eye Tracking through the Lenses of Event Cameras},
+  author={Zhao, Guangrong and Yang, Yurun and Liu, Jingwei and Chen, Ning and Shen, Yiran and Wen, Hongkai and Lan, Guohao},
+  booktitle={NeurIPS},
+  year={2023}
+}
+
+@article{stoffregen2024tvcggaze,
+  title={Event-Based, Near-Eye Gaze Tracking Beyond 10,000 {Hz}},
+  author={Stoffregen, Tim and Gallego, Guillermo and Scaramuzza, Davide},
+  journal={IEEE Transactions on Visualization and Computer Graphics},
+  year={2024}
+}
+
+@inproceedings{chen20233et,
+  title={{3ET}: Efficient Event-based Eye Tracking using a Change-based {ConvLSTM}},
+  author={Chen, Qinyu and Wang, Zuowen and Liu, Shih-Chii and Gao, Chang},
+  booktitle={IEEE BioCAS},
+  year={2023}
+}
+
+@inproceedings{li2024retina,
+  title={Retina: Low-Power Eye Tracking with Event Camera and Spiking Hardware},
+  author={Bonazzi, Pietro and Bian, Sizhen and Lippolis, Giovanni and Li, Yawei and Sheik, Sadique and Magno, Michele},
+  booktitle={CVPRW},
+  year={2024}
+}
+
+@article{wang2024swifteye,
+  title={Towards Anti-blink Pupil Tracking for Precise and Robust Near-Eye Movement Analysis with Event Cameras},
+  author={Zhang, Tongyu and Shen, Yiran and Zhao, Guangrong and Wang, Lin and Chen, Xiaoming and Bai, Lu and Zhou, Yuanfeng},
+  journal={IEEE Transactions on Visualization and Computer Graphics},
+  year={2024}
+}
+
+@inproceedings{guo2025ebsekf,
+  title={{EBS-EKF}: Accurate and High Frequency Event-based Star Tracking},
+  author={Reed, Albert W. and Hashemi, Connor and Melamed, Dennis and Menon, Nitesh and Hirakawa, Keigo and McCloskey, Scott},
+  booktitle={CVPR},
+  year={2025}
+}
+
+@article{afshar2022fiesta,
+  title={{FIESTA}: Real-Time Event-Based Unsupervised Feature Consolidation and Tracking for Space Situational Awareness},
+  author={Ralph, Nicholas and Joubert, Damien and Jolley, Andrew and Afshar, Saeed and Tothill, Nicholas and van Schaik, Andr\'e and Cohen, Gregory},
+  journal={Frontiers in Neuroscience},
+  year={2022}
+}
+
+@article{ralph2025esturt,
+  title={Event-based Star Tracking under Spacecraft Jitter: the e-{STURT} Dataset},
+  author={Bagchi, Samya and Anastasiou, Peter and Tetlow, Matthew and Chin, Tat-Jun and Latif, Yasir},
+  journal={arXiv preprint arXiv:2505.12588},
+  year={2025}
+}
+
+@article{wang2024eventlfm,
+  title={Event Camera Integrated {Fourier} Light Field Microscopy for Ultrafast {3D} Imaging},
+  author={Guo, Ruipeng and Yang, Qianwan and Chang, Andrew S. and Hu, Guorong and Greene, Joseph and Gabel, Christopher V. and You, Sixian and Tian, Lei},
+  journal={Light: Science \& Applications},
+  year={2024}
+}
+
+@article{mangalwedhekar2023evesmlm,
+  title={Event-Based Single-Molecule Localization Microscopy},
+  author={Cabriel, Cl\'ement and Monfort, Tual and Specht, Christian G. and Izeddin, Ignacio},
+  journal={Nature Methods},
+  year={2023}
+}
+
+@article{yang2021eventmicroscopy,
+  title={Event-driven Acquisition for Content-enriched Microscopy},
+  author={Mahecic, Dora and Stepp, Willi L. and Zhang, Chen and Griffi\'e, Juliette and Weigert, Martin and Manley, Suliana},
+  journal={Nature Methods},
+  year={2021}
+}
+
+@inproceedings{johnson2023pdavis,
+  title={{PDAVIS}: Bio-Inspired Polarization Event Camera},
+  author={Haessig, Germain and Joubert, Damien and Haque, Justin and Chen, Yingkai and Milde, Moritz and Delbruck, Tobi and Gruev, Viktor},
+  booktitle={CVPRW},
+  year={2023}
+}
+
+@article{wang2024surfacedefect,
+  title={High-Performance Surface Defect Detection of Aluminum Substrate Based on Event Camera},
+  author={Tang, Jing and Gong, Zeyu and Fan, Yajun},
+  journal={Journal of Computational Design and Engineering},
+  year={2024}
+}
+
+@article{graca2023defectcompetition,
+  title={Surface Defect Detection Competition with a Bio-inspired Vision Sensor},
+  author={Guo, Anjing and Ma, Jupo and Dian, Renwei and Ma, Fuyan and Wu, Jinjian and Li, Shutao},
+  journal={National Science Review},
+  year={2023}
+}
+
+@article{willert2025eventpiv,
+  title={Event-based Particle Image Velocimetry for High-speed Flows},
+  author={Willert, Christian},
+  journal={Measurement Science and Technology},
+  year={2025}
+}
+
+@article{ahmad2024eventanonymization,
+  title={Event Anonymization: Privacy-Preserving Person Re-Identification and Pose Estimation},
+  author={Ahmad, Shafiq and Morerio, Pietro and Del Bue, Alessio},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year={2024}
+}
+
+@article{berlincioni2024neuromorphicfacesurvey,
+  title={Neuromorphic Face Analysis: A Survey},
+  author={Becattini, Federico and Berlincioni, Lorenzo and Cultrera, Luca and Del Bimbo, Alberto},
+  journal={Pattern Recognition Letters},
+  year={2024}
+}
+
+@inproceedings{becattini2022faceidentity,
+  title={Neuromorphic Event-based Face Identity Recognition},
+  author={Moreira, Gon{\c{c}}alo and Gra{\c{c}}a, Andr\'e and Silva, Bruno and Martins, Pedro and Batista, Jorge},
+  booktitle={IEEE FG},
+  year={2022}
+}
+
+@article{hagenaars2023loihiuav,
+  title={Event-driven Vision and Control for {UAVs} on a Neuromorphic Chip},
+  author={Hagenaars, Jesse and Paredes-Valles, Federico and Bohte, Sander and de Croon, Guido C. H. E.},
+  journal={IEEE Robotics and Automation Letters},
+  year={2023}
+}
+
+@inproceedings{paredes2023neuromorphicflow,
+  title={Neuromorphic Optical Flow and Real-time Implementation with Event Cameras},
+  author={Schnider, Yannick and Wozniak, Stanislaw and Gehrig, Mathias and Lecomte, Jules and von Arnim, Axel and Benini, Luca and Scaramuzza, Davide and Pantazi, Angeliki},
+  booktitle={CVPRW},
+  year={2023}
+}
+
+@article{barchid2023lowpowerface,
+  title={Low-power Event-based Face Detection with Asynchronous Neuromorphic Hardware},
+  author={Caccavella, Caterina and Paredes-Vall\'es, Federico and Cannici, Marco and Khacef, Lyes},
+  journal={arXiv preprint arXiv:2312.14261},
+  year={2023}
+}
+
+@article{hussaini2023neuromorphicsequence,
+  title={Neuromorphic Sequence Learning with an Event Camera on Routes Through Vegetation},
+  author={Zhu, Le and Mangan, Michael and Webb, Barbara},
+  journal={Science Robotics},
+  year={2023}
+}
+
+@inproceedings{li2023bioinspiredoa,
+  title={Taming Event Cameras with Bio-Inspired Architecture and Algorithm: A Case for Drone Obstacle Avoidance},
+  author={Xu, Jingao and Li, Danyang and Yang, Zheng and Zhao, Yishujie and Cao, Hao and Liu, Yunhao and Shangguan, Longfei},
+  booktitle={MobiCom},
+  year={2023}
+}
+
+@inproceedings{das2025evmapper,
+  title={{EvMAPPER}: High Altitude Orthomapping with Event Cameras},
+  author={Cladera, Fernando and Chaney, Kenneth and Hsieh, M. Ani and Taylor, Camillo J. and Kumar, Vijay},
+  booktitle={ICRA},
+  year={2025}
+}
+
+@inproceedings{monforte2023balldetection,
+  title={Event-based High-speed Ball Detection in Sports Video},
+  author={Nakabayashi, Takuya and Kondo, Akimasa and Higa, Kyota and Girbau, Andreu and Satoh, Shin'ichi and Saito, Hideo},
+  booktitle={ACM MMSports},
+  year={2023}
+}
+
+@article{li2025desnowing,
+  title={Event-Based De-Snowing for Autonomous Driving},
+  author={Muglikar, Manasi and Messikommer, Nico and Cannici, Marco and Scaramuzza, Davide},
+  journal={arXiv preprint},
+  year={2025}
+}
+
+@inproceedings{sun2025premamba,
+  title={{PRE}-Mamba: A {4D} State Space Model for Ultra-High-Frequent Event Camera Deraining},
+  author={Ruan, Ciyu and Guo, Ruishan and Gong, Zihang and Xu, Jingao and Yang, Wenhan and Chen, Xinlei},
+  booktitle={ICCV},
+  year={2025}
+}
+
+@inproceedings{qu2024enslam,
+  title={Implicit Event-{RGBD} Neural {SLAM}},
+  author={Qu, Delin and Yan, Chi and Wang, Dong and Yin, Jie and Xu, Dan and Zhao, Bin and Li, Xuelong},
+  booktitle={CVPR},
+  year={2024}
+}
+
+@article{qu2025esvo2,
+  title={{ESVO2}: Direct Visual-Inertial Odometry with Stereo Event Cameras},
+  author={Niu, Junkai and Zhong, Sheng and Lu, Xiuyuan and Shen, Shaojie and Gallego, Guillermo and Zhou, Yi},
+  journal={IEEE Transactions on Robotics},
+  year={2025}
+}
+
+
+% ==== Batch 1: Additional entries (arXiv IDs from missing list) ====
+
+@article{chen2018pseudo,
+    title   = {Pseudo-labels for Supervised Learning on Dynamic Vision Sensor Data, Applied to Object Detection under Ego-motion},
+    author  = {Nicholas F. Y. Chen},
+    journal = {arXiv preprint arXiv:1709.09323},
+    year    = {2018}
+}
+
+@inproceedings{cannici2019asynchronous,
+    title   = {Asynchronous Convolutional Networks for Object Detection in Neuromorphic Cameras},
+    author  = {Marco Cannici and Marco Ciccone and Andrea Romanoni and Matteo Matteucci},
+    booktitle = {CVPR Workshops},
+    year    = {2019}
+}
+
+@article{xu2019eventcap,
+    title   = {EventCap: Monocular 3D Capture of High-Speed Human Motions using an Event Camera},
+    author  = {Lan Xu and Weipeng Xu and Vladislav Golyanik and Marc Habermann and Lu Fang and Christian Theobalt},
+    journal = {arXiv preprint arXiv:1908.11505},
+    year    = {2019}
+}
+
+@article{messikommer2022bridging,
+    title   = {Bridging the Gap between Events and Frames through Unsupervised Domain Adaptation},
+    author  = {Nico Messikommer and Daniel Gehrig and Mathias Gehrig and Davide Scaramuzza},
+    journal = {IEEE Robotics and Automation Letters},
+    year    = {2022}
+}
+
+@article{zhang2021object,
+    title   = {Object Tracking by Jointly Exploiting Frame and Event Domain},
+    author  = {Jiqing Zhang and Xin Yang and Yingkai Fu and Xiaopeng Wei and Baocai Yin and Bo Dong},
+    journal = {arXiv preprint arXiv:2109.09052},
+    year    = {2021}
+}
+
+@article{zhang2022cmx,
+    title   = {CMX: Cross-Modal Fusion for RGB-X Semantic Segmentation with Transformers},
+    author  = {Jiaming Zhang and Huayao Liu and Kailun Yang and Xinxin Hu and Ruiping Liu and Rainer Stiefelhagen},
+    journal = {IEEE Transactions on Intelligent Transportation Systems},
+    year    = {2023}
+}
+
+@article{xiao2022event,
+    title   = {Event-Based Dense Reconstruction Pipeline},
+    author  = {Kun Xiao and Guohui Wang and Yi Chen and Jinghong Nan and Yongfeng Xie},
+    journal = {arXiv preprint arXiv:2203.12270},
+    year    = {2022}
+}
+
+@inproceedings{zhou2023rgb,
+    title   = {RGB-Event Fusion for Moving Object Detection in Autonomous Driving},
+    author  = {Zhuyun Zhou and Zongwei Wu and R{\'e}mi Boutteau and Fan Yang and C{\'e}dric Demonceaux and Dominique Ginhac},
+    booktitle = {ICRA},
+    year    = {2023}
+}
+
+@inproceedings{ghosh2022event,
+    title   = {Event-based Stereo Depth Estimation from Ego-motion using Ray Density Fusion},
+    author  = {Suman Ghosh and Guillermo Gallego},
+    booktitle = {ECCV Workshops},
+    year    = {2022}
+}
+
+@article{wan2022learning,
+    title   = {Learning Dense and Continuous Optical Flow from an Event Camera},
+    author  = {Zhexiong Wan and Yuchao Dai and Yuxin Mao},
+    journal = {IEEE Transactions on Image Processing},
+    year    = {2022}
+}
+
+@inproceedings{biswas2024halsie,
+    title   = {HALSIE: Hybrid Approach to Learning Segmentation by Simultaneously Exploiting Image and Event Modalities},
+    author  = {Shristi Das Biswas and Adarsh Kosta and Chamika Liyanagedera and Marco Apolinario and Kaushik Roy},
+    booktitle = {WACV},
+    year    = {2024}
+}
+
+@article{liu2022event,
+    title   = {Event-based Monocular Dense Depth Estimation with Recurrent Transformers},
+    author  = {Xu Liu and Jianing Li and Xiaopeng Fan and Yonghong Tian},
+    journal = {arXiv preprint arXiv:2212.02791},
+    year    = {2022}
+}
+
+@article{jiang2023evhandpose,
+    title   = {EvHandPose: Event-based 3D Hand Pose Estimation with Sparse Supervision},
+    author  = {Jianping Jiang and Jiahe Li and Baowen Zhang and Xiaoming Deng and Boxin Shi},
+    journal = {arXiv preprint arXiv:2303.02862},
+    year    = {2023}
+}
+
+@inproceedings{li2023blinkflow,
+    title   = {BlinkFlow: A Dataset to Push the Limits of Event-based Optical Flow Estimation},
+    author  = {Yijin Li and Zhaoyang Huang and Shuo Chen and Xiaoyu Shi and Hongsheng Li and Hujun Bao and Zhaopeng Cui and Guofeng Zhang},
+    booktitle = {IROS},
+    year    = {2023}
+}
+
+@article{zou2023spiking,
+    title   = {Highly Efficient 3D Human Pose Tracking from Events with Spiking Spatiotemporal Transformer},
+    author  = {Shihao Zou and Yuxuan Mu and Wei Ji and Zi-An Wang and Xinxin Zuo and Sen Wang and Weixin Si and Li Cheng},
+    journal = {IEEE Transactions on Circuits and Systems for Video Technology},
+    year    = {2023}
+}
+
+@article{zhang2023afenet,
+    title   = {Frame-Event Alignment and Fusion Network for High Frame Rate Tracking},
+    author  = {Jiqing Zhang and Yuanchen Wang and Wenxi Liu and Meng Li and Jinpeng Bai and Baocai Yin and Xin Yang},
+    journal = {arXiv preprint arXiv:2305.15688},
+    year    = {2023}
+}
+
+@article{wu2023eventclip,
+    title   = {EventCLIP: Adapting CLIP for Event-based Object Recognition},
+    author  = {Ziyi Wu and Xudong Liu and Igor Gilitschenski},
+    journal = {arXiv preprint arXiv:2306.06354},
+    year    = {2023}
+}
+
+@inproceedings{dong2023bullying10k,
+    title   = {Bullying10K: A Large-Scale Neuromorphic Dataset towards Privacy-Preserving Bullying Recognition},
+    author  = {Yiting Dong and Yang Li and Dongcheng Zhao and Guobin Shen and Yi Zeng},
+    booktitle = {NeurIPS},
+    year    = {2023}
+}
+
+@inproceedings{xia2023cmda,
+    title   = {CMDA: Cross-Modality Domain Adaptation for Nighttime Semantic Segmentation},
+    author  = {Ruihao Xia and Chaoqiang Zhao and Meng Zheng and Ziyan Wu and Qiyu Sun and Yang Tang},
+    booktitle = {ICCV},
+    year    = {2023}
+}
+
+@article{li2023sodformer,
+    title   = {SODFormer: Streaming Object Detection with Transformer Using Events and Frames},
+    author  = {Dianze Li and Jianing Li and Yonghong Tian},
+    journal = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+    year    = {2023}
+}
+
+@inproceedings{deblegiers2023eventtransact,
+    title   = {EventTransAct: A Video Transformer-based Framework for Event-camera Based Action Recognition},
+    author  = {Tristan de Blegiers and Ishan Rajendrakumar Dave and Adeel Yousaf and Mubarak Shah},
+    booktitle = {IROS},
+    year    = {2023}
+}
+
+@inproceedings{cao2024chasing,
+    title   = {Chasing Day and Night: Towards Robust and Efficient All-Day Object Detection Guided by an Event Camera},
+    author  = {Jiahang Cao and Xu Zheng and Yuanhuiyi Lyu and Jiaxu Wang and Renjing Xu and Lin Wang},
+    booktitle = {ICRA},
+    year    = {2024}
+}
+
+@article{lin2023learning,
+    title   = {Learning Parallax for Stereo Event-based Motion Deblurring},
+    author  = {Mingyuan Lin and Chi Zhang and Chu He and Lei Yu},
+    journal = {IEEE Transactions on Circuits and Systems for Video Technology},
+    year    = {2025}
+}
+
+@article{wang2023eventstream,
+    title   = {Event Stream-based Visual Object Tracking: A High-Resolution Benchmark Dataset and A Novel Baseline},
+    author  = {Xiao Wang and Shiao Wang and Chuanming Tang and Lin Zhu and Bo Jiang and Yonghong Tian and Jin Tang},
+    journal = {arXiv preprint arXiv:2309.14611},
+    year    = {2023}
+}
+
+@article{zhang2023crosszoom,
+    title   = {CrossZoom: Simultaneous Motion Deblurring and Event Super-Resolving},
+    author  = {Zhang, Chi and Zhang, Xiang and Lin, Mingyuan and Li, Cheng and He, Chu and Yang, Wen and Xia, Gui-Song and Yu, Lei},
+    journal = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+    volume  = {46},
+    number  = {12},
+    pages   = {8209--8227},
+    doi     = {10.1109/TPAMI.2024.3402972},
+    url     = {https://doi.org/10.1109/TPAMI.2024.3402972},
+    year    = {2024}
+}
+
+@inproceedings{christen2024handpose,
+    title   = {3D Pose Estimation of Two Interacting Hands from a Monocular Event Camera},
+    author  = {Christen Millerdurai and Diogo Luvizon and Viktor Rudnev and Andr{\'e} Jonas and Jiayi Wang and Christian Theobalt and Vladislav Golyanik},
+    booktitle = {3DV},
+    year    = {2024}
+}
+
+@article{chen2023segment,
+    title   = {Segment Any Events via Weighted Adaptation of Pivotal Tokens},
+    author  = {Zhiwen Chen and Zhiyu Zhu and Yifan Zhang and Junhui Hou and Guangming Shi and Jinjian Wu},
+    journal = {arXiv preprint arXiv:2312.16222},
+    year    = {2023}
+}
+
+
+% ==== Batch 2: Additional entries (arXiv IDs from missing list, continued) ====
+
+@inproceedings{brodermann2024muses,
+    title   = {MUSES: The Multi-Sensor Semantic Perception Dataset for Driving under Uncertainty},
+    author  = {Tim Br{\"o}dermann and David Bruggemann and Christos Sakaridis and Kevin Ta and Odysseas Liagouris and Jason Corkill and Luc Van Gool},
+    booktitle = {ECCV},
+    year    = {2024}
+}
+
+@inproceedings{chen2024eventmag,
+    title   = {Event-Based Motion Magnification},
+    author  = {Yutian Chen and Shi Guo and Fangzheng Yu and Feng Zhang and Jinwei Gu and Tianfan Xue},
+    booktitle = {ECCV},
+    year    = {2024}
+}
+
+@inproceedings{georgoulis2024outofroom,
+    title   = {Out of the Room: Generalizing Event-Based Dynamic Motion Segmentation for Complex Scenes},
+    author  = {Stamatios Georgoulis and Weining Ren and Alfredo Bochicchio and Daniel Eckert and Yuanyou Li and Abel Gawel},
+    booktitle = {3DV},
+    year    = {2024}
+}
+
+@article{wang2024longterm,
+    title   = {Long-Term Visual Object Tracking with Event Cameras: An Associative Memory Augmented Tracker and A Benchmark Dataset},
+    author  = {Xiao Wang and Xufeng Lou and Shiao Wang and Ju Huang and Lan Chen and Bo Jiang},
+    journal = {arXiv preprint arXiv:2403.05839},
+    year    = {2024}
+}
+
+@inproceedings{wang2024eassnn,
+    title   = {EAS-SNN: End-to-End Adaptive Sampling and Representation for Event-based Detection with Recurrent Spiking Neural Networks},
+    author  = {Ziming Wang and Ziling Wang and Huaning Li and Lang Qin and Runhao Jiang and De Ma and Huajin Tang},
+    booktitle = {ECCV},
+    year    = {2024}
+}
+
+@inproceedings{fan2024sfod,
+    title   = {SFOD: Spiking Fusion Object Detector},
+    author  = {Yimeng Fan and Wei Zhang and Changsong Liu and Mingyang Li and Wenrui Lu},
+    booktitle = {CVPR},
+    year    = {2024}
+}
+
+@article{peng2024sast,
+    title   = {Scene Adaptive Sparse Transformer for Event-based Object Detection},
+    author  = {Yansong Peng and Hebei Li and Yueyi Zhang and Xiaoyan Sun and Feng Wu},
+    journal = {arXiv preprint arXiv:2404.01882},
+    year    = {2024}
+}
+
+@article{li2024hdr,
+    title   = {{HDR} imaging for Dynamic Scenes with Events},
+    author  = {Zeng, Zhaoyuan and Li, Xiaopeng and Fan, Cien and Zhao, Chen and Deng, Lei and Yu, Lei},
+    journal = {Pattern Recognition},
+    volume  = {180},
+    pages   = {114265},
+    doi     = {10.1016/j.patcog.2026.114265},
+    url     = {https://doi.org/10.1016/j.patcog.2026.114265},
+    year    = {2026}
+}
+
+@inproceedings{christen2024eventego3d,
+    title   = {EventEgo3D: 3D Human Motion Capture from Egocentric Event Streams},
+    author  = {Christen Millerdurai and Hiroyasu Akada and Jian Wang and Diogo Luvizon and Christian Theobalt and Vladislav Golyanik},
+    booktitle = {CVPR},
+    year    = {2024}
+}
+
+@inproceedings{huang2024bilateral,
+    title   = {Bilateral Event Mining and Complementary for Event Stream Super-Resolution},
+    author  = {Zhilin Huang and Quanmin Liang and Yijie Yu and Chujun Qin and Xiawu Zheng and Kai Huang and Zikun Zhou and Wenming Yang},
+    booktitle = {CVPR},
+    year    = {2024}
+}
+
+@article{ott2024text,
+    title   = {Text-to-Events: Synthetic Event Camera Streams from Conditional Text Input},
+    author  = {Joachim Ott and Zuowen Wang and Shih-Chii Liu},
+    journal = {arXiv preprint arXiv:2406.03439},
+    year    = {2024}
+}
+
+@article{chen2024emoe,
+    title   = {eMoE-Tracker: Environmental MoE-based Transformer for Robust Event-guided Object Tracking},
+    author  = {Yucheng Chen and Lin Wang},
+    journal = {arXiv preprint arXiv:2406.20024},
+    year    = {2024}
+}
+
+@inproceedings{chen2024lase,
+    title     = {{LaSe-E2V}: Towards Language-guided Semantic-aware Event-to-Video Reconstruction},
+    author    = {Chen, Kanghao and Li, Hangyu and Zhou, Jiazhou and Wang, Zeyu and Wang, Lin},
+    booktitle = {Advances in Neural Information Processing Systems},
+    volume    = {37},
+    pages     = {70406--70430},
+    doi       = {10.52202/079017-2250},
+    url       = {https://proceedings.neurips.cc/paper_files/paper/2024/hash/823e43f5537d8c1894afd1f6ab00a927-Abstract-Conference.html},
+    year      = {2024}
+}
+
+@article{zhang2024neuromorphic,
+    title   = {Neuromorphic Imaging with Super-Resolution},
+    author  = {Pei Zhang and Shuo Zhu and Chutian Wang and Yaping Zhao and Edmund Y. Lam},
+    journal = {IEEE Transactions on Circuits and Systems for Video Technology},
+    year    = {2024}
+}
+
+@inproceedings{cho2024finding,
+    title   = {Finding Meaning in Points: Weakly Supervised Semantic Segmentation for Event Cameras},
+    author  = {Hoonhee Cho and Sung-Hoon Yoon and Hyeokjun Kweon and Kuk-Jin Yoon},
+    booktitle = {ECCV},
+    year    = {2024}
+}
+
+@article{yang2024ezsr,
+    title   = {EZSR: Event-based Zero-Shot Recognition},
+    author  = {Yan Yang and Liyuan Pan and Dongxu Li and Liu Liu},
+    journal = {arXiv preprint arXiv:2407.21616},
+    year    = {2024}
+}
+
+@article{rahman2024ovose,
+    title   = {OVOSE: Open-Vocabulary Semantic Segmentation in Event-Based Cameras},
+    author  = {Muhammad Rameez Ur Rahman and Jhony H. Giraldo and Indro Spinelli and St{\'e}phane Lathuili{\`e}re and Fabio Galasso},
+    journal = {arXiv preprint arXiv:2408.09424},
+    year    = {2024}
+}
+
+@inproceedings{kim2024cmta,
+    title   = {CMTA: Cross-Modal Temporal Alignment for Event-guided Video Deblurring},
+    author  = {Taewoo Kim and Hoonhee Cho and Kuk-Jin Yoon},
+    booktitle = {ECCV},
+    year    = {2024}
+}
+
+@inproceedings{hamann2024mousesis,
+    title   = {MouseSIS: A Frames-and-Events Dataset for Space-Time Instance Segmentation of Mice},
+    author  = {Friedhelm Hamann and Hanxiong Li and Paul Mieske and Lars Lewejohann and Guillermo Gallego},
+    booktitle = {ECCV Workshops},
+    year    = {2024}
+}
+
+@article{bendig2024shapeaug,
+    title   = {ShapeAug++: More Realistic Shape Augmentation for Event Data},
+    author  = {Katharina Bendig and Ren{\'e} Schuster and Didier Stricker},
+    journal = {Lecture Notes in Computer Science},
+    year    = {2024}
+}
+
+@inproceedings{zhou2025pass,
+    title   = {PASS: Path-selective State Space Model for Event-based Recognition},
+    author  = {Jiazhou Zhou and Kanghao Chen and Lei Zhang and Lin Wang},
+    booktitle = {NeurIPS},
+    year    = {2025}
+}
+
+@inproceedings{song2024pplns,
+    title   = {PPLNs: Parametric Piecewise Linear Networks for Event-Based Temporal Modeling and Beyond},
+    author  = {Chen Song and Zhenxiao Liang and Bo Sun and Qixing Huang},
+    booktitle = {NeurIPS},
+    year    = {2024}
+}
+
+@inproceedings{yao2025event,
+    title   = {Event-guided Low-light Video Semantic Segmentation},
+    author  = {Zhen Yao and Mooi Choo Chuah},
+    booktitle = {WACV},
+    year    = {2025}
+}
+
+@article{jiang2024adv2e,
+    title   = {ADV2E: Bridging the Gap Between Analogue Circuit and Discrete Frames in the Video-to-Events Simulator},
+    author  = {Xiao Jiang and Fei Zhou and Jiongzhi Lin},
+    journal = {arXiv preprint arXiv:2411.12250},
+    year    = {2024}
+}
+
+@article{jeong2024expanding,
+    title   = {Expanding Event Modality Applications through a Robust CLIP-Based Encoder},
+    author  = {Sungheon Jeong and Hanning Chen and Sanggeon Yun and Suhyeon Cho and Wenjun Huang and Xiangjian Liu and Mohsen Imani},
+    journal = {arXiv preprint arXiv:2412.03093},
+    year    = {2024}
+}
+
+@inproceedings{hagenaars2025ondevice,
+    title   = {On-Device Self-Supervised Learning of Low-Latency Monocular Depth from Only Events},
+    author  = {Jesse Hagenaars and Yilun Wu and Federico Paredes-Vall{\'e}s and Stein Stroobants and Guido de Croon},
+    booktitle = {CVPR},
+    year    = {2025}
+}
+
+@article{wang2024moedet,
+    title   = {Object Detection using Event Camera: A MoE Heat Conduction based Detector and A New Benchmark Dataset},
+    author  = {Xiao Wang and Yu Jin and Wentao Wu and Wei Zhang and Lin Zhu and Bo Jiang and Yonghong Tian},
+    journal = {arXiv preprint arXiv:2412.06647},
+    year    = {2024}
+}
+
+@inproceedings{long2025sltnet,
+    title   = {SLTNet: Efficient Event-based Semantic Segmentation with Spike-driven Lightweight Transformer-based Networks},
+    author  = {Xianlei Long and Xiaxin Zhu and Fangming Guo and Wanyi Zhang and Qingyi Gu and Chao Chen and Fuqiang Gu},
+    booktitle = {IROS},
+    year    = {2025}
+}
+
+@article{guo2024event,
+    title   = {Event-assisted 12-stop HDR Imaging of Dynamic Scene},
+    author  = {Shi Guo and Zixuan Chen and Ziran Zhang and Yutian Chen and Gangwei Xu and Tianfan Xue},
+    journal = {arXiv preprint arXiv:2412.19067},
+    year    = {2024}
+}
+
+@article{meng2024learning,
+    title   = {Learning Monocular Depth from Events via Egomotion Compensation},
+    author  = {Haitao Meng and Chonghao Zhong and Sheng Tang and JunJia Lian and Wenwei Lin and Zhenshan Bing and Yi Chang and Gang Chen and Alois Knoll},
+    journal = {arXiv preprint arXiv:2412.20064},
+    year    = {2024}
+}
+
+@article{chen2024velora,
+    title   = {VELoRA: A Low-Rank Adaptation Approach for Efficient RGB-Event based Recognition},
+    author  = {Lan Chen and Haoxiang Yang and Pengpeng Shao and Haoyu Song and Xiao Wang and Zhicheng Zhao and Yaowei Wang and Yonghong Tian},
+    journal = {arXiv preprint arXiv:2501.00741},
+    year    = {2024}
+}
+
+@inproceedings{xu2025neuromorphic3d,
+    title   = {Towards End-to-End Neuromorphic Event-based 3D Object Reconstruction Without Physical Priors},
+    author  = {Chuanzhi Xu and Langyi Chen and Haodong Chen and Vera Chung and Qiang Qu},
+    booktitle = {ICME},
+    year    = {2025}
+}
+
+@inproceedings{lin2025clearsight,
+    title   = {ClearSight: Human Vision-Inspired Solutions for Event-Based Motion Deblurring},
+    author  = {Xiaopeng Lin and Yulong Huang and Hongwei Ren and Zunchang Liu and Yue Zhou and Haotian Fu and Bojun Cheng},
+    booktitle = {ICCV},
+    year    = {2025}
+}
+
+@article{wang2025hdetrackv2,
+    title   = {Event Stream-based Visual Object Tracking: HDETrack V2 and A High-Definition Benchmark},
+    author  = {Shiao Wang and Xiao Wang and Chao Wang and Liye Jin and Lin Zhu and Bo Jiang and Yonghong Tian and Jin Tang},
+    journal = {arXiv preprint arXiv:2502.05574},
+    year    = {2025}
+}
+
+@inproceedings{zahid2025e3dgs,
+    title   = {E-3DGS: Event-Based Novel View Rendering of Large-Scale Scenes Using 3D Gaussian Splatting},
+    author  = {Sohaib Zahid and Viktor Rudnev and Eddy Ilg and Vladislav Golyanik},
+    booktitle = {3DV},
+    year    = {2025}
+}
+
+% ==== Batch 3: Additional entries (arXiv IDs from missing list, continued) ====
+
+@inproceedings{zhao2025egomotion,
+    title   = {Full-DoF Egomotion Estimation for Event Cameras Using Geometric Solvers},
+    author  = {Ji Zhao and Banglei Guan and Zibin Liu and Laurent Kneip},
+    booktitle = {CVPR},
+    year    = {2025}
+}
+
+@article{zhou2025llafea,
+    title   = {LLaFEA: Frame-Event Complementary Fusion for Fine-Grained Spatiotemporal Understanding in LMMs},
+    author  = {Hanyu Zhou and Gim Hee Lee},
+    journal = {arXiv preprint arXiv:2503.06934},
+    year    = {2025}
+}
+
+@article{greene2025pytorch,
+    title   = {A PyTorch-Enabled Tool for Synthetic Event Camera Data Generation and Algorithm Development},
+    author  = {Joseph L. Greene and Adrish Kar and Ignacio Galindo and Elijah Quiles and Elliott Chen and Matthew Anderson},
+    journal = {arXiv preprint arXiv:2503.09754},
+    year    = {2025}
+}
+
+@inproceedings{sun2025fuse,
+    title   = {FUSE: Label-Free Image-Event Joint Monocular Depth Estimation via Frequency-Decoupled Alignment and Degradation-Robust Fusion},
+    author  = {Pihai Sun and Junjun Jiang and Yuanqi Yao and Youyu Chen and Wenbo Zhao and Kui Jiang and Xianming Liu},
+    booktitle = {IROS},
+    year    = {2025}
+}
+
+@article{khan2025emf,
+    title   = {EMF: Event Meta Formers for Event-based Real-time Traffic Object Detection},
+    author  = {Muhammad Ahmed Ullah Khan and Abdul Hannan Khan and Andreas Dengel},
+    journal = {arXiv preprint arXiv:2504.04124},
+    year    = {2025}
+}
+
+@inproceedings{chanda2025eqs,
+    title   = {Event Quality Score (EQS): Assessing the Realism of Simulated Event Camera Streams via Distances in Latent Space},
+    author  = {Kaustav Chanda and Aayush Atul Verma and Arpitsinh Vaghela and Yezhou Yang and Bharatesh Chakravarthi},
+    booktitle = {CVPR Workshops},
+    year    = {2025}
+}
+
+@inproceedings{hitzges2025derdnet,
+    title   = {DERD-Net: Learning Depth from Event-based Ray Densities},
+    author  = {Diego Hitzges and Suman Ghosh and Guillermo Gallego},
+    booktitle = {NeurIPS},
+    year    = {2025}
+}
+
+@inproceedings{liu2025timetracker,
+  title={{TimeTracker}: Event-Based Continuous Point Tracking for Video Frame Interpolation with Non-Linear Motion},
+  author={Liu, Haoyue and Xu, Jinghan and Chang, Yi and Zhou, Hanyu and Zhao, Haozhi and Wang, Lin and Yan, Luxin},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  year={2025}
+}
+
+@inproceedings{liu2025nonlinear,
+    title   = {Nonlinear Motion-Guided and Spatio-Temporal Aware Network for Unsupervised Event-Based Optical Flow},
+    author  = {Zuntao Liu and Hao Zhuang and Junjie Jiang and Yuhang Song and Zheng Fang},
+    booktitle = {ICRA},
+    year    = {2025}
+}
+
+@inproceedings{apps2025asynchronous,
+    title   = {Asynchronous Multi-Object Tracking with an Event Camera},
+    author  = {Angus Apps and Ziwei Wang and Vladimir Perejogin and Timothy Molloy and Robert Mahony},
+    booktitle = {ICRA},
+    year    = {2025}
+}
+
+@article{xu2025survey3d,
+    title   = {A Survey of 3D Reconstruction with Event Cameras},
+    author  = {Chuanzhi Xu and Haoxian Zhou and Langyi Chen and Haodong Chen and Zeke Zexi Hu and Zhicheng Lu and Ying Zhou and Vera Chung and Qiang Qu and Weidong Cai},
+    journal = {Computational Visual Media},
+    year    = {2025}
+}
+
+@article{tan2025carla,
+    title   = {How Real is CARLA's Dynamic Vision Sensor? A Study on the Sim-to-Real Gap in Traffic Object Detection},
+    author  = {Kaiyuan Tan and Pavan Kumar B N and Bharatesh Chakravarthi},
+    journal = {arXiv preprint arXiv:2506.13722},
+    year    = {2025}
+}
+
+@article{wang2025estrcot,
+    title   = {ESTR-CoT: Towards Explainable and Accurate Event Stream based Scene Text Recognition with Chain-of-Thought Reasoning},
+    author  = {Xiao Wang and Jingtao Jiang and Qiang Chen and Lan Chen and Lin Zhu and Yaowei Wang and Yonghong Tian and Jin Tang},
+    journal = {arXiv preprint arXiv:2507.02200},
+    year    = {2025}
+}
+
+@inproceedings{she2025fourier,
+    title   = {Exploring Fourier Prior and Event Collaboration for Low-Light Image Enhancement},
+    author  = {Chunyan She and Fujun Han and Chengyu Fang and Shukai Duan and Lidan Wang},
+    booktitle = {ACM MM},
+    year    = {2025}
+}
+
+@inproceedings{xu2026ultralight,
+    title   = {Ultralight Polarity-Split Neuromorphic SNN for Event-Stream Super-Resolution},
+    author  = {Chuanzhi Xu and Haoxian Zhou and Langyi Chen and Yuk Ying Chung and Qiang Qu},
+    booktitle = {AAAI},
+    year    = {2026}
+}
+
+@article{cheng2025urnet,
+    title   = {URNet: Uncertainty-aware Refinement Network for Event-based Stereo Depth Estimation},
+    author  = {Yifeng Cheng and Alois Knoll and Hu Cao},
+    journal = {Visual Intelligence},
+    year    = {2025}
+}
+
+@inproceedings{hu2026controlevents,
+    title   = {ControlEvents: Controllable Synthesis of Event Camera Data with Foundational Prior from Image Diffusion Models},
+    author  = {Yixuan Hu and Yuxuan Xue and Simon Klenk and Daniel Cremers and Gerard Pons-Moll},
+    booktitle = {WACV},
+    year    = {2026}
+}
+
+@article{zhang2025adaptive,
+    title   = {Adaptive Event Stream Slicing for Open-Vocabulary Event-Based Object Detection via Vision-Language Knowledge Distillation},
+    author  = {Jinchang Zhang and Zijun Li and Jiakai Lin and Guoyu Lu},
+    journal = {arXiv preprint arXiv:2510.00681},
+    year    = {2025}
+}
+
+@article{luo2025meshflow,
+    title   = {Learning Efficient Meshflow and Optical Flow from Event Cameras},
+    author  = {Xinglong Luo and Ao Luo and Kunming Luo and Zhengning Wang and Ping Tan and Bing Zeng and Shuaicheng Liu},
+    journal = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+    year    = {2025}
+}
+
+@article{li2025evdiff,
+    title   = {EvDiff: High Quality Video with an Event Camera},
+    author  = {Weilun Li and Lei Sun and Ruixi Gao and Qi Jiang and Yuqin Ma and Kaiwei Wang and Ming-Hsuan Yang and Luc Van Gool and Danda Pani Paudel},
+    journal = {arXiv preprint arXiv:2511.17492},
+    year    = {2025}
+}
+
+@article{liu2025eventbench,
+    title   = {EventBench: Towards Comprehensive Benchmarking of Event-based MLLMs},
+    author  = {Shaoyu Liu and Jianing Li and Guanghui Zhao and Yunjian Zhang and Xiangyang Ji},
+    journal = {arXiv preprint arXiv:2511.18448},
+    year    = {2025}
+}
+
+@article{torbunov2025ie2video,
+    title   = {IE2Video: Adapting Pretrained Diffusion Models for Event-Based Video Reconstruction},
+    author  = {Dmitrii Torbunov and Onur Okuducu and Yi Huang and Odera Dim and Rebecca Coles and Yonggang Cui and Yihui Ren},
+    journal = {arXiv preprint arXiv:2512.05240},
+    year    = {2025}
+}
+
+@article{lou2025reconstruction,
+    title   = {Reconstruction as a Bridge for Event-Based Visual Question Answering},
+    author  = {Hanyue Lou and Jiayi Zhou and Yang Zhang and Boyu Li and Yi Wang and Guangnan Ye and Boxin Shi},
+    journal = {arXiv preprint arXiv:2512.11510},
+    year    = {2025}
+}
+
+@article{li2025tumtraf,
+    title   = {TUMTraf EMOT: Event-Based Multi-Object Tracking Dataset and Baseline for Traffic Scenarios},
+    author  = {Mengyu Li and Xingcheng Zhou and Guang Chen and Alois Knoll and Hu Cao},
+    journal = {arXiv preprint arXiv:2512.14595},
+    year    = {2025}
+}
+
+@article{kong2025dessert,
+    title   = {DESSERT: Diffusion-based Event-driven Single-frame Synthesis via Residual Training},
+    author  = {Jiyun Kong and Jun-Hyuk Kim and Jong-Seok Lee},
+    journal = {arXiv preprint arXiv:2512.17323},
+    year    = {2025}
+}
+
+@article{peng2026adapting,
+    title   = {Adapting Depth Anything to Adverse Imaging Conditions with Events},
+    author  = {Shihan Peng and Yuyang Xiong and Hanyu Zhou and Zhiwei Shi and Haoyue Liu and Gang Chen and Luxin Yan and Yi Chang},
+    journal = {arXiv preprint arXiv:2601.02020},
+    year    = {2026}
+}
+
+@inproceedings{qi2026seeing,
+    title   = {Seeing through Light and Darkness: Sensor-Physics Grounded Deblurring HDR NeRF from Single-Exposure Images and Events},
+    author  = {Yunshan Qi and Lin Zhu and Nan Bao and Yifan Zhao and Jia Li},
+    booktitle = {CVPR},
+    year    = {2026}
+}
+
+@inproceedings{lee2026segment,
+    title   = {Segment Any Events with Language},
+    author  = {Seungjun Lee and Gim Hee Lee},
+    booktitle = {ICLR},
+    year    = {2026}
+}
+
+@article{bae2026roel,
+    title   = {RoEL: Robust Event-based 3D Line Reconstruction},
+    author  = {Gwangtak Bae and Jaeho Shin and Seunggu Kang and Junho Kim and Ayoung Kim and Young Min Kim},
+    journal = {IEEE Transactions on Robotics},
+    year    = {2026}
+}
+
+@article{xu2026unie2f,
+    title   = {UniE2F: A Unified Diffusion Framework for Event-to-Frame Reconstruction with Video Foundation Models},
+    author  = {Gang Xu and Zhiyu Zhu and Junhui Hou},
+    journal = {arXiv preprint arXiv:2602.19202},
+    year    = {2026}
+}
+
+@inproceedings{tsuchida2026coded,
+    title   = {Coded-E2LF: Coded Aperture Light Field Imaging from Events},
+    author  = {Tomoya Tsuchida and Keita Takahashi and Chihiro Tsutake and Toshiaki Fujii and Hajime Nagahara},
+    booktitle = {CVPR},
+    year    = {2026}
+}
+
+@inproceedings{liu2026necdiff,
+    title   = {NEC-Diff: Noise-Robust Event-RAW Complementary Diffusion for Seeing Motion in Extreme Darkness},
+    author  = {Haoyue Liu and Jinghan Xu and Luxin Feng and Hanyu Zhou and Haozhi Zhao and Yi Chang and Luxin Yan},
+    booktitle = {CVPR},
+    year    = {2026}
+}
+
+@inproceedings{cao2026generative,
+    title   = {Generative Event Pretraining with Foundation Model Alignment},
+    author  = {Jianwen Cao and Jiaxu Xing and Nico Messikommer and Davide Scaramuzza},
+    booktitle = {CVPR},
+    year    = {2026}
+}
+
+@inproceedings{zhang2026learning,
+    title   = {Learning to See through Illumination Extremes with Event Streaming in Multimodal Large Language Models},
+    author  = {Baoheng Zhang and Jiahui Liu and Gui Zhao and Weizhou Zhang and Yixuan Ma and Jun Jiang and Yingxian Chen and Wilton W.T. Fok and Xiaojuan Qi and Hayden Kwok-Hay So},
+    booktitle = {CVPR},
+    year    = {2026}
+}

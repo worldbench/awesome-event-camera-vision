@@ -1,0 +1,253 @@
+\section{Preliminaries}
+\label{sec:pre}
+
+This section introduces the foundational concepts of event cameras that underpin the methods reviewed in this survey. We cover the sensor working principles (\cref{sec:pre_sensor}), common event data representations (\cref{sec:pre_repr}), and the major algorithmic paradigms for processing event data (\cref{sec:pre_paradigm}).
+
+
+\subsection{Event Camera Principles}
+\label{sec:pre_sensor}
+
+An event camera~\cite{lichtsteiner2008dvs} is a neuromorphic vision sensor in which each pixel operates independently and asynchronously (\cref{fig:event_principle}). Rather than capturing full frames at a fixed rate, each pixel continuously monitors local brightness and emits an ``event'' whenever the change in log-intensity exceeds a predefined contrast threshold $C$. Formally, a pixel at location $(x, y)$ triggers an event at time $t$ with polarity $p$ when:
+\begin{equation}
+\label{eq:event_model}
+    \Delta \log I(x, y, t) = \log I(x, y, t) - \log I(x, y, t - \Delta t) = p \cdot C \,,
+\end{equation}
+where $I(x, y, t)$ is the instantaneous brightness, $\Delta t$ is the time since the last event at that pixel, and $p \in \{+1, -1\}$ denotes the polarity --- indicating a brightness increase (ON event) or decrease (OFF event), respectively. Each event is thus represented as a tuple:
+\begin{equation}
+\label{eq:event_tuple}
+    e_i = (x_i, \, y_i, \, t_i, \, p_i) \,.
+\end{equation}
+The output of an event camera is an asynchronous \textit{event stream} $\mathcal{E} = \{e_i\}_{i=1}^{N}$, ordered by timestamp.
+
+This sensing paradigm yields several distinctive properties that set event cameras apart from conventional frame-based cameras:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Microsecond temporal resolution.} Events are generated with latencies as low as 1\,$\mu$s, enabling the capture of dynamics that are invisible to frame-based cameras operating at 30--120\,fps. This makes event cameras particularly well-suited for high-speed scenarios such as drone racing, fast robotic manipulation, and rapid eye movements.
+
+    \item \textbf{High dynamic range.} Event cameras achieve dynamic ranges exceeding 120\,dB (compared to $\sim$60\,dB for standard CMOS sensors), as each pixel responds to relative brightness changes rather than absolute intensity. This allows simultaneous perception of details in both very bright and very dark regions of a scene --- a critical advantage for outdoor driving, space imaging, and industrial settings.
+
+    \item \textbf{Low power consumption.} Because only active pixels transmit data, event cameras consume power proportional to the amount of scene motion, typically in the milliwatt range. This contrasts with frame-based cameras, which read out every pixel at every frame regardless of content. The low power budget makes event cameras attractive for always-on sensing on battery-powered devices such as UAVs, wearables, and IoT endpoints.
+
+    \item \textbf{No motion blur.} Since events are generated continuously and virtually instantaneously, there is no temporal integration window during which photons accumulate. This eliminates the motion blur artifact that plagues conventional cameras under fast motion or long exposures, enabling sharp perception even at extreme speeds.
+
+    \item \textbf{Sparse and redundant-free output.} In static regions of a scene, no events are generated, yielding a highly sparse data stream that focuses computational resources on where changes occur. This event-driven sparsity is fundamentally different from frame-based sensing and motivates the development of specialized processing algorithms.
+\end{itemize}
+
+\begin{figure}[t]
+    \centering
+    \fbox{\parbox{0.93\linewidth}{\centering\vspace{0.8em}
+    \textbf{(a)} Frame camera vs. event camera output comparison\\[4pt]
+    \textit{Left:} Fixed-rate frames with motion blur at 30\,fps\\
+    \textit{Right:} Asynchronous events --- no blur, $\mu$s resolution\\[6pt]
+    \textbf{(b)} Per-pixel event generation model\\[4pt]
+    \textit{Log-intensity trace with $\pm C$ threshold crossings}\\
+    \textit{generating ON (+) and OFF (-) events}\\[6pt]
+    \textbf{(c)} Event stream visualization\\[4pt]
+    \textit{3D spatiotemporal $(x, y, t)$ plot from real data}\\
+    \textit{Red = ON events, Blue = OFF events}
+    \vspace{0.8em}}}
+    \caption{Event camera working principle. \textbf{(a)}~Comparison between a conventional frame camera (synchronous, dense, motion blur) and an event camera (asynchronous, sparse, blur-free). \textbf{(b)}~Each pixel independently monitors log-intensity and fires an event when the change exceeds the contrast threshold $C$ (\cref{eq:event_model}). \textbf{(c)}~The resulting event stream is a set of spatiotemporal points, visualized in 3D $(x, y, t)$ space with polarity color-coded.}
+    \label{fig:event_principle}
+\end{figure}
+
+\noindent\textbf{Sensor landscape.} Since the introduction of the original 128$\times$128-pixel Dynamic Vision Sensor (DVS)~\cite{lichtsteiner2008dvs}, event camera technology has evolved substantially. The DAVIS~\cite{brandli2014davis} sensor combines a DVS with a conventional Active Pixel Sensor (APS) on the same chip, enabling simultaneous capture of events and grayscale frames at 346$\times$260 resolution. Prophesee (formerly Chronocam) has developed a series of increasingly capable sensors, from the Gen1 (304$\times$240) used in early automotive datasets~\cite{perot2020red} to the Gen4-CD ($\sim$1280$\times$720) featured in recent high-resolution benchmarks~\cite{gehrig2021dsec}. Samsung's DVS Gen3 sensor, used to create the N-ImageNet dataset~\cite{kim2021nimagenet}, and the SilkyEvCam from CelePixel represent other notable commercial products. The trend toward higher spatial resolution has enabled event cameras to tackle tasks previously limited by the low pixel counts of early sensors, while maintaining the core advantages of asynchronous, event-driven sensing.
+
+
+\subsection{Event Data Representations}
+\label{sec:pre_repr}
+
+A key design decision in any event-based vision pipeline is how to represent the raw event stream $\mathcal{E}$ in a form suitable for downstream processing. Unlike frames, events are sparse, asynchronous, and of variable rate, which makes direct application of standard computer vision architectures non-trivial. Over the years, the community has developed a diverse set of representations, each offering different trade-offs between temporal fidelity, spatial density, computational cost, and compatibility with existing deep learning frameworks.
+
+
+\subsubsection{Event Frame (Histogram)}
+\label{sec:repr_frame}
+
+The simplest and most widely used approach accumulates events over a fixed time window $\Delta T$ into a 2D grid:
+\begin{equation}
+\label{eq:event_frame}
+    \mathbf{H}(x, y) = \sum_{i : t_i \in [t_0, \, t_0 + \Delta T]} p_i \cdot \delta(x - x_i, \, y - y_i) \,,
+\end{equation}
+where $\delta$ is the Kronecker delta. This produces a dense, frame-like tensor of shape $H \times W$ (or $H \times W \times 2$ when separating ON/OFF polarities) that can be directly fed into standard CNNs. The event frame is used in numerous works~\cite{maqueda2018steering,amir2017dvs128gesture,perot2020red} due to its simplicity and CNN compatibility. However, it discards fine temporal structure within the accumulation window.
+
+
+\subsubsection{Time Surface (Surface of Active Events)}
+\label{sec:repr_timesurface}
+
+A time surface~\cite{lagorce2017hots} records the timestamp of the most recent event at each pixel:
+\begin{equation}
+\label{eq:time_surface}
+    \mathbf{T}(x, y, t) = \exp\left( - \frac{t - t_{\text{last}}(x, y)}{\tau} \right) \,,
+\end{equation}
+where $t_{\text{last}}(x,y)$ is the time of the latest event at pixel $(x,y)$ and $\tau$ is a decay constant. Time surfaces naturally encode local motion patterns: edges and textures moving across the sensor produce characteristic spatial gradients in $\mathbf{T}$. They are used as input features in several tracking~\cite{gehrig2019eklt} and recognition methods~\cite{sironi2018ncars}.
+
+
+\subsubsection{Voxel Grid}
+\label{sec:repr_voxel}
+
+The voxel grid representation~\cite{zhu2019unsupervised} partitions the event stream into $B$ temporal bins and distributes each event to its two nearest bins via bilinear interpolation:
+\begin{equation}
+\label{eq:voxel_grid}
+    \mathbf{V}(x, y, b) = \sum_{i} p_i \cdot \max\left(0, \, 1 - \left| t_i^* - b \right| \right) \,,
+\end{equation}
+where $t_i^* = (B-1) \cdot (t_i - t_0) / (t_N - t_0)$ normalizes timestamps to $[0, B-1]$. This produces a tensor of shape $H \times W \times B$ that preserves temporal ordering while remaining compatible with 3D convolutions or channel-wise processing. The voxel grid has become one of the most popular representations in recent work, used by E2VID~\cite{rebecq2019e2vid}, E-RAFT~\cite{gehrig2021eraft}, RVT~\cite{gehrig2023rvt}, and many others.
+
+
+\subsubsection{Event Spike Tensor}
+\label{sec:repr_spike}
+
+For spiking neural network (SNN) processing, events can be represented as binary spike trains that directly correspond to the firing patterns of biological neurons. Each event is mapped to a spike at the corresponding spatiotemporal location, producing a binary tensor $\mathbf{S}(x, y, t) \in \{0, 1\}$. This representation preserves the asynchronous, event-driven nature of the data and enables processing on neuromorphic hardware such as Intel Loihi~\cite{davies2018loihi} and SynSense Speck~\cite{liu2023speck}, with energy consumption orders of magnitude lower than GPU-based processing. SNN-based methods such as Spiking-YOLO~\cite{kim2020spikingyolo}, EMS-YOLO~\cite{su2023emsyolo}, and Spike-FlowNet~\cite{lee2020spikeflownet} leverage this representation.
+
+
+\subsubsection{Graph and Point Cloud Representations}
+\label{sec:repr_graph}
+
+Events can be treated as a spatiotemporal point cloud or graph, where each event $e_i = (x_i, y_i, t_i, p_i)$ is a node and edges connect events that are close in space and time. Graph neural networks (GNNs) such as AEGNN~\cite{schaefer2022aegnn} and DAGr~\cite{gehrig2024dagr} operate directly on this representation, processing events asynchronously without the need to aggregate them into dense tensors. This preserves the full temporal resolution of the event stream and avoids information loss, but introduces challenges in batching and scalability.
+
+
+\subsubsection{Learned Representations}
+\label{sec:repr_learned}
+
+Rather than hand-crafting the event representation, several recent works learn the representation end-to-end as part of the task-specific pipeline. MatrixLSTM~\cite{cannici2020matrixlstm} learns a differentiable event surface via recurrent processing. Adaptive representations in SAST~\cite{peng2024sast} and GET~\cite{peng2023get} employ attention-based mechanisms to dynamically weigh events based on task relevance. EvRepSL~\cite{kang2024evrepsl} trains a representation generator via self-supervised learning that is device- and task-agnostic. The trend toward learned representations reflects the broader shift from hand-engineered to data-driven processing in the field.
+
+
+\subsubsection{Summary of Representations}
+\label{sec:repr_summary}
+
+\cref{tab:representations} summarizes the key event data representations discussed above.
+
+\begin{table}[t]
+\centering
+\caption{Comparison of event data representations. \textbf{CNN}: compatible with standard CNNs; \textbf{Temp.}: temporal fidelity (how much temporal information is preserved); \textbf{Async.}: supports asynchronous, per-event processing.}
+\label{tab:representations}
+\resizebox{\linewidth}{!}{
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Representation} & \textbf{Shape} & \textbf{CNN} & \textbf{Temp.} & \textbf{Async.} & \textbf{Representative Works} \\
+\midrule
+Event frame         & $H \times W (\times 2)$  & \cmark & Low    & \xmark & RED~\cite{perot2020red}, Gen1~\cite{perot2020red} \\
+Time surface        & $H \times W$             & \cmark & Medium & \xmark & HATS~\cite{sironi2018ncars}, EKLT~\cite{gehrig2019eklt} \\
+Voxel grid          & $H \times W \times B$    & \cmark & High   & \xmark & E2VID~\cite{rebecq2019e2vid}, RVT~\cite{gehrig2023rvt} \\
+Spike tensor        & $H \times W \times T$    & \xmark & Full   & \cmark & Spike-FlowNet~\cite{lee2020spikeflownet} \\
+Graph / point cloud & $N \times 4$             & \xmark & Full   & \cmark & AEGNN~\cite{schaefer2022aegnn}, DAGr~\cite{gehrig2024dagr} \\
+Learned             & Task-dependent           & \cmark & High   & Varies & MatrixLSTM~\cite{cannici2020matrixlstm} \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+
+\subsection{Processing Paradigms}
+\label{sec:pre_paradigm}
+
+The choice of processing paradigm is tightly coupled with the choice of event representation. We identify six major paradigms that span the history of event-based vision and continue to coexist in the current literature.
+
+
+\subsubsection{Model-Based Methods}
+\label{sec:paradigm_model}
+
+Early event-based vision was dominated by methods grounded in geometric and physical models. The \textit{contrast maximization} framework~\cite{gallego2018cmax} formulates event processing as an optimization problem: find the motion parameters that, when used to warp events onto a reference frame, maximize the sharpness (contrast) of the resulting image of warped events. This elegant principle has been applied to optical flow~\cite{shiba2024cmaxsecrets}, depth estimation, ego-motion recovery, and rotational SLAM~\cite{shiba2024cmaxslam}. Multi-view stereo methods such as EMVS~\cite{rebecq2018emvs} similarly exploit geometric constraints to reconstruct 3D structure from event streams. Model-based methods offer strong theoretical guarantees and interpretability, but their performance is often surpassed by learning-based approaches on complex real-world data.
+
+
+\subsubsection{Deep Learning on Event Tensors}
+\label{sec:paradigm_dl}
+
+The dominant paradigm since 2018 has been to convert events into tensor representations (\eg, event frames, voxel grids) and process them with standard deep learning architectures. Convolutional neural networks (CNNs) were the first to be adopted~\cite{maqueda2018steering,rebecq2019e2vid}, followed by recurrent networks (ConvLSTM, ConvGRU) that maintain temporal state across event windows~\cite{rebecq2019e2vid,ercan2024hypere2vid}. Vision Transformers (ViTs) have more recently been applied to event data, with RVT~\cite{gehrig2023rvt} demonstrating that a multi-stage recurrent ViT can achieve state-of-the-art detection performance at high speed. This paradigm benefits from the mature ecosystem of deep learning frameworks, pre-trained weights, and GPU acceleration, but it necessarily discretizes the continuous event stream and may lose fine temporal details.
+
+
+\subsubsection{Graph Neural Networks}
+\label{sec:paradigm_gnn}
+
+To avoid the information loss of tensor conversion, graph neural networks process events directly as spatiotemporal graphs. AEGNN~\cite{schaefer2022aegnn} constructs a radius graph over events and applies asynchronous message passing, achieving competitive detection and recognition performance while processing each event individually. DAGr~\cite{gehrig2024dagr}, published in \textit{Nature}, extends this idea to high-resolution automotive detection, demonstrating that graph-based processing can match the latency of a 5,000-fps camera with the bandwidth of a 45-fps camera. The main challenge for GNN-based methods is computational scalability: constructing and updating graphs over millions of events requires careful engineering.
+
+
+\subsubsection{Spiking Neural Networks}
+\label{sec:paradigm_snn}
+
+Spiking neural networks (SNNs) are biologically inspired models in which neurons communicate via discrete spikes rather than continuous activations. The event-driven nature of both the sensor and the network makes SNNs a natural match for event cameras, with the potential for ultra-low-power processing on neuromorphic hardware~\cite{davies2018loihi,liu2023speck}. SNN-based methods have been developed for object detection (Spiking-YOLO~\cite{kim2020spikingyolo}, EMS-YOLO~\cite{su2023emsyolo}, SpikeYOLO~\cite{li2024spikeyolo}), optical flow (Spike-FlowNet~\cite{lee2020spikeflownet}), segmentation (SpikingEDN, EvSegSNN), and action recognition (SpikePoint~\cite{ren2024spikepoint}, Spike Gating Flow~\cite{zhang2022spikegatingflow}). While still trailing ANNs in absolute accuracy, SNNs offer orders-of-magnitude energy savings and are being actively deployed on neuromorphic chips for real-time edge applications.
+
+
+\subsubsection{State Space Models}
+\label{sec:paradigm_ssm}
+
+State space models (SSMs), particularly the Mamba architecture~\cite{gu2023mamba}, have recently emerged as an efficient alternative to Transformers for modeling long event sequences. SSMs achieve linear-time complexity in sequence length (compared to quadratic for attention), making them well-suited for the high-rate, long-duration event streams generated by event cameras. S5-ViT~\cite{zubic2024s5vit} combines S4/S5-style SSM layers with a lightweight ViT backbone, training 33\% faster than RNN-based methods while being robust to frequency mismatches between training and deployment. Mamba-based architectures have also been applied to detection (SMamba~\cite{li2025smamba}), tracking (MambaEVT~\cite{wang2024mambaevt}, Mamba-FETrack~\cite{wang2024mambafe}), video reconstruction (EventMamba~\cite{zhang2025eventmamba}), segmentation (MambaSeg), and deblurring (EVDM). The efficiency of SSMs makes them particularly attractive for real-time event processing on resource-constrained platforms.
+
+
+\subsubsection{Foundation Model Adaptation}
+\label{sec:paradigm_foundation}
+
+The most recent paradigm, and the central theme of this survey, involves adapting large-scale pre-trained foundation models to the event modality. This approach addresses a fundamental bottleneck in event-based vision: the scarcity of large-scale labeled event data. Rather than training event-specific models from scratch, researchers transfer the rich visual and semantic priors encoded in models pre-trained on billions of images or image-text pairs. Key strategies include:
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{CLIP adaptation:} Aligning event embeddings with CLIP's image-text space via contrastive learning, enabling zero-shot and open-vocabulary event recognition~\cite{wu2023eventclip,zhou2024eventbind,cho2025ezsr,kong2024openess}.
+
+    \item \textbf{SAM adaptation:} Transferring the Segment Anything Model's segmentation capabilities to event data through feature distillation and adapter modules~\cite{chen2024eventsam,zhou2024sameventadapter}.
+
+    \item \textbf{Diffusion prior:} Leveraging pre-trained image or video diffusion models as generative priors for event-based reconstruction, enabling physically realistic frame interpolation~\cite{chen2025revdm}, HDR recovery~\cite{yang2025hdrevdiff}, and motion deblurring~\cite{lee2025dietgs}.
+
+    \item \textbf{Depth model distillation:} Using Depth Anything~\cite{xu2025depthanycvent} or DINOv2~\cite{liu2024spikedinov2} as teacher models to train event-specific depth estimators without ground-truth depth annotations.
+
+    \item \textbf{Multimodal LLMs:} Building end-to-end MLLMs that accept event streams as input alongside language, enabling scene understanding, visual question answering, and reasoning~\cite{zhou2025eventgpt,li2025eventvl,kong2026eventflash}.
+\end{itemize}
+
+This paradigm shift --- from training event-specific models with limited data to adapting powerful pre-trained models --- has been the primary catalyst for the rapid advances reviewed in this survey. \cref{fig:paradigm_evolution} illustrates the evolution of processing paradigms for event cameras.
+
+\begin{figure*}[t]
+    \centering
+    \begin{tikzpicture}[
+        font=\sffamily\scriptsize,
+        era/.style={rounded corners=4pt, minimum height=1.4cm, text width=#1, align=center, font=\sffamily\scriptsize\bfseries},
+        method/.style={rounded corners=2pt, draw=#1!70, fill=#1!8, text width=2.2cm, align=center, font=\sffamily\tiny, minimum height=0.45cm, inner sep=2pt},
+        yearmark/.style={font=\sffamily\scriptsize\bfseries, text=gray!70},
+        paradigmlabel/.style={font=\sffamily\tiny, text=#1!80, align=center},
+    ]
+    % Timeline base
+    \draw[very thick, gray!40, -Stealth] (0,0) -- (17.5,0);
+
+    % Era backgrounds
+    \fill[cyan!8, rounded corners=4pt] (0.2, -2.2) rectangle (4.8, 2.6);
+    \fill[blue!8, rounded corners=4pt] (5.0, -2.2) rectangle (11.0, 2.6);
+    \fill[orange!8, rounded corners=4pt] (11.2, -2.2) rectangle (17.2, 2.6);
+
+    % Era labels
+    \node[era=4cm, draw=cyan!60, fill=cyan!15] at (2.5, 2.0) {Early Era\\[-1pt]{\tiny 2008\,--\,2017}};
+    \node[era=5.4cm, draw=blue!60, fill=blue!15] at (8.0, 2.0) {Deep Learning Era\\[-1pt]{\tiny 2018\,--\,2023}};
+    \node[era=5.4cm, draw=orange!60, fill=orange!15] at (14.2, 2.0) {Era of Large Models\\[-1pt]{\tiny 2024\,--\,present}};
+
+    % Year markers
+    \foreach \x/\y in {0.5/2008, 2.5/2014, 4.5/2017, 5.5/2018, 7.0/2019, 8.5/2021, 10.0/2023, 11.5/2024, 13.5/2025, 16.0/2026} {
+        \draw[gray!40] (\x, -0.1) -- (\x, 0.1);
+        \node[yearmark, below] at (\x, -0.15) {\y};
+    }
+
+    % Early Era methods
+    \node[method=cyan] at (0.8, 0.8) {DVS\\(2008)};
+    \node[method=cyan] at (2.5, 0.8) {CMax\\(2014)};
+    \node[method=cyan] at (4.2, 0.8) {EKLT\\(2018)};
+
+    % Deep Learning Era methods (above line)
+    \node[method=blue] at (5.5, 0.8) {EV-FlowNet\\(2018)};
+    \node[method=blue] at (7.2, 0.8) {E2VID\\(2019)};
+    \node[method=blue] at (9.0, 0.8) {DSEC, E-RAFT\\(2021)};
+    \node[method=blue] at (10.5, 0.8) {RVT\\(2023)};
+
+    % Era of Large Models methods (above line)
+    \node[method=orange] at (11.8, 0.8) {OpenESS\\(2024)};
+    \node[method=orange] at (13.5, 0.8) {EventGPT\\(2025)};
+    \node[method=orange] at (15.2, 0.8) {EZSR\\(2025)};
+    \node[method=orange] at (16.8, 0.8) {EventFlash\\(2026)};
+
+    % Below: more methods
+    \node[method=blue] at (7.2, -0.8) {DAGr\\(Nature '24)};
+    \node[method=orange] at (11.8, -0.8) {IncEventGS\\(2025)};
+    \node[method=orange] at (13.5, -0.8) {REVDM\\(2025)};
+    \node[method=orange] at (15.2, -0.8) {SEAL\\(2026)};
+
+    % Paradigm labels (bottom)
+    \node[paradigmlabel=cyan] at (2.5, -1.7) {Model-based\\Geometric};
+    \node[paradigmlabel=blue] at (8.0, -1.7) {CNN $\rightarrow$ RNN $\rightarrow$ ViT $\rightarrow$ GNN\\SNN};
+    \node[paradigmlabel=orange] at (14.2, -1.7) {CLIP, SAM, Diffusion\\MLLMs, Mamba, 3DGS};
+
+    \end{tikzpicture}
+    \caption{Evolution of processing paradigms for event camera vision. The field has progressed from \textcolor{cyan!70!black}{\textbf{model-based}} methods (\eg, contrast maximization) through \textcolor{blue!80}{\textbf{deep learning}} on event tensors (\eg, CNNs, RNNs, ViTs) to the current \textcolor{orange!80!black}{\textbf{era of large models}} (\eg, CLIP, SAM, diffusion models, MLLMs). Each paradigm coexists with earlier ones, but the dominant trend is toward leveraging large-scale pre-trained priors. Representative methods are shown at their publication dates.}
+    \label{fig:paradigm_evolution}
+\end{figure*}
