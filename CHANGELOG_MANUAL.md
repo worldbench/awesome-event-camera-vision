@@ -331,3 +331,40 @@ Git 添加、提交或推送；用户在 Windows 中自行完成版本控制。
 - 待用户处理：
   - 在 Windows 环境检查公共仓库差异，确认 `CHANGELOG_MANUAL.md` 适合公开，并自行执行 Git 添加、提交和推送。
   - 公共仓库当前已有若干与本次同步无关的本地修改，提交前需由用户决定是否与论文同步内容分开提交。
+
+### 2026-07-25-12：Reconstruction 文献第一轮删减
+
+- 执行者：Codex
+- 范围：主项目 `sections/3_method.tex`、`sections/catalog_tables.tex`、`main.bib`；外层 reconstruction 筛查报告、数据、生成源、专项审计、项目状态和本修改历史；未修改 `main.tex`，未执行 Git。
+- 修改前：
+  - reconstruction catalog 共115项，Bib 共570条，Tex 共引用387个唯一 citation key。
+  - 用户候选清单包含多个状态过时或具有强团队/独特资源价值的条目，不能整批机械删除。
+  - `E3NeRF`、`SaENeRF`、`BeSplat` 同时存在于 catalog、正文和 Bib：
+    - `qi2024e3nerf`：arXiv 2024 的 blurry-image/event NeRF；
+    - `zhang2025saenerf`：旧 Bib 错写作者表并仍标 arXiv，正式版实际为 IJCNN 2025；
+    - `matta2025besplat`：WACV 2025 Workshop 的单模糊图像+事件 3DGS。
+  - catalog 把 `Self-EHDRI` 标为 `arXiv'24`、把 `EvGGS` 标为 `arXiv'24`；`ESHDR` 无显式 citation，且 Bib 的 journal 字段错误写成 `arXiv:2412.19067`。
+- 修改后：
+  - 本次第一轮新增删除 `E3NeRF`、`SaENeRF`、`BeSplat` 三篇：从 catalog 删除并连续重编号，从正文对应概述删除，从 `main.bib` 删除完整条目。
+  - reconstruction catalog 从115项减为112项；累计已删除的 reconstruction 条目为 `Revisit-EBVFI`、`Ev3DGS`、`E3NeRF`、`SaENeRF`、`BeSplat`。
+  - Bib 从570条减为567条；Tex 当前引用386个唯一 citation key，缺失引用为0。
+  - `Self-EHDRI` 改为 `Self-EHDRI~\cite{li2024hdr} / PR'26`；`EvGGS` 改为 `ICML'24`；`ESHDR` 增加 `\cite{guo2024event}`。
+  - `guo2024event` 的 `journal` 从 `arXiv preprint arXiv:2412.19067` 更正为 `arXiv preprint arXiv:2412.14705`；题名、作者和年份不变。
+  - 全量报告、纯 arXiv 附录、inventory、机器结果、筛查规则和项目状态同步为112项；旧 SaENeRF 待修报告追加状态更正，不删除历史诊断。
+  - 完整删除前 Bib 条目、逐篇强团队/独特性判断、保留依据和 ESHDR 前后条目见 `docs/reference_audit/reconstruction_pruning_round1_2026-07-25.md`。
+- 原因/证据：
+  - `E3NeRF` 截至核验日仍未找到正式主会/期刊版本，且位于 E2NeRF、EvDeblurNeRF、Deblur-e-NeRF、EBAD-NeRF 已覆盖的拥挤路线。
+  - `SaENeRF` 虽正式发表于 IJCNN 2025且有代码，但贡献主要是 event-NeRF 极性归一化和伪影正则，属于可由现有代表工作覆盖的增量改良。
+  - `BeSplat` 是 WACV Workshop 论文，将单模糊图像+事件设置迁移到 3DGS，与现有 blurry-event 3DGS 簇高度重合。
+  - 强团队检查后保留：NUS Gim Hee Lee 团队的 `Deblur-e-NeRF`、MPI-INF Christian Theobalt/Vladislav Golyanik 团队的 `DynEventNeRF`、USTC Zhiwei Xiong 团队的 `EventBoosted-3DGS`，以及 Tianfan Xue/Jinwei Gu 等团队的 `Sim2Real-EVFI`/`ESHDR`。
+  - 资源/任务检查后保留：`PAEv3d` 的101对象数据集、`Event-ID` 的 intrinsic decomposition、`E-3DGS` 的 exposure-event 硬件/数据、ICML 2024 正式论文 `EvGGS`。
+  - `Self-EHDRI` 的 Pattern Recognition 正式记录 DOI 为 `10.1016/j.patcog.2026.114265`；`EvGGS` 的 PMLR/ICML 正式页为 `https://proceedings.mlr.press/v235/wang24w.html`；ESHDR 的 arXiv 官方身份为 `2412.14705`；EBAD-GS 已是 ICASSP 2026 正式版，本轮保留且不存在第二个旧 arXiv Bib 条目。
+- 验证：
+  - inventory 重建结果为112行，编号1--112连续；其中103项绑定 Bib 并有引文缓存，9项未绑定，catalog 明写 arXiv 的条目为12项。
+  - `main.bib` 有567个条目和567个唯一 key；Tex 有386个唯一引用 key，缺失引用为0。
+  - 主项目内 `E3NeRF`、`SaENeRF`、`BeSplat` 及三个删除 key 的命中均为0。
+  - `main.tex` SHA-256 仍为 `87385960d87cd63685662b43e610e502f538087847f7aea7847a9c925eca252a`；`main.bib` SHA-256 为 `ff858d6e358e33ccf20157d7f11de46cf3dd15697275a43959f83f27ba6244ce`。
+  - 当前环境没有 `latexmk`、`pdflatex` 或 `bibtex`，因此未做完整 LaTeX 编译；静态引用、JSON、报告再生成和文件一致性检查均通过。
+- 待用户处理：
+  - 在 Overleaf 编译 `main.tex`，重点检查 reconstruction catalog 删行后的跨页、行底色和参考文献显示。
+  - 在 Windows 环境自行检查 Git 差异并提交；建议把本轮主稿、Bib、审计和变更日志作为同一批提交。
