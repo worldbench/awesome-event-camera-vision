@@ -433,3 +433,30 @@ Git 添加、提交或推送；用户在 Windows 中自行完成版本控制。
 - 待用户处理：
   - 在 Overleaf 编译并检查 catalog 行底色、分页和参考文献。
   - 在 Windows 环境自行执行 Git 添加、提交和推送。
+
+### 2026-07-25-15：第一轮第二批删除九篇重建论文
+
+- 执行者：Codex
+- 范围：主项目 `sections/3_method.tex`、`sections/catalog_tables.tex`、`main.bib`；外层当前报告、机器清单、报告生成源、第一轮专项审计、项目状态和本修改历史；未修改 `main.tex`，未执行 Git。
+- 修改前：
+  - reconstruction catalog 为110项；Bib 为565条；Tex 为384个唯一 citation key。
+  - `STLR`、`PPLNs`、`E2VIDiff`、`DESSERT`、`EvINR`、`CrossZoom`、`ESHDR`、`Event-ID`、`DEGS` 均在 catalog 和 Bib 中。
+  - 正文还分别概述 `E2VIDiff`、`EvINR`、`DEGS`，方法演进图含 `E2VIDiff` 节点；当前报告仍把 ESHDR、E2VIDiff、Event-ID 等列为保护或建议保留对象。
+- 修改后：
+  - 删除上述九项的 catalog 行及完整 Bib 条目；删除正文中的三处对应概述和方法演进图中的 `E2VIDiff` 节点/连线。
+  - catalog 后续条目连续重编号，从110项减为101项；Bib 从565条减为556条；Tex 唯一 citation key 从384减为378。
+  - 重新生成 inventory、全量报告、纯 arXiv 附录及机器结果；撤回旧的 ESHDR、E2VIDiff、Event-ID 保护结论。
+  - 删除前身份、理由和证据集中记录在 `docs/reference_audit/reconstruction_pruning_round1_2026-07-25.md`，历史结论保留并追加撤回说明。
+- 修改原因与证据：
+  - 用户明确要求删除全部九项；其中 ESHDR 的官方仓库长期只预告资产，被用户认定为假开源；Event-ID 的 GitHub 关注度为0；DEGS 未开源。
+  - 其余项目依据用户给出的低引用、纯 arXiv 状态、技术位置可替代性进行本轮压缩。
+  - `CrossZoom` 虽已有 TPAMI 正式版本、`STLR`/`EvINR` 虽为 ECCV、`PPLNs` 虽为 NeurIPS、`Event-ID` 虽为 ACM MM、`DEGS` 虽为 TVCG，仍按用户明确决定删除；未把 venue 状态误记为 arXiv。
+- 验证：
+  - reconstruction inventory 为101行，编号1--101连续；92项绑定 Bib，9项未绑定；catalog 明写 arXiv 的条目为7项。
+  - `main.bib` 有556个条目和556个唯一 key；Tex 有378个唯一引用 key，缺失引用为0。
+  - 九个删除 key 和九个方法名在主项目 `.tex`/`.bib` 中命中均为0。
+  - `main.bib` SHA-256 为 `e90682555710238861e98424b709a260e53bbe9098ee9e2c2a56ec0f36797d3d`。
+  - 当前环境没有 `latexmk` 或 `pdflatex`，因此未做完整 LaTeX 编译；静态引用、连续编号、报告再生成和机器清单检查均通过。
+- 待用户处理：
+  - 在 Overleaf 编译 `main.tex`，重点检查 catalog 删除九行后的行底色、分页及方法演进图布局。
+  - 在 Windows 环境自行检查 Git 差异并提交、推送。

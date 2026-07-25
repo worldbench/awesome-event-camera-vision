@@ -180,7 +180,7 @@ While discriminative models optimize per-pixel reconstruction losses (\eg, MSE, 
 
 \noindent\circnum{1}~\textbf{GAN-Based Approaches.} cGAN-E2V~\cite{wang2019cgane2v} was the first to apply conditional GANs to event-to-video generation, producing HDR images and high-frame-rate video. However, GANs for event-based reconstruction remained relatively unexplored due to training instability and mode collapse issues.
 
-\noindent\circnum{2}~\textbf{Diffusion-Based Paradigm Shift.} The introduction of diffusion models~\cite{ho2020ddpm} has fundamentally changed generative event reconstruction, beginning in 2024. E2VIDiff~\cite{liang2024e2vidiff} first applied diffusion priors to event-to-video reconstruction, demonstrating superior perceptual quality compared to discriminative baselines. TRG-Diffusion~\cite{zhu2024trgdiffusion} incorporated temporal residual guidance to maintain temporal consistency. HDRev-Diff~\cite{yang2025hdrevdiff} extended diffusion priors to HDR reconstruction. EVDiffuser~\cite{chen2025evdiffuser} introduced a modality-adaptive diffusion pipeline for consistent video enhancement.
+\noindent\circnum{2}~\textbf{Diffusion-Based Paradigm Shift.} The introduction of diffusion models~\cite{ho2020ddpm} has fundamentally changed generative event reconstruction, beginning in 2024. TRG-Diffusion~\cite{zhu2024trgdiffusion} incorporated temporal residual guidance to maintain temporal consistency. HDRev-Diff~\cite{yang2025hdrevdiff} extended diffusion priors to HDR reconstruction. EVDiffuser~\cite{chen2025evdiffuser} introduced a modality-adaptive diffusion pipeline for consistent video enhancement.
 
 \textit{Discussion.} The shift from discriminative to generative reconstruction represents one of the most significant paradigm changes in the field. Diffusion-based methods excel in perceptual quality metrics (LPIPS, FID) and produce more visually realistic outputs, but they are typically 10--100$\times$ slower than discriminative models due to iterative denoising. The ability to repurpose pre-trained video diffusion models~\cite{chen2025revdm} is particularly notable, as it demonstrates that the rich visual priors learned from internet-scale video data can be effectively transferred to the event modality --- a hallmark of the ``era of large models'' theme of this survey.
 
@@ -190,7 +190,7 @@ While discriminative models optimize per-pixel reconstruction losses (\eg, MSE, 
 
 Self-supervised methods address the scarcity of paired event-ground truth data by learning reconstruction objectives that do not require explicit supervision.
 
-Early work by Paredes-Vall{\'e}s and de Croon~\cite{paredes2021backtoeventbasics} demonstrated that photometric constancy --- the principle that a reconstructed image, when used to re-simulate events, should produce events consistent with the input --- provides a powerful self-supervised signal. EvINR~\cite{wang2024evinr} revisited event generation models through implicit neural representations for self-supervised event-to-video reconstruction.
+Early work by Paredes-Vall{\'e}s and de Croon~\cite{paredes2021backtoeventbasics} demonstrated that photometric constancy --- the principle that a reconstructed image, when used to re-simulate events, should produce events consistent with the input --- provides a powerful self-supervised signal.
 
 We note that large-scale self-supervised pre-training methods (\eg, MEM~\cite{klenk2024mem}, ECDP~\cite{yang2023ecdp}, TESPEC) that learn general-purpose event representations are discussed in \cref{sec:understanding}, as their primary contribution lies in representation learning rather than reconstruction.
 
@@ -291,7 +291,7 @@ Event-based NeRFs have demonstrated remarkable capabilities, but they inherit Ne
 
 \noindent\circnum{4}~\textbf{Pose-Free Reconstruction.} A critical challenge in 3D reconstruction is the requirement for accurate camera poses, typically obtained from Structure-from-Motion (SfM) pipelines that fail on event-only data. IncEventGS~\cite{huang2025inceventgs} (CVPR'25) pioneered pose-free Gaussian Splatting from a single event camera, jointly estimating poses and scene geometry. E2EGS~\cite{li2026e2egs} extended this with an event-to-edge approach for trajectory estimation and Gaussian initialization.
 
-\noindent\circnum{5}~\textbf{Dynamic and 4D Reconstruction.} EventBoosted-3DGS~\cite{xu2025eventboosted3dgs} introduced event-boosted deformable Gaussians for dynamic scene reconstruction. Ev4DGS~\cite{liu2025ev4dgs} addressed novel-view rendering of non-rigid objects from monocular event streams. E-4DGS~\cite{wang2025e4dgs} achieved high-fidelity dynamic reconstruction from multi-view event cameras with event-based initialization and event-adaptive slicing. DEGS~\cite{he2026degs} used event motion priors to guide deformation field optimization.
+\noindent\circnum{5}~\textbf{Dynamic and 4D Reconstruction.} EventBoosted-3DGS~\cite{xu2025eventboosted3dgs} introduced event-boosted deformable Gaussians for dynamic scene reconstruction. Ev4DGS~\cite{liu2025ev4dgs} addressed novel-view rendering of non-rigid objects from monocular event streams. E-4DGS~\cite{wang2025e4dgs} achieved high-fidelity dynamic reconstruction from multi-view event cameras with event-based initialization and event-adaptive slicing.
 
 \noindent\circnum{6}~\textbf{SLAM and Large-Scale.} EGS-SLAM~\cite{chen2025egsslam} integrated events with RGB-D Gaussian Splatting for robust SLAM under motion blur. E-3DGS (Large-Scale)~\cite{zahid2025e3dgslarge} (3DV 2025) extended event-based 3DGS to large and unbounded scenes, outperforming EventNeRF by 11--25\% in PSNR.
 
@@ -341,7 +341,6 @@ The most distinctive contribution of this survey is the systematic review of eve
 \node[methodbox=green!60!black] (evsam) at (4.2, -1.5) {EvSAM};
 
 \node[methodbox=red!70!black] (revdm) at (6.2, -1.5) {REVDM};
-\node[methodbox=red!70!black] (e2vidiff) at (7.8, -1.5) {E2VIDiff};
 
 \node[methodbox=violet] (edam) at (10.5, -1.5) {EventDAM};
 
@@ -355,7 +354,6 @@ The most distinctive contribution of this survey is the systematic review of eve
 \draw[arr=green!60!black] (sam) -- (esam);
 \draw[arr=green!60!black] (sam) -- (evsam);
 \draw[arr=red!70!black] (diff) -- (revdm);
-\draw[arr=red!70!black] (diff) -- (e2vidiff);
 \draw[arr=violet] (depth) -- (edam);
 \draw[arr=orange] (llm) -- (egpt);
 \draw[arr=orange] (llm) -- (evl);
