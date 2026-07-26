@@ -215,7 +215,7 @@ Events naturally complement blurry frames because they record the precise timing
 
 
 \paragraph{Joint Interpolation and Deblurring.}
-REFID~\cite{sun2023refid} combined interpolation with ad-hoc deblurring. TimeReplayer~\cite{he2022timereplayer} unlocked the potential of event cameras for video interpolation through self-supervised temporal replay. EVDI~\cite{zhang2022evdi} unified motion deblurring and frame interpolation in a self-supervised framework, with its extension EVDI++~\cite{zhang2025evdiplus} further improving via iterative refinement. Sim2Real-EVFI~\cite{zhang2024sim2realevfi} bridged the sim-to-real gap for event-based frame interpolation through per-scene optimization.
+REFID~\cite{sun2023refid} combined interpolation with ad-hoc deblurring. TimeReplayer~\cite{he2022timereplayer} unlocked the potential of event cameras for video interpolation through self-supervised temporal replay. EVDI~\cite{zhang2022evdi} unified motion deblurring and frame interpolation in a self-supervised framework. Sim2Real-EVFI~\cite{zhang2024sim2realevfi} bridged the sim-to-real gap for event-based frame interpolation through per-scene optimization.
 
 \cref{tab:recon_catalog} catalogs all VFI and deblurring methods; quantitative comparisons are in \cref{sec:appendix}.
 
@@ -291,7 +291,7 @@ Event-based NeRFs have demonstrated remarkable capabilities, but they inherit Ne
 
 \noindent\circnum{4}~\textbf{Pose-Free Reconstruction.} A critical challenge in 3D reconstruction is the requirement for accurate camera poses, typically obtained from Structure-from-Motion (SfM) pipelines that fail on event-only data. IncEventGS~\cite{huang2025inceventgs} (CVPR'25) pioneered pose-free Gaussian Splatting from a single event camera, jointly estimating poses and scene geometry. E2EGS~\cite{li2026e2egs} extended this with an event-to-edge approach for trajectory estimation and Gaussian initialization.
 
-\noindent\circnum{5}~\textbf{Dynamic and 4D Reconstruction.} EventBoosted-3DGS~\cite{xu2025eventboosted3dgs} introduced event-boosted deformable Gaussians for dynamic scene reconstruction. Ev4DGS~\cite{liu2025ev4dgs} addressed novel-view rendering of non-rigid objects from monocular event streams. E-4DGS~\cite{wang2025e4dgs} achieved high-fidelity dynamic reconstruction from multi-view event cameras with event-based initialization and event-adaptive slicing.
+\noindent\circnum{5}~\textbf{Dynamic and 4D Reconstruction.} Ev4DGS~\cite{liu2025ev4dgs} addressed novel-view rendering of non-rigid objects from monocular event streams. E-4DGS~\cite{wang2025e4dgs} achieved high-fidelity dynamic reconstruction from multi-view event cameras with event-based initialization and event-adaptive slicing.
 
 \noindent\circnum{6}~\textbf{SLAM and Large-Scale.} EGS-SLAM~\cite{chen2025egsslam} integrated events with RGB-D Gaussian Splatting for robust SLAM under motion blur. E-3DGS (Large-Scale)~\cite{zahid2025e3dgslarge} (3DV 2025) extended event-based 3DGS to large and unbounded scenes, outperforming EventNeRF by 11--25\% in PSNR.
 

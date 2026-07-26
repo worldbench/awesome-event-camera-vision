@@ -507,3 +507,53 @@ Git 添加、提交或推送；用户在 Windows 中自行完成版本控制。
   - 报告仍保留“本轮未检出不等于绝对未开源”的限制；stars 是2026-07-25 GitHub API 快照，会随时间变化。
 - 待用户处理：
   - 下一轮删减时优先复核“占位/待发布”“仓库无代码”“仓库失效”和低-star项；点击报告中的仓库链接确认作者身份及最新状态。
+
+### 2026-07-25-18：开源仓库漏检二次检查
+
+- 执行者：Codex
+- 范围：外层 `tools/reconstruction_screening/audit_open_source.py`、`generate_full_report.py`、GitHub/来源页面缓存、机器可读开源结果、`docs/reconstruction_screening/REPORT.md`、`PROJECT_STATUS.md` 和本修改历史；未修改主项目论文文件，未执行 Git。
+- 修改前：
+  - 第一轮依靠宽泛 GitHub 搜索、方法题名精确搜索和已有人工证据，共检出37个仓库。
+  - 其余64项标为“本轮未检出”，但尚未系统从论文身份页面反向提取链接，也未统一使用 arXiv ID或作者身份做第二查询。
+- 修改后：
+  - 新增 `--second-pass` 增量模式：只处理仍未匹配项，优先从 arXiv、Bib URL、DOI/官方页面提取 GitHub 仓库；仍无结果时执行一次 arXiv ID或“方法名+第一作者”GitHub身份查询。
+  - Semantic Scholar 缓存中的 arXiv ID作为补充身份，不需要重新调用论文数据库；页面、搜索结果和仓库核验均逐条缓存。
+  - `REPORT.md` 结论区新增二次检查覆盖量和新增仓库数，便于判断“未检出”的核验深度。
+- 修改原因与证据：
+  - 用户要求降低 GitHub 漏检率，同时控制提示词消耗；本轮完全由本地脚本和缓存完成，没有把逐篇网页内容送入模型。
+  - 直接页面链接和 arXiv ID比单纯方法名搜索更能发现仓库名与论文名不一致的情况；作者身份查询用于补充无 arXiv ID的正式论文。
+- 验证：
+  - 反向检查54个 arXiv/官方/DOI 页面，其中53个成功读取、1个返回HTTP 403。
+  - 对仍未匹配项执行64个缓存化身份查询；新增通过严格身份阈值的仓库为0个。
+  - 最终仍为37个检出仓库：30个高置信、7个明确标注的同名候选；32项含实质代码，3项为占位或无代码风险，15项有明确数据下载入口。
+  - 二次检查没有为了提高覆盖数字而接受低阈值结果；“本轮未检出”仍不等同于绝对不存在 GitHub。
+- 待用户处理：
+  - 下一轮删减可把二次检查后的“本轮未检出”作为较强的负面资源信号，但不应单独作为删除理由。
+
+### 2026-07-26-01：第二轮删除EVDI++、CMTA和EventBoosted-3DGS
+
+- 执行者：Codex
+- 范围：主项目 `sections/3_method.tex`、`sections/catalog_tables.tex`、`sections/appendix.tex`、`main.bib`；外层当前报告、开源审计结果、报告生成源、专项删减审计、项目状态和本修改历史；未修改 `main.tex`，未执行 Git。
+- 修改前：
+  - reconstruction catalog 为101项；Bib 为556条；Tex 为378个唯一 citation key。
+  - `EVDI++` 位于 catalog 第19项，正文以 `zhang2025evdiplus` 描述其迭代改进；当前正式身份为 TPAMI 2026、DOI `10.1109/TPAMI.2026.3697759`，报告快照为0引且二次开源审计未检出代码/数据。
+  - `CMTA` 位于 catalog 第35项，Bib key 为 `kim2024cmta`；ECCV 2024、21引，官方 `intelpro/CMTA` 仓库17 stars且有数据入口，但文件树未检测到实质代码，README 状态为占位/待发布。
+  - `EventBoosted-3DGS` 位于 catalog 第94项，正文和附录均引用 `xu2025eventboosted3dgs`；ICCV 2025、2引，二次审计未检出高置信代码/数据仓库。
+- 修改后：
+  - 从 catalog 和 `main.bib` 删除上述三项；删除 EVDI++、EventBoosted-3DGS 的正文概述及 EventBoosted 的附录比较行。
+  - catalog 后续条目连续重编号，从101项减为98项；Bib 从556条减为553条；Tex 唯一 citation key 从378减为376。
+  - 重新生成 inventory、全量报告、纯 arXiv 附录和开源审计结果；3DGS 从17项减为16项。
+  - 当前人工证据撤回对 CMTA、EventBoosted-3DGS 的保护结论；完整删除身份和理由追加到 `docs/reference_audit/reconstruction_pruning_round1_2026-07-25.md`。
+- 修改原因与证据：
+  - 用户明确决定删除三项。EVDI++ 因当前引用为0、未检出代码且不承担大模型演进位置而降权删除。
+  - CMTA 因官方仓库长期仍无实质代码，被用户按假开源风险删除；已开放数据不抵消核心代码未发布问题。
+  - EventBoosted-3DGS 虽为 ICCV 2025，但当前仅2引、未检出高置信代码/数据，用户判断其在现有动态3DGS路线中重要性不足。
+- 验证：
+  - reconstruction inventory 为98行，编号1--98连续；89项绑定 Bib，9项未绑定。
+  - `main.bib` 有553个条目和553个唯一 key；Tex 有376个唯一 citation key，缺失引用为0。
+  - 三个删除方法名和三个 citation key 在主项目 `.tex`/`.bib` 中命中均为0。
+  - `main.bib` SHA-256 为 `b93a70494c4d8f51b5de15070ef136242f0ec7cdd2db8d6ccf7dfcb8d29de979`。
+  - 当前环境未执行完整 LaTeX 编译；静态引用、catalog 连续编号、报告重建及机器清单检查通过。
+- 待用户处理：
+  - 在 Overleaf 编译 `main.tex`，重点检查 catalog 重编号、正文段落和附录删行后的排版。
+  - 在 Windows 环境自行检查 Git 差异并提交、推送。
