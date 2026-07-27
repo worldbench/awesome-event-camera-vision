@@ -238,8 +238,6 @@
 1 & E2VID~\cite{rebecq2019e2vid} & CVPR'19 & \iconev & Frames & RNN & E2V & \circnum{1} \\
 \rowalt
 2 & E2VID+~\cite{stoffregen2020hqf} & ECCV'20 & \iconev & Frames & RNN & E2V & \circnum{1} \\
-3 & SPADE-E2VID~\cite{cadena2021spadee2vid} & TIP'21 & \iconev & Frames & CNN & E2V & \circnum{1} \\
-\rowalt
 4 & ET-Net~\cite{weng2021etnet} & ICCV'21 & \iconev & Frames & ViT & E2V & \circnum{1} \\
 5 & EVSNN~\cite{zhu2022evsnn} & CVPR'22 & \iconev & Frames & SNN & E2V & \circnum{1} \\
 \rowalt
@@ -264,8 +262,6 @@
 16 & Dark-E2V~\cite{song2020darke2v} & ECCV'20 & \iconev & Frames & CNN & SS & \circnum{3} \\
 17 & PhotoConst.~\cite{paredes2021backtoeventbasics} & CVPR'21 & \iconev & Frames & CNN & SS & \circnum{3} \\
 \rowalt
-18 & EvDeraining~\cite{wang2023evderaining} & ICCV'23 & \iconev\iconcam & Frames & CNN & SS & \circnum{3} \\
-\rowalt
 \midrule
 \multicolumn{8}{l}{\cellcolor{gray!8}\textit{3.2 Video Frame Interpolation \& Deblurring}} \\
 \midrule
@@ -274,11 +270,6 @@
 \rowalt
 20 & TimeReplayer~\cite{he2022timereplayer} & CVPR'22 & \iconev\iconcam & Video & CNN & VFI & \circnum{4} \\
 21 & CBMNet~\cite{kim2023cbmnet} & CVPR'23 & \iconev\iconcam & Video & CNN & VFI & \circnum{4} \\
-\rowalt
-22 & REFID~\cite{sun2023refid} & CVPR'23 & \iconev\iconcam & Video & CNN & VFI & \circnum{4} \\
-\rowalt
-23 & SuperFast~\cite{xiang2023superfast} & TPAMI'23 & \iconev\iconcam & Video & CNN & VFI & \circnum{4} \\
-24 & EVFI-DS~\cite{liu2024evfids} & CVPR'24 & \iconev\iconcam & Video & CNN & VFI & \circnum{4} \\
 \rowalt
 25 & TimeLens-XL~\cite{ma2024timelensxl} & ECCV'24 & \iconev\iconcam & Video & CNN & VFI & \circnum{4} \\
 26 & REVDM~\cite{chen2025revdm} & CVPR'25 & \iconev\iconcam & Video & Diff. & VFI & \circnum{4} \\
@@ -292,15 +283,12 @@
 30 & EFNet~\cite{sun2022efnet} & ECCV'22 & \iconev\iconcam & Sharp & CNN & Deblur & \circnum{5} \\
 31 & SAN~\cite{zhang2023san} & ICCV'23 & \iconev\iconcam & Sharp & CNN & Deblur & \circnum{5} \\
 \rowalt
-32 & DA-Deblur~\cite{sun2024dadeblur} & ECCV'24 & \iconev\iconcam & Sharp & CNN & Deblur & \circnum{5} \\
 33 & ELEDNet~\cite{kim2024elednet} & ECCV'24 & \iconev\iconcam & Frames & CNN & Deblur & \circnum{5} \\
 \rowalt
 34 & EGDeblurring~\cite{xie2025egdeblurring} & CVPR'25 & \iconev\iconcam & Sharp & Diff. & Deblur & \circnum{5} \\
 \rowalt
 35 & ClearSight & ICCV'25 & \iconev\iconcam & Sharp & CNN & Deblur & \circnum{5} \\
 %% --- Joint Interpolation & Deblurring ---
-36 & E-CIR~\cite{chen2022ecir} & CVPR'22 & \iconev\iconcam & Frames & CNN & Joint & \circnum{6} \\
-\rowalt
 37 & EVDI~\cite{zhang2022evdi} & CVPR'22 & \iconev\iconcam & Video & CNN & Joint & \circnum{6} \\
 \rowalt
 38 & UniINR~\cite{lu2024uniinr} & ECCV'24 & \iconev\iconcam & Video & CNN & Joint & \circnum{6} \\
@@ -313,7 +301,6 @@
 40 & eSL-Net~\cite{wang2020eslnet} & ECCV'20 & \iconev\iconcam & HR & CNN & SR & \circnum{7} \\
 41 & STIR~\cite{lu2023stir} & CVPR'23 & \iconev\iconcam & HR & CNN & SR & \circnum{7} \\
 \rowalt
-42 & eSL-Net++~\cite{yu2023eslnetplus} & TPAMI'23 & \iconev\iconcam & HR & CNN & SR & \circnum{7} \\
 43 & BMCNet & CVPR'24 & \iconev & HR & CNN & SR & \circnum{7} \\
 \rowalt
 44 & EvTexture~\cite{kai2024evtexture} & ICML'24 & \iconev\iconcam & HR & CNN & SR & \circnum{7} \\
@@ -324,18 +311,13 @@
 %% --- HDR Reconstruction ---
 \rowalt
 48 & NeurImg-HDR~\cite{han2023neurimghdr} & TPAMI'23 & \iconev\iconcam & HDR & CNN & HDR & \circnum{8} \\
-49 & HDRev-Net~\cite{yang2023hdrevnet} & CVPR'23 & \iconev\iconcam & HDR & CNN & HDR & \circnum{8} \\
-\rowalt
 50 & EventHDR & TPAMI'24 & \iconev\iconcam & HDR & CNN & HDR & \circnum{8} \\
 51 & Self-EHDRI~\cite{li2024hdr} & PR'26 & \iconev\iconcam & HDR & CNN & HDR & \circnum{8} \\
 \rowalt
 %% --- Low-Light Enhancement ---
-52 & EvLowLight~\cite{liang2023evlowlight} & ICCV'23 & \iconev\iconcam & Frames & CNN & LowLight & \circnum{9} \\
-\rowalt
 53 & NER-Net~\cite{liu2024rled} & CVPR'24 & \iconev\iconcam & Frames & CNN & LowLight & \circnum{9} \\
 54 & EvLight~\cite{liang2024evlight} & CVPR'24 & \iconev\iconcam & Frames & CNN & LowLight & \circnum{9} \\
 \rowalt
-55 & Sim2Real-EVFI~\cite{zhang2024sim2realevfi} & SIGAsia'24 & \iconev\iconcam & Video & CNN & LowLight & \circnum{9} \\
 56 & EvLight++~\cite{chen2026evlightpp} & TPAMI'26 & \iconev\iconcam & Frames & CNN & LowLight & \circnum{9} \\
 \rowalt
 57 & FourierEvent & ACM MM'25 & \iconev\iconcam & Frames & CNN & LowLight & \circnum{9} \\
@@ -355,25 +337,18 @@
 64 & RoEL & T-RO'26 & \iconev & Lines & -- & Geo. & \circnum{10} \\
 %% --- NeRF-Based ---
 \rowalt
-65 & Ev-NeRF~\cite{hwang2023evnerf} & WACV'23 & \iconev & Novel View & NeRF & NeRF & \circnum{11} \\
 66 & EventNeRF~\cite{rudnev2023eventnerf} & CVPR'23 & \iconev & Novel View & NeRF & NeRF & \circnum{11} \\
 \rowalt
 67 & E-NeRF~\cite{klenk2023enerf} & RA-L'23 & \iconev & Novel View & NeRF & NeRF & \circnum{11} \\
 68 & E2NeRF~\cite{qi2023e2nerf} & ICCV'23 & \iconev\iconcam & Novel View & NeRF & NeRF & \circnum{11} \\
 \rowalt
 69 & Robust-e-NeRF~\cite{low2023robustenerf} & ICCV'23 & \iconev & Novel View & NeRF & NeRF & \circnum{11} \\
-70 & DE-NeRF~\cite{ma2023denerf} & ICCV'23 & \iconev\iconcam & Novel View & NeRF & NeRF & \circnum{11} \\
-\rowalt
 71 & EvDNeRF~\cite{bhattacharya2024evdnerf} & WACV'24 & \iconev & Novel View & NeRF & NeRF & \circnum{11} \\
 72 & PAEv3d~\cite{wang2024paev3d} & ICRA'24 & \iconev & Novel View & NeRF & NeRF & \circnum{11} \\
 \rowalt
 73 & EvDeblurNeRF~\cite{cannici2024evdeblurnerf} & CVPR'24 & \iconev\iconcam & Novel View & NeRF & NeRF & \circnum{11} \\
-74 & EBAD-NeRF~\cite{qi2024ebadnerf} & ACM MM'24 & \iconev\iconcam & Novel View & NeRF & NeRF & \circnum{11} \\
-\rowalt
 75 & BeNeRF~\cite{li2024benerf} & ECCV'24 & \iconev\iconcam & Novel View & NeRF & NeRF & \circnum{11} \\
 76 & Deblur-e-NeRF~\cite{low2024deblurenerf} & ECCV'24 & \iconev & Novel View & NeRF & NeRF & \circnum{11} \\
-\rowalt
-77 & AE-NeRF~\cite{feng2025aenerf} & AAAI'25 & \iconev & Novel View & NeRF & NeRF & \circnum{11} \\
 \rowalt
 78 & EvHDR-NeRF~\cite{chen2025evhdrnerf} & AAAI'25 & \iconev\iconcam & HDR & NeRF & NeRF & \circnum{11} \\
 \rowalt
@@ -391,10 +366,6 @@
 \rowalt
 85 & Event3DGS~\cite{xiong2024event3dgs} & CoRL'24 & \iconev & Novel View & 3DGS & 3DGS & \circnum{12} \\
 \rowalt
-86 & EaDeblur-GS~\cite{weng2024eadeblurgs} & arXiv'24 & \iconev\iconcam & Novel View & 3DGS & 3DGS & \circnum{12} \\
-\rowalt
-87 & Ev-GS~\cite{wu2024evgs} & MLSP'24 & \iconev & Novel View & 3DGS & 3DGS & \circnum{12} \\
-\rowalt
 88 & E2GS~\cite{deguchi2024e2gs} & ICIP'24 & \iconev\iconcam & Novel View & 3DGS & 3DGS & \circnum{12} \\
 \rowalt
 89 & Event-3DGS~\cite{lan2024event3dgs} & NeurIPS'24 & \iconev & Novel View & 3DGS & 3DGS & \circnum{12} \\
@@ -403,14 +374,10 @@
 \rowalt
 91 & EF-3DGS~\cite{liao2025ef3dgs} & NeurIPS'25 & \iconev\iconcam & Novel View & 3DGS & 3DGS & \circnum{12} \\
 \rowalt
-\rowalt
-92 & SweepEvGS~\cite{wu2025sweepevgs} & TCSVT'25 & \iconev & Novel View & 3DGS & 3DGS & \circnum{12} \\
-\rowalt
 93 & EventSplat~\cite{yura2025eventsplat} & CVPR'25 & \iconev & Novel View & 3DGS & 3DGS & \circnum{12} \\
 \rowalt
 94 & DiET-GS~\cite{lee2025dietgs} & CVPR'25 & \iconev\iconcam & Novel View & 3DGS & 3DGS & \circnum{12} \\
 \rowalt
-95 & EBAD-GS~\cite{deng2025ebadgaussian} & ICASSP'26 & \iconev\iconcam & Novel View & 3DGS & 3DGS & \circnum{12} \\
 96 & Elite-EvGS~\cite{zhang2024eliteevgs} & arXiv'24 & \iconev & Novel View & 3DGS & 3DGS & \circnum{12} \\
 \rowalt
 97 & E-3DGS-LargeScale & 3DV'25 & \iconev & Novel View & 3DGS & 3DGS & \circnum{12} \\
@@ -555,8 +522,6 @@
 62 & DA4Event & arXiv'21 & -- & \iconev & Domain adapt. for events & Sim2Real & \circnum{10} \\
 \rowalt
 63 & N-ROD & arXiv'21 & -- & \iconev & Syn-to-real domain adapt. & Sim2Real & \circnum{10} \\
-64 & Sim2Real-EVFI~\cite{zhang2024sim2realevfi} & SIGAsia'24 & -- & \iconev\iconcam & Per-scene optimization & Sim2Real & \circnum{10} \\
-\rowalt
 65 & EQS & CVPRW'25 & -- & \iconev & Event realism scoring & Sim2Real & \circnum{10} \\
 66 & CARLA-DVS & arXiv'25 & -- & \iconev & Sim-to-real gap analysis & Sim2Real & \circnum{10} \\
 \bottomrule

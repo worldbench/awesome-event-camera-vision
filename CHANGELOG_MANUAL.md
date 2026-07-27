@@ -600,3 +600,102 @@ Git 添加、提交或推送；用户在 Windows 中自行完成版本控制。
   - 公共仓库同步采用相对文件清单和直接内容比较，不生成或记录哈希。
 - 待用户处理：
   - 无；后续任务默认不再计算或记录哈希。
+
+### 2026-07-27-03：重构下一轮20篇删减建议的论文与GitHub信息展示
+
+- 执行者：Codex
+- 范围：外层 `tools/reconstruction_screening/generate_full_report.py`、`docs/reconstruction_screening/REPORT.md` 和本修改历史；未修改主项目论文文件，未执行 Git。
+- 修改前：
+  - 两张建议表只显示方法简称、“venue；引用；仓库状态”的压缩文本和删除理由，缺少论文全名、仓库直达链接、stars与数据开放状态。
+  - “二次审计未检出仓库”重复出现在每行，无法快速看出20篇候选的整体开源结论，也不易区分未检出和同名候选。
+- 修改后：
+  - 表格逐篇显示可点击方法名、完整论文题名、发表信息、引用、GitHub审计结论、stars、数据情况及删除理由。
+  - 使用✅、⚠️、❌区分已确认官方资产、候选/占位风险和二次检索未发现官方仓库；有仓库时状态文字直接链接GitHub。
+  - 在两表之前集中说明：20篇中19篇未发现官方仓库；SuperFast仅有一个26-star、含代码和数据链接但作者身份未确认的同名候选；当前没有一篇被确认为官方仓库且含实质代码。
+- 修改原因与证据：
+  - 用户需要快速了解每篇论文名字和真实GitHub情况，原有“当前证据快照”列信息过度压缩。
+  - 展示内容直接来自当前 inventory、Bib元数据及二次开源审计结果，没有把“未检出”扩大解释为绝对未开源。
+- 验证：
+  - 报告生成脚本成功重建 `REPORT.md`；两组仍为12篇和8篇且没有重复。
+  - 20行均显示完整题名、GitHub状态、stars和数据状态；唯一仓库链接为明确标注“未确认官方”的SuperFast同名候选。
+  - 生成脚本通过Python语法检查；未计算或记录文件哈希。
+- 待用户处理：
+  - 根据新版表格复核删除建议；尚未执行这20篇的实际删减。
+
+### 2026-07-27-04：逐篇重查20篇删减建议并撤回错误结论
+
+- 执行者：Codex
+- 范围：外层 `tools/reconstruction_screening/audit_open_source.py`、`generate_full_report.py`、`docs/reconstruction_screening/full_review_evidence.json`、开源审计缓存与机器可读结果、`docs/reconstruction_screening/REPORT.md` 和本修改历史；未修改主项目论文文件，未执行 Git。
+- 修改前：
+  - 原建议把12篇列为优先删除、8篇列为凑足20篇的压缩项，技术理由主要依据方法简称、引用和旧开源审计，没有逐篇重新阅读论文。
+  - 旧版错误声称20篇均未确认官方实质代码；SuperFast被标为未确认官方的同名候选。
+  - TimeTracker因“不属于扩散、基础模型或其他关键范式转折”被优先删除，未说明其连续点轨迹范式和非线性运动数据；Elite-EvGS、EvLight++与预训练先验/基础模型的直接关系也被遗漏。
+- 修改后：
+  - 逐篇核对论文摘要/正文、官方 proceedings、作者项目页和GitHub，将原20篇重新判为：11篇撤回删除、7篇降为压缩备选、仅DA-Deblur和EaDeblur-GS两篇仍建议删除。
+  - 找回并确认10个官方仓库：E-SAI、EvDeraining、SAN、DA-Deblur、EvDNeRF、LSE-NeRF、SuperFast、eSL-Net++、NeurImg-HDR和EvLight++；报告显示仓库链接、stars、代码完整度和数据状态。
+  - SuperFast通过论文作者Siqi Li与仓库README作者表确认是官方仓库；EvLight官方仓库明确写明EvLight++视频代码、模型和数据已经发布。
+  - 将EvDNeRF、SuperFast和eSL-Net++标为“有限代码”：前者缺论文声明的数据生成组件，后两者有实质推理代码、模型和数据但未提供训练流程；它们不是空仓库式假开源，也不再冒充完整开源。
+  - 明确撤回TimeTracker旧理由：它不使用扩散/基础模型这一点属实，但连续点轨迹VFI属于方法范式变化；Elite-EvGS蒸馏现成E2V先验，EvLight++使用基础模型生成分割/深度伪标签，均应保留在大模型时代叙事中。
+- 修改原因与证据：
+  - 用户要求通过逐篇搜索替代其人工阅读，并检查技术删除理由是否真实。
+  - 主要权威证据来自CVF/ECVA/AAAI论文页、arXiv论文作者声明、作者项目页和论文作者的GitHub仓库；仓库文件树及README用于区分完整代码、有限代码和占位仓库。
+  - 代表性纠错证据包括 `dvs-whu/E-SAI`、`booker-max/Unsupervised-Deraining-with-Event-Camera`、`XiangZ-0/GEM`、`anish-bhattacharya/EvDNeRF`、`ubc-vision/LSENeRF`、`lisiqi19971013/SuperFast`、`EthanLiang99/EvLight` 等官方仓库。
+- 验证：
+  - 开源审计从37个旧匹配更新为45个仓库；当前全catalog中38项完整代码、3项有限代码、2项占位/无代码风险、23项有明确数据入口。
+  - 复核表包含20篇且无重复：11个绿色撤回、7个黄色备选、2个红色仍删；10篇显示已确认官方仓库，另外10篇仍未检出官方仓库。
+  - 两个脚本通过Python语法检查，人工证据JSON格式有效，报告由生成脚本成功重建；未计算或记录文件哈希。
+- 待用户处理：
+  - 不要直接执行旧20篇名单；如仍需再删20篇，应在当前98篇全表中另选至少18篇替代候选。
+
+### 2026-07-27-05：从40篇候选复核形成新的20篇删减建议
+
+- 执行者：Codex
+- 范围：外层 `docs/reconstruction_screening/` 的40篇复核证据、开源审计结果与 `REPORT.md`，以及 `tools/reconstruction_screening/generate_full_report.py`；未修改主项目论文 `.tex`/`.bib`，未执行实际删文或Git操作。
+- 修改前：
+  - 报告只保留上一版20篇错误建议的纠错结果：11篇撤回、7篇备选、2篇仍建议删除，无法满足“仍需再删20篇”的人工决策需求。
+  - 旧开源表仍漏掉TimeLens-XL、EGDeblurring、STIR、Robust-e-NeRF和BeNeRF的官方GitHub，容易再次用错误的“未检出代码”作为删除依据。
+  - Sim2Real-EVFI与Ev-GS仍显示旧的保护标签，没有体现强制继续压缩时的相对取舍。
+- 修改后：
+  - 新建 `pruning_review_40.json`，从当前98篇中列出40篇候选；每篇记录真实技术贡献、同簇替代关系、权威论文链接与最终结论。
+  - 40篇无重复并严格分为20篇“建议删除”和20篇“复核后保留”。建议删除为：SPADE-E2VID、EvDeraining、REFID、SuperFast、EVFI-DS、DA-Deblur、E-CIR、eSL-Net++、HDRev-Net、EvLowLight、Sim2Real-EVFI、Ev-NeRF、DE-NeRF、EBAD-NeRF、AE-NeRF、Event3DGS、EaDeblur-GS、Ev-GS、SweepEvGS、EBAD-GS。
+  - 报告明确把EvDeraining、E-CIR、HDRev-Net、EvLowLight、Sim2Real-EVFI、Ev-NeRF、AE-NeRF和Event3DGS标为8篇边界项：它们不是差论文，只是在必须继续压缩时相对可替代。
+  - 复核后保留的20篇为：E2VID+、EVSNN、HyperE2VID、CBMNet、TimeLens-XL、SAN、EGDeblurring、ClearSight、UniINR、STIR、Self-EHDRI、ERetinex、Robust-e-NeRF、EvDNeRF、BeNeRF、EvHDR-NeRF、E2GS、EF-3DGS、EventSplat、Elite-EvGS。
+  - 找回并审计5个官方GitHub：TimeLens-XL、EGDeblurring、STIR、Robust-e-NeRF、BeNeRF；另将论文页面直接声明的SPADE-E2VID和REFID仓库提升为官方证据。全量结果现为50个仓库、43项实质代码、2项占位/无代码风险、27项明确数据入口。
+  - 新表逐篇显示完整题名、真实技术位置、venue/引用、GitHub链接、stars、代码完整度、数据状态和比较后的取舍理由；同名候选不再显示成“官方代码”。
+- 修改原因与证据：
+  - 用户要求重新选择40篇可能删减项，逐篇搜索后再选20篇，以节省其自行阅读论文的时间。
+  - 取舍围绕论文总题目“Event Camera Vision in the Era of Large Models”，优先保护扩散/预训练、SNN/INR/超网络、独特数据与传感器物理，以及NeRF到3DGS和位姿联合优化等范式节点；引用、venue和开源只作为交叉证据。
+  - 技术证据来自CVF、ECVA、AAAI、PMLR、OpenReview、出版社DOI/arXiv、作者项目页及论文直接链接的GitHub；未用题名相似或二手概述替代技术核验。
+- 验证：
+  - 40篇证据JSON格式有效，方法数40、唯一方法数40，结论计数为20+20，全部存在于当前inventory。
+  - 两个审计/报告脚本通过语法解析；生成器成功重建 `REPORT.md`，当前inventory仍为98项、9项未绑定主Bib。
+  - 新表中的20篇建议仅为人工决策，不曾修改主项目 `.tex`、`main.bib` 或catalog；未计算或记录哈希。
+- 待用户处理：
+  - 优先审阅报告标出的8篇边界项；确认最终名单后，再执行主稿、Bib、catalog与附录的一致删减。
+
+### 2026-07-27-06：执行第三轮19篇删减并保留Event3DGS
+
+- 执行者：Codex
+- 范围：主项目 `sections/3_method.tex`、`sections/5_appl.tex`、`sections/catalog_tables.tex`、`sections/appendix.tex` 和 `main.bib`；外层 `docs/reconstruction_screening/` 当前报告、40篇复核结论、人工证据与机器可读清单，以及 `tools/reconstruction_screening/generate_full_report.py` 和本修改历史；未修改 `main.tex`，未执行 Git。
+- 修改前：
+  - reconstruction catalog 为98项，`main.bib` 为553个唯一条目，主项目 TeX 使用376个唯一 citation key。
+  - 40篇候选复核原拟删除20篇，其中包含 `Event3DGS`；报告仍把该项列为建议删除。
+  - 待删论文仍分布于方法正文、应用正文、catalog、附录对照表和 Bib，不能只删单一位置。
+- 修改后：
+  - 按用户确认删除19篇：SPADE-E2VID、EvDeraining、REFID、SuperFast、EVFI-DS、DA-Deblur、E-CIR、eSL-Net++、HDRev-Net、EvLowLight、Sim2Real-EVFI、Ev-NeRF、DE-NeRF、EBAD-NeRF、AE-NeRF、EaDeblur-GS、Ev-GS、SweepEvGS、EBAD-GS。
+  - `Event3DGS: Event-Based 3D Gaussian Splatting for High-Speed Robot Egomotion` 撤回删除并保留；其正文叙述、catalog行和 `xiong2024event3dgs` Bib条目均保持存在。
+  - 删除上述19篇在方法正文、应用正文、catalog和附录中的全部引用或表格行，并从 `main.bib` 删除对应完整条目；reconstruction inventory 从98项减为79项，Bib从553条减为534条，TeX唯一 citation key从376减为357。
+  - `REPORT.md` 更新为“第三轮已删除19篇、Event3DGS用户决定保留、其余20篇复核后保留”，并让生成脚本能够显示已经不在当前catalog中的历史删减项。
+- 修改原因与证据：
+  - 用户明确要求执行已复核的删减名单，随后明确撤回对Event3DGS的删除。
+  - Event3DGS为CoRL正式论文，报告快照为33引，面向高速机器人自运动重建；当前未检出官方GitHub不足以单独构成删除理由。
+  - 其余19篇的技术位置、正式发表身份、引用、开源/数据状态和同簇替代关系已在 `pruning_review_40.json` 逐篇记录，本轮不重新扩大或改写用户确认的删减范围。
+- 验证：
+  - 重建后的 inventory 为79行；开源状态表同为79行，检出41个仓库、36项实质代码、2项占位或无代码风险、20项数据入口。
+  - `main.bib` 有534个条目且key全部唯一；主项目共有357个唯一 citation key，Bib缺失引用为0。
+  - 19个删除 citation key在主项目 `.tex`/`.bib` 中均为0命中；`xiong2024event3dgs` 仍在正文、catalog和Bib中命中。
+  - 40篇复核JSON格式有效，报告结论计数为19篇已删除、1篇用户决定保留、20篇复核后保留；报告生成脚本语法检查通过。
+  - 本机未安装 `latexmk`、`pdflatex`、`xelatex`、`lualatex` 或 `tectonic`，因此未执行本地LaTeX编译；未计算或记录文件哈希。
+- 待用户处理：
+  - 在Overleaf以 `main.tex` 为入口编译，重点检查catalog删行后的表格分页、附录对照表和参考文献输出。
+  - 在Windows环境检查私人工作区和公共发布仓库的差异后，自行执行Git提交与推送。

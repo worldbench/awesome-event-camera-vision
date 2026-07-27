@@ -160,7 +160,6 @@ Event cameras have transitioned from laboratory curiosities to practical deploym
 \midrule
 26 & Rain Removal~\cite{jiang2022rainremoval} & Front.~Neurorobot.'22 & Weather & First DVS rain removal approach \\
 \rowalt
-27 & EvDeraining~\cite{wang2023evderaining} & ICCV'23 & Weather & Unsupervised video deraining with events \\
 28 & De-Snowing~\cite{zhang2025desnowing} & arXiv'25 & Weather & Event-based de-snowing for driving \\
 \rowalt
 29 & PRE-Mamba~\cite{li2025premamba} & ICCV'25 & Weather & 4D state space model for ultra-high-freq.\ deraining \\
@@ -276,7 +275,7 @@ Bridging the gap between GPU-based research algorithms and neuromorphic edge dep
 
 Event cameras' response to brightness changes rather than absolute intensity provides partial immunity to certain weather artifacts, as rain, snow, and fog each produce distinctive event signatures that can be separated from scene dynamics. Early work addressed rain removal from DVS event videos~\cite{jiang2022rainremoval}, establishing that the temporal statistics of rain-induced events differ characteristically from object-motion events.
 
-EvDeraining~\cite{wang2023evderaining} (ICCV 2023) achieved unsupervised video deraining with events, leveraging the complementary strengths of events (sharp temporal boundaries) and frames (dense spatial context) without requiring paired rainy/clean training data. PRE-Mamba~\cite{li2025premamba} (ICCV 2025) introduced a 4D state space model for ultra-high-frequency event camera deraining, processing events at their native microsecond resolution to achieve superior rain streak removal. Recent work extends to de-snowing for autonomous driving~\cite{zhang2025desnowing}, addressing the distinct challenge of snow flakes that produce larger, more diffuse event clusters than rain drops.
+PRE-Mamba~\cite{li2025premamba} (ICCV 2025) introduced a 4D state space model for ultra-high-frequency event camera deraining, processing events at their native microsecond resolution to achieve superior rain streak removal. Recent work extends to de-snowing for autonomous driving~\cite{zhang2025desnowing}, addressing the distinct challenge of snow flakes that produce larger, more diffuse event clusters than rain drops.
 
 However, systematic evaluation of event camera robustness under diverse weather conditions (fog, heavy rain, snow, ice) remains limited. Fog, in particular, presents a distinct challenge: unlike rain and snow, fog does not produce discrete events but rather attenuates contrast globally, reducing the event rate and potentially silencing the sensor. Developing comprehensive adverse-weather benchmarks and multi-weather methods is an important open direction for enabling all-weather event-based autonomous driving (\cref{sec:appl_driving}).
 
