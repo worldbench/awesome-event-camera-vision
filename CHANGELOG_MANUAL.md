@@ -856,3 +856,102 @@ Git 添加、提交或推送；用户在 Windows 中自行完成版本控制。
 - 待用户处理：
   - 在Overleaf以`main.tex`检查更新后的Foundation-Prior表分页和正文排版。
   - 优先查看`REVIEW_QUEUE.md`前部9项；其余高置信项只需抽查。
+
+### 2026-07-28-04：更正EventMM身份与任务归属
+
+- 执行者：Codex
+- 范围：外层 `tools/reconstruction_taxonomy/build_taxonomy_audit.py`、
+  `docs/reconstruction_taxonomy/REVIEW_QUEUE.md`、结构化台账和完整映射，以及本修改历史；
+  未修改主论文、Bib或Git。
+- 修改前：
+  - 审计沿用旧reconstruction catalog中的`EventMM / ECCV'24 / Joint / Video`行，
+    将其写为“身份未解析、可能是错误重建条目”。
+  - 记录`2026-07-28-02`也只说明未核实到ECCV重建论文，没有说明真实论文与数据集关系。
+- 修改后：
+  - 明确论文为`Adaptive Vision Transformer for Event-Based Human Pose Estimation`，
+    作者为Nannan Yu等，正式任务为事件人体姿态估计，venue为ACM MM 2024。
+  - `EventMM HPE`是该论文建立的frame-event人体姿态数据集名称，不是视频重建方法。
+  - 审计分类改为`Exclude / perception (human pose estimation)`，输入/任务/输出改为
+    `Event+RGB / Human pose estimation / Pose`，置信度改为High。
+  - 当前perception姿态表尚未包含该论文；本轮不擅自扩充主论文，只修正重建审计。
+- 修改原因与证据：
+  - 用户检查作者页面后指出该论文明显属于人体姿态估计，而非重建。
+  - 作者官方页面给出完整标题、作者、ACM MM 2024身份、论文/代码/数据入口，并在摘要中
+    明确说明adaptive vision transformer与EventMM HPE数据集。
+- 验证：
+  - 重新生成JSON、CSV、`REVIEW_QUEUE.md`和`PROPOSED_MAPPING.md`；EventMM标题、venue、
+    输入、任务、输出和排除理由一致。
+  - 88个当前重建方法计数不变；审计输出的未解析身份由EventMM变为0。
+- 待用户处理：
+  - 如希望扩大perception人体姿态覆盖，可另行决定是否将该论文加入姿态正文、大表和Bib。
+
+### 2026-07-28-05：恢复Event-to-Event超分支线并区分分类置信度与证据状态
+
+- 执行者：Codex
+- 范围：主项目 `sections/catalog_tables.tex`、`sections/3_method.tex`；外层
+  `tools/reconstruction_taxonomy/build_taxonomy_audit.py`、`docs/reconstruction_taxonomy/`、
+  `PROJECT_STATUS.md`及本修改历史；未修改Bib、模板或Git。
+- 修改前：
+  - `BMCNet`、`NeurSR`和`UPNSNN`因输出高分辨率事件流而被排除在视觉重建表外；
+    Dedicated只有2D图像/视频与3D重建分支，总reconstruction catalog为88篇。
+  - `REVIEW_QUEUE.md`中的`High`同时被误读为“分类直观且可靠”和“已阅读原始论文”；
+    实际85个High项中只有13项保存了逐篇原始来源链接，另外72项主要由当前catalog、
+    Bib身份和明确题名对齐。
+  - 用户已确认的EventSplat、Elite-EvGS、EPA、EventMM和EIF-BiOFNet仍显示Pending。
+- 修改后：
+  - Dedicated新增`Event-Stream Restoration (Event-to-Event)`，纳入BMCNet、
+    NeurSR和UPNSNN；表格明确其输出为HR events，不与event-to-image SR混合。
+  - 正文新增事件流恢复段落，说明该支线不推断语义/几何目标，因此不属于perception；
+    同时输出仍是被恢复的传感信号，故保留在reconstruction最合理。
+  - 当前catalog为91篇：Dedicated 78篇
+    （Event-Stream 3、2D Event-Only 13、2D Event-Guided RGB 28、
+    3D Event-Only 22、3D Event-Assisted Multimodal 12），Foundation-Prior 13篇。
+  - 审计新增独立`verification_status`：`Primary source checked`或
+    `Catalog/Bib aligned; primary-source reading not recorded`；不再让High暗示已经逐篇
+    阅读原文。当前91篇中18篇记录为原始来源已核验、73篇明确显示尚未记录原文阅读。
+  - `REVIEW_QUEUE.md`把用户已确认的5项移入“已确认的边界、排除与重复决定”，
+    当前前置待决边界只剩EvDiff。
+- 修改原因与证据：
+  - 用户指出Event-to-Event SR虽不输出图像，仍是事件信号本身的重建与补全；当前综述
+    没有比reconstruction更合适的一级位置。
+  - CVPR 2024 BMCNet论文明确从LR event stream恢复HR event stream；NeurSR论文明确
+    自监督地进行spatiotemporal neuromorphic event-stream SR；AAAI 2026 UPNSNN明确
+    采用stream-based event-to-event SNN并输出异步HR事件流。
+  - 用户同时要求确认High是否来自原始信息；本轮据实拆分分类置信度和证据完备度，
+    不对此前72项、当前73项未保存原文证据的方法作“全部已爬取”的错误承诺。
+- 验证：
+  - 审计台账为91个当前方法、91个唯一citation key；分组计数为3+13+28+22+12+11+2。
+  - `REVIEW_QUEUE.md`当前状态为5项Approved、1项Pending、其余Auto-proposed；
+    三个Event-to-Event方法均显示原始来源已核验。
+  - 主Bib仍为532个唯一key；恢复三篇表格引用后全文使用370个唯一citation key，
+    缺失引用为0；LaTeX环境、花括号、label和交叉引用静态检查通过。
+  - 本机无LaTeX引擎，未执行本地编译；未计算或记录哈希。
+- 待用户处理：
+  - 决定EvDiff是否保留在Foundation-Prior；其余高置信项可依据新增的原始来源状态
+    选择是否继续做逐篇全文审计。
+
+### 2026-07-28-06：依据原文确认EvDiff为Foundation-Prior
+
+- 执行者：Codex
+- 范围：主项目 `sections/catalog_tables.tex`、`sections/3_method.tex`；外层taxonomy
+  生成器、台账、`REVIEW_QUEUE.md`及本修改历史；未修改Bib、模板或Git。
+- 修改前：
+  - EvDiff被写成“SD3-style latent model”，并因是否直接采用外部基础模型不清楚而保留
+    Medium confidence和Foundation-Prior boundary，成为review queue唯一Pending项。
+- 修改后：
+  - 原文核验确认EvDiff明确采用Stable Diffusion 3作为base/foundation model，
+    使用其自然图像先验，改造成one-step diffusion，并通过Places365代理训练、
+    EvEncoder蒸馏和小规模事件数据联合微调完成适配。
+  - 表格先验名称改为`Stable Diffusion 3`，作用改为one-step adaptation and
+    surrogate training；正文撤回“只使用SD3-style自训练先验”的边界说法。
+  - EvDiff改为High confidence、无边界；当前review queue无待人工决定的低置信项。
+- 修改原因与证据：
+  - arXiv HTML正文第1节和方法3.2明确写出“adopt the Stable Diffusion 3 model as
+    our base model”以及“utilize Stable Diffusion 3 with powerful natural image
+    priors as foundation model”，足以消除原分类疑问。
+- 验证：
+  - 重新生成91篇台账与报告；所有当前方法均为High confidence，5项用户确认决定保留，
+    其余为Auto-proposed。
+  - 引用、Bib唯一性和LaTeX静态结构检查保持通过；未计算或记录哈希。
+- 待用户处理：
+  - 无taxonomy低置信项；仍可按`verification_status`对未记录原文阅读的方法继续抽查。

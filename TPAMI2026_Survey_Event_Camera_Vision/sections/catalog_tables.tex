@@ -225,12 +225,19 @@
 % ============================================================
 \begin{table*}[p]
 \centering
-\caption{Dedicated 2D reconstruction paradigms. The primary division is the sensing input: event-only methods infer visual appearance from events, whereas event-guided methods restore or synthesize RGB frames using complementary event measurements. Diffusion denotes a task-trained diffusion model unless the method appears in the Foundation-Prior table.}
+\caption{Dedicated event-stream and 2D reconstruction paradigms. Event-to-event methods restore the spatial resolution of the asynchronous signal itself; visual methods are then divided by sensing input into event-only appearance reconstruction and event-guided RGB restoration. Diffusion denotes a task-trained diffusion model unless the method appears in the Foundation-Prior table.}
 \label{tab:recon_catalog}
 \resizebox{\textwidth}{!}{
 \begin{tabular}{l l c c c l}
 \toprule
 \textbf{Method} & \textbf{Venue} & \textbf{In} & \textbf{Out} & \textbf{Model} & \textbf{Objective} \\
+\midrule
+\multicolumn{6}{l}{\cellcolor{gray!8}\textit{Event-Stream Restoration (Event-to-Event)}} \\
+\midrule
+BMCNet~\cite{huang2024bilateral} & CVPR'24 & \iconev & HR events & CNN & Event-stream SR \\
+\rowalt
+NeurSR~\cite{zhang2024neuromorphic} & TCSVT'24 & \iconev & HR events & CNN & Self-supervised event SR \\
+UPNSNN~\cite{xu2026ultralight} & AAAI'26 & \iconev & HR events & SNN & Efficient event-stream SR \\
 \midrule
 \multicolumn{6}{l}{\cellcolor{gray!8}\textit{Event-Only Image and Video Reconstruction}} \\
 \midrule
@@ -372,7 +379,7 @@ Semantic-E2VID~\cite{wu2025semantice2vid} & arXiv'25 & 2D & \iconev / E2V & SAM 
 \rowalt EGVD~\cite{wang2025egvd} & ICCVW'25 & 2D & \iconev\iconcam / VFI & Stable Video Diffusion & Selective fine-tuning \\
 EPA~\cite{li2025epa} & NeurIPS'25 & 2D & \iconev\iconcam / VFI & DINO & Perceptual supervisory space \\
 \rowalt EVDiffuser~\cite{chen2025evdiffuser} & NeurIPS'25 & 2D & \iconev\iconcam / low-light & CogVideoX-I2V & LoRA adaptation and generation \\
-EvDiff~\cite{li2025evdiff} & arXiv'25 & 2D & \iconev / E2V & Large-scale image-trained latent prior & Surrogate training and distillation \\
+EvDiff~\cite{li2025evdiff} & arXiv'25 & 2D & \iconev / E2V & Stable Diffusion 3 & One-step adaptation and surrogate training \\
 \rowalt HDRev-Diff~\cite{yang2025hdrevdiff} & ICCV'25 & 2D & \iconev\iconcam / HDR & Pretrained latent diffusion & Frozen generative prior and event control \\
 EvLight++~\cite{chen2026evlightpp} & TPAMI'26 & 2D & \iconev\iconcam / low-light & SAM + depth foundation model & Pseudo-labeling and structured validation \\
 \rowalt IE2Video~\cite{torbunov2025ie2video} & arXiv'25 & 2D & \iconev\iconcam / E2V & LTX-Video & Event adapter and LoRA \\
@@ -386,7 +393,7 @@ DeblurSplat~\cite{zhang2025deblursplat} & TMM'26 & 3D & \iconev\iconcam / deblur
 \begin{tcolorbox}[colback=gray!5, colframe=gray!50, boxrule=0.4pt, arc=2pt, left=4pt, right=4pt, top=2pt, bottom=2pt]
 \small
 \textbf{Input:}~\iconev~events, \iconcam~RGB/frame input, \icontext~text.
-Task-trained diffusion without a large-scale pretrained model (TRG-Diffusion, EGDeblurring, NEC-Diff) remains in \cref{tab:recon_catalog}; E2V teachers (Elite-EvGS and EventSplat) are task-pretrained priors rather than foundation models. Event-to-event super-resolution is treated as sensor-stream restoration and is outside these visual reconstruction tables.
+Task-trained diffusion without a large-scale pretrained model (TRG-Diffusion, EGDeblurring, NEC-Diff) remains in \cref{tab:recon_catalog}; E2V teachers (Elite-EvGS and EventSplat) are task-pretrained priors rather than foundation models. Event-to-event super-resolution is retained as a distinct signal-restoration block in \cref{tab:recon_catalog}.
 \end{tcolorbox}
 \end{table*}
 
