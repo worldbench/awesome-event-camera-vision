@@ -52,7 +52,7 @@ We are now in the \textit{era of large models} (2024--present), which motivates 
 \node[detail=blue, anchor=south] at ([yshift=0.3cm]per.north) {Detection, Segmentation\\Depth \& Flow, Tracking\\Action Recog. \& Pose Estim.};
 
 % Detail boxes -- Reconstruction
-\node[detail=green!60!black, anchor=south] at ([yshift=0.3cm]rec.north) {E2V, VFI \& Deblurring\\Image Enhancement\\3D Reconstruction};
+\node[detail=green!60!black, anchor=south] at ([yshift=0.3cm]rec.north) {Dedicated Reconstruction\\2D Event-Only / Event-Guided\\Foundation-Prior 2D / 3D};
 
 % Detail boxes -- Understanding
 \node[detail=orange, anchor=west] at ([xshift=0.3cm]und.east) {Open-Vocab Perception\\Scene Understanding \& Reasoning\\Simulation \& Generation};
@@ -68,7 +68,7 @@ We are now in the \textit{era of large models} (2024--present), which motivates 
 \draw[arr=violet, dashed] (center) -- (ch);
 
 \end{tikzpicture}
-\caption{Overview of this survey. We provide a comprehensive review of event camera vision organized around six pillars: \textit{preliminaries} (\cref{sec:pre}), \textit{perception} (\cref{sec:perception}), \textit{reconstruction} (\cref{sec:reconstruction}), \textit{understanding} (\cref{sec:understanding}), \textit{datasets and evaluations} (\cref{sec:data}), and \textit{applications} (\cref{sec:appl}). Each pillar is detailed with its core topics and representative methods. The understanding pillar (\textcolor{orange}{orange}) highlights the ``era of large models'' theme that distinguishes this survey from prior work.}
+\caption{Overview of this survey. We provide a comprehensive review of event camera vision organized around six pillars: \textit{preliminaries} (\cref{sec:pre}), \textit{perception} (\cref{sec:perception}), \textit{reconstruction} (\cref{sec:reconstruction}), \textit{understanding} (\cref{sec:understanding}), \textit{datasets and evaluations} (\cref{sec:data}), and \textit{applications} (\cref{sec:appl}). Large-model effects are traced across pillars: reconstruction explicitly separates dedicated methods from Foundation-Prior methods, while understanding covers open-vocabulary and language-centered capabilities.}
 \label{fig:overview}
 \end{figure*}
 
@@ -90,11 +90,11 @@ This survey aims to fill this gap by providing a comprehensive, up-to-date revie
 
     \item \textbf{Comprehensive and timely coverage.} We review over 400 papers spanning the full spectrum of event camera vision, with particular emphasis on methods from 2024--2026 that leverage large-scale pre-trained models, diffusion priors, state space models, and 3D Gaussian Splatting.
 
-    \item \textbf{A unified five-pillar taxonomy.} We organize the literature around benchmarks and datasets, perception, reconstruction, understanding, and applications --- providing a coherent framework that connects low-level event processing to high-level semantic reasoning and real-world deployment. Within each pillar, we adopt a consistent task-based organization: perception covers 5 core tasks, reconstruction 4 output-oriented tasks, and understanding 3 capability-driven themes.
+    \item \textbf{A unified five-pillar taxonomy.} We organize the literature around benchmarks and datasets, perception, reconstruction, understanding, and applications --- providing a coherent framework that connects low-level event processing to high-level semantic reasoning and real-world deployment. Reconstruction separates dedicated event models from methods that import large-scale pretrained priors; input modality provides the primary subdivision, while task and 3D representation remain explicit attributes.
 
     \item \textbf{The first survey of event camera understanding.} We systematically review the emerging area of event-based understanding, including event MLLMs (EventGPT, EventVL, EventFlash), CLIP-based recognition (EventCLIP, EventBind, EZSR), open-vocabulary segmentation (OpenESS, SEAL), and SAM/DINO adaptation --- an area not covered by any prior survey.
 
-    \item \textbf{Identification of paradigm shifts.} For each area, we highlight how large models have changed the dominant approaches: from discriminative to generative reconstruction, from supervised to open-vocabulary perception, from NeRF to 3DGS for 3D representation, and from task-specific to foundation-model-based understanding.
+    \item \textbf{Identification of paradigm shifts.} For each area, we distinguish architectural change from knowledge transfer: task-trained diffusion, NeRF, and 3DGS remain dedicated paradigms, whereas pretrained video diffusion, SAM/DINO knowledge, foundation-model pseudo-labeling, and pretrained geometric initialization constitute Foundation-Prior reconstruction.
 
     \item \textbf{A living community resource.} We maintain a continuously updated companion repository\footnote{\url{https://github.com/worldbench/awesome-event-camera-vision}} containing curated paper lists, dataset links, and code repositories, ensuring that this survey remains a practical and evolving reference.
 
@@ -104,7 +104,7 @@ This survey aims to fill this gap by providing a comprehensive, up-to-date revie
 \subsection{Organization}
 \label{sec:intro_organization}
 
-The remainder of this paper is organized as follows. \Cref{sec:pre} introduces the preliminaries of event cameras, including sensor principles, event representations, and key processing paradigms. \Cref{sec:method} presents our main survey, organized into three interrelated areas: perception (\ie, detection, segmentation, depth and optical flow, tracking, and action recognition and pose estimation), reconstruction (\ie, event-to-video reconstruction, video frame interpolation and deblurring, image enhancement, and 3D reconstruction), and understanding (\ie, open-vocabulary perception, scene understanding and reasoning, and event data simulation and generation). \Cref{sec:data} provides a comprehensive review of datasets, benchmarks, and simulators. \Cref{sec:appl} surveys real-world applications across autonomous driving, robotics, UAVs, eye tracking, space imaging, medical microscopy, and more. Finally, \Cref{sec:conclusion} discusses open challenges, emerging opportunities, and future research directions. \cref{fig:taxonomy} provides an overview of the survey's organization.
+The remainder of this paper is organized as follows. \Cref{sec:pre} introduces the preliminaries of event cameras, including sensor principles, event representations, and key processing paradigms. \Cref{sec:method} presents our main survey, organized into three interrelated areas: perception (\ie, detection, segmentation, depth and optical flow, tracking, and action recognition and pose estimation), reconstruction (\ie, dedicated 2D/3D reconstruction and Foundation-Prior 2D/3D reconstruction), and understanding (\ie, open-vocabulary perception, scene understanding and reasoning, and event data simulation and generation). \Cref{sec:data} provides a comprehensive review of datasets, benchmarks, and simulators. \Cref{sec:appl} surveys real-world applications across autonomous driving, robotics, UAVs, eye tracking, space imaging, medical microscopy, and more. Finally, \Cref{sec:conclusion} discusses open challenges, emerging opportunities, and future research directions. \cref{fig:taxonomy} provides an overview of the survey's organization.
 
 \begin{figure*}[t]
 \centering

@@ -740,3 +740,119 @@ Git 添加、提交或推送；用户在 Windows 中自行完成版本控制。
 - 待用户处理：
   - 审阅并批准方案文档第7节的四项框架决定；未批准前不开始Phase 0或逐篇分类。
   - 后续正式落稿前，为`Dedicated Reconstruction Paradigms`确定最终名称。
+
+### 2026-07-28-02：执行Reconstruction分类重构并同步正文、表格与Bib
+
+- 执行者：Codex
+- 范围：
+  - 主项目 `sections/catalog_tables.tex`、`sections/3_method.tex`、`sections/1_intro.tex`、
+    `sections/0_abstract.tex`、`sections/6_conclusion.tex`、`sections/appendix.tex` 和
+    `main.bib`；
+  - 外层 `docs/reconstruction_taxonomy/`、`docs/reference_audit/`、`docs/README.md`、
+    `PROJECT_STATUS.md`、`tools/reconstruction_taxonomy/` 及本修改历史；
+  - 未修改模板、样式、图片、`bin/` 历史材料或Git历史。
+- 修改前：
+  - reconstruction catalog为79项单表，一级分类混合E2V训练方式、VFI/去模糊任务、
+    低光/HDR/SR任务以及NeRF/3DGS表示，不能清楚回答输入条件或大规模预训练知识是否
+    进入核心重建。
+  - 正文继续沿用E2V生成方式、VFI/deblur、enhancement和3D表示的旧组织，容易把
+    task-trained Diffusion、NeRF或3DGS本身误写成“大模型时代”的证据。
+  - 正文中若干方法未进入大表；旧表还包含无法核实的`EventMM`、3个event-to-event
+    超分方法，以及把`EIF-BiOFNet`误作独立论文的重复行。
+  - `main.bib`中Robust-e-NeRF和E-3DGS各有重复身份；E2EGS、EGVD和DeblurSplat仍为
+    预印本元数据；Fourier low-light与Semantic-E2VID只有非正式标签或占位元数据。
+- 修改后：
+  - reconstruction采用两条一级路线：暂名`Dedicated Reconstruction Paradigms`和
+    `Foundation-Prior Reconstruction`。Foundation-Prior只接纳外部大规模预训练模型
+    通过适配、生成先验、几何初始化、蒸馏或核心监督直接影响重建的方法。
+  - Dedicated按可观测输入分为2D Event-Only（13篇）、2D Event-Guided RGB（30篇）、
+    3D Event-Only（22篇）及3D Event-Assisted Multimodal（12篇）；VFI、Deblur、
+    SR、Low-Light、HDR、Unified及Geometry/NeRF/3DGS保留为直观任务或表示属性。
+  - Foundation-Prior为2D 9篇、3D 2篇；表中明确列出SD/video diffusion、SAM、DINO、
+    CogVideoX-I2V、LTX-Video、DUSt3R等具体先验及其在重建中的作用。视觉重建大表共
+    88篇，77篇Dedicated、11篇Foundation-Prior。
+  - 重写reconstruction正文的演进叙事，并同步abstract、intro概览与贡献、
+    conclusion和附录；明确区分task-trained Diffusion、普通E2V teacher、辅助FM与
+    真正Foundation-Prior。Understanding表中的Semantic-E2VID基础模型标记由错误的
+    `SD`更正为`SAM`。
+  - 从视觉重建表排除`BMCNet`、`NeurSR`、`UPNSNN`三个event-to-event stream
+    super-resolution方法；排除无法核实为ECCV重建论文的`EventMM`；移除
+    `EIF-BiOFNet`重复行。以上5项不从审计历史删除，仍在review queue和完整映射中说明。
+  - Bib保留`low2023robustenerf`和`zahid2025e3dgslarge`作为各自唯一身份；将E2EGS、
+    EGVD、DeblurSplat更新至CVPR 2026、ICCVW 2025和TMM 2026正式版本；补全并去重
+    Fourier low-light与Semantic-E2VID。逐条完整前后Bib和权威链接见
+    `docs/reference_audit/reconstruction_taxonomy_bib_update_2026-07-28.md`。
+  - 新增确定性审计生成器以及JSON/CSV台账、完整映射和人工复核入口。
+    `REVIEW_QUEUE.md`先列11个低置信或边界项，再列其余高置信建议；脚本只提取和生成，
+    Foundation归类由论文/proceedings人工核验覆盖决定。
+- 修改原因与证据：
+  - 用户批准按新分类方案落地，并要求尽量不依赖人工逐项搜索，同时把原始方法理解用于
+    表格和正文重写，而不是只移动旧LaTeX段落。
+  - 方法身份与先验作用优先依据CVF、NeurIPS proceedings、出版社DOI、AAAI、arXiv论文
+    和官方项目材料；不以标题关键词、README宣传语或单纯网络架构决定分类。
+  - Foundation边界中特别保留`EvDiff`与`EPA`供人工复核；`HDRev-Diff`、
+    `Elite-EvGS`、`EventSplat`和`EvLight++`的普通任务先验或辅助FM作用已明确写出。
+- 验证：
+  - `main.bib`共532条且citation key全部唯一；全项目使用367个唯一citation key，
+    未解析引用为0。
+  - 全项目LaTeX label无重复、交叉引用无缺失；`\begin`/`\end`数量一致，花括号数量
+    一致；旧reconstruction小节label、旧四分类措辞和已删除重复Bib key均未残留。
+  - 审计台账含88个表内方法、88个唯一citation key，分组计数为13+30+22+12+9+2；
+    另保留4个排除项和1个重复行诊断。11个Foundation-Prior方法均有模型名称、作用和
+    权威证据链接。
+  - 本机未安装`latexmk`、`pdflatex`或`tectonic`，因此未执行本地排版编译；未计算或
+    记录文件哈希。
+- 待用户处理：
+  - 先查看 `docs/reconstruction_taxonomy/REVIEW_QUEUE.md` 前半部分，重点决定
+    `EvDiff`、`EPA`及范围边界项；后半部分高置信方法仅需抽查。
+  - 在Overleaf以`main.tex`编译，检查三张reconstruction表的分页、字号、交叉引用和
+    参考文献输出。
+  - `Dedicated Reconstruction Paradigms`仍是暂定名称，可在不改变方法映射的情况下
+    继续优化。
+  - 在Windows环境自行检查差异并执行私人仓库和公共发布仓库的Git提交、推送。
+
+### 2026-07-28-03：放宽Foundation-Prior范围并补入EvLight++与HDRev-Diff
+
+- 执行者：Codex
+- 范围：主项目 `sections/catalog_tables.tex`、`sections/3_method.tex`、
+  `sections/0_abstract.tex`、`sections/1_intro.tex`；外层
+  `docs/reconstruction_taxonomy/`、`docs/README.md`、`PROJECT_STATUS.md`、
+  `tools/reconstruction_taxonomy/build_taxonomy_audit.py`及本修改历史；未修改Bib或Git。
+- 修改前：
+  - Foundation-Prior要求大规模预训练模型直接影响核心重建，共11篇；仅用于数据集
+    伪标签或结构化下游评价的`EvLight++`仍放在Dedicated。
+  - `HDRev-Diff`被记录为只使用任务预训练HDRev编码器，未识别其固定参数的预训练
+    latent diffusion model，因此也被放在Dedicated。
+  - 当前计数为Dedicated 77篇、Foundation-Prior 11篇。
+- 修改后：
+  - 判据改为：外部大规模预训练模型只要对论文的方法贡献产生实质作用，即可通过推理、
+    训练监督、生成先验、几何初始化、数据集知识增强或结构化能力验证进入
+    Foundation-Prior；不再建立`Core/Auxiliary`子类，具体作用只在`Role`列说明。
+  - `EvLight++`移入Foundation-Prior 2D：SAM与单目深度基础模型用于语义/深度伪标签，
+    并检验增强视频恢复的场景结构和下游可用性。
+  - `HDRev-Diff`移入Foundation-Prior 2D：ICCV论文明确采用固定参数的预训练latent
+    diffusion model，并通过预训练事件图像编码器和控制路径注入HDR条件。此项明确撤回
+    记录`2026-07-28-02`中把它视为普通task-trained diffusion的旧结论。
+  - Foundation-Prior现为13篇（2D 11、3D 2），Dedicated为75篇
+    （2D Event-Only 13、2D Event-Guided RGB 28、3D Event-Only 22、
+    3D Event-Assisted Multimodal 12）；总数仍为88篇。
+  - `REVIEW_QUEUE.md`仍把9个低置信、任务先验和范围/身份边界项放在前部；
+    `EvLight++`和`HDRev-Diff`作为已核实高置信项放在后部。
+- 修改原因与证据：
+  - 用户指出论文标题强调“大模型时代”，基础模型带来的数据标注和下游结构验证同样是
+    实质受益，不应因未进入核心reconstructor而排除。
+  - `EvLight++`证据来自TPAMI DOI `10.1109/TPAMI.2025.3617801`及arXiv
+    `2408.16254`；`HDRev-Diff`证据来自ICCV 2025正式论文，其方法图和正文明确写出
+    fixed pretrained latent diffusion parameters。
+  - 同时复核TRG-Diffusion、EGDeblurring、NEC-Diff、SEE、ClearSight、Fourier prior、
+    Self-EHDRI、Elite-EvGS与EventSplat，未发现需要按该标准继续扩入的方法。逐项依据见
+    `docs/reconstruction_taxonomy/FOUNDATION_SCOPE_RECHECK.md`。
+- 验证：
+  - 生成台账仍有88个唯一表内方法；分组计数为13+28+22+12+11+2。
+  - 13个Foundation-Prior方法均记录具体模型、作用及证据链接。
+  - Bib共532个唯一key，全文367个唯一citation key，缺失引用为0；LaTeX环境、花括号、
+    label及交叉引用静态检查均通过。
+  - 本机无LaTeX引擎，未执行本地编译；未计算或记录哈希。
+- 待用户处理：
+  - 在Overleaf以`main.tex`检查更新后的Foundation-Prior表分页和正文排版。
+  - 优先查看`REVIEW_QUEUE.md`前部9项；其余高置信项只需抽查。

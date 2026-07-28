@@ -225,178 +225,170 @@
 % ============================================================
 \begin{table*}[p]
 \centering
-\caption{Comprehensive catalog of event camera reconstruction methods, spanning event-to-video reconstruction, video frame interpolation and deblurring, image enhancement, and 3D reconstruction. Methods are listed chronologically within each group.}
+\caption{Dedicated 2D reconstruction paradigms. The primary division is the sensing input: event-only methods infer visual appearance from events, whereas event-guided methods restore or synthesize RGB frames using complementary event measurements. Diffusion denotes a task-trained diffusion model unless the method appears in the Foundation-Prior table.}
 \label{tab:recon_catalog}
 \resizebox{\textwidth}{!}{
-\begin{tabular}{rl l c c c l c}
+\begin{tabular}{l l c c c l}
 \toprule
-\textbf{\#} & \textbf{Method} & \textbf{Venue} & \textbf{In} & \textbf{Out} & \textbf{Arch.} & \textbf{Task} & \textbf{Cat.} \\
+\textbf{Method} & \textbf{Venue} & \textbf{In} & \textbf{Out} & \textbf{Model} & \textbf{Objective} \\
 \midrule
-\multicolumn{8}{l}{\cellcolor{gray!8}\textit{3.1 Event-to-Video Reconstruction}} \\
+\multicolumn{6}{l}{\cellcolor{gray!8}\textit{Event-Only Image and Video Reconstruction}} \\
 \midrule
-%% --- Discriminative Models ---
-1 & E2VID~\cite{rebecq2019e2vid} & CVPR'19 & \iconev & Frames & RNN & E2V & \circnum{1} \\
+E2VID~\cite{rebecq2019e2vid} & CVPR'19 & \iconev & Video & RNN & E2V \\
 \rowalt
-2 & E2VID+~\cite{stoffregen2020hqf} & ECCV'20 & \iconev & Frames & RNN & E2V & \circnum{1} \\
-4 & ET-Net~\cite{weng2021etnet} & ICCV'21 & \iconev & Frames & ViT & E2V & \circnum{1} \\
-5 & EVSNN~\cite{zhu2022evsnn} & CVPR'22 & \iconev & Frames & SNN & E2V & \circnum{1} \\
+cGAN-E2V~\cite{wang2019cgane2v} & CVPR'19 & \iconev & Video & GAN & E2V \\
+E2VID+~\cite{stoffregen2020hqf} & ECCV'20 & \iconev & Video & RNN & E2V \\
 \rowalt
-6 & E-SAI & TPAMI'23 & \iconev & Frames & CNN & E2V & \circnum{1} \\
-7 & HyperE2VID~\cite{ercan2024hypere2vid} & TIP'24 & \iconev & Frames & RNN & E2V & \circnum{1} \\
+Dark-E2V~\cite{song2020darke2v} & ECCV'20 & \iconev & Video & CNN & Self-supervised E2V \\
+ET-Net~\cite{weng2021etnet} & ICCV'21 & \iconev & Video & ViT & E2V \\
 \rowalt
-8 & Noise2Image~\cite{cao2025noise2image} & Optica'25 & \iconev & Frames & CNN & E2V & \circnum{1} \\
-9 & Coded-E2LF & CVPR'26 & \iconev & Frames & CNN & E2V & \circnum{1} \\
-%% --- Generative Models ---
+PhotoConst.~\cite{paredes2021backtoeventbasics} & CVPR'21 & \iconev & Video & CNN & Self-supervised E2V \\
+EVSNN~\cite{zhu2022evsnn} & CVPR'22 & \iconev & Video & SNN & E2V \\
 \rowalt
-10 & cGAN-E2V~\cite{wang2019cgane2v} & CVPR'19 & \iconev & Frames & CNN & E2V & \circnum{2} \\
+E-SAI~\cite{yu2023esai} & TPAMI'23 & \iconev & Video & CNN & E2V / see-through imaging \\
+HyperE2VID~\cite{ercan2024hypere2vid} & TIP'24 & \iconev & Video & RNN & E2V \\
 \rowalt
-11 & TRG-Diffusion~\cite{zhu2024trgdiffusion} & ECCV'24 & \iconev & Frames & Diff. & E2V & \circnum{2} \\
-12 & LaSe-E2V & arXiv'24 & \iconev\icontext & Frames & Diff. & E2V & \circnum{2} \\
+TRG-Diffusion~\cite{zhu2024trgdiffusion} & ECCV'24 & \iconev & Video & Diff. & E2V \\
+EventMamba~\cite{zhang2025eventmamba} & AAAI'25 & \iconev & Video & SSM & E2V \\
 \rowalt
-13 & EvDiff & arXiv'25 & \iconev & Frames & Diff. & E2V & \circnum{2} \\
-\rowalt
-14 & IE2Video & arXiv'25 & \iconev & Frames & Diff. & E2V & \circnum{2} \\
-15 & UniE2F & arXiv'26 & \iconev & Frames & Diff. & E2V & \circnum{2} \\
-%% --- Self-Supervised Approaches ---
-\rowalt
-16 & Dark-E2V~\cite{song2020darke2v} & ECCV'20 & \iconev & Frames & CNN & SS & \circnum{3} \\
-17 & PhotoConst.~\cite{paredes2021backtoeventbasics} & CVPR'21 & \iconev & Frames & CNN & SS & \circnum{3} \\
-\rowalt
+Noise2Image~\cite{cao2025noise2image} & Optica'25 & \iconev & Image & CNN & Static-scene recovery \\
+Coded-E2LF~\cite{tsuchida2026coded} & CVPR'26 & \iconev & Light field & Model-based & 4D light-field reconstruction \\
 \midrule
-\multicolumn{8}{l}{\cellcolor{gray!8}\textit{3.2 Video Frame Interpolation \& Deblurring}} \\
+\multicolumn{6}{l}{\cellcolor{gray!8}\textit{Event-Guided RGB Reconstruction and Restoration}} \\
 \midrule
-%% --- Frame Interpolation ---
-19 & TimeLens~\cite{tulyakov2021timelens} & CVPR'21 & \iconev\iconcam & Video & CNN & VFI & \circnum{4} \\
+mEDI~\cite{pan2019medi} & CVPR'19 & \iconev\iconcam & Sharp video & Hybrid & Deblurring / high-rate video \\
 \rowalt
-20 & TimeReplayer~\cite{he2022timereplayer} & CVPR'22 & \iconev\iconcam & Video & CNN & VFI & \circnum{4} \\
-21 & CBMNet~\cite{kim2023cbmnet} & CVPR'23 & \iconev\iconcam & Video & CNN & VFI & \circnum{4} \\
+eSL-Net~\cite{wang2020eslnet} & ECCV'20 & \iconev\iconcam & HR image & CNN & Super-resolution \\
+TimeLens~\cite{tulyakov2021timelens} & CVPR'21 & \iconev\iconcam & Video & CNN & Frame interpolation \\
 \rowalt
-25 & TimeLens-XL~\cite{ma2024timelensxl} & ECCV'24 & \iconev\iconcam & Video & CNN & VFI & \circnum{4} \\
-26 & REVDM~\cite{chen2025revdm} & CVPR'25 & \iconev\iconcam & Video & Diff. & VFI & \circnum{4} \\
+EFNet~\cite{sun2022efnet} & ECCV'22 & \iconev\iconcam & Sharp image & CNN & Deblurring \\
+EVDI~\cite{zhang2022evdi} & CVPR'22 & \iconev\iconcam & Video & CNN & Deblurring + interpolation \\
 \rowalt
-27 & EIF-BiOFNet & CVPR'25 & \iconev\iconcam & Video & CNN & VFI & \circnum{4} \\
-28 & TimeTracker & CVPR'25 & \iconev\iconcam & Video & CNN & VFI & \circnum{4} \\
+TimeReplayer~\cite{he2022timereplayer} & CVPR'22 & \iconev\iconcam & Video & CNN & Frame interpolation \\
+CBMNet~\cite{kim2023cbmnet} & CVPR'23 & \iconev\iconcam & Video & CNN & Frame interpolation \\
 \rowalt
-%% --- Motion Deblurring ---
-29 & mEDI~\cite{pan2019medi} & CVPR'19 & \iconev\iconcam & Sharp & Hybrid & Deblur & \circnum{5} \\
+NeurImg-HDR~\cite{han2023neurimghdr} & TPAMI'23 & \iconev\iconcam & HDR image & CNN & HDR \\
+SAN~\cite{zhang2023san} & ICCV'23 & \iconev\iconcam & Sharp image & CNN & Deblurring \\
 \rowalt
-30 & EFNet~\cite{sun2022efnet} & ECCV'22 & \iconev\iconcam & Sharp & CNN & Deblur & \circnum{5} \\
-31 & SAN~\cite{zhang2023san} & ICCV'23 & \iconev\iconcam & Sharp & CNN & Deblur & \circnum{5} \\
+STIR~\cite{lu2023stir} & CVPR'23 & \iconev\iconcam & HR video & INR & Super-resolution \\
+ELEDNet~\cite{kim2024elednet} & ECCV'24 & \iconev\iconcam & Video & CNN & Low-light + deblurring \\
 \rowalt
-33 & ELEDNet~\cite{kim2024elednet} & ECCV'24 & \iconev\iconcam & Frames & CNN & Deblur & \circnum{5} \\
+EvLight~\cite{liang2024evlight} & CVPR'24 & \iconev\iconcam & Image & CNN & Low-light \\
+EvTexture~\cite{kai2024evtexture} & ICML'24 & \iconev\iconcam & HR video & CNN & Super-resolution \\
 \rowalt
-34 & EGDeblurring~\cite{xie2025egdeblurring} & CVPR'25 & \iconev\iconcam & Sharp & Diff. & Deblur & \circnum{5} \\
+NER-Net~\cite{liu2024rled} & CVPR'24 & \iconev\iconcam & Video & CNN & Low-light \\
+TimeLens-XL~\cite{ma2024timelensxl} & ECCV'24 & \iconev\iconcam & Video & CNN & Frame interpolation \\
 \rowalt
-35 & ClearSight & ICCV'25 & \iconev\iconcam & Sharp & CNN & Deblur & \circnum{5} \\
-%% --- Joint Interpolation & Deblurring ---
-37 & EVDI~\cite{zhang2022evdi} & CVPR'22 & \iconev\iconcam & Video & CNN & Joint & \circnum{6} \\
+UniINR~\cite{lu2024uniinr} & ECCV'24 & \iconev\iconcam & Video & INR & RS correction + deblur + VFI \\
+ClearSight~\cite{lin2025clearsight} & ICCV'25 & \iconev\iconcam & Sharp image & CNN & Deblurring \\
 \rowalt
-38 & UniINR~\cite{lu2024uniinr} & ECCV'24 & \iconev\iconcam & Video & CNN & Joint & \circnum{6} \\
-39 & EventMM & ECCV'24 & \iconev\iconcam & Video & CNN & Joint & \circnum{6} \\
-\midrule
-\multicolumn{8}{l}{\cellcolor{gray!8}\textit{3.3 Image Enhancement}} \\
-\midrule
-%% --- Super-Resolution ---
+EGDeblurring~\cite{xie2025egdeblurring} & CVPR'25 & \iconev\iconcam & Sharp image & Diff. & Deblurring \\
+ERetinex~\cite{guo2025eretinex} & ICRA'25 & \iconev\iconcam & Image & CNN & Low-light \\
 \rowalt
-40 & eSL-Net~\cite{wang2020eslnet} & ECCV'20 & \iconev\iconcam & HR & CNN & SR & \circnum{7} \\
-41 & STIR~\cite{lu2023stir} & CVPR'23 & \iconev\iconcam & HR & CNN & SR & \circnum{7} \\
+EVDM~\cite{zhang2025evdm} & ICCV'25 & \iconev\iconcam & Video & SSM & Deblurring \\
+EvEnhancer~\cite{lu2025evenhancer} & CVPR'25 & \iconev\iconcam & HR video & INR & Continuous space-time SR \\
 \rowalt
-43 & BMCNet & CVPR'24 & \iconev & HR & CNN & SR & \circnum{7} \\
+EventHDR~\cite{zou2025eventhdr} & TPAMI'25 & \iconev\iconcam & HDR video & CNN & HDR / high-speed imaging \\
+Fourier prior~\cite{she2025fourier} & ACM MM'25 & \iconev\iconcam & Image & CNN & Low-light \\
 \rowalt
-44 & EvTexture~\cite{kai2024evtexture} & ICML'24 & \iconev\iconcam & HR & CNN & SR & \circnum{7} \\
-45 & NeurSR & TCSVT'24 & \iconev & HR & CNN & SR & \circnum{7} \\
+MamEVSR~\cite{xiao2025mamevsr} & CVPR'25 & \iconev\iconcam & HR video & SSM & Super-resolution \\
 \rowalt
-46 & MamEVSR~\cite{xiao2025mamevsr} & CVPR'25 & \iconev\iconcam & HR & SSM & SR & \circnum{7} \\
-47 & UPNSNN & AAAI'26 & \iconev & HR & SNN & SR & \circnum{7} \\
-%% --- HDR Reconstruction ---
+SEE~\cite{lu2025see} & NeurIPS'25 & \iconev\iconcam & Video & CNN & Broad-range illumination \\
+TimeTracker~\cite{liu2025timetracker} & CVPR'25 & \iconev\iconcam & Video & CNN & Frame interpolation \\
 \rowalt
-48 & NeurImg-HDR~\cite{han2023neurimghdr} & TPAMI'23 & \iconev\iconcam & HDR & CNN & HDR & \circnum{8} \\
-50 & EventHDR & TPAMI'24 & \iconev\iconcam & HDR & CNN & HDR & \circnum{8} \\
-51 & Self-EHDRI~\cite{li2024hdr} & PR'26 & \iconev\iconcam & HDR & CNN & HDR & \circnum{8} \\
+NEC-Diff~\cite{liu2026necdiff} & CVPR'26 & \iconev\iconcam & Image & Diff. & Extreme low-light RAW \\
 \rowalt
-%% --- Low-Light Enhancement ---
-53 & NER-Net~\cite{liu2024rled} & CVPR'24 & \iconev\iconcam & Frames & CNN & LowLight & \circnum{9} \\
-54 & EvLight~\cite{liang2024evlight} & CVPR'24 & \iconev\iconcam & Frames & CNN & LowLight & \circnum{9} \\
-\rowalt
-56 & EvLight++~\cite{chen2026evlightpp} & TPAMI'26 & \iconev\iconcam & Frames & CNN & LowLight & \circnum{9} \\
-\rowalt
-57 & FourierEvent & ACM MM'25 & \iconev\iconcam & Frames & CNN & LowLight & \circnum{9} \\
-58 & ERetinex & ICRA'25 & \iconev\iconcam & Frames & CNN & LowLight & \circnum{9} \\
-\rowalt
-59 & NEC-Diff & CVPR'26 & \iconev\iconcam & Frames & Diff. & LowLight & \circnum{9} \\
-\midrule
-\multicolumn{8}{l}{\cellcolor{gray!8}\textit{3.4 3D Reconstruction}} \\
-\midrule
-%% --- Geometric & Semi-Dense ---
-60 & EMVS~\cite{rebecq2018emvs} & IJCV'18 & \iconev & Depth & -- & Geo. & \circnum{10} \\
-\rowalt
-61 & Semi-Dense~\cite{zhou2018semidense} & ECCV'18 & \iconev & Depth & -- & Geo. & \circnum{10} \\
-62 & EventPS~\cite{yu2024eventps} & CVPR'24 & \iconev & Normal & -- & Geo. & \circnum{10} \\
-\rowalt
-63 & E2E-3D & ICME'25 & \iconev & Mesh & CNN & Geo. & \circnum{10} \\
-64 & RoEL & T-RO'26 & \iconev & Lines & -- & Geo. & \circnum{10} \\
-%% --- NeRF-Based ---
-\rowalt
-66 & EventNeRF~\cite{rudnev2023eventnerf} & CVPR'23 & \iconev & Novel View & NeRF & NeRF & \circnum{11} \\
-\rowalt
-67 & E-NeRF~\cite{klenk2023enerf} & RA-L'23 & \iconev & Novel View & NeRF & NeRF & \circnum{11} \\
-68 & E2NeRF~\cite{qi2023e2nerf} & ICCV'23 & \iconev\iconcam & Novel View & NeRF & NeRF & \circnum{11} \\
-\rowalt
-69 & Robust-e-NeRF~\cite{low2023robustenerf} & ICCV'23 & \iconev & Novel View & NeRF & NeRF & \circnum{11} \\
-71 & EvDNeRF~\cite{bhattacharya2024evdnerf} & WACV'24 & \iconev & Novel View & NeRF & NeRF & \circnum{11} \\
-72 & PAEv3d~\cite{wang2024paev3d} & ICRA'24 & \iconev & Novel View & NeRF & NeRF & \circnum{11} \\
-\rowalt
-73 & EvDeblurNeRF~\cite{cannici2024evdeblurnerf} & CVPR'24 & \iconev\iconcam & Novel View & NeRF & NeRF & \circnum{11} \\
-75 & BeNeRF~\cite{li2024benerf} & ECCV'24 & \iconev\iconcam & Novel View & NeRF & NeRF & \circnum{11} \\
-76 & Deblur-e-NeRF~\cite{low2024deblurenerf} & ECCV'24 & \iconev & Novel View & NeRF & NeRF & \circnum{11} \\
-\rowalt
-78 & EvHDR-NeRF~\cite{chen2025evhdrnerf} & AAAI'25 & \iconev\iconcam & HDR & NeRF & NeRF & \circnum{11} \\
-\rowalt
-79 & LSE-NeRF~\cite{liao2025lsenerf} & 3DV'25 & \iconev\iconcam & Novel View & NeRF & NeRF & \circnum{11} \\
-\rowalt
-80 & DynEventNeRF~\cite{rudnev2025dyneventnerf} & CVPRW'25 & \iconev\iconcam & Novel View & NeRF & NeRF & \circnum{11} \\
-\rowalt
-81 & EventNeuS~\cite{sachan2026eventneus} & 3DV'26 & \iconev & Mesh & NeRF & NeRF & \circnum{11} \\
-\rowalt
-82 & HDR-NeRF-Events & CVPR'26 & \iconev\iconcam & HDR & NeRF & NeRF & \circnum{11} \\
-%% --- 3DGS-Based ---
-83 & EvGGS~\cite{wang2024evggs} & ICML'24 & \iconev\iconcam & Novel View & 3DGS & 3DGS & \circnum{12} \\
-\rowalt
-84 & EvaGaussians~\cite{yu2025evagaussians} & ICCV'25 & \iconev\iconcam & Novel View & 3DGS & 3DGS & \circnum{12} \\
-\rowalt
-85 & Event3DGS~\cite{xiong2024event3dgs} & CoRL'24 & \iconev & Novel View & 3DGS & 3DGS & \circnum{12} \\
-\rowalt
-88 & E2GS~\cite{deguchi2024e2gs} & ICIP'24 & \iconev\iconcam & Novel View & 3DGS & 3DGS & \circnum{12} \\
-\rowalt
-89 & Event-3DGS~\cite{lan2024event3dgs} & NeurIPS'24 & \iconev & Novel View & 3DGS & 3DGS & \circnum{12} \\
-\rowalt
-90 & IncEventGS~\cite{huang2025inceventgs} & CVPR'25 & \iconev & Novel View & 3DGS & 3DGS & \circnum{12} \\
-\rowalt
-91 & EF-3DGS~\cite{liao2025ef3dgs} & NeurIPS'25 & \iconev\iconcam & Novel View & 3DGS & 3DGS & \circnum{12} \\
-\rowalt
-93 & EventSplat~\cite{yura2025eventsplat} & CVPR'25 & \iconev & Novel View & 3DGS & 3DGS & \circnum{12} \\
-\rowalt
-94 & DiET-GS~\cite{lee2025dietgs} & CVPR'25 & \iconev\iconcam & Novel View & 3DGS & 3DGS & \circnum{12} \\
-\rowalt
-96 & Elite-EvGS~\cite{zhang2024eliteevgs} & arXiv'24 & \iconev & Novel View & 3DGS & 3DGS & \circnum{12} \\
-\rowalt
-97 & E-3DGS-LargeScale & 3DV'25 & \iconev & Novel View & 3DGS & 3DGS & \circnum{12} \\
-\rowalt
-98 & E2EGS & CVPR'26 & \iconev & Novel View & 3DGS & 3DGS & \circnum{12} \\
+Self-EHDRI~\cite{li2024hdr} & PR'26 & \iconev\iconcam & HDR image & CNN & HDR \\
 \bottomrule
 \end{tabular}
 }
+\end{table*}
 
+\begin{table*}[p]
+\centering
+\caption{Dedicated 3D reconstruction paradigms. Input modality defines the primary groups; geometry, neural fields, and Gaussian Splatting are retained as representation attributes rather than competing top-level taxonomies.}
+\label{tab:recon_catalog_3d}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{l l c c c l}
+\toprule
+\textbf{Method} & \textbf{Venue} & \textbf{In} & \textbf{Output} & \textbf{Representation} & \textbf{Setting} \\
+\midrule
+\multicolumn{6}{l}{\cellcolor{gray!8}\textit{Event-Only 3D Reconstruction}} \\
+\midrule
+EMVS~\cite{rebecq2018emvs} & IJCV'18 & \iconev & Depth & Geometry & Multi-view stereo \\
+\rowalt Semi-Dense~\cite{zhou2018semidense} & ECCV'18 & \iconev & Depth & Geometry & Stereo \\
+E-NeRF~\cite{klenk2023enerf} & RA-L'23 & \iconev & Novel views & NeRF & Static \\
+\rowalt EventNeRF~\cite{rudnev2023eventnerf} & CVPR'23 & \iconev & Novel views & NeRF & Static \\
+Robust-e-NeRF~\cite{low2023robustenerf} & ICCV'23 & \iconev & Novel views & NeRF & Sparse/noisy events \\
+\rowalt Deblur-e-NeRF~\cite{low2024deblurenerf} & ECCV'24 & \iconev & Novel views & NeRF & Blurred events \\
+EvDNeRF~\cite{bhattacharya2024evdnerf} & WACV'24 & \iconev & Novel views & NeRF & Dynamic \\
+\rowalt Event-3DGS~\cite{lan2024event3dgs} & NeurIPS'24 & \iconev & Novel views & 3DGS & Static \\
+Event3DGS~\cite{xiong2024event3dgs} & CoRL'24 & \iconev & Novel views & 3DGS & High-speed egomotion \\
+\rowalt EventPS~\cite{yu2024eventps} & CVPR'24 & \iconev & Normals & Geometry & Photometric stereo \\
+PAEv3d~\cite{wang2024paev3d} & ICRA'24 & \iconev & Novel views & NeRF & Physical priors \\
+\rowalt E-3DGS~\cite{zahid2025e3dgslarge} & 3DV'25 & \iconev & Novel views & 3DGS & Large/unbounded scenes \\
+E-4DGS~\cite{wang2025e4dgs} & ACM MM'25 & \iconev & Dynamic views & 4DGS & Multi-view dynamic \\
+\rowalt E-NeMF~\cite{wang2025enemf} & ICCV'25 & \iconev & Space-time views & Neural field & Dynamic \\
+E2E-3D~\cite{xu2025neuromorphic3d} & ICME'25 & \iconev & Mesh & Learned geometry & Object reconstruction \\
+\rowalt Elite-EvGS~\cite{zhang2024eliteevgs} & ICRA'25 & \iconev & Novel views & 3DGS & E2V-task prior \\
+Ev4DGS~\cite{liu2025ev4dgs} & BMVC'25 & \iconev & Dynamic views & 4DGS & Monocular dynamic \\
+\rowalt EventSplat~\cite{yura2025eventsplat} & CVPR'25 & \iconev & Novel views & 3DGS & Real-time rendering \\
+IncEventGS~\cite{huang2025inceventgs} & CVPR'25 & \iconev & Novel views & 3DGS & Pose-free \\
+\rowalt E2EGS~\cite{li2026e2egs} & CVPR'26 & \iconev & Novel views & 3DGS & Pose-free \\
+EventNeuS~\cite{sachan2026eventneus} & 3DV'26 & \iconev & Mesh & NeuS & Single camera \\
+\rowalt RoEL~\cite{bae2026roel} & T-RO'26 & \iconev & 3D lines & Geometry & Robust line mapping \\
+\midrule
+\multicolumn{6}{l}{\cellcolor{gray!8}\textit{Event-Assisted Multimodal 3D Reconstruction}} \\
+\midrule
+E2NeRF~\cite{qi2023e2nerf} & ICCV'23 & \iconev\iconcam & Novel views & NeRF & Blurry RGB \\
+\rowalt BeNeRF~\cite{li2024benerf} & ECCV'24 & \iconev\iconcam & Novel views & NeRF & Single blurry RGB \\
+E2GS~\cite{deguchi2024e2gs} & ICIP'24 & \iconev\iconcam & Novel views & 3DGS & Event-enhanced \\
+\rowalt EvDeblurNeRF~\cite{cannici2024evdeblurnerf} & CVPR'24 & \iconev\iconcam & Novel views & NeRF & Deblurring \\
+EvGGS~\cite{wang2024evggs} & ICML'24 & \iconev\iconcam & Novel views & 3DGS & Generalizable \\
+\rowalt DynEventNeRF~\cite{rudnev2025dyneventnerf} & CVPRW'25 & \iconev\iconcam & Dynamic views & NeRF & Multi-view dynamic \\
+EF-3DGS~\cite{liao2025ef3dgs} & NeurIPS'25 & \iconev\iconcam & Novel views & 3DGS & Free trajectory \\
+\rowalt EGS-SLAM~\cite{chen2025egsslam} & RA-L'25 & \iconev\iconcam & Map/views & 3DGS & RGB-D SLAM \\
+EvHDR-NeRF~\cite{chen2025evhdrnerf} & AAAI'25 & \iconev\iconcam & HDR views & NeRF & Single exposure \\
+\rowalt EvaGaussians~\cite{yu2025evagaussians} & ICCV'25 & \iconev\iconcam & Novel views & 3DGS & Blurry RGB \\
+LSE-NeRF~\cite{liao2025lsenerf} & 3DV'25 & \iconev\iconcam & Novel views & NeRF & Sensor-error modeling \\
+\rowalt HDR-NeRF-Events~\cite{qi2026seeing} & CVPR'26 & \iconev\iconcam & HDR views & NeRF & Deblur + HDR \\
+\bottomrule
+\end{tabular}
+}
+\end{table*}
+
+\begin{table*}[p]
+\centering
+\caption{Foundation-Prior reconstruction. Inclusion requires a large-scale pretrained model to contribute materially through adaptation, generation, initialization, supervision, pseudo-labeling, or structured validation. Merely using a diffusion architecture, Transformer, NeRF, or 3DGS is insufficient.}
+\label{tab:recon_catalog_foundation}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{l l c l l l}
+\toprule
+\textbf{Method} & \textbf{Venue} & \textbf{Dim.} & \textbf{Input / Objective} & \textbf{Imported prior} & \textbf{Role in reconstruction} \\
+\midrule
+LaSe-E2V~\cite{chen2024lase} & NeurIPS'24 & 2D & \iconev\icontext / E2V & SD2.1 + video LDM + CLIP & Backbone initialization and semantic generation \\
+\rowalt REVDM~\cite{chen2025revdm} & CVPR'25 & 2D & \iconev\iconcam / VFI & Pretrained video diffusion & Backbone repurposing \\
+Semantic-E2VID~\cite{wu2025semantice2vid} & arXiv'25 & 2D & \iconev / E2V & SAM & Cross-modal distillation and semantic supervision \\
+\rowalt EGVD~\cite{wang2025egvd} & ICCVW'25 & 2D & \iconev\iconcam / VFI & Stable Video Diffusion & Selective fine-tuning \\
+EPA~\cite{li2025epa} & NeurIPS'25 & 2D & \iconev\iconcam / VFI & DINO & Perceptual supervisory space \\
+\rowalt EVDiffuser~\cite{chen2025evdiffuser} & NeurIPS'25 & 2D & \iconev\iconcam / low-light & CogVideoX-I2V & LoRA adaptation and generation \\
+EvDiff~\cite{li2025evdiff} & arXiv'25 & 2D & \iconev / E2V & Large-scale image-trained latent prior & Surrogate training and distillation \\
+\rowalt HDRev-Diff~\cite{yang2025hdrevdiff} & ICCV'25 & 2D & \iconev\iconcam / HDR & Pretrained latent diffusion & Frozen generative prior and event control \\
+EvLight++~\cite{chen2026evlightpp} & TPAMI'26 & 2D & \iconev\iconcam / low-light & SAM + depth foundation model & Pseudo-labeling and structured validation \\
+\rowalt IE2Video~\cite{torbunov2025ie2video} & arXiv'25 & 2D & \iconev\iconcam / E2V & LTX-Video & Event adapter and LoRA \\
+UniE2F~\cite{xu2026unie2f} & arXiv'26 & 2D & \iconev / E2V, VFI, prediction & Pretrained video diffusion & Generative prior and sampling control \\
+\rowalt DiET-GS~\cite{lee2025dietgs} & CVPR'25 & 3D & \iconev\iconcam / deblurred NVS & Pretrained image diffusion & Reconstruction regularization \\
+DeblurSplat~\cite{zhang2025deblursplat} & TMM'26 & 3D & \iconev\iconcam / deblurred NVS & DUSt3R & Geometric initialization \\
+\bottomrule
+\end{tabular}
+}
 \vspace{2pt}
 \begin{tcolorbox}[colback=gray!5, colframe=gray!50, boxrule=0.4pt, arc=2pt, left=4pt, right=4pt, top=2pt, bottom=2pt]
 \small
-\textbf{Input:}~\iconev~Events \quad \iconcam~Frames \quad \icontext~Text
-\quad\textbf{Arch.:}~CNN,\; RNN,\; ViT,\; SNN,\; SSM,\; NeRF,\; 3DGS,\; Diff.\,=\,Diffusion,\; ``--''\,=\,classical/geometric
-\quad\textbf{Task:}~E2V = Event-to-Video,\; VFI = Video Frame Interpolation,\; SR = Super-Resolution,\; HDR = High Dynamic Range,\; SS = Self-Supervised,\; Geo.\,=\,Geometric,\; Joint = Joint Interp.\,\&\,Deblur
-\quad\textbf{Cat.} numbers match circled labels in \S\ref{sec:reconstruction}: \circnum{1}\,Discriminative E2V \circnum{2}\,Generative E2V \circnum{3}\,Self-Supervised E2V \circnum{4}\,Interpolation \circnum{5}\,Deblurring \circnum{6}\,Joint \circnum{7}\,Super-Resolution \circnum{8}\,HDR \circnum{9}\,Low-Light \circnum{10}\,Geometric 3D \circnum{11}\,NeRF \circnum{12}\,3DGS.
+\textbf{Input:}~\iconev~events, \iconcam~RGB/frame input, \icontext~text.
+Task-trained diffusion without a large-scale pretrained model (TRG-Diffusion, EGDeblurring, NEC-Diff) remains in \cref{tab:recon_catalog}; E2V teachers (Elite-EvGS and EventSplat) are task-pretrained priors rather than foundation models. Event-to-event super-resolution is treated as sensor-stream restoration and is outside these visual reconstruction tables.
 \end{tcolorbox}
 \end{table*}
-
 
 % ============================================================
 % TABLE 3: Understanding Catalog
@@ -461,7 +453,7 @@
 29 & EventFly~\cite{kong2025eventfly} & CVPR'25 & None & \iconev\iconcam & Frame-to-event distill. & Multiple & \circnum{4} \\
 \rowalt
 30 & Depth AnyEvent~\cite{wu2025eventdam} & ICCV'25 & Depth Any. & \iconev & Dense-to-sparse distill. & Depth & \circnum{4} \\
-31 & Semantic-E2VID~\cite{wu2025semantice2vid} & arXiv'25 & SD & \iconev & Semantic-enriched E2V & Recon. & \circnum{4} \\
+31 & Semantic-E2VID~\cite{wu2025semantice2vid} & arXiv'25 & SAM & \iconev & Semantic-enriched E2V & Recon. & \circnum{4} \\
 \rowalt
 32 & TGVFM~\cite{chen2025tgvfm} & arXiv'25 & Depth Any. & \iconev & Temporal-guided VFM & Multiple & \circnum{4} \\
 33 & ADAE & arXiv'25 & Depth Any. & \iconev & Depth adaptation w/ events & Depth & \circnum{4} \\
