@@ -955,3 +955,47 @@ Git 添加、提交或推送；用户在 Windows 中自行完成版本控制。
   - 引用、Bib唯一性和LaTeX静态结构检查保持通过；未计算或记录哈希。
 - 待用户处理：
   - 无taxonomy低置信项；仍可按`verification_status`对未记录原文阅读的方法继续抽查。
+
+### 2026-07-28-07：第四轮重建文献压缩并保留Dark-E2V
+
+- 执行者：Codex
+- 修改范围：
+  - 主项目 `sections/catalog_tables.tex`、`sections/3_method.tex`、
+    `sections/appendix.tex`、`main.bib`；
+  - 私有 `docs/reconstruction_taxonomy/`、`docs/reconstruction_screening/REPORT.md`、
+    `docs/MEETING_BRIEF_2026-07-29.md`、`PROJECT_STATUS.md`及本记录。
+- 修改前：
+  - 当前reconstruction catalog为91篇，其中Dedicated 78篇、Foundation-Prior 13篇；
+    主Bib有532个唯一条目，正文使用370个唯一citation key。
+  - 用户指定删除建议清单前9篇；其中`Event-ID`实际上已在更早一轮从主稿和Bib删除，
+    仅在历史筛查材料中留有记录。
+  - 其余8篇仍存在于主表或正文：`TimeReplayer`、`EGDeblurring`、`MamEVSR`、
+    `Fourier prior`、`ERetinex`、`E2E-3D`、`EvHDR-NeRF`、`EvaGaussians`。
+- 修改后：
+  - 从主重建表、正文叙述和受影响附录移除上述8篇及其citation；
+    从`main.bib`完整删除对应8个条目。
+  - `Event-ID`不重复删除，也不以第10项`Dark-E2V`补位；`Dark-E2V`继续保留。
+  - 当前catalog为83篇：Dedicated 70篇
+    （Event-Stream 3、2D Event-Only 13、2D Event-Guided RGB 23、
+    3D Event-Only 21、3D Event-Assisted Multimodal 10），
+    Foundation-Prior仍为13篇（2D 11、3D 2）。
+  - 当前Bib为524个唯一条目，全文使用362个唯一citation key。
+  - 私人会议提纲已更新为“91 - 8 = 83”的可解释口径；该文件不属于公共同步范围。
+- 修改原因与证据：
+  - 用户明确决定执行建议清单前9项，但保留第10项`Dark-E2V`。
+  - `EGDeblurring`推理阶段不需要事件相机；`Fourier prior`、`ERetinex`位于拥挤低光簇；
+    `MamEVSR`的SSM节点可由保留的EventMamba及其他SR路线解释；
+    `TimeReplayer`所在传统VFI已有TimeLens、CBMNet、TimeLens-XL和TimeTracker；
+    `E2E-3D`复现资产和主线影响较弱；`EvHDR-NeRF`由更完整的
+    `HDR-NeRF-Events`覆盖；`EvaGaussians`与现有模糊事件3DGS簇重叠且项目页仍未
+    提供承诺代码。具体原始来源和比较结论见本任务前的逐篇复核及
+    `docs/reconstruction_screening/REPORT.md`顶部状态更正。
+- 验证方式和结果：
+  - 重新运行taxonomy生成器，得到83个当前in-scope方法、0个prose-only漏表方法；
+    另保留EventMM排除项和EIF-BiOFNet重复诊断，审计总数85。
+  - 静态检查确认524个Bib key全部唯一、362个正文citation key全部可解析；
+    8个已删key在主项目Tex/Bib中均无残留。
+  - 本机未发现LaTeX编译引擎，未执行本地PDF编译；未计算哈希。
+- 尚待用户处理：
+  - 在Overleaf以`main.tex`编译，检查删行后的长表分页、交替底色和参考文献输出。
+  - 私有会议提纲无需提交到公共仓库。

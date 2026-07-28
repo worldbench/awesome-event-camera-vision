@@ -271,7 +271,6 @@ TimeLens~\cite{tulyakov2021timelens} & CVPR'21 & \iconev\iconcam & Video & CNN &
 EFNet~\cite{sun2022efnet} & ECCV'22 & \iconev\iconcam & Sharp image & CNN & Deblurring \\
 EVDI~\cite{zhang2022evdi} & CVPR'22 & \iconev\iconcam & Video & CNN & Deblurring + interpolation \\
 \rowalt
-TimeReplayer~\cite{he2022timereplayer} & CVPR'22 & \iconev\iconcam & Video & CNN & Frame interpolation \\
 CBMNet~\cite{kim2023cbmnet} & CVPR'23 & \iconev\iconcam & Video & CNN & Frame interpolation \\
 \rowalt
 NeurImg-HDR~\cite{han2023neurimghdr} & TPAMI'23 & \iconev\iconcam & HDR image & CNN & HDR \\
@@ -289,17 +288,10 @@ TimeLens-XL~\cite{ma2024timelensxl} & ECCV'24 & \iconev\iconcam & Video & CNN & 
 UniINR~\cite{lu2024uniinr} & ECCV'24 & \iconev\iconcam & Video & INR & RS correction + deblur + VFI \\
 ClearSight~\cite{lin2025clearsight} & ICCV'25 & \iconev\iconcam & Sharp image & CNN & Deblurring \\
 \rowalt
-EGDeblurring~\cite{xie2025egdeblurring} & CVPR'25 & \iconev\iconcam & Sharp image & Diff. & Deblurring \\
-ERetinex~\cite{guo2025eretinex} & ICRA'25 & \iconev\iconcam & Image & CNN & Low-light \\
-\rowalt
 EVDM~\cite{zhang2025evdm} & ICCV'25 & \iconev\iconcam & Video & SSM & Deblurring \\
 EvEnhancer~\cite{lu2025evenhancer} & CVPR'25 & \iconev\iconcam & HR video & INR & Continuous space-time SR \\
 \rowalt
 EventHDR~\cite{zou2025eventhdr} & TPAMI'25 & \iconev\iconcam & HDR video & CNN & HDR / high-speed imaging \\
-Fourier prior~\cite{she2025fourier} & ACM MM'25 & \iconev\iconcam & Image & CNN & Low-light \\
-\rowalt
-MamEVSR~\cite{xiao2025mamevsr} & CVPR'25 & \iconev\iconcam & HR video & SSM & Super-resolution \\
-\rowalt
 SEE~\cite{lu2025see} & NeurIPS'25 & \iconev\iconcam & Video & CNN & Broad-range illumination \\
 TimeTracker~\cite{liu2025timetracker} & CVPR'25 & \iconev\iconcam & Video & CNN & Frame interpolation \\
 \rowalt
@@ -336,8 +328,7 @@ PAEv3d~\cite{wang2024paev3d} & ICRA'24 & \iconev & Novel views & NeRF & Physical
 \rowalt E-3DGS~\cite{zahid2025e3dgslarge} & 3DV'25 & \iconev & Novel views & 3DGS & Large/unbounded scenes \\
 E-4DGS~\cite{wang2025e4dgs} & ACM MM'25 & \iconev & Dynamic views & 4DGS & Multi-view dynamic \\
 \rowalt E-NeMF~\cite{wang2025enemf} & ICCV'25 & \iconev & Space-time views & Neural field & Dynamic \\
-E2E-3D~\cite{xu2025neuromorphic3d} & ICME'25 & \iconev & Mesh & Learned geometry & Object reconstruction \\
-\rowalt Elite-EvGS~\cite{zhang2024eliteevgs} & ICRA'25 & \iconev & Novel views & 3DGS & E2V-task prior \\
+Elite-EvGS~\cite{zhang2024eliteevgs} & ICRA'25 & \iconev & Novel views & 3DGS & E2V-task prior \\
 Ev4DGS~\cite{liu2025ev4dgs} & BMVC'25 & \iconev & Dynamic views & 4DGS & Monocular dynamic \\
 \rowalt EventSplat~\cite{yura2025eventsplat} & CVPR'25 & \iconev & Novel views & 3DGS & Real-time rendering \\
 IncEventGS~\cite{huang2025inceventgs} & CVPR'25 & \iconev & Novel views & 3DGS & Pose-free \\
@@ -355,8 +346,6 @@ EvGGS~\cite{wang2024evggs} & ICML'24 & \iconev\iconcam & Novel views & 3DGS & Ge
 \rowalt DynEventNeRF~\cite{rudnev2025dyneventnerf} & CVPRW'25 & \iconev\iconcam & Dynamic views & NeRF & Multi-view dynamic \\
 EF-3DGS~\cite{liao2025ef3dgs} & NeurIPS'25 & \iconev\iconcam & Novel views & 3DGS & Free trajectory \\
 \rowalt EGS-SLAM~\cite{chen2025egsslam} & RA-L'25 & \iconev\iconcam & Map/views & 3DGS & RGB-D SLAM \\
-EvHDR-NeRF~\cite{chen2025evhdrnerf} & AAAI'25 & \iconev\iconcam & HDR views & NeRF & Single exposure \\
-\rowalt EvaGaussians~\cite{yu2025evagaussians} & ICCV'25 & \iconev\iconcam & Novel views & 3DGS & Blurry RGB \\
 LSE-NeRF~\cite{liao2025lsenerf} & 3DV'25 & \iconev\iconcam & Novel views & NeRF & Sensor-error modeling \\
 \rowalt HDR-NeRF-Events~\cite{qi2026seeing} & CVPR'26 & \iconev\iconcam & HDR views & NeRF & Deblur + HDR \\
 \bottomrule
@@ -393,7 +382,7 @@ DeblurSplat~\cite{zhang2025deblursplat} & TMM'26 & 3D & \iconev\iconcam / deblur
 \begin{tcolorbox}[colback=gray!5, colframe=gray!50, boxrule=0.4pt, arc=2pt, left=4pt, right=4pt, top=2pt, bottom=2pt]
 \small
 \textbf{Input:}~\iconev~events, \iconcam~RGB/frame input, \icontext~text.
-Task-trained diffusion without a large-scale pretrained model (TRG-Diffusion, EGDeblurring, NEC-Diff) remains in \cref{tab:recon_catalog}; E2V teachers (Elite-EvGS and EventSplat) are task-pretrained priors rather than foundation models. Event-to-event super-resolution is retained as a distinct signal-restoration block in \cref{tab:recon_catalog}.
+Task-trained diffusion without a large-scale pretrained model (TRG-Diffusion and NEC-Diff) remains in \cref{tab:recon_catalog}; E2V teachers (Elite-EvGS and EventSplat) are task-pretrained priors rather than foundation models. Event-to-event super-resolution is retained as a distinct signal-restoration block in \cref{tab:recon_catalog}.
 \end{tcolorbox}
 \end{table*}
 
