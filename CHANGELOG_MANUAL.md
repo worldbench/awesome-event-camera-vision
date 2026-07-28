@@ -699,3 +699,44 @@ Git 添加、提交或推送；用户在 Windows 中自行完成版本控制。
 - 待用户处理：
   - 在Overleaf以 `main.tex` 为入口编译，重点检查catalog删行后的表格分页、附录对照表和参考文献输出。
   - 在Windows环境检查私人工作区和公共发布仓库的差异后，自行执行Git提交与推送。
+
+### 2026-07-28-01：建立Reconstruction分类重构的分阶段执行方案
+
+- 执行者：Codex
+- 范围：外层私有文档 `docs/reconstruction_taxonomy/PLAN.md`、`docs/README.md`、
+  `PROJECT_STATUS.md` 和本修改历史；未修改主项目 `.tex`、`.bib`、模板或附件，
+  未开始逐篇重新分类，未执行Git。
+- 修改前：
+  - reconstruction重构只有讨论中的分类草案，没有可跨会话续做的阶段计划、逐篇台账字段、
+    Foundation-Prior严格判据、人工复核入口或LaTeX落地顺序。
+  - `PROJECT_STATUS.md`仍保留删减前的565条Bib、384个引用及98项catalog等过时基线，
+    近期优先级仍以继续删减为主。
+  - 讨论曾使用`Event-Domain`和`Task-Specific`等容易产生歧义的名称，也没有固定
+    “外部基础模型必须实际影响核心重建结果”的准入条件。
+- 修改后：
+  - 新建专用方案文档，暂定一级分类为`Dedicated Reconstruction Paradigms`
+    和`Foundation-Prior Reconstruction`；明确前者仍需在正式落稿前优化名称。
+  - 2D方案先区分Event-only与Event-guided RGB，后者以VFI、Deblur、SR、
+    Low-Light、HDR和Unified等具体任务标注；3D方案区分Event-only与
+    Event-assisted multimodal，并另记Geometry/NeRF/3DGS表示及位姿、动态和泛化属性。
+  - 规定Foundation-Prior必须核实基础模型名称、预训练范围、权重使用方式和核心作用；
+    从头训练的Diffusion、普通任务预训练、README宣传词及仅用于评价/附带标注的模型
+    不能自动进入。
+  - 固定六阶段流程：冻结当前范围、脚本候选扫描、逐篇权威核验、人工复核、
+    先处理Bib身份、再按依赖顺序修改LaTeX并验证；规划结构化台账和争议项review queue，
+    以便长任务或compact后继续。
+  - 项目状态更新为当前534条唯一Bib、357个唯一citation key和79项reconstruction catalog。
+- 修改原因与证据：
+  - 用户要求先规划再执行，预计任务较长且可能经历compact；因此必须让分类判据、证据和
+    用户决定落到文件中，而不是依赖聊天上下文。
+  - 用户确认保留`Foundation-Prior Reconstruction`名称，并允许
+    `Dedicated Reconstruction Paradigms`暂用但继续寻找更准确名称。
+  - 当前主项目及最新筛查inventory静态统计分别支持534条Bib、357个唯一引用和79项catalog。
+- 验证：
+  - 方案文档包含目标、分类草案、Foundation-Prior准入/排除条件、台账字段、六阶段顺序、
+    四个人工验收门槛、LaTeX修改依赖和中断续做规则。
+  - `docs/README.md`已加入方案入口；`PROJECT_STATUS.md`的当前基线和近期优先级已同步。
+  - 本轮没有修改主论文文件，不需要新增引用或Bib检查；未计算或记录哈希。
+- 待用户处理：
+  - 审阅并批准方案文档第7节的四项框架决定；未批准前不开始Phase 0或逐篇分类。
+  - 后续正式落稿前，为`Dedicated Reconstruction Paradigms`确定最终名称。
