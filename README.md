@@ -224,6 +224,7 @@ If you find this work helpful for your research, please kindly consider citing o
 | `EReFormer` | [![arXiv](https://img.shields.io/badge/arXiv-2212.02791-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2212.02791)<br>Event-based Monocular Depth Estimation with Recurrent Transformers | ECCV 2024 | - | [![GitHub](https://img.shields.io/github/stars/liuxu0303/EReFormer)](https://github.com/liuxu0303/EReFormer) |
 | `EMoDE` | [![arXiv](https://img.shields.io/badge/arXiv-2412.19067-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2412.19067)<br>Learning Monocular Depth from Events via Egomotion Compensation | arXiv 2024 | - | - |
 | `Depth AnyEvent` | Depth Any Event Stream: Enhancing Event-based Monocular Depth Estimation via Dense-to-Sparse Distillation | ICCV 2025 | - | - |
+| `F³` | [![arXiv](https://img.shields.io/badge/arXiv-2509.25146-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2509.25146)<br>Fast Feature Field (F³): A Predictive Representation of Events | arXiv 2025 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://www.seas.upenn.edu/~richeek/f3) | [![GitHub](https://img.shields.io/github/stars/grasp-lyrl/fast-feature-fields)](https://github.com/grasp-lyrl/fast-feature-fields) |
 | `OnDevice-Depth` | [![arXiv](https://img.shields.io/badge/arXiv-2412.06359-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2412.06359)<br>On-Device Self-Supervised Learning of Low-Latency Monocular Depth from Only Events | CVPR 2025 | - | - |
 | `FUSE` | [![arXiv](https://img.shields.io/badge/arXiv-2503.19739-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2503.19739)<br>FUSE: Label-Free Image-Event Joint Monocular Depth Estimation via Frequency-Decoupled Alignment and Degradation-Robust Fusion | IROS 2025 | - | - |
 | `DERD-Net` | [![arXiv](https://img.shields.io/badge/arXiv-2504.15863-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2504.15863)<br>DERD-Net: Learning Depth from Event-based Ray Densities | NeurIPS 2025 | - | - |
@@ -670,7 +671,7 @@ If you find this work helpful for your research, please kindly consider citing o
 | `ECDP-Dense` | Event Camera Data Dense Pre-training | ECCV 2024 | - | - |
 | `SD2Event` | SD2Event: Self-supervised Learning of Dynamic Detectors and Contextual Descriptors for Event Cameras | CVPR 2024 | - | - |
 | `EvRepSL` | Event-Stream Representation via Self-Supervised Learning for Event-Based Vision | TIP 2024 | - | - |
-| `TESPEC` | Temporally-Enhanced Self-Supervised Pretraining for Event Cameras | ICCV 2025 | - | - |
+| `TESPEC` | [![arXiv](https://img.shields.io/badge/arXiv-2508.00913-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2508.00913)<br>TESPEC: Temporally-Enhanced Self-Supervised Pretraining for Event Cameras | ICCV 2025 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://mhdmohammadi.github.io/TESPEC_webpage/) | [![GitHub](https://img.shields.io/github/stars/MhdMohammadi/TESPEC)](https://github.com/MhdMohammadi/TESPEC) |
 | `STP` | Efficient Event Camera Data Pretraining with Adaptive Prompt Fusion | ICCV 2025 | - | - |
 | `EventPretrain` | Revealing Latent Information: A Physics-inspired Self-supervised Pre-training Framework | ACM MM 2025 | - | - |
 | `CM3AE` | A Unified RGB Frame and Event-Voxel/-Frame Pre-training Framework | ACM MM 2025 | - | - |
@@ -682,6 +683,8 @@ If you find this work helpful for your research, please kindly consider citing o
 ### Cross-Modal Transfer
 
 > :timer_clock: In chronological order, from the earliest to the latest.
+
+> F³ retains Depth Anything V2 for depth; Garl-TTC uses SAM foreground supervision during training only. Match-Any-Events trains a DINOv3-initialized matcher; VGGT supplies ECM benchmark geometry rather than its training teacher.
 
 | Model | Paper | Venue | Website | GitHub |
 |:-:|:-|:-:|:-:|:-:|
@@ -695,6 +698,8 @@ If you find this work helpful for your research, please kindly consider citing o
 | `TGVFM` | Temporal-Guided Visual Foundation Models for Event-Based Vision | arXiv 2025 | - | - |
 | `VELoRA` | [![arXiv](https://img.shields.io/badge/arXiv-2412.20064-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2412.20064)<br>VELoRA: A Low-Rank Adaptation Approach for Efficient RGB-Event based Recognition | arXiv 2024 | - | - |
 | `ADAE` | [![arXiv](https://img.shields.io/badge/arXiv-2601.02020-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2601.02020)<br>Adapting Depth Anything to Adverse Imaging Conditions with Events | arXiv 2025 | - | - |
+| `Garl-TTC / eAP` | [![arXiv](https://img.shields.io/badge/arXiv-2603.16303-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2603.16303)<br>Toward Deep Representation Learning for Event-Enhanced Visual Autonomous Perception: the eAP Dataset | TRO 2026 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://nail-hnu.github.io/eAP_dataset/) | - |
+| `Match-Any-Events` | [![arXiv](https://img.shields.io/badge/arXiv-2604.18744-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2604.18744)<br>Match-Any-Events: Zero-Shot Motion-Robust Feature Matching Across Wide Baselines for Event Cameras | ECCV 2026 | - | [![GitHub](https://img.shields.io/github/stars/spikelab-jhu/Match-Any-Events)](https://github.com/spikelab-jhu/Match-Any-Events) |
 |  |
 |  |
 
@@ -754,6 +759,8 @@ If you find this work helpful for your research, please kindly consider citing o
 
 > :timer_clock: In chronological order, from the earliest to the latest.
 
+> EVIS is an Isaac Sim data-generation resource. Its reported perception transfer and model compatibility do not establish VLA policy improvement.
+
 | Simulator | Paper | Venue | Website | GitHub |
 |:-:|:-|:-:|:-:|:-:|
 | `ESIM` | [ESIM: an Open Event Camera Simulator](https://rpg.ifi.uzh.ch/esim.html) | CoRL 2018 | - | [![GitHub](https://img.shields.io/github/stars/uzh-rpg/rpg_esim)](https://github.com/uzh-rpg/rpg_esim) |
@@ -762,6 +769,7 @@ If you find this work helpful for your research, please kindly consider citing o
 | `DVS-Voltmeter` | [DVS-Voltmeter: Stochastic Process-Based Event Simulator for Dynamic Vision Sensors](https://link.springer.com/chapter/10.1007/978-3-031-20071-7_34) | ECCV 2022 | - | [![GitHub](https://img.shields.io/github/stars/Lynn0306/DVS-Voltmeter)](https://github.com/Lynn0306/DVS-Voltmeter) |
 | `ADV2E` | [![arXiv](https://img.shields.io/badge/arXiv-2411.12250-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2411.12250)<br>ADV2E: Bridging the Gap Between Analogue Circuit and Discrete Frames in the Video-to-Events Simulator | arXiv 2024 | - | - |
 | `SENPI` | [![arXiv](https://img.shields.io/badge/arXiv-2503.09754-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2503.09754)<br>A PyTorch-Enabled Tool for Synthetic Event Camera Data Generation and Algorithm Development | arXiv 2025 | - | - |
+| `EVIS` | [![arXiv](https://img.shields.io/badge/arXiv-2607.08098-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2607.08098)<br>EVIS: Real-Time Event Camera Simulation with Multimodal Supervision in NVIDIA Isaac Sim | arXiv 2026 | - | [![GitHub](https://img.shields.io/github/stars/spikelab-jhu/isaac-sim-event-camera-plugin)](https://github.com/spikelab-jhu/isaac-sim-event-camera-plugin) |
 |  |
 |  |
 
@@ -770,11 +778,14 @@ If you find this work helpful for your research, please kindly consider citing o
 
 > :timer_clock: In chronological order, from the earliest to the latest.
 
+> Generative Anonymization uses an event-to-frame editing bridge and v2e conversion; its diffusion model generates replacement identities rather than receiving event conditioning directly.
+
 | Model | Paper | Venue | Website | GitHub |
 |:-:|:-|:-:|:-:|:-:|
 | `Text-to-Events` | [![arXiv](https://img.shields.io/badge/arXiv-2406.03439-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2406.03439)<br>Text-to-Events: Synthetic Event Camera Streams from Conditional Text Input | NICE 2024 | - | - |
 | `ControlEvents` | [![arXiv](https://img.shields.io/badge/arXiv-2509.22864-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2509.22864)<br>ControlEvents: Controllable Synthesis of Event Camera Data with Foundational Prior from Image Diffusion Models | WACV 2026 | - | - |
 | `ShapeAug` | [![arXiv](https://img.shields.io/badge/arXiv-2409.11075-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2409.11075)<br>ShapeAug++: More Realistic Shape Augmentation for Event Data | arXiv 2024 | - | - |
+| `Generative Anonymization` | [![arXiv](https://img.shields.io/badge/arXiv-2604.12803-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2604.12803)<br>Generative Anonymization in Event Streams | CVPRW 2026 (LoViF) | - | - |
 |  |
 |  |
 
