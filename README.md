@@ -332,8 +332,11 @@ If you find this work helpful for your research, please kindly consider citing o
 | `SpikePoint` | [![arXiv](https://img.shields.io/badge/arXiv-2310.07189-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2310.07189)<br>SpikePoint: An Efficient Point-based Spiking Neural Network for Event Cameras Action Recognition | ICLR 2024 | - | - |
 | `Bullying10K` | [![arXiv](https://img.shields.io/badge/arXiv-2306.11546-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2306.11546)<br>Bullying10K: A Large-Scale Neuromorphic Dataset towards Privacy-Preserving Bullying Recognition | NeurIPS 2023 | - | - |
 | `PASS` | [![arXiv](https://img.shields.io/badge/arXiv-2409.16953-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2409.16953)<br>PASS: Path-selective State Space Model for Event-based Recognition | NeurIPS 2025 | - | - |
+| `Event ActivityNet` | [![arXiv](https://img.shields.io/badge/arXiv-2608.01948-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2608.01948)<br>Event ActivityNet: A Large-Scale Simulated-Event Benchmark for Untrimmed Action Understanding | arXiv 2026 | [![Dataset](https://img.shields.io/badge/Data-EventActivityNet-yellow?style=flat-square)](https://huggingface.co/datasets/IIS-CVL/EventActivityNet) | - |
 |  |
 |  |
+
+> Event ActivityNet is a resource: 3,263 source videos, 200 classes, 106.94 hours, and fixed 2,316-training/947-validation video splits. Public 5-/9-bin voxel shards retain action intervals and captions. Text alignment is used during training; recognition uses events at inference. Video-derived voxels do not preserve native asynchronous timing or HDR information. ActivityNet and ActivityNet Captions source terms remain applicable.
 
 
 ### Body Pose Estimation
@@ -410,8 +413,11 @@ If you find this work helpful for your research, please kindly consider citing o
 | `DESSERT` | [![arXiv](https://img.shields.io/badge/arXiv-2512.17323-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2512.17323)<br>DESSERT: Diffusion-based Event-driven Single-frame Synthesis via Residual Training | arXiv 2025 | - | - |
 | `IE2Video` | [![arXiv](https://img.shields.io/badge/arXiv-2512.05240-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2512.05240)<br>IE2Video: Adapting Pretrained Diffusion Models for Event-Based Video Reconstruction | arXiv 2025 | - | - |
 | `UniE2F` | [![arXiv](https://img.shields.io/badge/arXiv-2602.19202-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2602.19202)<br>UniE2F: A Unified Diffusion Framework for Event-to-Frame Reconstruction with Video Foundation Models | arXiv 2026 | - | - |
+| `UniDynamics` | [![arXiv](https://img.shields.io/badge/arXiv-2610.03473-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2610.03473)<br>UniDynamics: Event-RGB Fusion for Unified Future 4D Dynamic Scene Generation | ECCV 2026 | - | [![GitHub](https://img.shields.io/github/stars/KK-xi/Unidynamics)](https://github.com/KK-xi/Unidynamics) |
 |  |
 |  |
+
+> UniDynamics adapts Stable Video Diffusion to predict future RGB, depth, and flow from current RGB and past events; target-interval events and action conditioning are absent. Its official repository currently contains a README placeholder; implementation and checkpoints are pending.
 
 
 ### Self-Supervised Approaches
@@ -700,8 +706,12 @@ If you find this work helpful for your research, please kindly consider citing o
 | `ADAE` | [![arXiv](https://img.shields.io/badge/arXiv-2601.02020-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2601.02020)<br>Adapting Depth Anything to Adverse Imaging Conditions with Events | arXiv 2025 | - | - |
 | `Garl-TTC / eAP` | [![arXiv](https://img.shields.io/badge/arXiv-2603.16303-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2603.16303)<br>Toward Deep Representation Learning for Event-Enhanced Visual Autonomous Perception: the eAP Dataset | TRO 2026 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://nail-hnu.github.io/eAP_dataset/) | - |
 | `Match-Any-Events` | [![arXiv](https://img.shields.io/badge/arXiv-2604.18744-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2604.18744)<br>Match-Any-Events: Zero-Shot Motion-Robust Feature Matching Across Wide Baselines for Event Cameras | ECCV 2026 | - | [![GitHub](https://img.shields.io/github/stars/spikelab-jhu/Match-Any-Events)](https://github.com/spikelab-jhu/Match-Any-Events) |
+| `HGP-KMR` | [![arXiv](https://img.shields.io/badge/arXiv-2602.22026-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2602.22026)<br>RGB-Event HyperGraph Prompt for Kilometer Marker Recognition based on Pre-trained Foundation Models | TCDS 2026 | - | [![GitHub](https://img.shields.io/github/stars/Event-AHU/EvMetro5K_benchmark)](https://github.com/Event-AHU/EvMetro5K_benchmark/tree/main/HGP-KMR) |
+| `PFM-VEPAR` | [![arXiv](https://img.shields.io/badge/arXiv-2603.19565-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2603.19565)<br>PFM-VEPAR: Prompting Foundation Models for RGB-Event Camera based Pedestrian Attribute Recognition | Pattern Recognition 2026 | - | [![GitHub](https://img.shields.io/github/stars/Event-AHU/OpenPAR)](https://github.com/Event-AHU/OpenPAR/tree/main/PFM-VEPAR) |
 |  |
 |  |
+
+> HGP-KMR and PFM-VEPAR are task-specific pretrained-model supplements. HGP-KMR retains PARSeq OCR and uses manually cropped RGB/event-reconstructed marker pairs; Qwen3-VL is a comparator. PFM-VEPAR fine-tunes a TransReID-SSL-pretrained ViT for fixed pedestrian attributes and retains RGB at inference. Neither is a CLIP/SAM/MLLM method, and neither is added to the survey core FM inventory. Implementation trees are public; benchmark payload access and dataset licenses are not independently confirmed.
 
 
 ## 4.2 Scene Understanding & Reasoning
@@ -733,11 +743,12 @@ If you find this work helpful for your research, please kindly consider citing o
 | `NeuroViG` | NeuroViG: Integrating Event Cameras for Resource-Efficient Video Grounding | WACV 2025 | - | - |
 | `EP-VLM` | Event-Priori-Based Vision-Language Model for Efficient Visual Understanding | arXiv 2025 | - | - |
 | `Talk2Event` | Talk2Event: Grounded Understanding of Dynamic Scenes from Event Cameras | NeurIPS 2025 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://talk2event.github.io/) | - |
-| `E-VLA` | E-VLA: Event-Augmented Vision-Language-Action Model for Dark and Blurred Scenes | arXiv 2026 | - | - |
+| `E-VLA` | [![arXiv](https://img.shields.io/badge/arXiv-2604.04834-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2604.04834)<br>E-VLA: Event-Augmented Vision-Language-Action Model for Dark and Blurred Scenes | ECCV 2026 | [![Dataset](https://img.shields.io/badge/Data-MultiLight-yellow?style=flat-square)](https://huggingface.co/datasets/JJayzee/E-VLA-MultiLight) | [![GitHub](https://img.shields.io/github/stars/JJayzee/E-VLA)](https://github.com/JJayzee/E-VLA) |
 | `LLaFEA` | [![arXiv](https://img.shields.io/badge/arXiv-2503.06934-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2503.06934)<br>LLaFEA: Frame-Event Complementary Fusion for Fine-Grained Spatiotemporal Understanding in LMMs | arXiv 2025 | - | - |
 |  |
 |  |
 
+> E-VLA now provides an event-adapter implementation branch and the synchronized MultiLight dataset (six task/illumination subsets, 724 documented episodes). Demonstration counts and offline action-error diagnostics are distinct from physical task-success trials. [Implementation guide](https://github.com/JJayzee/E-VLA/blob/event_adapter/docs/event_adapter.md).
 
 ### Language-Guided Recognition
 
@@ -814,7 +825,6 @@ If you find this work helpful for your research, please kindly consider citing o
 | <img width="125px" src="docs/figures/talk2event.png"> | <img width="125px" src="docs/figures/e-deflare.png"> | <img width="125px" src="docs/figures/eventfly.png"> |
 |:-:|:-:|:-:|
 | [**Talk2Event**](https://talk2event.github.io/) | [**E-Deflare**](https://e-flare.github.io/) | [**EventFly**](https://event-fly.github.io/) | 
-| [...]() |
 
 
 
@@ -875,8 +885,11 @@ If you find this work helpful for your research, please kindly consider citing o
 |:-:|:-|:-:|:-:|:-:|
 | `DSEC` | [![arXiv](https://img.shields.io/badge/arXiv-2103.06011-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2103.06011)<br>DSEC: A Stereo Event Camera Dataset for Driving Scenarios | RA-L 2021 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://dsec.ifi.uzh.ch/) | [![GitHub](https://img.shields.io/github/stars/uzh-rpg/DSEC)](https://github.com/uzh-rpg/DSEC) |
 | `DSEC-Semantic` | ESS: Learning Event-based Semantic Segmentation from Still Images | ECCV 2022 | - | [![GitHub](https://img.shields.io/github/stars/uzh-rpg/ess)](https://github.com/uzh-rpg/ess) |
+| `OctoSense` | [![arXiv](https://img.shields.io/badge/arXiv-2606.27317-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2606.27317)<br>OctoSense: Self-Supervised Learning for Multimodal Robot Perception | arXiv 2026 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://abisulco.com/octosense/)<br>[Dataset](https://huggingface.co/datasets/anthonytec2/OctoSense) | [![GitHub](https://img.shields.io/github/stars/anthonytec2/OctoSense)](https://github.com/anthonytec2/OctoSense) |
 |  |
 |  |
+
+> OctoSense reports 59 hours of synchronized driving capture. Its multimodal masked model uses RGB, events, LiDAR, and IMU; the captured sensor suite is broader. At the reported 5-Hz protocol, LiDAR drives much of the geometric gain and event gains are marginal. Segmentation uses pseudo-labels and flow targets follow ego-motion geometry. Public sensor/data tooling and dataset file listings are verified; complete learned-model training code and checkpoints are not verified.
 
 
 ### Simulators
