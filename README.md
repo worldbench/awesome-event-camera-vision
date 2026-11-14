@@ -228,6 +228,7 @@ If you find this work helpful for your research, please kindly consider citing o
 | `OnDevice-Depth` | [![arXiv](https://img.shields.io/badge/arXiv-2412.06359-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2412.06359)<br>On-Device Self-Supervised Learning of Low-Latency Monocular Depth from Only Events | CVPR 2025 | - | - |
 | `FUSE` | [![arXiv](https://img.shields.io/badge/arXiv-2503.19739-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2503.19739)<br>FUSE: Label-Free Image-Event Joint Monocular Depth Estimation via Frequency-Decoupled Alignment and Degradation-Robust Fusion | IROS 2025 | - | - |
 | `DERD-Net` | [![arXiv](https://img.shields.io/badge/arXiv-2504.15863-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2504.15863)<br>DERD-Net: Learning Depth from Event-based Ray Densities | NeurIPS 2025 | - | - |
+| `eSharp` | [![arXiv](https://img.shields.io/badge/arXiv-2611.08731-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2611.08731v1)<br>eSharp: Diffusion-based Sharp Monocular Metric Event-to-Depth Estimation | WACV 2027 (author-reported acceptance) | - | [![GitHub](https://img.shields.io/github/stars/rice-computational-imaging/eSharp)](https://github.com/rice-computational-imaging/eSharp) |
 |  |
 |  |
 
@@ -414,6 +415,7 @@ If you find this work helpful for your research, please kindly consider citing o
 | `IE2Video` | [![arXiv](https://img.shields.io/badge/arXiv-2512.05240-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2512.05240)<br>IE2Video: Adapting Pretrained Diffusion Models for Event-Based Video Reconstruction | arXiv 2025 | - | - |
 | `UniE2F` | [![arXiv](https://img.shields.io/badge/arXiv-2602.19202-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2602.19202)<br>UniE2F: A Unified Diffusion Framework for Event-to-Frame Reconstruction with Video Foundation Models | arXiv 2026 | - | - |
 | `UniDynamics` | [![arXiv](https://img.shields.io/badge/arXiv-2610.03473-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2610.03473)<br>UniDynamics: Event-RGB Fusion for Unified Future 4D Dynamic Scene Generation | ECCV 2026 | - | [![GitHub](https://img.shields.io/github/stars/KK-xi/Unidynamics)](https://github.com/KK-xi/Unidynamics) |
+| `EventSeeColor` | [![arXiv](https://img.shields.io/badge/arXiv-2610.40166-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2610.40166v1)<br>EventSeeColor: Learning to Reconstruct Color from Monochrome Events | arXiv 2026 | - | [Repository (README only)](https://github.com/LouckXu/EventSeeColor) |
 |  |
 |  |
 
@@ -523,6 +525,7 @@ If you find this work helpful for your research, please kindly consider citing o
 | `EventHDR` | [![arXiv](https://img.shields.io/badge/arXiv-2409.17029-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2409.17029)<br>EventHDR: From Event to High-Speed HDR Videos and Beyond | TPAMI 2024 | - | - |
 | `Self-EHDRI` | [![arXiv](https://img.shields.io/badge/arXiv-2404.03210-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2404.03210)<br>HDR Imaging for Dynamic Scenes with Events | arXiv 2024 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://lxp-whu.github.io/Self-EHDRI) | - |
 | `ESHDR` | [![arXiv](https://img.shields.io/badge/arXiv-2412.14705-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2412.14705)<br>Event-assisted 12-stop HDR Imaging of Dynamic Scene | arXiv 2024 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://openimaginglab.github.io/Event-Assisted-12stops-HDR/) | - |
+| `HIVE-Diff` | [![arXiv](https://img.shields.io/badge/arXiv-2611.03465-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2611.03465v1)<br>HIVE-Diff: High Frame Rate HDR Video Reconstruction from a Single LDR Frame and Events | arXiv 2026 | - | [![GitHub](https://img.shields.io/github/stars/caixinw4-afk/hive-diff)](https://github.com/caixinw4-afk/hive-diff) |
 |  |
 |  |
 
@@ -558,6 +561,7 @@ If you find this work helpful for your research, please kindly consider citing o
 | `EventPS` | [CVPR Paper](https://openaccess.thecvf.com/content/CVPR2024/papers/Yu_EventPS_Real-Time_Photometric_Stereo_Using_an_Event_Camera_CVPR_2024_paper.pdf)<br>EventPS: Real-Time Photometric Stereo Using an Event Camera | CVPR 2024 | - | [Codeberg](https://codeberg.org/ybh1998/EventPS) |
 | `E2E-3D` | [![arXiv](https://img.shields.io/badge/arXiv-2501.00741-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2501.00741)<br>Towards End-to-End Neuromorphic Event-based 3D Object Reconstruction Without Physical Priors | ICME 2025 | - | - |
 | `RoEL` | [![arXiv](https://img.shields.io/badge/arXiv-2602.18258-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2602.18258)<br>RoEL: Robust Event-based 3D Line Reconstruction | T-RO 2026 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://gwangtak.github.io/roel/) | - |
+| `MonST3R (RGB + Events)` | [![arXiv](https://img.shields.io/badge/arXiv-2610.36610-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2610.36610v1)<br>4D Reconstruction with Events & RGB | arXiv 2026 | - | - |
 |  |
 |  |
 
@@ -644,6 +648,7 @@ If you find this work helpful for your research, please kindly consider citing o
 | `CEIA` | [![arXiv](https://img.shields.io/badge/arXiv-2407.06611-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2407.06611)<br>CEIA: CLIP-Based Event-Image Alignment for Open-World Event-Based Understanding | ECCVW 2024 | - | - |
 | `Expanding Event` | [![arXiv](https://img.shields.io/badge/arXiv-2412.03093-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2412.03093)<br>Expanding Event Modality Applications through a Robust CLIP-Based Encoder | arXiv 2024 | - | - |
 | `EZSR` | [![arXiv](https://img.shields.io/badge/arXiv-2407.21616-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2407.21616)<br>EZSR: Event-based Zero-Shot Recognition | CVPR 2025 | - | - |
+| `Person Triggers` | [![arXiv](https://img.shields.io/badge/arXiv-2611.13488-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2611.13488v1)<br>When Reconstruction Helps Event-Camera Person Triggers | arXiv 2026 | - | - |
 |  |
 |  |
 
@@ -661,6 +666,7 @@ If you find this work helpful for your research, please kindly consider citing o
 | `OV-Detection` | Adaptive Event Stream Slicing for Open-Vocabulary Event-Based Object Detection | arXiv 2025 | - | - |
 | `EvSAM` | EvSAM: Segment Anything Model with Event-based Assistance | ACM TOMM 2025 | - | - |
 | `SEAL` | [![arXiv](https://img.shields.io/badge/arXiv-2601.23159-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2601.23159)<br>Segment Any Events with Language | ICLR 2026 | - | - |
+| `Event-SAMA` | [![arXiv](https://img.shields.io/badge/arXiv-2610.39676-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2610.39676v1)<br>Event-SAMA: Language-Grounded Video Object Segmentation on Neuromorphic Event Streams | NeurIPS Workshop 2026 | - | [![GitHub](https://img.shields.io/github/stars/uzh-rpg/Event-SAMA)](https://github.com/uzh-rpg/Event-SAMA) |
 |  |
 |  |
 
@@ -708,6 +714,7 @@ If you find this work helpful for your research, please kindly consider citing o
 | `Match-Any-Events` | [![arXiv](https://img.shields.io/badge/arXiv-2604.18744-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2604.18744)<br>Match-Any-Events: Zero-Shot Motion-Robust Feature Matching Across Wide Baselines for Event Cameras | ECCV 2026 | - | [![GitHub](https://img.shields.io/github/stars/spikelab-jhu/Match-Any-Events)](https://github.com/spikelab-jhu/Match-Any-Events) |
 | `HGP-KMR` | [![arXiv](https://img.shields.io/badge/arXiv-2602.22026-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2602.22026)<br>RGB-Event HyperGraph Prompt for Kilometer Marker Recognition based on Pre-trained Foundation Models | TCDS 2026 | - | [![GitHub](https://img.shields.io/github/stars/Event-AHU/EvMetro5K_benchmark)](https://github.com/Event-AHU/EvMetro5K_benchmark/tree/main/HGP-KMR) |
 | `PFM-VEPAR` | [![arXiv](https://img.shields.io/badge/arXiv-2603.19565-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2603.19565)<br>PFM-VEPAR: Prompting Foundation Models for RGB-Event Camera based Pedestrian Attribute Recognition | Pattern Recognition 2026 | - | [![GitHub](https://img.shields.io/github/stars/Event-AHU/OpenPAR)](https://github.com/Event-AHU/OpenPAR/tree/main/PFM-VEPAR) |
+| `MSTOT-EPR` | [![arXiv](https://img.shields.io/badge/arXiv-2611.01558-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2611.01558v1)<br>Text-Assisted Event Stream Visual Place Recognition via Multi-Scale Spatiotemporal Optimal Transport | arXiv 2026 | - | - |
 |  |
 |  |
 
@@ -730,6 +737,7 @@ If you find this work helpful for your research, please kindly consider citing o
 | `EventBench` | [![arXiv](https://img.shields.io/badge/arXiv-2511.18448-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2511.18448)<br>EventBench: Towards Comprehensive Benchmarking of Event-based MLLMs | arXiv 2025 | - | - |
 | `EvQA` | [![arXiv](https://img.shields.io/badge/arXiv-2512.11510-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2512.11510)<br>Reconstruction as a Bridge for Event-Based Visual Question Answering | arXiv 2025 | - | - |
 | `Event-MLLM` | [![arXiv](https://img.shields.io/badge/arXiv-2603.27558-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2603.27558)<br>Learning to See through Illumination Extremes with Event Streaming in MLLMs | arXiv 2026 | - | - |
+| `Frozen VLMs on EventBench` | [![arXiv](https://img.shields.io/badge/arXiv-2611.15756-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2611.15756v1)<br>How Far Can Frozen Vision-Language Models Go on Event Data? A Training-Free Study on EventBench | arXiv 2026 | - | - |
 |  |
 |  |
 
@@ -745,6 +753,7 @@ If you find this work helpful for your research, please kindly consider citing o
 | `Talk2Event` | Talk2Event: Grounded Understanding of Dynamic Scenes from Event Cameras | NeurIPS 2025 | [![Website](https://img.shields.io/badge/Link-yellow?style=flat-square&logo=gitbook)](https://talk2event.github.io/) | - |
 | `E-VLA` | [![arXiv](https://img.shields.io/badge/arXiv-2604.04834-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2604.04834)<br>E-VLA: Event-Augmented Vision-Language-Action Model for Dark and Blurred Scenes | ECCV 2026 | [![Dataset](https://img.shields.io/badge/Data-MultiLight-yellow?style=flat-square)](https://huggingface.co/datasets/JJayzee/E-VLA-MultiLight) | [![GitHub](https://img.shields.io/github/stars/JJayzee/E-VLA)](https://github.com/JJayzee/E-VLA) |
 | `LLaFEA` | [![arXiv](https://img.shields.io/badge/arXiv-2503.06934-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2503.06934)<br>LLaFEA: Frame-Event Complementary Fusion for Fine-Grained Spatiotemporal Understanding in LMMs | arXiv 2025 | - | - |
+| `EventHOI` | [![arXiv](https://img.shields.io/badge/arXiv-2611.09089-b31b1b?style=flat-square&logo=arxiv)](https://arxiv.org/abs/2611.09089v1)<br>EventHOI: Event-Driven Resource-Efficient Hand-Object Interaction Logging on Smartglasses | arXiv 2026 | [Project](https://eventhoi.github.io) | - |
 |  |
 |  |
 
